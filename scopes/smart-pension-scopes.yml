@@ -1,0 +1,179 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+docs: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+spec_source: openapi/smart-pension-keystone-openapi.yml
+notes: >-
+  Keystone exposes two distinct scope vocabularies. The authorization-code grant uses coarse ROLE
+  scopes (user / customer / employee, plus adviser and individual seen in operation-level security
+  requirements) that select which class of resource owner the token acts for; these are the scopes
+  declared in the OpenAPI securityScheme. The client-credentials grant used by machine-to-machine
+  partner apps uses a separate set of fine-grained read:<resource> scopes documented only in the
+  OAuth guide, not in the spec. Per the docs, "a read scope also permits write access". Scopes must
+  additionally be enabled on the partner application by Smart (api@smartpension.co.uk) before
+  requests succeed — requesting a scope is not sufficient to be granted it.
+schemes:
+- name: oAuth2
+  source: openapi/smart-pension-keystone-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+    tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+  - flow: clientCredentials
+    tokenUrl: https://id.autoenrolment.co.uk/oauth/token
+    source: https://developers.autoenrolment.co.uk/smart/yd0a98nlh9e6c-using-client-credentials
+scopes:
+- scope: user
+  description: |-
+    Manage all companies linked to the user's adviser.
+    - Manage adviser details
+    - Add and edit adviser's users
+    - Create and import contributions for any company managed by the adviser
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+- scope: customer
+  description: |-
+    Manage the customer's company.
+    - Create postponements
+    - Create and import contributions
+    - Edit company details
+    - Add and edit employees
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+- scope: employee
+  description: |-
+    Manage the employee account.
+    - List employee contributions
+    - Edit employee details and preferences
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+- scope: adviser
+  description: Adviser-context token; observed in operation-level security requirements.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+- scope: individual
+  description: Individual-context token; observed in operation-level security requirements.
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+- scope: read:companies
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:customers
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:employees
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:expression_of_wishes
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:funds
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:fund_splits
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:ssif_import_results
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:ssif_imports
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:bank_account_details
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:bank_details
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:benefit_groups
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:companies_automations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:contributions
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:default_investment_instruments
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:economic_zones
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:employee_configurations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:employee_plan_participations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:employments_plan_statuses
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:envelopes
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:glidepaths
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:glidepath_steps
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:groups
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:know_your_customer_data
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:marketing_preferences
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:payroll_configurations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:portfolios
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:postponements
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:provider_scheme_migrations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:salaries
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:scheme_details
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:company_tax_reliefs
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:schemes
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:shortcuts
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:target_date_fund_groups
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:valuations
+  flows: [clientCredentials]
+  sources: [docs]
+- scope: read:adviser_companies
+  flows: [clientCredentials]
+  sources: [docs]
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/8746c0c6c82b7-o-auth?branch=main
+  http_status: 200

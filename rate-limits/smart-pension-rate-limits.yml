@@ -1,0 +1,87 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Smart Pension
+providerId: smart-pension
+created: '2026-08-05'
+modified: '2026-08-05'
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/28783c05ecb6a-using-the-api
+tags:
+- Pensions
+- Workplace Pension
+- Auto Enrolment
+- Payroll
+- Contributions
+- Rate Limiting
+- Throttling
+description: >-
+  Smart Pension publishes explicit numeric rate limits for the Keystone API in the "Using the API"
+  section of its developer portal. A default ceiling of 500 requests per minute applies to every
+  endpoint, with three higher-traffic employee and contribution endpoints capped lower. Exceeding a
+  limit returns HTTP 429. The documentation states that additional endpoints may be restricted over
+  time, so the published table is a floor on what is enforced, not a guarantee.
+notes: >-
+  No RateLimit / X-RateLimit / Retry-After response headers are documented, so a client cannot read
+  its remaining quota or a server-suggested backoff — it can only observe a 429 after the fact. The
+  limits are per endpoint rather than per account tier; the docs do not state the bucketing key
+  (partner application vs. token vs. company), which matters for a payroll bureau posting for many
+  employers at once.
+sources:
+- https://developers.autoenrolment.co.uk/smart/28783c05ecb6a-using-the-api
+headers:
+  limit: null
+  remaining: null
+  reset: null
+  retryAfter: null
+  policy: null
+responseCodes:
+  throttled: 429
+limits:
+- name: Default
+  scope: endpoint
+  metric: requests-per-minute
+  limit: 500
+  timeFrame: minute
+  applies:
+  - all Keystone API endpoints not listed below
+- name: List employees
+  scope: endpoint
+  metric: requests-per-minute
+  limit: 80
+  timeFrame: minute
+  endpoint: GET /companies/{company_id}/employees
+- name: Create employee
+  scope: endpoint
+  metric: requests-per-minute
+  limit: 80
+  timeFrame: minute
+  endpoint: POST /companies/{company_id}/employees
+- name: Create contribution
+  scope: endpoint
+  metric: requests-per-minute
+  limit: 250
+  timeFrame: minute
+  endpoint: POST /companies/{company_id}/employees/{employee_id}/contributions
+policies:
+- name: Batch instead of loop
+  description: >-
+    The /batch resource accepts up to 50 operations in a single HTTP request and may contain any
+    Keystone endpoint. For bulk employee or contribution writes this is the documented way to stay
+    inside the per-endpoint limits.
+- name: PAPDIS import instead of per-employee writes
+  description: >-
+    POSTing a PAPDIS CSV to /imports performs the same work as the portal's file upload and avoids
+    fanning a payroll run out into hundreds of individual contribution POSTs.
+- name: Backoff strategy
+  description: >-
+    Exponential backoff with jitter on 429. No Retry-After is published, so clients must choose
+    their own base delay.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/28783c05ecb6a-using-the-api?branch=main
+  http_status: 200

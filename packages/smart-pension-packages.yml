@@ -1,0 +1,55 @@
+generated: '2026-08-05'
+method: searched
+source: public package registries + the Smart Pension developer portal + github.com/smartpension
+packages: []
+result: none
+official_sdk_count: 0
+note: >-
+  Smart Pension publishes NO first-party client libraries for the Keystone API, in any language.
+  This is a deliberate-looking gap rather than an oversight in our search: the developer portal's
+  Getting Started, Flows and Client Credentials guides walk the reader through raw curl and
+  hand-rolled OAuth, and never mention an SDK; the spec's only x-samples-languages value is
+  "curl"; and the public GitHub organisation contains 28 repositories of which none is a Keystone
+  client — they are internal tooling, Heroku buildpacks, GitHub Actions and forks, and 22 of the 28
+  are archived. The one suggestively-named repo, smartpension/documentation ("Swagger file
+  describing Smartpension API"), is archived.
+  The integration burden therefore falls entirely on the payroll and benefits vendors listed on
+  smartpension.co.uk/payroll-integration, each of whom has written its own client.
+registries_checked:
+- registry: npm
+  query: ['smart pension', 'autoenrolment', 'keystone smart']
+  result: no first-party package
+- registry: PyPI
+  query: [smartpension, smart-pension, keystone-smart]
+  result: 404 on all
+- registry: RubyGems
+  query: ['smart pension']
+  result: no first-party package
+- registry: Maven Central
+  result: no first-party package
+- registry: NuGet
+  result: no first-party package
+- registry: pkg.go.dev
+  result: no first-party package
+- registry: Packagist
+  result: no first-party package
+- registry: crates.io
+  result: no first-party package
+github:
+  org: https://github.com/smartpension
+  org_name: Smart
+  public_repos: 28
+  client_libraries: 0
+  archived: 22
+  note: >-
+    smartpension/documentation is described as "Swagger file describing Smartpension API" but is
+    archived and superseded by the live Stoplight-hosted OpenAPI captured in openapi/.
+x-evidence:
+  fetched: '2026-08-05'
+  sources:
+  - url: https://registry.npmjs.org/-/v1/search?text=smart%20pension
+    http_status: 200
+  - url: https://pypi.org/pypi/smartpension/json
+    http_status: 404
+  - url: https://github.com/smartpension
+    http_status: 200

@@ -1,23 +1,151 @@
 aid: smart-pension
 name: Smart Pension
-description: 'Smart Pension is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Smart Pension is a UK defined contribution workplace pension master trust operated by Smart Pension Limited
+  (Smart Group), managing pensions for millions of UK savers on behalf of over 90,000 employers. Its API surface
+  is the Keystone API — the same public REST API that powers Smart's own employer, employee and adviser portals —
+  published by Keystone, Smart's proprietary savings administration platform, which also runs retirement solutions
+  for financial institutions and governments outside the UK. The API lets payroll software, HR and employee-benefits
+  platforms, advisers and banking apps create and manage companies (employers), employees (members), contributions,
+  assessment and auto-enrolment data, postponements, opt-ins and opt-outs, valuations, funds and bank details, either
+  as a full integration that provisions schemes end to end or as a light integration that posts PAPDIS contribution
+  files. Authentication is OAuth 2.0 (authorization code for user-context apps, client credentials for
+  machine-to-machine partners), with three sandboxed environments and self-serve partner registration.
+image: https://cdn.prod.website-files.com/5ce68aba5375cabb8f952335/5d8a243dcd466e77cc8dc3b6_Z-V12-Social-GeneralTile.png
 url: https://raw.githubusercontent.com/api-evangelist/smart-pension/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
-specificationVersion: '0.20'
+specificationVersion: '0.21'
 created: '2026-08-05'
 modified: '2026-08-05'
 tags:
-- Company
-apis: []
+- pensions
+- retirement
+- workplace-pension
+- auto-enrolment
+- payroll
+- fintech
+- financial-services
+- united-kingdom
+- master-trust
+- employee-benefits
+- contributions
+- papdis
+apis:
+- name: Keystone API
+  description: >-
+    The public REST API behind the Keystone platform and the Smart Pension UK master trust. It exposes the same
+    operations Smart's own employer, employee and adviser portals consume — companies, employees, contributions,
+    enrolment and assessment, postponements, opt-ins/opt-outs, valuations, funds and fund splits, bank details,
+    benefit groups, advisers, imports (PAPDIS) and batch requests. Resource-oriented URLs, JSON responses,
+    offset/limit pagination with a links envelope, include[]/fields[]/filter[] query shaping, a 50-operation batch
+    endpoint, integer API versioning (current v12) selectable by query parameter or Accept header, and OAuth 2.0
+    authorization-code and client-credentials grants.
+  humanURL: https://developers.autoenrolment.co.uk/smart
+  baseURL: https://api.autoenrolment.co.uk
+  tags:
+  - pensions
+  - workplace-pension
+  - auto-enrolment
+  - payroll
+  - contributions
+  - papdis
+  - employee-benefits
+  - united-kingdom
+  properties:
+  - type: OpenAPI
+    url: openapi/smart-pension-keystone-openapi.yml
+  - type: DeveloperPortal
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: Documentation
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: APIReference
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: GettingStarted
+    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+  - type: Authentication
+    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+  - type: SignUp
+    url: https://partner.autoenrolment.co.uk/partners/sign-up
+  - type: Support
+    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/smart-pension-agentic-access.yml
+- type: DomainSecurity
+  url: security/smart-pension-domain-security.yml
 - type: Website
-  url: https://www.hiive.com/securities/smart-pension-stock
+  url: https://www.smartpension.co.uk/
+- type: DeveloperPortal
+  url: https://developers.autoenrolment.co.uk/smart
+- type: Documentation
+  url: https://developers.autoenrolment.co.uk/smart
+- type: APIReference
+  url: https://developers.autoenrolment.co.uk/smart
+- type: GettingStarted
+  url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+- type: Support
+  url: https://www.smartpension.co.uk/support/en/
+- type: Blog
+  url: https://www.smartpension.co.uk/news-and-insights
+- type: GitHubOrganization
+  url: https://github.com/smartpension
+- type: Pricing
+  url: https://www.smartpension.co.uk/charges
+- type: SignUp
+  url: https://partner.autoenrolment.co.uk/partners/sign-up
+- type: TermsOfService
+  url: https://www.smartpension.co.uk/legal-compliance-pages/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.smartpension.co.uk/legal-compliance-pages/privacy-notice
+- type: OAuthScopes
+  url: scopes/smart-pension-scopes.yml
+- type: Authentication
+  url: authentication/smart-pension-authentication.yml
+- type: Conventions
+  url: conventions/smart-pension-conventions.yml
+- type: ErrorCatalog
+  url: errors/smart-pension-problem-types.yml
+- type: RateLimits
+  url: rate-limits/smart-pension-rate-limits.yml
+- type: Lifecycle
+  url: lifecycle/smart-pension-lifecycle.yml
+- type: ChangeLog
+  url: changelog/smart-pension-changelog.yml
+- type: Conformance
+  url: conformance/smart-pension-conformance.yml
+- type: Compliance
+  url: https://trust.smart.co/
+- type: TrustCenter
+  url: security/smart-pension-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/smart-pension-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.smart.co/footer/responsible-disclosure-program-policy
+- type: Sandbox
+  url: sandbox/smart-pension-sandbox.yml
+- type: DataModel
+  url: data-model/smart-pension-data-model.yml
+- type: Examples
+  url: examples/smart-pension-keystone-examples.yml
+- type: Overlay
+  url: overlays/smart-pension-keystone-overlay.yaml
+- type: WellKnown
+  url: well-known/smart-pension-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/smart-pension-llms.txt
+- type: Packages
+  url: packages/smart-pension-packages.yml
+
+x-enrichment:
+  date: '2026-08-05'
+  status: enriched
+  artifacts_added: 28
+  pass: local-v1

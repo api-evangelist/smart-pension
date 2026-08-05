@@ -1,0 +1,84 @@
+generated: '2026-08-05'
+method: searched
+probe: true
+url: https://trust.smart.co/
+title: Smart Group's Trust Center
+platform: Vanta
+scope: >-
+  Smart Group — covers both brands, Keystone (the savings administration platform) and Smart
+  Pension (the UK workplace master trust). There is no separate Smart Pension-only trust center.
+certifications:
+- name: ISO 27001:2022
+  evidence: Listed under Compliance; a certificate document "Smart Pension - ISO IEC 27001:2022 Official Certificate 2025" is offered.
+  document_access: gated — request access
+- name: SOC 2 Type 2
+  evidence: Listed under Compliance; "SOC2 Type 2 Final Report" and "SOC2 Type 2 Report" documents are offered.
+  document_access: gated — request access
+policies_listed:
+- Incident Response Plan
+- Information Security Policy (AUP)
+- Engineering policy
+- Cryptography Policy
+policies_access: gated — request access via the trust center form
+public_documents:
+- name: Privacy Policy
+  url: https://www.smart.co/footer/privacy-policy
+- name: Terms and Conditions
+  url: https://www.smart.co/footer/terms-and-conditions
+- name: Responsible Disclosure Program Policy
+  url: https://www.smart.co/footer/responsible-disclosure-program-policy
+- name: Cookie Policy
+  url: https://www.smart.co/footer/cookies-information
+controls:
+  continuously_monitored: true
+  monitoring_vendor: Vanta
+  groups:
+  - name: Infrastructure security
+    count: 21
+    examples:
+    - Unique production database authentication enforced
+    - Encryption key access restricted
+    - Unique account authentication enforced
+  - name: Organizational security
+    count: 14
+    examples:
+    - Asset disposal procedures utilised
+    - Production inventory maintained
+    - Portable media encrypted
+  - name: Product security
+    count: 5
+    examples:
+    - Data encryption utilised
+    - Control self-assessments conducted
+    - Penetration testing performed
+  - name: Internal security procedures
+    count: 37
+    examples:
+    - Continuity and Disaster Recovery plans established
+    - Continuity and Disaster Recovery plans tested
+    - Cybersecurity insurance maintained
+  - name: Data and privacy
+    examples:
+    - Data retention procedures established
+    - Customer data deleted upon leaving
+    - Data classification policy established
+  count_note: >-
+    Group counts are derived from the rendered page: the three named examples plus the
+    "View N more" affordance for each group.
+data_collected:
+- Customer personally identifiable information
+- Employee personally identifiable information
+evidence:
+- source: https://trust.smart.co/
+  http_status: 200
+  keywords: [trust center, iso 27001, soc 2, compliance, controls, penetration testing]
+  method: >-
+    The trust center is a client-rendered Vanta application; the raw HTML carries only the title
+    and description. Certifications and controls were read from a headless-Chrome render of the
+    page.
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://trust.smart.co/
+  http_status: 200
+  content_type: text/html
+  render: headless Chrome (--dump-dom)

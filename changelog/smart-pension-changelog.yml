@@ -1,0 +1,86 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/42d8d78e1463a-versions
+docs: https://developers.autoenrolment.co.uk/smart/42d8d78e1463a-versions
+api: openapi/smart-pension-keystone-openapi.yml
+
+scheme: integer
+current_version: v12
+dated: false
+format: per-version compatibility deltas
+note: >-
+  Smart Pension publishes no dated changelog or release-notes feed for the Keystone API. What it
+  publishes instead is a "Versions" reference that documents, for each superseded integer version,
+  how that version's RESPONSES still differ from current behaviour — i.e. it is written from the
+  perspective of a consumer pinned to an old version, not of a consumer tracking what shipped. The
+  entries below are transcribed from that page. Because no dates are published, none are asserted
+  here. Announcements of forthcoming changes are distributed by email newsletter to subscribers
+  rather than posted publicly, so there is no public feed a machine can watch.
+
+entries:
+- version: v12
+  date: null
+  status: current
+  breaking: []
+  additions: []
+  highlights:
+  - Current version; the "Versions" page documents no deltas against v12 because it is the baseline.
+- version: v11
+  date: null
+  breaking:
+  - >-
+    Customer `gender` attribute replaced by `male` on GET /companies/{company_id}/customers/{customer_id};
+    value is "1" for male and "0" for female.
+  highlights:
+  - Customer gender representation changed from a string enum to a boolean-ish flag.
+- version: v10
+  date: null
+  breaking:
+  - >-
+    Company responses no longer contain the nested `scheme_detail` object; its fields are flattened
+    onto the company as `scheme_starts_on` and `employer_pension_scheme_registration`.
+  - >-
+    Create and update of a company set those scheme fields directly via `scheme_starts_on` and
+    `employer_pension_scheme_registration` parameters.
+  affects: ["GET /companies", "GET /companies/{company_id}", "POST /companies", "PATCH /companies/{company_id}"]
+- version: v9
+  date: null
+  breaking:
+  - >-
+    Employee gender expressed as a `male` boolean on create and update; defaults to true when not
+    supplied on POST /companies/{company_id}/employees.
+  affects: ["POST /companies/{company_id}/employees", "PATCH /companies/{company_id}/employees"]
+- version: v8
+  date: null
+  breaking:
+  - >-
+    Company responses no longer contain `company_automation`; the postponement period is flattened
+    onto the company as `automatic_postponement_period`.
+  - >-
+    POST /companies returns 422 when `automatic_postponement_period` is supplied but is not one of
+    the permitted values.
+  affects: ["GET /companies", "GET /companies/{company_id}", "POST /companies"]
+- version: v7
+  date: null
+  breaking:
+  - >-
+    Company `scheme_starts_on` replaced by `staging_on` in responses, and `staging_on` is the
+    attribute used to set or change the scheme start date on create and update.
+  affects: ["GET /companies", "GET /companies/{company_id}", "POST /companies", "PATCH /companies/{company_id}"]
+- version: v6
+  date: null
+  breaking:
+  - >-
+    Employee objects include a `contribution_ids` array listing the contributions belonging to that
+    employee, on both the single and list employee reads.
+  affects: ["GET /companies/{company_id}/employees", "GET /companies/{company_id}/employees/{employee_id}"]
+
+announcements:
+  channel: email newsletter to subscribers
+  public_feed: false
+  rss: false
+
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/42d8d78e1463a-versions?branch=main
+  http_status: 200

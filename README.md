@@ -42,5 +42,13 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Smart Pension is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/smart-pension-stock
+Smart Pension is a UK defined contribution workplace pension master trust operated by Smart Pension
+Limited (Smart Group), managing pensions for millions of UK savers on behalf of over 90,000 employers.
+Its API surface is the **Keystone API** — the same public REST API that powers Smart's own employer,
+employee and adviser portals — published by Keystone, Smart's proprietary savings administration
+platform.
+
+- Developer portal: https://developers.autoenrolment.co.uk/smart
+- Production base URL: https://api.autoenrolment.co.uk
+- Company: https://www.smartpension.co.uk/ · https://www.smart.co/
+

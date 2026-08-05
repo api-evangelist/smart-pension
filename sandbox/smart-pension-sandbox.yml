@@ -1,0 +1,98 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+docs:
+- https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+- https://developers.autoenrolment.co.uk/smart/yd0a98nlh9e6c-using-client-credentials
+
+model: separate environments with separate credentials
+note: >-
+  Keystone separates test from live by ENVIRONMENT (distinct hostnames and distinct partner
+  applications), not by a key prefix or a mode flag on a single host. A partner registers once per
+  environment and receives a different client_id / client_secret pair for each. There is no
+  documented test-key prefix, no test-mode header, and no test clock / time-simulation tooling.
+
+environments:
+- name: Development
+  api_base_url: https://api.dev.autoenrolment.co.uk
+  identity_base_url: null
+  web_interface: https://my.dev.autoenrolment.co.uk
+  adviser_web_interface: https://adviser.dev.autoenrolment.co.uk
+  tested_by: not tested
+  data_persistence: inconsistent and temporary; the developer database is purged frequently
+  third_party_services: simulated
+  purpose: >-
+    First environment for new features and bug fixes, in QA with the Keystone team. Data may be
+    altered by testers with low-level instructions.
+- name: Sandbox
+  api_base_url: https://api.sandbox.autoenrolment.co.uk
+  identity_base_url: https://id.sandbox.autoenrolment.co.uk
+  partner_signup: https://partner.sandbox.autoenrolment.co.uk/partners/sign-up
+  partner_signin: https://id.sandbox.autoenrolment.co.uk/partner/sign-in
+  web_interface: null
+  tested_by: Keystone developer team
+  data_persistence: consistent and permanent — test companies and fake payments persist over time
+  third_party_services: >-
+    Executed against the providers' own sandboxes — GoCardless for payments and Signable for
+    e-document signing are named in the documentation.
+  purpose: >-
+    The recommended integration target for a consumer's staging environment. This is the
+    environment whose authorization and token URLs are the ones declared in the published OpenAPI
+    securityScheme.
+  recommended: true
+- name: Production
+  api_base_url: https://api.autoenrolment.co.uk
+  identity_base_url: https://id.autoenrolment.co.uk
+  partner_signup: https://partner.autoenrolment.co.uk/partners/sign-up
+  partner_signin: https://id.autoenrolment.co.uk/partner/sign-in
+  web_interface: https://my.autoenrolment.co.uk
+  adviser_web_interface: https://adviser.autoenrolment.co.uk
+  tested_by: Keystone developer team and integrating developers
+  data_persistence: consistent and permanent
+  third_party_services: real (real payments, real document signing)
+
+self_service:
+  sandbox_signup: true
+  sandbox_signup_url: https://partner.sandbox.autoenrolment.co.uk/partners/sign-up
+  sandbox_signup_http_status: 200
+  cost: none — the documentation states there is no charge to connect to the API
+  caveat: >-
+    Registration is self-serve, but the fine-grained client-credentials scopes must be enabled on
+    the application by Smart's API team (api@smartpension.co.uk) before requests succeed. A
+    developer can therefore obtain credentials without talking to anyone but cannot obtain a
+    working machine-to-machine token without doing so.
+
+account_creation_via_api: >-
+  The Introduction states that new accounts can be created in sandbox through the API and then
+  inspected in the corresponding employer, employee or adviser portal — so the sandbox supports
+  round-tripping a full scheme setup rather than only read traffic.
+
+test_values:
+  published: false
+  test_cards: null
+  test_bank_accounts: null
+  magic_identifiers: null
+  note: >-
+    No magic test values, test card numbers, test bank details or seeded fixture accounts are
+    published. A developer creates their own test company and employees in sandbox instead.
+
+test_clock: null
+fixture_tooling: null
+mock_server:
+  url: https://stoplight.io/mocks/smart-pension/smart-documentation-portal/33447
+  provider: Stoplight Prism
+  official: true
+  note: >-
+    The Stoplight project that backs the developer portal exposes a Prism mock of the Keystone
+    API. It is a documentation-platform artifact rather than a surface Smart advertises in its
+    docs, so treat it as an unadvertised convenience, not a supported sandbox.
+
+x-evidence:
+  fetched: '2026-08-05'
+  sources:
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/7756f9f9959a5-getting-started?branch=main
+    http_status: 200
+  - url: https://partner.sandbox.autoenrolment.co.uk/partners/sign-up
+    http_status: 200
+  - url: https://partner.autoenrolment.co.uk/partners/sign-up
+    http_status: 200

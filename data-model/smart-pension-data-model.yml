@@ -1,0 +1,1477 @@
+generated: '2026-08-05'
+method: derived
+source: openapi/smart-pension-keystone-openapi.yml
+note: 'Derived mechanically from the Keystone OpenAPI: component schemas with properties, their $ref links, and
+  *_id / *_ids reference fields. Path nesting is captured separately because Keystone expresses ownership primarily
+  through the URL hierarchy (an employee is always addressed under its company) rather than through schema references.'
+core_entities:
+- Company (the employer)
+- Customer (the admin of an employer)
+- Employee (the scheme member)
+- Adviser (accountant/IFA/payroll bureau, one-to-many over companies)
+- Contribution
+- Scheme
+- Fund and FundSplit
+- Valuation
+- Postponement
+- Enrolment / OptInRequest / OptOutRequest
+naming_note: 'The API reflects the underlying database schema: an EMPLOYER is modelled as a `company`, the individual
+  administering that employer is a `customer`, and a scheme MEMBER is an `employee`. This is stated explicitly in
+  the Introduction and is the single most common source of confusion when reading the spec.'
+counts:
+  schemas_total: 222
+  schemas_with_relationships: 122
+  paths: 271
+  operations: 383
+  top_level_resources: 35
+top_level_resources:
+- resource: .well-known
+  sub_resources:
+  - jwks
+- resource: account-claiming
+  sub_resources:
+  - additional-data
+  - attempts
+  - confirm-personal-data
+  - current-attempt
+  - email
+  - password
+  - password-validations
+- resource: accounts
+  sub_resources: []
+- resource: adviser_companies
+  sub_resources:
+  - adviser
+  - company
+- resource: advisers
+  sub_resources:
+  - by_token
+  - exports
+  - managed-employees
+  - users
+- resource: batch
+  sub_resources: []
+- resource: cities
+  sub_resources:
+  - autocomplete
+- resource: companies
+  sub_resources:
+  - active_payroll_configuration
+  - add_money_forms
+  - additional_tax_residences
+  - adviser_invitations
+  - advisers
+  - assessments
+  - assign_ssif_headers_mapping
+  - available_currencies
+  - available_funds
+  - available_glidepaths
+  - available_withdrawal_options
+  - bank_account_detail
+  - bank_account_details
+  - batch_create
+  - benefit_categories
+  - benefit_check_results
+  - benefit_evidence_uploads
+  - benefit_evidences
+  - benefit_form
+  - benefit_group
+  - benefit_group_auto_allocator_results
+  - benefit_groups
+  - benefit_money_out_state
+  - benefit_question_responses
+  - benefit_schedule
+  - benefit_statements
+  - benefits
+  - bulk_update
+  - by_slug
+  - cancel
+  - company_automation
+  - company_branding
+  - company_fees
+  - company_rules
+  - complete
+  - confirm
+  - confirm_all
+  - contributions
+  - customers
+  - declaration_of_compliance_employee_totals
+  - default_fund_splits
+  - delayability
+  - discounted_valuation
+  - documents
+  - employee_configurations
+  - employee_external_pensions
+  - employee_fund_holdings
+  - employee_funds_valuations
+  - employee_rate_recommendation
+  - employees
+  - employment_categories
+  - enrolments
+  - envelope
+  - estimate_benefit_valuations
+  - exports
+  - expression_of_wish
+  - external_employee_data_availability
+  - file_headers
+  - fund_splits
+  - funds
+  - generate_verification_url
+  - glidepaths
+  - groups
+  - historical_contributions
+  - historical_transfer_ins
+  - import_results
+  - imports
+  - income_adequacy_projection
+  - investments_performance
+  - invoice
+  - later_life_projection
+  - letters
+  - managable
+  - mandate_charge_schedule
+  - membership_fees
+  - money_summary
+  - moved_to_eu_company
+  - next_pay_period_dates
+  - notifications
+  - opt_in_requests
+  - opt_state
+  - overfunding_threshold
+  - page_visits
+  - paid_in_amounts
+  - payable
+  - payment_approvals
+  - payments
+  - payroll_configuration_details
+  - payroll_configurations
+  - pension_forecast
+  - pension_forecast_inputs
+  - pensionlab_consent
+  - permitted
+  - portfolios
+  - postponement
+  - postponements
+  - presigned_post
+  - preview_contribution_rates
+  - preview_payroll_configuration_details
+  - projections
+  - recurring_contribution_schedule
+  - regular_income_projection
+  - remind
+  - request_benefit_checks
+  - request_for_current_holdings
+  - request_monetary
+  - role
+  - scheme_details
+  - schemes
+  - sensitive_data
+  - signing
+  - single_contribution_payments
+  - ssif_headers_mappings
+  - ssif_import_missing_employees
+  - ssif_import_results
+  - ssif_imports
+  - state
+  - style
+  - subaccount_groups_valuations
+  - subaccount_switch_plans
+  - subaccounts
+  - submit
+  - submit_ras_consent
+  - summary
+  - switches
+  - tasks
+  - tax_information_change
+  - tax_preview
+  - tax_residence
+  - template
+  - third_party_payment_providers
+  - todo_items
+  - total_funds_amcs
+  - totals
+  - transactions
+  - transfer_ins
+  - transfer_money_review
+  - ultimate_beneficial_owner_and_configuration
+  - ultimate_beneficial_owners
+  - validate
+  - valuations
+  - verification_checks
+  - verification_url
+  - welcome
+- resource: company_branding_stocks
+  sub_resources: []
+- resource: company_lookups
+  sub_resources: []
+- resource: constants
+  sub_resources: []
+- resource: countries
+  sub_resources:
+  - legal_bank_location
+  - nationality
+- resource: currencies
+  sub_resources: []
+- resource: customer_leads
+  sub_resources:
+  - earliest_plan_effective_date
+- resource: customers
+  sub_resources:
+  - password
+  - referrals
+  - session
+- resource: economic_zones
+  sub_resources: []
+- resource: employee
+  sub_resources:
+  - callbacks
+  - smartpension
+- resource: employees
+  sub_resources:
+  - employment_periods
+  - marketing_preference
+  - retirement
+  - retirement_options
+  - session
+  - subaccount_groups_valuations
+  - valuations
+- resource: feature_flags
+  sub_resources: []
+- resource: identity
+  sub_resources:
+  - api
+  - personal-data
+  - profiles
+  - registration-data
+- resource: individuals
+  sub_resources:
+  - retirement_age
+- resource: mobile_app_versions
+  sub_resources: []
+- resource: notifications
+  sub_resources:
+  - accounts
+- resource: oauth
+  sub_resources:
+  - info
+  - token
+- resource: onboarding
+  sub_resources:
+  - accept-terms
+  - options
+  - personal-data
+  - status
+- resource: partners
+  sub_resources:
+  - employees
+  - transfer_out
+- resource: payments_service
+  sub_resources:
+  - companies
+  - complete
+  - mandates
+  - select
+- resource: pension_forecast
+  sub_resources:
+  - modeller_projection
+- resource: refresh_token
+  sub_resources: []
+- resource: schemes
+  sub_resources:
+  - available
+  - default
+- resource: ssif_imports
+  sub_resources:
+  - download_template
+- resource: tpr
+  sub_resources:
+  - staging_date
+- resource: urls
+  sub_resources: []
+- resource: users
+  sub_resources:
+  - marketing_preference
+  - password
+  - session
+- resource: verification_checks
+  sub_resources:
+  - generate_verification_url
+  - state
+  - verification_url
+entities:
+- entity: response_company
+  fields: 58
+  relationships:
+  - type: belongs_to
+    target: layout_configuration
+    via: layout_configuration_id
+  - type: has_one
+    target: link
+    via: customers
+  - type: has_one
+    target: response_customer
+    via: customers
+  - type: has_one
+    target: link
+    via: payments
+  - type: has_one
+    target: response_payment
+    via: payments
+  - type: has_one
+    target: link
+    via: employees
+  - type: has_one
+    target: response_employee
+    via: employees
+  - type: has_one
+    target: link
+    via: enrolments
+  - type: has_one
+    target: response_enrolment
+    via: enrolments
+  - type: has_one
+    target: link
+    via: imports
+  - type: has_one
+    target: response_company_import
+    via: imports
+  - type: has_one
+    target: link
+    via: advisers
+  - type: has_one
+    target: response_adviser
+    via: advisers
+  - type: has_one
+    target: link
+    via: mandates
+  - type: has_one
+    target: response_mandate
+    via: mandates
+  - type: has_one
+    target: link
+    via: ultimate_beneficial_owners
+  - type: has_one
+    target: response_ultimate_beneficial_owner
+    via: ultimate_beneficial_owners
+  - type: has_one
+    target: link
+    via: benefit_groups
+  - type: has_one
+    target: response_benefit_group
+    via: benefit_groups
+  - type: has_one
+    target: link
+    via: payroll_configurations
+  - type: has_one
+    target: response_base_payroll_configuration
+    via: payroll_configurations
+  - type: has_one
+    target: link
+    via: bank_account_details
+  - type: has_one
+    target: response_bank_account_detail
+    via: bank_account_details
+  - type: has_one
+    target: link
+    via: adviser_companies
+  - type: has_one
+    target: response_adviser_company
+    via: adviser_companies
+  - type: has_one
+    target: link
+    via: scheme_details
+  - type: has_one
+    target: response_scheme_detail
+    via: scheme_details
+  - type: has_one
+    target: response_envelope
+    via: envelope
+  - type: has_one
+    target: response_company_automation
+    via: company_automation
+  - type: has_one
+    target: response_know_your_customer_data
+    via: know_your_customer_data
+  - type: has_one
+    target: response_scheme_detail
+    via: scheme_detail
+  - type: has_one
+    target: response_ultimate_beneficial_owner_configuration
+    via: ultimate_beneficial_owner_configuration
+  - type: has_one
+    target: response_scheme
+    via: scheme
+  - type: has_one
+    target: response_provider_scheme_migration
+    via: provider_scheme_migration
+  - type: has_one
+    target: response_default_investment_instrument
+    via: default_investment_instrument
+  - type: has_one
+    target: response_economic_zone
+    via: economic_zone
+- entity: response_missing_employee
+  fields: 96
+  relationships:
+  - type: belongs_to
+    target: identity_person
+    via: identity_person_id
+  - type: belongs_to
+    target: group
+    via: group_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: belongs_to
+    target: external
+    via: external_id
+  - type: belongs_to
+    target: customer
+    via: customer_id
+  - type: has_many
+    target: link
+    via: links
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: belongs_to
+    target: scheme_external
+    via: scheme_external_id
+  - type: has_many
+    target: response_employee_special_case
+    via: active_special_cases
+  - type: has_one
+    target: link
+    via: contributions
+  - type: has_one
+    target: response_contribution
+    via: contributions
+  - type: has_one
+    target: link
+    via: letters
+  - type: has_one
+    target: response_letter
+    via: letters
+  - type: has_one
+    target: link
+    via: postponements
+  - type: has_one
+    target: response_postponement
+    via: postponements
+  - type: has_one
+    target: link
+    via: fund_splits
+  - type: has_one
+    target: response_fund_split
+    via: fund_splits
+  - type: has_one
+    target: link
+    via: valuations
+  - type: has_one
+    target: response_valuation
+    via: valuations
+  - type: has_one
+    target: link
+    via: portfolios
+  - type: has_one
+    target: response_portfolio
+    via: portfolios
+  - type: has_one
+    target: link
+    via: benefits
+  - type: has_one
+    target: response_benefit
+    via: benefits
+  - type: has_one
+    target: response_employment_statuses
+    via: employment_statuses
+  - type: has_one
+    target: link
+    via: salaries
+  - type: has_one
+    target: response_salary
+    via: salaries
+  - type: has_one
+    target: response_customer
+    via: customer
+  - type: has_one
+    target: response_group
+    via: group
+  - type: has_one
+    target: response_company
+    via: company
+  - type: has_one
+    target: response_employee_shortcut
+    via: shortcut
+  - type: has_one
+    target: response_marketing_preference
+    via: marketing_preference
+  - type: has_one
+    target: response_expression_of_wish
+    via: expression_of_wish
+  - type: has_one
+    target: response_employee_configuration
+    via: employee_configuration
+  - type: has_one
+    target: response_employee_plan_participation
+    via: employee_plan_participation
+- entity: response_employee
+  fields: 95
+  relationships:
+  - type: belongs_to
+    target: identity_person
+    via: identity_person_id
+  - type: belongs_to
+    target: group
+    via: group_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: belongs_to
+    target: external
+    via: external_id
+  - type: belongs_to
+    target: customer
+    via: customer_id
+  - type: has_many
+    target: link
+    via: links
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: has_many
+    target: response_employee_special_case
+    via: active_special_cases
+  - type: has_one
+    target: link
+    via: contributions
+  - type: has_one
+    target: response_contribution
+    via: contributions
+  - type: has_one
+    target: link
+    via: letters
+  - type: has_one
+    target: response_letter
+    via: letters
+  - type: has_one
+    target: link
+    via: postponements
+  - type: has_one
+    target: response_postponement
+    via: postponements
+  - type: has_one
+    target: link
+    via: fund_splits
+  - type: has_one
+    target: response_fund_split
+    via: fund_splits
+  - type: has_one
+    target: link
+    via: valuations
+  - type: has_one
+    target: response_valuation
+    via: valuations
+  - type: has_one
+    target: link
+    via: portfolios
+  - type: has_one
+    target: response_portfolio
+    via: portfolios
+  - type: has_one
+    target: link
+    via: benefits
+  - type: has_one
+    target: response_benefit
+    via: benefits
+  - type: has_one
+    target: response_employment_statuses
+    via: employment_statuses
+  - type: has_one
+    target: link
+    via: salaries
+  - type: has_one
+    target: response_salary
+    via: salaries
+  - type: has_one
+    target: response_customer
+    via: customer
+  - type: has_one
+    target: response_group
+    via: group
+  - type: has_one
+    target: response_company
+    via: company
+  - type: has_one
+    target: response_employee_shortcut
+    via: shortcut
+  - type: has_one
+    target: response_marketing_preference
+    via: marketing_preference
+  - type: has_one
+    target: response_expression_of_wish
+    via: expression_of_wish
+  - type: has_one
+    target: response_employee_configuration
+    via: employee_configuration
+  - type: has_one
+    target: response_employee_plan_participation
+    via: employee_plan_participation
+- entity: response_employee_session
+  fields: 115
+  relationships:
+  - type: belongs_to
+    target: identity_person
+    via: identity_person_id
+  - type: belongs_to
+    target: group
+    via: group_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: belongs_to
+    target: external
+    via: external_id
+  - type: belongs_to
+    target: customer
+    via: customer_id
+  - type: has_many
+    target: link
+    via: links
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: has_many
+    target: response_employee_special_case
+    via: active_special_cases
+  - type: has_one
+    target: link
+    via: contributions
+  - type: has_one
+    target: response_contribution
+    via: contributions
+  - type: has_one
+    target: link
+    via: letters
+  - type: has_one
+    target: response_letter
+    via: letters
+  - type: has_one
+    target: link
+    via: postponements
+  - type: has_one
+    target: response_postponement
+    via: postponements
+  - type: has_one
+    target: link
+    via: fund_splits
+  - type: has_one
+    target: response_fund_split
+    via: fund_splits
+  - type: has_one
+    target: link
+    via: valuations
+  - type: has_one
+    target: response_valuation
+    via: valuations
+  - type: has_one
+    target: link
+    via: portfolios
+  - type: has_one
+    target: response_portfolio
+    via: portfolios
+  - type: has_one
+    target: link
+    via: benefits
+  - type: has_one
+    target: response_benefit
+    via: benefits
+  - type: has_one
+    target: response_employment_statuses
+    via: employment_statuses
+  - type: has_one
+    target: link
+    via: salaries
+  - type: has_one
+    target: response_salary
+    via: salaries
+  - type: has_one
+    target: response_customer
+    via: customer
+  - type: has_one
+    target: response_group
+    via: group
+  - type: has_one
+    target: response_company
+    via: company
+  - type: has_one
+    target: response_employee_shortcut
+    via: shortcut
+  - type: has_one
+    target: response_marketing_preference
+    via: marketing_preference
+  - type: has_one
+    target: response_expression_of_wish
+    via: expression_of_wish
+  - type: has_one
+    target: response_employee_configuration
+    via: employee_configuration
+  - type: has_one
+    target: response_employee_plan_participation
+    via: employee_plan_participation
+- entity: response_adviser
+  fields: 18
+  relationships:
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: has_one
+    target: link
+    via: companies
+  - type: has_one
+    target: response_company
+    via: companies
+  - type: has_one
+    target: link
+    via: imports
+  - type: has_one
+    target: response_adviser_import
+    via: imports
+  - type: has_one
+    target: link
+    via: company_tax_reliefs
+  - type: has_one
+    target: response_company_tax_relief
+    via: company_tax_reliefs
+  - type: has_one
+    target: response_adviser_shortcut
+    via: shortcut
+- entity: response_customer
+  fields: 47
+  relationships:
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: belongs_to
+    target: referee
+    via: referee_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+  - type: has_one
+    target: response_employee
+    via: employee
+  - type: has_one
+    target: response_customer_shortcut
+    via: shortcut
+  - type: has_one
+    target: response_marketing_preference
+    via: marketing_preference
+- entity: response_employment_period
+  fields: 17
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: belongs_to
+    target: benefit_group
+    via: benefit_group_id
+  - type: belongs_to
+    target: external
+    via: external_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_employee
+    via: employee
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_benefit
+  fields: 23
+  relationships:
+  - type: belongs_to
+    target: admin_user
+    via: admin_user_id
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: belongs_to
+    target: benefit_rule_set
+    via: benefit_rule_set_id
+  - type: has_one
+    target: response_complete_bank_account_detail
+    via: bank_account_detail
+  - type: has_many
+    target: response_benefit_check_result
+    via: benefit_check_results
+  - type: has_one
+    target: response_employee
+    via: employee
+- entity: response_pension_forecast_calculation_inputs
+  fields: 24
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_contribution_charges
+    via: contribution_charges
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factors
+    via: increase_factors
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_thresholds_and_limits
+    via: thresholds_and_limits
+  - type: has_many
+    target: response_pension_forecast_calculation_inputs_employer_rate_changes
+    via: employer_rate_changes
+  - type: has_many
+    target: response_pension_forecast_calculation_inputs_investment_returns
+    via: fund_values
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_income_grades
+    via: grades
+- entity: response_pension_forecast_calculation_inputs_increase_factors
+  fields: 6
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: employee_contribution_salary
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: employer_contribution_salary
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: employee_contribution_salary_cap
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: employer_contribution_salary_cap
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: employee_amount_contribution
+  - type: has_one
+    target: response_pension_forecast_calculation_inputs_increase_factor
+    via: fees
+- entity: response_contribution
+  fields: 41
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_many
+    target: response_contribution_amount
+    via: contribution_amounts
+  - type: has_one
+    target: response_employee
+    via: employee
+  - type: has_one
+    target: response_scheme
+    via: scheme
+- entity: response_user
+  fields: 17
+  relationships:
+  - type: belongs_to
+    target: intercom_user
+    via: intercom_user_id
+  - type: belongs_to
+    target: adviser
+    via: adviser_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_adviser
+    via: adviser
+  - type: has_one
+    target: response_marketing_preference
+    via: marketing_preference
+- entity: response_company_export
+  fields: 16
+  relationships:
+  - type: belongs_to
+    target: resource
+    via: resource_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_adviser
+    via: adviser
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_benefit_category
+  fields: 23
+  relationships:
+  - type: has_one
+    target: response_investment_account
+    via: to_subaccount
+  - type: has_many
+    target: response_default_subaccount_split
+    via: default_subaccount_splits
+  - type: has_many
+    target: response_investment_account
+    via: from_subaccounts
+  - type: has_many
+    target: response_benefit_evidence_type
+    via: benefit_evidence_types
+  - type: has_many
+    target: response_benefit_charge
+    via: charges
+- entity: response_benefit_form
+  fields: 14
+  relationships:
+  - type: belongs_to
+    target: benefit_rule_set
+    via: benefit_rule_set_id
+  - type: has_many
+    target: response_task_list
+    via: benefit_task_list
+  - type: has_many
+    target: response_benefit_question_response
+    via: benefit_question_responses
+  - type: has_many
+    target: response_benefit_question
+    via: benefit_questions
+  - type: has_many
+    target: response_benefit_question_response
+    via: historical_benefit_question_responses
+- entity: response_ssif_import_result
+  fields: 14
+  relationships:
+  - type: belongs_to
+    target: ssif_import
+    via: ssif_import_id
+  - type: belongs_to
+    target: cached_external
+    via: cached_external_id
+  - type: belongs_to
+    target: cached_scheme_external
+    via: cached_scheme_external_id
+  - type: has_many
+    target: response_ssif_import_row_action
+    via: ssif_import_row_actions
+  - type: has_many
+    target: response_ssif_import_issue
+    via: ssif_import_issues
+- entity: response_third_party_payment_provider
+  fields: 19
+  relationships:
+  - type: has_one
+    target: response_bank_account_detail
+    via: bank_account_detail
+  - type: has_one
+    target: link
+    via: directors
+  - type: has_one
+    target: response_third_party_payment_provider_director
+    via: directors
+  - type: has_one
+    target: link
+    via: documents
+  - type: has_one
+    target: response_third_party_payment_provider_document
+    via: documents
+- entity: response_scheme
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: external
+    via: external_id
+  - type: has_one
+    target: response_scheme_bank_detail
+    via: bank_detail
+  - type: has_one
+    target: response_scheme_contribution_limit
+    via: contribution_limit
+  - type: has_one
+    target: response_scheme_tax_reliefs
+    via: scheme_tax_reliefs
+- entity: response_letter
+  fields: 15
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: belongs_to
+    target: created_by
+    via: created_by_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_employee
+    via: employee
+- entity: response_postponement
+  fields: 12
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_employee
+    via: employee
+  - type: has_one
+    target: response_letter
+    via: letter
+- entity: response_group
+  fields: 12
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: employee
+    via: employee_ids
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_expression_of_wish
+  fields: 8
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: has_many
+    target: response_beneficiary
+    via: beneficiaries
+  - type: has_many
+    target: response_beneficiary
+    via: contingent_beneficiaries
+  - type: has_one
+    target: response_employee
+    via: employee
+- entity: response_scheme_detail
+  fields: 9
+  relationships:
+  - type: belongs_to
+    target: scheme_external
+    via: scheme_external_id
+  - type: has_one
+    target: response_company_tax_relief
+    via: current_company_tax_relief
+  - type: has_one
+    target: link
+    via: company_tax_reliefs
+  - type: has_one
+    target: response_company_tax_relief
+    via: company_tax_reliefs
+- entity: response_adviser_export
+  fields: 15
+  relationships:
+  - type: belongs_to
+    target: resource
+    via: resource_id
+  - type: belongs_to
+    target: adviser
+    via: adviser_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_adviser
+    via: adviser
+- entity: response_company_branding
+  fields: 9
+  relationships:
+  - type: belongs_to
+    target: company_branding_stock
+    via: company_branding_stock_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_income_adequacy_projection
+  fields: 12
+  relationships:
+  - type: has_one
+    target: response_income_adequacy_projection_income_grades
+    via: grades
+  - type: has_one
+    target: response_income_adequacy_projection_pension_breakdown
+    via: breakdown_at_retirement_age
+  - type: has_one
+    target: response_income_adequacy_projection_pension_breakdown
+    via: breakdown_at_state_pension_age
+  - type: has_one
+    target: response_income_adequacy_projection_key_assumptions
+    via: key_assumptions
+- entity: response_pension_forecast_generate_income_adequacy_projection_s_niac_active_representer
+  fields: 12
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_income_grades
+    via: grades
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_retirement_age
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_state_pension_age
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_key_assumptions
+    via: key_assumptions
+- entity: response_adviser_company
+  fields: 6
+  relationships:
+  - type: belongs_to
+    target: adviser
+    via: adviser_id
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: belongs_to
+    target: preferred_contact_user
+    via: preferred_contact_user_id
+- entity: response_fund_split
+  fields: 6
+  relationships:
+  - type: belongs_to
+    target: fund
+    via: fund_id
+  - type: has_one
+    target: response_fund
+    via: fund
+  - type: has_one
+    target: response_employee
+    via: employee
+- entity: response_enrolment
+  fields: 10
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_company_import
+  fields: 15
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_adviser_import
+  fields: 15
+  relationships:
+  - type: belongs_to
+    target: adviser
+    via: adviser_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_adviser
+    via: adviser
+- entity: response_adviser_invitation
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_benefit_group_auto_allocator_run_result
+  fields: 13
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: belongs_to
+    target: previous_benefit_group
+    via: previous_benefit_group_id
+  - type: belongs_to
+    target: current_benefit_group
+    via: current_benefit_group_id
+- entity: response_glidepath_step
+  fields: 8
+  relationships:
+  - type: has_one
+    target: response_glidepath
+    via: glidepath
+  - type: has_one
+    target: link
+    via: glidepath_step_fund_splits
+  - type: has_one
+    target: response_glidepath_step_fund_split
+    via: glidepath_step_fund_splits
+- entity: response_benefit_money_out_state
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: benefit_rule_set
+    via: benefit_rule_set_id
+  - type: belongs_to
+    target: transaction
+    via: transaction_id
+  - type: has_many
+    target: response_subaccount
+    via: source_subaccounts
+- entity: response_pension_forecast_generate_income_adequacy_projection_s_smart_active_representer
+  fields: 11
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_income_grades
+    via: grades
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_retirement_age
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_state_pension_age
+- entity: response_pension_forecast_generate_income_adequacy_projection_s_smart_deferred_representer
+  fields: 10
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_income_grades
+    via: grades
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_retirement_age
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_state_pension_age
+- entity: response_pension_forecast_generate_income_adequacy_projection_s_smart_deferred_still_employed_representer
+  fields: 12
+  relationships:
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_income_grades
+    via: grades
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_retirement_age
+  - type: has_one
+    target: response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown
+    via: breakdown_at_state_pension_age
+- entity: response_import_result
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: import
+    via: import_id
+  - type: belongs_to
+    target: cached_external
+    via: cached_external_id
+  - type: belongs_to
+    target: resource
+    via: resource_id
+- entity: response_notification
+  fields: 6
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_portfolio
+  fields: 10
+  relationships:
+  - type: has_one
+    target: link
+    via: fund_splits
+  - type: has_one
+    target: response_fund_split
+    via: fund_splits
+- entity: response_salary
+  fields: 8
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: has_one
+    target: response_employee
+    via: employee
+- entity: response_mandate
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_one
+    target: response_company
+    via: company
+- entity: response_ultimate_beneficial_owner
+  fields: 19
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_base_payroll_configuration
+  fields: 10
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_envelope
+  fields: 9
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_company_automation
+  fields: 7
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_ultimate_beneficial_owner_configuration
+  fields: 6
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_broker_portal_policy
+  fields: 11
+  relationships:
+  - type: has_one
+    target: response_broker_portal_indexation
+    via: upcoming_indexation
+  - type: has_many
+    target: response_broker_portal_single_contribution_order
+    via: single_contribution_orders
+- entity: response_company_fee
+  fields: 12
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_one
+    target: response_charge_configuration
+    via: charge_configuration
+- entity: response_scheme_payable_contributions
+  fields: 2
+  relationships:
+  - type: has_one
+    target: response_scheme_payable_window
+    via: after_opt_out_window
+  - type: has_one
+    target: response_scheme_payable_window
+    via: within_opt_out_window
+- entity: response_scheme_payable_entry
+  fields: 2
+  relationships:
+  - type: has_one
+    target: response_available_scheme
+    via: scheme
+  - type: has_one
+    target: response_scheme_payable_amounts
+    via: contribution_amounts
+- entity: response_scheme_contribution_totals_entry
+  fields: 2
+  relationships:
+  - type: has_one
+    target: response_available_scheme
+    via: scheme
+  - type: has_one
+    target: response_scheme_amounts
+    via: contribution_amounts
+- entity: response_payroll_configuration
+  fields: 12
+  relationships:
+  - type: belongs_to
+    target: company
+    via: company_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_add_money_form_summary
+  fields: 11
+  relationships:
+  - type: belongs_to
+    target: account
+    via: account_id
+  - type: has_many
+    target: response_add_money_form_task
+    via: tasks
+- entity: response_assessment
+  fields: 15
+  relationships:
+  - type: belongs_to
+    target: employee
+    via: employee_id
+  - type: has_many
+    target: link
+    via: links
+- entity: response_glidepath
+  fields: 5
+  relationships:
+  - type: has_one
+    target: link
+    via: glidepath_steps
+  - type: has_one
+    target: response_glidepath_step
+    via: glidepath_steps
+- entity: response_glidepath_step_fund_split
+  fields: 4
+  relationships:
+  - type: has_one
+    target: response_glidepath_step
+    via: glidepath_step
+  - type: has_one
+    target: response_fund
+    via: fund
+- entity: response_benefit_evidence_upload
+  fields: 9
+  relationships:
+  - type: belongs_to
+    target: owner
+    via: owner_id
+  - type: belongs_to
+    target: benefit_evidence_type
+    via: benefit_evidence_type_id

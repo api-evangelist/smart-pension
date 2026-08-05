@@ -1,0 +1,482 @@
+generated: '2026-08-05'
+method: probed
+source: live probes of every Smart Pension / Smart / autoenrolment host
+documents:
+- path: /.well-known/jwks
+  host: https://api.autoenrolment.co.uk
+  status: 200
+  content_type: application/json
+  file: smart-pension-jwks.json
+  spec: RFC 7517 JSON Web Key Set
+  keys: 1
+  kty: RSA
+  declared_in_openapi: true
+  note: Also served, byte-identical, at /.well-known/jwks.json.
+- path: /.well-known/jwks
+  host: https://api.sandbox.autoenrolment.co.uk
+  status: 200
+  content_type: application/json
+  file: smart-pension-sandbox-jwks.json
+  spec: RFC 7517 JSON Web Key Set
+  keys: 1
+  kty: RSA
+  declared_in_openapi: true
+result: partial
+note: 'Exactly ONE well-known document is served across every Smart host: an RFC 7517 JSON Web Key Set at /.well-known/jwks
+  on the two API hosts, carrying the RSA public key that signs Keystone''s JWT access tokens. It is declared in
+  the OpenAPI as the Jwks/Get operation and is deliberately anonymous — a control path on the same origin (/.well-known/ae-control-xyz)
+  returns 401, so the 200 is a real exemption from the origin-wide token auth rather than an open directory.
+
+  Nothing else is published. Every other probed path returned one of three things: a hard 404 on the marketing and
+  docs hosts; a 401 with ''WWW-Authenticate: Token realm="Application"'' on the API hosts, which authenticate the
+  whole origin; or a SOFT 404 on www.autoenrolment.co.uk and my.autoenrolment.co.uk, where the single-page app answers
+  HTTP 200 with its HTML shell for every path. Those soft 404s were disproven with a control path returning an identical
+  200 and identical byte count, so none of them is evidence of a document. No security.txt, no OIDC discovery, no
+  RFC 8414 authorization-server metadata, no api-catalog, no ai-plugin.json, and no agent card.
+
+  Note the gap this leaves: the JWKS is published but the OIDC/OAuth metadata that would point a client AT it is
+  not, so a relying party has to be told the JWKS URL out of band.'
+soft_404_control:
+- host: www.autoenrolment.co.uk
+  control_url: https://www.autoenrolment.co.uk/.well-known/api-evangelist-control-xyz
+  status: 200
+  bytes: 19282
+  matches_all_200s: true
+- host: my.autoenrolment.co.uk
+  control_url: https://my.autoenrolment.co.uk/.well-known/api-evangelist-control-xyz
+  status: 200
+  bytes: 14379
+  matches_all_200s: true
+hosts:
+- host: https://www.smartpension.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 316367
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 316367
+- host: https://smartpension.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 316367
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 316367
+- host: https://www.smart.co
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 88
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 17564
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 17564
+- host: https://api.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/agent.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/api-catalog
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/openid-configuration
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/security.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /llms.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /security.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  origin_authenticated: true
+  origin_auth_note: '401 WWW-Authenticate: Token realm="Application" on all paths including /.well-known/'
+- host: https://api.sandbox.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/agent.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/api-catalog
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/openid-configuration
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /.well-known/security.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /llms.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  - path: /security.txt
+    status: 401
+    content_type: text/plain
+    bytes: 27
+  origin_authenticated: true
+  origin_auth_note: '401 WWW-Authenticate: Token realm="Application" on all paths including /.well-known/'
+- host: https://id.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+- host: https://developers.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 362
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 357
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 361
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 358
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 393
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 391
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 387
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 379
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 363
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 347
+- host: https://www.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    bytes: 19282
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 100398
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 100402
+  soft_404: true
+  soft_404_note: every 200 returns the SPA shell (19282 bytes); not a document
+- host: https://partner.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/agent.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/api-catalog
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/openid-configuration
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /.well-known/security.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 1773
+- host: https://my.autoenrolment.co.uk
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    bytes: 14379
+  - path: /llms.txt
+    status: 404
+    content_type: text/html
+    bytes: 100398
+  - path: /security.txt
+    status: 404
+    content_type: text/html
+    bytes: 100402
+  soft_404: true
+  soft_404_note: every 200 returns the SPA shell (14379 bytes); not a document
+controls:
+- url: https://api.autoenrolment.co.uk/.well-known/ae-control-xyz
+  status: 401
+  purpose: proves /.well-known/jwks 200 is a genuine exemption, not an open path

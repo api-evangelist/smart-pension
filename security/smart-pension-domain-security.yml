@@ -1,0 +1,32 @@
+generated: '2026-08-05'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.smartpension.co.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 18 11:02:29 2026 GMT
+  hsts: false
+- host: developers.autoenrolment.co.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 30 14:49:26 2026 GMT
+  hsts: false
+- host: api.autoenrolment.co.uk
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 30 14:49:26 2026 GMT
+  hsts: true
+  hsts_max_age: 31556952
+domains:
+- domain: smartpension.co.uk
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine
+- domain: autoenrolment.co.uk
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false

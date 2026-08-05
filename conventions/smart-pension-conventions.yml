@@ -1,0 +1,167 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart
+docs:
+- https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+- https://developers.autoenrolment.co.uk/smart/28783c05ecb6a-using-the-api
+- https://developers.autoenrolment.co.uk/smart/6810f928c15a0-parameters
+api: openapi/smart-pension-keystone-openapi.yml
+
+style:
+  architecture: REST
+  url_shape: resource-oriented, nested under owning resource
+  examples:
+  - GET /companies/{id}
+  - GET /companies/{company_id}/employees/{id}
+  - POST /companies/{company_id}/employees/{employee_id}/contributions
+  slugs: >-
+    Any resource carrying a `slug` property can be addressed by slug in place of its numeric id —
+    GET /companies/{id} and GET /companies/{slug} both resolve.
+  verbs:
+    read: GET
+    create: POST
+    update: PATCH
+    delete: DELETE
+  write_input_style: >-
+    Documented create/update examples pass attributes as bracketed QUERY parameters
+    (contribution[gross_qualifying_earnings]=1000.00) rather than a JSON body — a Rails-style
+    convention that is unusual for a modern REST API and is worth noting for client generators.
+  success_codes:
+    create: 201
+    update: 204
+    delete: 204
+    read: 200
+
+authentication:
+  style: OAuth 2.0 bearer token
+  header: 'Authorization: Bearer <access_token>'
+  detail: authentication/smart-pension-authentication.yml
+  scopes: scopes/smart-pension-scopes.yml
+
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency key, request-replay window, or safe-retry contract is documented anywhere in
+    the Keystone developer portal, and no Idempotency-Key parameter appears in the OpenAPI. This
+    is a real gap for a contributions API where a retried POST can duplicate a pension payment;
+    consumers must dedupe on their own using the payroll `external_id` they control.
+
+pagination:
+  style: offset/limit
+  params:
+    limit:
+      default: 50
+      max: 100
+      allowed: positive integer
+    offset:
+      default: 0
+      max: null
+      allowed: non-negative integer
+  response_envelope:
+    fields: [limit, offset, total, links, data]
+    links_rels: [self, next, prev, first, last]
+    note: >-
+      `prev` is omitted on the first page, `next` on the last, and `first`/`last` are omitted when
+      there is only one page — so link presence, not a cursor, signals the boundary.
+  stability_warning: >-
+    Documented explicitly: if new objects are added to the list while paging, the contents of each
+    page change. Offset paging over a mutating collection is not stable.
+
+sorting:
+  params:
+    sort: any valid resource field
+    direction: [ASC, DESC]
+  default: created_at ascending (chronological by creation time)
+
+field_shaping:
+  sparse_fields:
+    param: fields[]
+    example: GET /companies/{company_id}?fields[]=name
+    default: all accessible fields returned
+  expansion:
+    param: include[]
+    example: GET /companies/{id}?include[]=owner
+    behaviour: nested object embedded in the parent response, hierarchy preserved
+  filtering:
+    param: filter[{field}]={value}
+    example: GET /companies/{company_id}/contributions?filter[state]=paid
+
+batching:
+  resource: /batch
+  max_operations: 50
+  behaviour: >-
+    Any Keystone endpoint may appear inside a batch request. Operations are processed and a single
+    consolidated response is returned, after which the HTTP connection closes.
+
+versioning:
+  scheme: integer
+  current: v12
+  selection:
+  - style: query parameter
+    example: /companies?version=1
+  - style: Accept header
+    example: 'Accept: application/vnd.autoenrolment.v1+json'
+  default: latest released version when unspecified
+  compatibility: >-
+    Requests made against an old version are converted internally to the latest version, but the
+    RESPONSE is always structured according to the requested version.
+  breaking_change_definition:
+  - rename or remove an endpoint
+  - add a new required parameter
+  - rename or remove a response field
+  - remove a parameter
+  detail: lifecycle/smart-pension-lifecycle.yml
+
+dates_and_times:
+  timestamps: ISO 8601 with timezone, e.g. 2001-06-17T15:00:00.123Z
+  recommended_date_format: YYYY-MM-DD
+  note: >-
+    Malformed dates are coerced to null rather than rejected in some cases. The docs publish a
+    table showing 2001-06-17 and 2001/06/17 accepted, 17/06/2001 and 17-06-2001 rejected to null,
+    and bare integers such as -111 or 101112 silently accepted as dates. Clients should normalise
+    to YYYY-MM-DD and never rely on server-side date parsing.
+
+error_envelope:
+  shape: custom (not RFC 9457 / application/problem+json)
+  fields: [code, title, detail, source]
+  source_field: 'JSON-Pointer-like, e.g. {"pointer": "/data/attributes/offset"}'
+  multiplicity: >-
+    A response may carry a single error OBJECT or an ARRAY of errors under `errors`; validation
+    failures produce multiple. Clients must handle both shapes.
+  intended_use: >-
+    Documented as user-facing — `title` inline with the action and `detail` beneath it or as a
+    tooltip.
+  server_errors: 500 responses return an HTML page, not JSON.
+  detail: errors/smart-pension-problem-types.yml
+
+rate_limiting:
+  default: 500 requests per minute
+  signal_status: 429
+  headers_documented: false
+  note: >-
+    No RateLimit / X-RateLimit / Retry-After response headers are documented, so a client cannot
+    read remaining quota — only react to a 429.
+  detail: rate-limits/smart-pension-rate-limits.yml
+
+request_tracing:
+  header: x-request-id
+  observed: true
+  documented: false
+  note: >-
+    api.autoenrolment.co.uk returns an `x-request-id` on every response (observed on a 401 probe),
+    but the developer documentation does not describe it or ask consumers to quote it in support
+    tickets.
+
+environments:
+  detail: sandbox/smart-pension-sandbox.yml
+
+x-evidence:
+  fetched: '2026-08-05'
+  sources:
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/28783c05ecb6a-using-the-api?branch=main
+    http_status: 200
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/6810f928c15a0-parameters?branch=main
+    http_status: 200
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/7756f9f9959a5-getting-started?branch=main
+    http_status: 200

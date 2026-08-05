@@ -1,0 +1,199 @@
+generated: '2026-08-05'
+method: derived
+status: candidate
+source: openapi/smart-pension-keystone-openapi.yml
+published_by_provider: false
+note: Smart Pension publishes NO MCP server. Searched the developer portal, the smartpension GitHub organisation,
+  and the web; nothing was found, and no /mcp or /.well-known/ MCP surface exists on any Smart host (the API origin
+  returns 401 on every path except /.well-known/jwks). The tools below are a CANDIDATE set derived from the published
+  OpenAPI — a proposal for what a Keystone MCP server would expose for the three integration journeys Smart documents
+  (payroll contributions, PAPDIS import, member read). Each tool names its backing operation, and that operation's
+  parameters and requestBody in the spec are its real input schema. Nothing here is deployed and none of it should
+  be presented as a Smart product.
+server:
+  name: smart-pension-keystone
+  transport: http
+  url: null
+agent_safety:
+- 'No idempotency contract exists: create_contribution and create_employee are NOT safe to retry blindly. Any agent
+  must read back before retrying.'
+- create_contribution moves money into a pension. Treat as a consequential write requiring confirmation, not an
+  autonomous action.
+- Member valuation reads return personal financial data about an identified individual and must be bound to an employee-scoped
+  authorization-code token, never a broad machine token.
+tool_count: 29
+tools:
+- name: list_companies
+  description: List the employers (companies) the token can access.
+  category: companies
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesList
+  http: GET /companies
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_company
+  description: Retrieve one employer by id or slug.
+  category: companies
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesGet
+  http: GET /companies/{company_id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: create_company
+  description: Create an employer and its pension scheme.
+  category: companies
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesCreate
+  http: POST /companies
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: update_company
+  description: Update employer details.
+  category: companies
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesUpdate2
+  http: PATCH /companies/{company_id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_employees
+  description: List scheme members for an employer, with historical employee data.
+  category: employees
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEmployeesListWithHistoricalEmployeeData
+  http: GET /companies/{company_id}/employees
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_employee
+  description: Retrieve one scheme member.
+  category: employees
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEmployeesGet
+  http: GET /companies/{company_id}/employees/{id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: create_employee
+  description: Add a scheme member to an employer.
+  category: employees
+  source_operation: openapi/smart-pension-keystone-openapi.yml#employeesCreate
+  http: POST /companies/{company_id}/employees
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: update_employee
+  description: Update a scheme member.
+  category: employees
+  source_operation: openapi/smart-pension-keystone-openapi.yml#employeesUpdate2
+  http: PATCH /companies/{company_id}/employees/{id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_employee_opt_state
+  description: Read whether a member has opted in or out.
+  category: enrolment
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEmployeesOptStatesGet
+  http: GET /companies/{company_id}/employees/{id}/opt_state
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_contributions
+  description: List a member's contributions.
+  category: contributions
+  source_operation: openapi/smart-pension-keystone-openapi.yml#contributionsList
+  http: GET /companies/{company_id}/employees/{employee_id}/contributions
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: create_contribution
+  description: Post a contribution for a member for a pay period.
+  category: contributions
+  source_operation: openapi/smart-pension-keystone-openapi.yml#contributionsCreate
+  http: POST /companies/{company_id}/employees/{employee_id}/contributions
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: update_contribution
+  description: Correct an existing contribution.
+  category: contributions
+  source_operation: openapi/smart-pension-keystone-openapi.yml#contributionsUpdate2
+  http: PATCH /companies/{company_id}/employees/{employee_id}/contributions/{id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_contributions_summary
+  description: Read the employer contribution summary.
+  category: contributions
+  source_operation: openapi/smart-pension-keystone-openapi.yml#summariesGet
+  http: GET /companies/{company_id}/contributions/summary
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_payable_summary
+  description: Read the payable contribution summary for an employer.
+  category: contributions
+  source_operation: openapi/smart-pension-keystone-openapi.yml#summariesPayableGet
+  http: GET /companies/{company_id}/contributions/summary/payable
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: create_import
+  description: Upload a PAPDIS contribution file for an employer.
+  category: imports
+  source_operation: openapi/smart-pension-keystone-openapi.yml#importCreate
+  http: POST /companies/{company_id}/imports
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_import
+  description: Read the status of an import.
+  category: imports
+  source_operation: openapi/smart-pension-keystone-openapi.yml#importGet
+  http: GET /companies/{company_id}/imports/{id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_import_results
+  description: Read per-row results and errors for an import.
+  category: imports
+  source_operation: openapi/smart-pension-keystone-openapi.yml#importImportResultsList
+  http: GET /companies/{company_id}/imports/{import_id}/import_results
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_member_valuations
+  description: List pension valuations for the authenticated member.
+  category: valuations
+  source_operation: openapi/smart-pension-keystone-openapi.yml#valuationsList2
+  http: GET /employees/valuations
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: get_member_valuation
+  description: Retrieve one pension valuation for the authenticated member.
+  category: valuations
+  source_operation: openapi/smart-pension-keystone-openapi.yml#valuationsGet2
+  http: GET /employees/valuations/{id}
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_fund_holdings
+  description: List a member's fund holdings.
+  category: funds
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEmployeesEmployeeFundHoldingsList
+  http: GET /companies/{company_id}/employees/{employee_id}/employee_fund_holdings
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_fund_splits
+  description: List a member's fund splits.
+  category: funds
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEmployeesFundsSplitsList
+  http: GET /companies/{company_id}/employees/{employee_id}/fund_splits
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_available_funds
+  description: List the funds available to an employer.
+  category: funds
+  source_operation: openapi/smart-pension-keystone-openapi.yml#availableFundsList
+  http: GET /companies/{company_id}/available_funds
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: create_postponement
+  description: Create a postponement for a member.
+  category: enrolment
+  source_operation: openapi/smart-pension-keystone-openapi.yml#postponementCreate
+  http: POST /companies/{company_id}/employees/{employee_id}/postponements
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_postponements
+  description: List postponements for a member.
+  category: enrolment
+  source_operation: openapi/smart-pension-keystone-openapi.yml#postponementList
+  http: GET /companies/{company_id}/employees/{employee_id}/postponements
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_assessments
+  description: List auto-enrolment assessments for a member.
+  category: enrolment
+  source_operation: openapi/smart-pension-keystone-openapi.yml#assessmentsList
+  http: GET /companies/{company_id}/employees/{employee_id}/assessments
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_enrolments
+  description: List enrolments for an employer.
+  category: enrolment
+  source_operation: openapi/smart-pension-keystone-openapi.yml#companiesEnrolmentsList
+  http: GET /companies/{company_id}/enrolments
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_advisers
+  description: List advisers.
+  category: advisers
+  source_operation: openapi/smart-pension-keystone-openapi.yml#advisersList
+  http: GET /advisers
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: list_accounts
+  description: List all accounts associated with the authenticated identity.
+  category: identity
+  source_operation: openapi/smart-pension-keystone-openapi.yml#listAllAccountsAssociatedWithTheAuthenticatedIdentity
+  http: GET /accounts
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI
+- name: batch
+  description: Execute up to 50 Keystone operations in one request.
+  category: batch
+  source_operation: openapi/smart-pension-keystone-openapi.yml#batch
+  http: POST /batch
+  input_schema_source: parameters + requestBody of that operation in the OpenAPI

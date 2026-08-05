@@ -1,0 +1,96 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+docs:
+- https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+- https://developers.autoenrolment.co.uk/smart/42d8d78e1463a-versions
+api: openapi/smart-pension-keystone-openapi.yml
+
+versioning:
+  scheme: integer
+  current: v12
+  spec_declared_version: v12
+  selection:
+  - style: query parameter
+    example: /companies?version=1
+  - style: Accept header
+    example: 'Accept: application/vnd.autoenrolment.v1+json'
+  default_when_unspecified: latest released version
+  documented_versions: [v6, v7, v8, v9, v10, v11, v12]
+  docs: https://developers.autoenrolment.co.uk/smart/42d8d78e1463a-versions
+  compatibility_model: >-
+    Requests against an older version are translated internally to the current version, but the
+    response is always shaped according to the version the caller asked for. Old versions are
+    documented per-version as a list of behavioural deltas rather than as separate specs.
+  breaking_change_definition:
+  - rename or remove an endpoint
+  - add a new required parameter
+  - rename or remove a response field
+  - remove a parameter
+
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    No deprecation policy, sunset window, or RFC 8594 Sunset/Deprecation header support is
+    published. Old API versions are described as being kept working indefinitely via internal
+    translation, and no version is stated to be retiring. There is therefore no published notice
+    period a consumer can plan against.
+
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in the OpenAPI carries `deprecated: true`.
+
+release_cycle:
+  documented: true
+  stages:
+  - name: Announcement
+    description: >-
+      Planned features involving endpoints are announced and pushed to newsletter subscribers, with
+      the endpoints affected and the planned release date.
+  - name: Beta release
+    description: First release into the Development environment, testable alongside the Keystone team.
+  - name: Integration release
+    description: Deployed to Sandbox so developers can adapt their applications.
+  - name: Final release
+    description: Public release to Production, typically one week after the integration release.
+  bug_fix_policy: >-
+    Issues are assigned a priority based on impact and fixed accordingly; consumers report bugs via
+    the Support section with a summary, the endpoints involved, and the request/response including
+    headers.
+
+sla:
+  url: null
+  uptime_target: null
+  published: false
+
+status_page:
+  url: null
+  published: false
+  note: >-
+    No status page was found. status.smartpension.co.uk does not resolve, and
+    status.autoenrolment.co.uk is not a status page — it resolves into the multi-tenant customer
+    sign-in flow with `company_slug=status`, returning HTTP 406 to an anonymous client. There is
+    consequently no public incident or uptime feed for the Keystone API.
+
+environments:
+  detail: sandbox/smart-pension-sandbox.yml
+  production: https://api.autoenrolment.co.uk
+  sandbox: https://api.sandbox.autoenrolment.co.uk
+  development: https://api.dev.autoenrolment.co.uk
+
+x-evidence:
+  fetched: '2026-08-05'
+  sources:
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/7756f9f9959a5-getting-started?branch=main
+    http_status: 200
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/42d8d78e1463a-versions?branch=main
+    http_status: 200
+  - url: https://status.smartpension.co.uk/
+    http_status: 0
+    note: DNS does not resolve
+  - url: https://status.autoenrolment.co.uk/
+    http_status: 406
+    note: redirects into id.autoenrolment.co.uk customer sign-in, not a status page

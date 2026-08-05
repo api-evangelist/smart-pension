@@ -1,0 +1,1468 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Smart Pension Keystone API
+  version: 1.0.0
+extends: openapi/smart-pension-keystone-openapi.yml
+x-generated: '2026-08-05'
+x-method: generated
+x-rationale: 'The published Keystone OpenAPI declares 383 operations and NONE of them carries an operationId, and its 150 tags are used on operations
+  but never declared in a top-level tags[] block. Both are machine-consumption blockers: without operationIds no SDK generator, Arazzo workflow,
+  agent skill or MCP tool can address an operation by name, and undeclared tags leave every generated client with undocumented groupings. This
+  overlay adds an operationId to every operation, derived deterministically from the operation summary the provider already publishes (e.g. summary
+  "Employees/PresignedPost/Create" -> employeesPresignedPostCreate), plus a tags[] declaration. It adds NO semantics that were not already in
+  the document and it does not modify the harvested original.'
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/smart-pension
+    x-apievangelist-enriched: '2026-08-05'
+- target: $
+  update:
+    tags:
+    - name: Account-Claiming
+      description: Keystone Account-Claiming operations (8 operations).
+    - name: AccountSubaccountsSwitchPlans
+      description: Keystone AccountSubaccountsSwitchPlans operations (2 operations).
+    - name: Accounts
+      description: Keystone Accounts operations (1 operation).
+    - name: AddMoneyForms
+      description: Keystone AddMoneyForms operations (3 operations).
+    - name: AdditionalTaxResidences
+      description: Keystone AdditionalTaxResidences operations (5 operations).
+    - name: Adviser
+      description: Keystone Adviser operations (7 operations).
+    - name: AdviserCompanies
+      description: Keystone AdviserCompanies operations (2 operations).
+    - name: AdviserExports
+      description: Keystone AdviserExports operations (1 operation).
+    - name: AdviserInvitations
+      description: Keystone AdviserInvitations operations (3 operations).
+    - name: Advisers
+      description: Keystone Advisers operations (2 operations).
+    - name: Assessments
+      description: Keystone Assessments operations (2 operations).
+    - name: AvailableFunds
+      description: Keystone AvailableFunds operations (1 operation).
+    - name: AvailableGlidepath
+      description: Keystone AvailableGlidepath operations (1 operation).
+    - name: AvailableWithdrawalOptions
+      description: Keystone AvailableWithdrawalOptions operations (1 operation).
+    - name: BankAccountDetail
+      description: Keystone BankAccountDetail operations (5 operations).
+    - name: BankAccountDetails
+      description: Keystone BankAccountDetails operations (8 operations).
+    - name: Batch
+      description: Keystone Batch operations (1 operation).
+    - name: Benefit
+      description: Keystone Benefit operations (3 operations).
+    - name: BenefitCategories
+      description: Keystone BenefitCategories operations (2 operations).
+    - name: BenefitCheckResults
+      description: Keystone BenefitCheckResults operations (3 operations).
+    - name: BenefitEvidenceTypes
+      description: Keystone BenefitEvidenceTypes operations (1 operation).
+    - name: BenefitForm
+      description: Keystone BenefitForm operations (15 operations).
+    - name: BenefitGroupAutoAllocatorResults
+      description: Keystone BenefitGroupAutoAllocatorResults operations (2 operations).
+    - name: BenefitGroups
+      description: Keystone BenefitGroups operations (3 operations).
+    - name: BenefitMoneyOutState
+      description: Keystone BenefitMoneyOutState operations (1 operation).
+    - name: BenefitSchedule
+      description: Keystone BenefitSchedule operations (4 operations).
+    - name: BenefitStatements
+      description: Keystone BenefitStatements operations (3 operations).
+    - name: Benefits
+      description: Keystone Benefits operations (2 operations).
+    - name: Cities
+      description: Keystone Cities operations (1 operation).
+    - name: Companies
+      description: Keystone Companies operations (1 operation).
+    - name: Company
+      description: Keystone Company operations (6 operations).
+    - name: CompanyAutomations
+      description: Keystone CompanyAutomations operations (3 operations).
+    - name: CompanyBranding
+      description: Keystone CompanyBranding operations (4 operations).
+    - name: CompanyBrandingStocks
+      description: Keystone CompanyBrandingStocks operations (1 operation).
+    - name: CompanyExports
+      description: Keystone CompanyExports operations (3 operations).
+    - name: CompanyFees
+      description: Keystone CompanyFees operations (2 operations).
+    - name: CompanyLookup
+      description: Keystone CompanyLookup operations (2 operations).
+    - name: CompanyLookups
+      description: Keystone CompanyLookups operations (1 operation).
+    - name: CompanyRules
+      description: Keystone CompanyRules operations (1 operation).
+    - name: CompanySchemeDetails
+      description: Keystone CompanySchemeDetails operations (1 operation).
+    - name: Constants
+      description: Keystone Constants operations (1 operation).
+    - name: Contribution
+      description: Keystone Contribution operations (1 operation).
+    - name: Contributions
+      description: Keystone Contributions operations (6 operations).
+    - name: Countries
+      description: Keystone Countries operations (1 operation).
+    - name: Currency
+      description: Keystone Currency operations (1 operation).
+    - name: CustomAppStyling
+      description: Keystone CustomAppStyling operations (1 operation).
+    - name: Customer
+      description: Keystone Customer operations (8 operations).
+    - name: CustomerLead
+      description: Keystone CustomerLead operations (3 operations).
+    - name: DeclarationOfComplianceEmployeeTotals
+      description: Keystone DeclarationOfComplianceEmployeeTotals operations (1 operation).
+    - name: DiscountedValuation
+      description: Keystone DiscountedValuation operations (1 operation).
+    - name: Discovery
+      description: Keystone Discovery operations (1 operation).
+    - name: Documents
+      description: Keystone Documents operations (1 operation).
+    - name: EconomicZone
+      description: Keystone EconomicZone operations (1 operation).
+    - name: Employee
+      description: Keystone Employee operations (17 operations).
+    - name: EmployeeConfiguration
+      description: Keystone EmployeeConfiguration operations (2 operations).
+    - name: EmployeeExternalPensions
+      description: Keystone EmployeeExternalPensions operations (2 operations).
+    - name: EmployeeFundHoldings
+      description: Keystone EmployeeFundHoldings operations (3 operations).
+    - name: EmployeeRateRecommendation
+      description: Keystone EmployeeRateRecommendation operations (1 operation).
+    - name: EmployeeVerificationChecks
+      description: Keystone EmployeeVerificationChecks operations (3 operations).
+    - name: EmploymentCategory
+      description: Keystone EmploymentCategory operations (1 operation).
+    - name: EmploymentPeriods
+      description: Keystone EmploymentPeriods operations (1 operation).
+    - name: Enrolment
+      description: Keystone Enrolment operations (6 operations).
+    - name: EnrolmentEmployees
+      description: Keystone EnrolmentEmployees operations (1 operation).
+    - name: EnvelopeSigning
+      description: Keystone EnvelopeSigning operations (1 operation).
+    - name: Envelopes
+      description: Keystone Envelopes operations (1 operation).
+    - name: EstimateBenefitValuations
+      description: Keystone EstimateBenefitValuations operations (1 operation).
+    - name: Exports
+      description: Keystone Exports operations (2 operations).
+    - name: ExpressionOfWish
+      description: Keystone ExpressionOfWish operations (4 operations).
+    - name: ExternalEmployeeDataAvailability
+      description: Keystone ExternalEmployeeDataAvailability operations (1 operation).
+    - name: FeatureFlags
+      description: Keystone FeatureFlags operations (1 operation).
+    - name: FundSplits
+      description: Keystone FundSplits operations (1 operation).
+    - name: Funds
+      description: Keystone Funds operations (1 operation).
+    - name: Glidepaths
+      description: Keystone Glidepaths operations (1 operation).
+    - name: Group
+      description: Keystone Group operations (6 operations).
+    - name: HistoricalContribution
+      description: Keystone HistoricalContribution operations (1 operation).
+    - name: HistoricalContributions
+      description: Keystone HistoricalContributions operations (1 operation).
+    - name: HistoricalTransferIn
+      description: Keystone HistoricalTransferIn operations (1 operation).
+    - name: HistoricalTransferIns
+      description: Keystone HistoricalTransferIns operations (1 operation).
+    - name: Identity
+      description: Keystone Identity operations (3 operations).
+    - name: Import
+      description: Keystone Import operations (4 operations).
+    - name: IncomeAdequacyProjection
+      description: Keystone IncomeAdequacyProjection operations (1 operation).
+    - name: Individual
+      description: Keystone Individual operations (1 operation).
+    - name: InvestmentsPerformance
+      description: Keystone InvestmentsPerformance operations (1 operation).
+    - name: Jwks
+      description: Keystone Jwks operations (1 operation).
+    - name: LaterLifeProjection
+      description: Keystone LaterLifeProjection operations (1 operation).
+    - name: LegalBankLocation
+      description: Keystone LegalBankLocation operations (1 operation).
+    - name: Letter
+      description: Keystone Letter operations (2 operations).
+    - name: Letters
+      description: Keystone Letters operations (9 operations).
+    - name: MandateChargeSchedule
+      description: Keystone MandateChargeSchedule operations (3 operations).
+    - name: Mandates
+      description: Keystone Mandates operations (6 operations).
+    - name: MarketingPreference
+      description: Keystone MarketingPreference operations (4 operations).
+    - name: MembershipFees
+      description: Keystone MembershipFees operations (1 operation).
+    - name: MobileAppVersions
+      description: Keystone MobileAppVersions operations (1 operation).
+    - name: ModellerProjections
+      description: Keystone ModellerProjections operations (1 operation).
+    - name: MoneySummary
+      description: Keystone MoneySummary operations (1 operation).
+    - name: Nationalities
+      description: Keystone Nationalities operations (1 operation).
+    - name: NextPayPeriodDate
+      description: Keystone NextPayPeriodDate operations (1 operation).
+    - name: Notifications
+      description: Keystone Notifications operations (3 operations).
+    - name: NotificationsAccounts
+      description: Keystone NotificationsAccounts operations (1 operation).
+    - name: Onboarding
+      description: Keystone Onboarding operations (5 operations).
+    - name: OptInRequest
+      description: Keystone OptInRequest operations (3 operations).
+    - name: OverfundingThresholds
+      description: Keystone OverfundingThresholds operations (1 operation).
+    - name: PageVisit
+      description: Keystone PageVisit operations (1 operation).
+    - name: PaidInAmounts
+      description: Keystone PaidInAmounts operations (1 operation).
+    - name: Password
+      description: Keystone Password operations (2 operations).
+    - name: Payment
+      description: Keystone Payment operations (2 operations).
+    - name: PaymentApprovals
+      description: Keystone PaymentApprovals operations (2 operations).
+    - name: Payroll configuration details
+      description: Keystone Payroll configuration details operations (1 operation).
+    - name: Payroll configurations
+      description: Keystone Payroll configurations operations (3 operations).
+    - name: PayrollConfiguration
+      description: Keystone PayrollConfiguration operations (3 operations).
+    - name: PayrollConfigurationDetail
+      description: Keystone PayrollConfigurationDetail operations (5 operations).
+    - name: PensionForecast
+      description: Keystone PensionForecast operations (2 operations).
+    - name: PensionForecastInputs
+      description: Keystone PensionForecastInputs operations (1 operation).
+    - name: PensionlabConsent
+      description: Keystone PensionlabConsent operations (1 operation).
+    - name: Portfolios
+      description: Keystone Portfolios operations (3 operations).
+    - name: Postponement
+      description: Keystone Postponement operations (8 operations).
+    - name: PreviewContributionRates
+      description: Keystone PreviewContributionRates operations (1 operation).
+    - name: Projection
+      description: Keystone Projection operations (1 operation).
+    - name: Referrals
+      description: Keystone Referrals operations (1 operation).
+    - name: RegularIncomeProjection
+      description: Keystone RegularIncomeProjection operations (1 operation).
+    - name: Role
+      description: Keystone Role operations (3 operations).
+    - name: SSIF Import
+      description: Keystone SSIF Import operations (1 operation).
+    - name: SSIFHeadersMappings
+      description: Keystone SSIFHeadersMappings operations (6 operations).
+    - name: SSIFImports
+      description: Keystone SSIFImports operations (8 operations).
+    - name: Scheme
+      description: Keystone Scheme operations (2 operations).
+    - name: SchemesAvailableCurrencies
+      description: Keystone SchemesAvailableCurrencies operations (1 operation).
+    - name: StagingDate
+      description: Keystone StagingDate operations (1 operation).
+    - name: Subaccount Groups Valuations
+      description: Keystone Subaccount Groups Valuations operations (2 operations).
+    - name: Subaccounts
+      description: Keystone Subaccounts operations (3 operations).
+    - name: Summaries
+      description: Keystone Summaries operations (4 operations).
+    - name: Switches
+      description: Keystone Switches operations (3 operations).
+    - name: Tasks
+      description: Keystone Tasks operations (2 operations).
+    - name: Tax Preview
+      description: Keystone Tax Preview operations (1 operation).
+    - name: TaxInformationChange
+      description: Keystone TaxInformationChange operations (1 operation).
+    - name: TaxResidence
+      description: Keystone TaxResidence operations (4 operations).
+    - name: ThirdPartyPaymentProvider
+      description: Keystone ThirdPartyPaymentProvider operations (1 operation).
+    - name: ThirdPartyPaymentProviders
+      description: Keystone ThirdPartyPaymentProviders operations (3 operations).
+    - name: TodoItems
+      description: Keystone TodoItems operations (2 operations).
+    - name: Tokens
+      description: Keystone Tokens operations (4 operations).
+    - name: TotalFundsAMCs
+      description: Keystone TotalFundsAMCs operations (1 operation).
+    - name: Transactions
+      description: Keystone Transactions operations (2 operations).
+    - name: TransferIn
+      description: Keystone TransferIn operations (2 operations).
+    - name: TransferMoneyReview
+      description: Keystone TransferMoneyReview operations (1 operation).
+    - name: UltimateBeneficialOwnerAndConfiguration
+      description: Keystone UltimateBeneficialOwnerAndConfiguration operations (4 operations).
+    - name: UltimateBeneficialOwners
+      description: Keystone UltimateBeneficialOwners operations (2 operations).
+    - name: Urls
+      description: Keystone Urls operations (1 operation).
+    - name: User
+      description: Keystone User operations (7 operations).
+    - name: Valuations
+      description: Keystone Valuations operations (6 operations).
+    - name: VerificationChecks
+      description: Keystone VerificationChecks operations (3 operations).
+- target: $.paths['/account-claiming/confirm-personal-data'].post
+  update:
+    operationId: accountClaimingConfirmPersonalData
+- target: $.paths['/account-claiming/current-attempt'].get
+  update:
+    operationId: accountClaimingCurrentAttempt
+- target: $.paths['/account-claiming/attempts/{uuid}/'].get
+  update:
+    operationId: accountClaimingAttempt
+- target: $.paths['/account-claiming/password-validations'].get
+  update:
+    operationId: accountClaimingPasswordValidations
+- target: $.paths['/account-claiming/attempts/{uuid}/additional-data'].patch
+  update:
+    operationId: accountClaimingAttemptAdditionalData
+- target: $.paths['/account-claiming/attempts/{uuid}/email'].patch
+  update:
+    operationId: accountClaimingAttemptEmail
+- target: $.paths['/account-claiming/attempts/{uuid}/password'].patch
+  update:
+    operationId: accountClaimingAttemptPassword
+- target: $.paths['/account-claiming/attempts'].post
+  update:
+    operationId: accountClaimingAttempt2
+- target: $.paths['/accounts'].get
+  update:
+    operationId: listAllAccountsAssociatedWithTheAuthenticatedIdentity
+- target: $.paths['/adviser_companies'].post
+  update:
+    operationId: adviserCompanyCreate
+- target: $.paths['/adviser_companies/adviser/{adviser_id}/company/{company_id}'].patch
+  update:
+    operationId: adviserCompaniesUpdate
+- target: $.paths['/advisers'].post
+  update:
+    operationId: advisersCreate
+- target: $.paths['/advisers'].get
+  update:
+    operationId: advisersList
+- target: $.paths['/advisers/{adviser_id}/exports'].post
+  update:
+    operationId: exportsCreate
+- target: $.paths['/advisers/{adviser_id}/exports'].get
+  update:
+    operationId: exportsList
+- target: $.paths['/advisers/{adviser_id}/exports/{id}'].get
+  update:
+    operationId: advisersExportsGet
+- target: $.paths['/advisers/by_token'].get
+  update:
+    operationId: advisersGetByToken
+- target: $.paths['/advisers/{id}'].get
+  update:
+    operationId: advisersGet
+- target: $.paths['/advisers/{id}'].put
+  update:
+    operationId: advisersUpdate
+- target: $.paths['/advisers/{id}'].patch
+  update:
+    operationId: advisersUpdate2
+- target: $.paths['/advisers/{id}/managed-employees'].post
+  update:
+    operationId: advisersManagedEmployees
+- target: $.paths['/advisers/{adviser_id}/users'].post
+  update:
+    operationId: usersCreate
+- target: $.paths['/advisers/{adviser_id}/users'].get
+  update:
+    operationId: usersList
+- target: $.paths['/advisers/{adviser_id}/users/{id}'].delete
+  update:
+    operationId: usersDestroy
+- target: $.paths['/advisers/{adviser_id}/users/{id}'].get
+  update:
+    operationId: usersGet
+- target: $.paths['/advisers/{adviser_id}/users/{id}'].put
+  update:
+    operationId: usersUpdate
+- target: $.paths['/advisers/{adviser_id}/users/{id}'].patch
+  update:
+    operationId: usersUpdate2
+- target: $.paths['/batch'].post
+  update:
+    operationId: batch
+- target: $.paths['/employee/callbacks/smartpension'].get
+  update:
+    operationId: tokensCallback
+- target: $.paths['/cities/{country_code}/autocomplete'].get
+  update:
+    operationId: citiesAutocomplete
+- target: $.paths['/companies/{company_id}/adviser_invitations/{id}/cancel'].post
+  update:
+    operationId: companiesAdviserInvitationsCancel
+- target: $.paths['/companies/{company_id}/adviser_invitations'].post
+  update:
+    operationId: companiesAdviserInvitationsCreate
+- target: $.paths['/companies/{company_id}/adviser_invitations'].get
+  update:
+    operationId: companiesAdviserInvitationsList
+- target: $.paths['/companies/{company_id}/advisers/{id}'].delete
+  update:
+    operationId: companiesAdvisersDestroy
+- target: $.paths['/companies/{company_id}/advisers'].get
+  update:
+    operationId: companiesAdvisersList
+- target: $.paths['/companies/{company_id}/available_funds'].get
+  update:
+    operationId: availableFundsList
+- target: $.paths['/companies/{company_id}/bank_account_details'].post
+  update:
+    operationId: companiesBankAccountDetailsCreate
+- target: $.paths['/companies/{company_id}/bank_account_details'].get
+  update:
+    operationId: companiesBankAccountDetailsList
+- target: $.paths['/companies/{company_id}/bank_account_details/{id}'].delete
+  update:
+    operationId: companiesBankAccountDetailsDestroy
+- target: $.paths['/companies/{company_id}/bank_account_details/{id}'].get
+  update:
+    operationId: companiesBankAccountDetailsList2
+- target: $.paths['/companies/{company_id}/bank_account_details/{id}'].put
+  update:
+    operationId: companiesBankAccountDetailsUpdate
+- target: $.paths['/companies/{company_id}/bank_account_details/{id}'].patch
+  update:
+    operationId: companiesBankAccountDetailsUpdate2
+- target: $.paths['/companies/{company_id}/bank_account_details/managable'].get
+  update:
+    operationId: companiesBankAccountDetailsManagable
+- target: $.paths['/companies/{company_id}/bank_account_details/{bank_account_detail_id}/sensitive_data'].get
+  update:
+    operationId: companiesBankAccountDetailsSensitiveData
+- target: $.paths['/companies/{company_id}/benefit_group_auto_allocator_results/{id}'].get
+  update:
+    operationId: companiesBenefitGroupAutoAllocatorResultsGet
+- target: $.paths['/companies/{company_id}/benefit_group_auto_allocator_results'].get
+  update:
+    operationId: companiesBenefitGroupAutoAllocatorResultsList
+- target: $.paths['/companies/{company_id}/benefit_groups/{id}'].get
+  update:
+    operationId: companiesBenefitGroupsList
+- target: $.paths['/companies/{company_id}/benefit_groups'].get
+  update:
+    operationId: companiesBenefitGroupsList2
+- target: $.paths['/companies/{company_id}/benefit_statements/'].post
+  update:
+    operationId: companiesBenefitStatementsCreate
+- target: $.paths['/companies/{company_id}/company_automation'].get
+  update:
+    operationId: companyAutomationsGet
+- target: $.paths['/companies/{company_id}/company_automation'].put
+  update:
+    operationId: companyAutomationsUpdate
+- target: $.paths['/companies/{company_id}/company_automation'].patch
+  update:
+    operationId: companyAutomationsUpdate2
+- target: $.paths['/companies/{company_id}/company_branding'].post
+  update:
+    operationId: companyBrandingCreate
+- target: $.paths['/companies/{company_id}/company_branding'].get
+  update:
+    operationId: companyBrandingGet
+- target: $.paths['/companies/{company_id}/company_branding'].put
+  update:
+    operationId: companyBrandingUpdate
+- target: $.paths['/companies/{company_id}/company_branding'].patch
+  update:
+    operationId: companyBrandingUpdate2
+- target: $.paths['/companies/{company_id}/company_fees/{company_fee_id}/invoice'].get
+  update:
+    operationId: companyFeesInvoice
+- target: $.paths['/companies/{company_id}/company_fees'].get
+  update:
+    operationId: companyFeesList
+- target: $.paths['/companies/{company_id}/company_rules'].get
+  update:
+    operationId: companiesCompanyRulesGet
+- target: $.paths['/companies/{company_id}/contributions'].get
+  update:
+    operationId: companiesContributionsListWithHistoricalEmployeeData
+- target: $.paths['/companies/{company_id}/contributions/summary/payable'].get
+  update:
+    operationId: summariesPayableGet
+- target: $.paths['/companies/{company_id}/contributions/summary'].get
+  update:
+    operationId: summariesGet
+- target: $.paths['/companies/{company_id}/contributions/summary/totals'].get
+  update:
+    operationId: summariesTotalsGet
+- target: $.paths['/companies'].post
+  update:
+    operationId: companiesCreate
+- target: $.paths['/companies'].get
+  update:
+    operationId: companiesList
+- target: $.paths['/companies/{company_id}/style'].get
+  update:
+    operationId: customAppStylingGet
+- target: $.paths['/companies/{company_id}/customers'].post
+  update:
+    operationId: customersCreate
+- target: $.paths['/companies/{company_id}/customers'].get
+  update:
+    operationId: customersList
+- target: $.paths['/companies/{company_id}/customers/{id}'].delete
+  update:
+    operationId: customersDestroy
+- target: $.paths['/companies/{company_id}/customers/{id}'].get
+  update:
+    operationId: customersGet
+- target: $.paths['/companies/{company_id}/customers/{id}'].put
+  update:
+    operationId: customersUpdate
+- target: $.paths['/companies/{company_id}/customers/{id}'].patch
+  update:
+    operationId: customersUpdate2
+- target: $.paths['/companies/{company_id}/payment_approvals'].post
+  update:
+    operationId: paymentApprovalsCreate
+- target: $.paths['/companies/{company_id}/payment_approvals/permitted'].get
+  update:
+    operationId: paymentApprovalsPermittedGet
+- target: $.paths['/companies/{company_id}/customers/{customer_id}/role'].post
+  update:
+    operationId: customersRolesCreate
+- target: $.paths['/companies/{company_id}/customers/{customer_id}/role'].delete
+  update:
+    operationId: customersRolesDestroy
+- target: $.paths['/companies/{company_id}/customers/{customer_id}/role'].patch
+  update:
+    operationId: customersRolesUpdate
+- target: $.paths['/companies/{company_id}/declaration_of_compliance_employee_totals'].get
+  update:
+    operationId: declarationOfComplianceEmployeeTotalsList
+- target: $.paths['/companies/{company_id}/documents'].get
+  update:
+    operationId: documentsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/active_payroll_configuration'].get
+  update:
+    operationId: activePayrollConfigurationGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/add_money_forms/{type}'].post
+  update:
+    operationId: addMoneyFormsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/add_money_forms/{type}'].get
+  update:
+    operationId: addMoneyFormsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/add_money_forms/{type}/submit_ras_consent'].patch
+  update:
+    operationId: addMoneyFormsSubmitRasConsent
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/assessments/{id}'].get
+  update:
+    operationId: assessmentsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/assessments'].get
+  update:
+    operationId: assessmentsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/available_glidepaths'].get
+  update:
+    operationId: availableGlidepathsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/available_withdrawal_options'].get
+  update:
+    operationId: availableWithdrawalOptionsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/bank_account_detail'].post
+  update:
+    operationId: companiesEmployeesBankAccountDetailCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/bank_account_detail'].get
+  update:
+    operationId: companiesEmployeesBankAccountDetailGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/bank_account_detail'].put
+  update:
+    operationId: companiesEmployeesBankAccountDetailUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/bank_account_detail'].patch
+  update:
+    operationId: companiesEmployeesBankAccountDetailUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/bank_account_detail/validate'].post
+  update:
+    operationId: companiesEmployeesBankAccountDetailValidate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_rule_set_id}'].get
+  update:
+    operationId: benefitCategoriesGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories'].get
+  update:
+    operationId: benefitCategoriesList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits/{id}/benefit_check_results'].get
+  update:
+    operationId: benefitCheckResultsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits/{benefit_id}/benefit_check_results/{id}'].put
+  update:
+    operationId: benefitCheckResultsUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits/{benefit_id}/benefit_check_results/{id}'].patch
+  update:
+    operationId: benefitCheckResultsUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidences'].get
+  update:
+    operationId: benefitEvidenceTypesGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/confirm_all'].patch
+  update:
+    operationId: benefitEvidenceUploadsConfirmAll
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads'].post
+  update:
+    operationId: benefitEvidenceUploadsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads'].get
+  update:
+    operationId: benefitEvidenceUploadsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/{benefit_evidence_upload_id}'].delete
+  update:
+    operationId: benefitEvidenceUploadsDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/{benefit_evidence_upload_id}'].put
+  update:
+    operationId: benefitEvidenceUploadsUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/{benefit_evidence_upload_id}'].patch
+  update:
+    operationId: benefitEvidenceUploadsUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/benefit_question_responses/'].patch
+  update:
+    operationId: benefitQuestionResponsesUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/cancel'].post
+  update:
+    operationId: benefitFormsCancel
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form'].post
+  update:
+    operationId: benefitFormsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form'].put
+  update:
+    operationId: benefitFormsUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form'].patch
+  update:
+    operationId: benefitFormsUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/verification_url'].post
+  update:
+    operationId: benefitFormsGenerateVerificationUrl
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/verification_url'].get
+  update:
+    operationId: benefitFormsVerificationUrl
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form'].get
+  update:
+    operationId: benefitFormsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_form/submit'].post
+  update:
+    operationId: benefitFormsSubmit
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_group'].get
+  update:
+    operationId: benefitGroupsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_money_out_state'].get
+  update:
+    operationId: benefitMoneyOutStateGet
+- target: $.paths['/companies/{id}/employees/{employee_id}/benefit_categories/{benefit_rule_set_id}/tax_preview'].get
+  update:
+    operationId: taxPreviewGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_schedule'].delete
+  update:
+    operationId: benefitSchedulesDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_schedule'].get
+  update:
+    operationId: benefitSchedulesUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_schedule'].put
+  update:
+    operationId: benefitSchedulesUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_schedule'].patch
+  update:
+    operationId: benefitSchedulesUpdate3
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_statements'].post
+  update:
+    operationId: benefitStatementsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_statements/{id}'].get
+  update:
+    operationId: companiesEmployeesBenefitStatementsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits/{id}'].get
+  update:
+    operationId: benefitsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits'].get
+  update:
+    operationId: benefitsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits'].post
+  update:
+    operationId: employeesBenefitsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions'].post
+  update:
+    operationId: contributionsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions'].get
+  update:
+    operationId: contributionsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions/{id}'].delete
+  update:
+    operationId: contributionsDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions/{id}'].get
+  update:
+    operationId: contributionsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions/{id}'].put
+  update:
+    operationId: contributionsUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions/{id}'].patch
+  update:
+    operationId: contributionsUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/contributions/summary'].get
+  update:
+    operationId: summariesGet2
+- target: $.paths['/companies/{company_id}/employees'].post
+  update:
+    operationId: employeesCreate
+- target: $.paths['/companies/{company_id}/employees'].get
+  update:
+    operationId: companiesEmployeesListWithHistoricalEmployeeData
+- target: $.paths['/companies/{company_id}/employees/{id}'].delete
+  update:
+    operationId: companiesEmployeesDestroy
+- target: $.paths['/companies/{company_id}/employees/{id}'].get
+  update:
+    operationId: companiesEmployeesGet
+- target: $.paths['/companies/{company_id}/employees/{id}'].put
+  update:
+    operationId: employeesUpdate
+- target: $.paths['/companies/{company_id}/employees/{id}'].patch
+  update:
+    operationId: employeesUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/discounted_valuation'].get
+  update:
+    operationId: discountedValuationGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_configurations'].put
+  update:
+    operationId: employeeConfigurationUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_configurations'].patch
+  update:
+    operationId: employeeConfigurationUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_external_pensions/bulk_update'].post
+  update:
+    operationId: companiesEmployeesEmployeeExternalPensionsBulkUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_external_pensions'].get
+  update:
+    operationId: companiesEmployeesEmployeeExternalPensionsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_fund_holdings/{id}'].get
+  update:
+    operationId: companiesEmployeesEmployeeFundHoldingsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_fund_holdings'].get
+  update:
+    operationId: companiesEmployeesEmployeeFundHoldingsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/employee_funds_valuations'].get
+  update:
+    operationId: companiesEmployeesEmployeeFundsValuationsGet
+- target: $.paths['/companies/{company_id}/employees/{id}/employee_rate_recommendation'].post
+  update:
+    operationId: companiesEmployeesEmployeeRateRecommendationCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/expression_of_wish'].post
+  update:
+    operationId: companiesEmployeesExpressionOfWishCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/expression_of_wish'].get
+  update:
+    operationId: companiesEmployeesExpressionOfWishGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/expression_of_wish'].put
+  update:
+    operationId: companiesEmployeesExpressionOfWishUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/expression_of_wish'].patch
+  update:
+    operationId: companiesEmployeesExpressionOfWishUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/fund_splits'].get
+  update:
+    operationId: companiesEmployeesFundsSplitsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/glidepaths'].post
+  update:
+    operationId: glidepathsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/historical_contributions/{id}'].get
+  update:
+    operationId: historicalContributionGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/historical_contributions'].get
+  update:
+    operationId: historicalContributionList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/historical_transfer_ins/{id}'].get
+  update:
+    operationId: historicalTransferInGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/historical_transfer_ins'].get
+  update:
+    operationId: historicalTransferInsList
+- target: $.paths['/companies/{company_id}/employees/{id}/income_adequacy_projection'].post
+  update:
+    operationId: companiesEmployeesIncomeAdequacyProjectionCreateModes
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/investments_performance'].get
+  update:
+    operationId: investmentsPerformanceList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/later_life_projection'].get
+  update:
+    operationId: laterLifeProjectionGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/letters'].post
+  update:
+    operationId: lettersCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/letters'].get
+  update:
+    operationId: companiesEmployeesLettersList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/letters/{id}'].get
+  update:
+    operationId: lettersGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/letters/{id}'].put
+  update:
+    operationId: companiesEmployeesLettersUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/letters/{id}'].patch
+  update:
+    operationId: companiesEmployeesLettersUpdate2
+- target: $.paths['/companies/{company_id}/employees/{id}/moved_to_eu_company'].patch
+  update:
+    operationId: employeesMovedToEuCompany
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/opt_in_requests/{id}'].put
+  update:
+    operationId: companiesEmployeesOptInRequestsUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/opt_in_requests/{id}'].patch
+  update:
+    operationId: companiesEmployeesOptInRequestsUpdate2
+- target: $.paths['/companies/{company_id}/employees/{id}/opt_state'].get
+  update:
+    operationId: companiesEmployeesOptStatesGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/overfunding_threshold'].get
+  update:
+    operationId: overfundingThresholdsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/page_visits'].post
+  update:
+    operationId: employeesPageVisitsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/paid_in_amounts'].get
+  update:
+    operationId: paidInAmountsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/pension_forecast'].post
+  update:
+    operationId: companiesEmployeesPensionForecastInputsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/pension_forecast'].get
+  update:
+    operationId: companiesEmployeesPensionForecastInputsCreate2
+- target: $.paths['/companies/{company_id}/employees/{id}/pension_forecast_inputs'].get
+  update:
+    operationId: companiesEmployeesPensionForecastInputsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/pensionlab_consent'].get
+  update:
+    operationId: pensionlabConsentGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/portfolios'].post
+  update:
+    operationId: portfoliosCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/portfolios'].get
+  update:
+    operationId: portfoliosList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/portfolios/{id}'].get
+  update:
+    operationId: companiesEmployeesPortfoliosGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements'].post
+  update:
+    operationId: postponementCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements'].get
+  update:
+    operationId: postponementList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements/{id}'].delete
+  update:
+    operationId: postponementDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements/{id}'].get
+  update:
+    operationId: postponementGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements/{id}'].put
+  update:
+    operationId: postponementUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/postponements/{id}'].patch
+  update:
+    operationId: postponementUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/preview_contribution_rates'].get
+  update:
+    operationId: previewContributionRatesGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/regular_income_projection'].get
+  update:
+    operationId: regularIncomeProjectionGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/available_currencies'].get
+  update:
+    operationId: schemesAvailableCurrenciesList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccount_groups_valuations'].get
+  update:
+    operationId: subaccountGroupsValuationsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccounts/{uuid}/default_fund_splits'].get
+  update:
+    operationId: companiesEmployeesSubaccountsDefaultFundSplits
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccounts/{uuid}'].get
+  update:
+    operationId: companiesEmployeesSubaccountsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccounts'].get
+  update:
+    operationId: companiesEmployeesSubaccounts
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccounts/{subaccount_uuid}/projections'].post
+  update:
+    operationId: projectionsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tasks'].get
+  update:
+    operationId: tasksList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tax_information_change'].get
+  update:
+    operationId: companiesEmployeesTaxInformationChangeList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tax_residence'].post
+  update:
+    operationId: companiesEmployeesTaxResidenceCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tax_residence'].get
+  update:
+    operationId: companiesEmployeesTaxResidenceGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tax_residence'].put
+  update:
+    operationId: companiesEmployeesTaxResidenceUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/tax_residence'].patch
+  update:
+    operationId: companiesEmployeesTaxResidenceUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/todo_items/complete'].patch
+  update:
+    operationId: todoItemsComplete
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/todo_items'].get
+  update:
+    operationId: todoItemsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/transactions/{transaction_type}/{transaction_id}'].get
+  update:
+    operationId: transactionsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/transactions'].get
+  update:
+    operationId: transactionsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/transfer_ins/{id}'].get
+  update:
+    operationId: transferInGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/transfer_ins'].get
+  update:
+    operationId: transferInList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/transfer_money_review'].post
+  update:
+    operationId: transferMoneyReviewPost
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/valuations'].post
+  update:
+    operationId: valuationsCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/valuations'].get
+  update:
+    operationId: valuationsList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/valuations/{id}'].get
+  update:
+    operationId: valuationsGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/verification_checks/generate_verification_url'].post
+  update:
+    operationId: verificationChecksGenerateVerificationUrl
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/verification_checks/state'].get
+  update:
+    operationId: verificationChecksState
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/verification_checks/verification_url'].get
+  update:
+    operationId: verificationChecksGetVerificationUrl
+- target: $.paths['/companies/{company_id}/employment_categories'].get
+  update:
+    operationId: companiesEmploymentCategoriesList
+- target: $.paths['/companies/{company_id}/enrolments'].post
+  update:
+    operationId: companiesEnrolmentsCreate
+- target: $.paths['/companies/{company_id}/enrolments'].get
+  update:
+    operationId: companiesEnrolmentsList
+- target: $.paths['/companies/{company_id}/enrolments/{id}'].delete
+  update:
+    operationId: companiesEnrolmentsDestroy
+- target: $.paths['/companies/{company_id}/enrolments/{id}'].get
+  update:
+    operationId: companiesEnrolmentsGet
+- target: $.paths['/companies/{company_id}/enrolments/{id}'].put
+  update:
+    operationId: companiesEnrolmentsUpdate
+- target: $.paths['/companies/{company_id}/enrolments/{id}'].patch
+  update:
+    operationId: companiesEnrolmentsUpdate2
+- target: $.paths['/companies/{company_id}/enrolments/{enrolment_id}/employees'].get
+  update:
+    operationId: companiesEnrolmentsEmployeesList
+- target: $.paths['/companies/{company_id}/envelope'].get
+  update:
+    operationId: companiesEnvelopesGet
+- target: $.paths['/companies/{company_id}/envelope/remind'].post
+  update:
+    operationId: companiesEnvelopeRemindsCreate
+- target: $.paths['/companies/{company_id}/envelope/signing'].get
+  update:
+    operationId: companiesEnvelopeSigning
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/estimate_benefit_valuations'].get
+  update:
+    operationId: estimateBenefitValuationsGet
+- target: $.paths['/companies/{company_id}/exports'].post
+  update:
+    operationId: companiesExportsCreate
+- target: $.paths['/companies/{company_id}/exports'].get
+  update:
+    operationId: companiesExportsList
+- target: $.paths['/companies/{company_id}/exports/{id}'].get
+  update:
+    operationId: companiesExportsGet
+- target: $.paths['/companies/{company_id}/external_employee_data_availability'].get
+  update:
+    operationId: companiesExternalEmployeeDataAvailabilityGet
+- target: $.paths['/companies/{company_id}/funds'].get
+  update:
+    operationId: fundsList
+- target: $.paths['/companies/by_slug'].get
+  update:
+    operationId: companiesBySlugGet
+- target: $.paths['/companies/{company_id}'].get
+  update:
+    operationId: companiesGet
+- target: $.paths['/companies/{company_id}'].put
+  update:
+    operationId: companiesUpdate
+- target: $.paths['/companies/{company_id}'].patch
+  update:
+    operationId: companiesUpdate2
+- target: $.paths['/companies/{company_id}/groups'].post
+  update:
+    operationId: companiesGroupsCreate
+- target: $.paths['/companies/{company_id}/groups'].get
+  update:
+    operationId: companiesGroupsList
+- target: $.paths['/companies/{company_id}/groups/{id}'].delete
+  update:
+    operationId: companiesGroupsDestroy
+- target: $.paths['/companies/{company_id}/groups/{id}'].get
+  update:
+    operationId: companiesGroupsGet
+- target: $.paths['/companies/{company_id}/groups/{id}'].put
+  update:
+    operationId: companiesGroupsUpdate
+- target: $.paths['/companies/{company_id}/groups/{id}'].patch
+  update:
+    operationId: companiesGroupsUpdate2
+- target: $.paths['/companies/{company_id}/imports'].post
+  update:
+    operationId: importCreate
+- target: $.paths['/companies/{company_id}/imports'].get
+  update:
+    operationId: importList
+- target: $.paths['/companies/{company_id}/imports/{id}'].get
+  update:
+    operationId: importGet
+- target: $.paths['/companies/{company_id}/imports/{import_id}/import_results'].get
+  update:
+    operationId: importImportResultsList
+- target: $.paths['/companies/{company_id}/letters'].post
+  update:
+    operationId: companiesLettersCreate
+- target: $.paths['/companies/{company_id}/letters'].get
+  update:
+    operationId: companiesLettersListWithHistoricalEmployeeData
+- target: $.paths['/companies/{company_id}/letters/{id}'].delete
+  update:
+    operationId: companiesLettersDestroy
+- target: $.paths['/companies/{company_id}/letters/{id}'].get
+  update:
+    operationId: companiesLettersGet
+- target: $.paths['/companies/{company_id}/letters/postponement'].post
+  update:
+    operationId: companiesLettersPostponementCreate
+- target: $.paths['/companies/{company_id}/letters/welcome'].post
+  update:
+    operationId: companiesLettersWelcomeCreate
+- target: $.paths['/companies/{company_id}/mandate_charge_schedule'].post
+  update:
+    operationId: companiesMandateChargeScheduleCreate
+- target: $.paths['/companies/{company_id}/mandate_charge_schedule'].get
+  update:
+    operationId: companiesMandateChargeScheduleGet
+- target: $.paths['/companies/{company_id}/mandate_charge_schedule'].patch
+  update:
+    operationId: companiesMandateChargeScheduleUpdate
+- target: $.paths['/companies/{company_id}/membership_fees'].get
+  update:
+    operationId: companiesMembershipFeesGet
+- target: $.paths['/companies/{company_id}/next_pay_period_dates'].get
+  update:
+    operationId: companiesNextPayPeriodDatesList
+- target: $.paths['/companies/{company_id}/notifications'].post
+  update:
+    operationId: notificationsCreate
+- target: $.paths['/companies/{company_id}/notifications'].get
+  update:
+    operationId: notificationsList
+- target: $.paths['/companies/{company_id}/notifications/{id}'].delete
+  update:
+    operationId: notificationsDestroy
+- target: $.paths['/companies/{company_id}/opt_in_requests'].get
+  update:
+    operationId: companiesOptInRequestsList
+- target: $.paths['/companies/{company_id}/payments/{id}'].get
+  update:
+    operationId: companiesPaymentsGet
+- target: $.paths['/companies/{company_id}/payments'].get
+  update:
+    operationId: companiesPaymentsList
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/batch_create'].post
+  update:
+    operationId: payrollConfigurationDetailsBatchCreate
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/{id}'].get
+  update:
+    operationId: payrollConfigurationDetailsGet
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/{id}'].put
+  update:
+    operationId: payrollConfigurationDetails
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/{id}'].patch
+  update:
+    operationId: payrollConfigurationDetails2
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details'].get
+  update:
+    operationId: payrollConfigurationDetailsList
+- target: $.paths['/companies/{company_id}/payroll_configurations'].post
+  update:
+    operationId: payrollConfigurations
+- target: $.paths['/companies/{company_id}/payroll_configurations'].get
+  update:
+    operationId: payrollConfigurationsList
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}'].delete
+  update:
+    operationId: payrollConfigurationsDestroy
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}'].get
+  update:
+    operationId: payrollConfigurationsGet
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}'].put
+  update:
+    operationId: payrollConfigurations2
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_configuration_id}'].patch
+  update:
+    operationId: payrollConfigurations3
+- target: $.paths['/companies/{company_id}/payroll_configurations/{payroll_id}/preview_payroll_configuration_details'].post
+  update:
+    operationId: previewPayrollConfigurationDetails
+- target: $.paths['/companies/{company_id}/postponements'].post
+  update:
+    operationId: companiesPostponementsCreate
+- target: $.paths['/companies/{company_id}/postponements'].get
+  update:
+    operationId: companiesPostponementsListWithHistoricalEmployeeData
+- target: $.paths['/companies/{company_id}/scheme_details/{id}'].put
+  update:
+    operationId: companiesSchemeDetailsUpdate
+- target: $.paths['/companies/{company_id}/schemes'].get
+  update:
+    operationId: companiesSchemesList
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings'].post
+  update:
+    operationId: sSIFHeadersMappingsCreate
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings'].get
+  update:
+    operationId: sSIFHeadersMappingsList
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings/{id}'].delete
+  update:
+    operationId: sSIFHeadersMappingsDestroy
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings/{id}'].get
+  update:
+    operationId: sSIFHeadersMappingsList2
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings/{id}'].put
+  update:
+    operationId: sSIFHeadersMappingsUpdate
+- target: $.paths['/companies/{company_id}/ssif_headers_mappings/{id}'].patch
+  update:
+    operationId: sSIFHeadersMappingsUpdate2
+- target: $.paths['/companies/{company_id}/ssif_imports/{ssif_import_id}/assign_ssif_headers_mapping'].post
+  update:
+    operationId: sSIFImportsAssignSSIFHeadersMapping
+- target: $.paths['/companies/{company_id}/ssif_imports'].post
+  update:
+    operationId: sSIFImportsCreate
+- target: $.paths['/companies/{company_id}/ssif_imports'].get
+  update:
+    operationId: sSIFImportsList
+- target: $.paths['/companies/{company_id}/ssif_imports/{ssif_import_id}/file_headers'].get
+  update:
+    operationId: sSIFImportsFileHeaders
+- target: $.paths['/companies/{company_id}/ssif_imports/template'].get
+  update:
+    operationId: sSIFImportsTemplate
+- target: $.paths['/companies/{company_id}/ssif_imports/{ssif_import_id}'].get
+  update:
+    operationId: sSIFImportsGet
+- target: $.paths['/companies/{company_id}/ssif_imports/{ssif_import_id}/ssif_import_missing_employees'].get
+  update:
+    operationId: sSIFImportsSSIFImportMissingEmployeesList
+- target: $.paths['/companies/{company_id}/ssif_imports/{ssif_import_id}/ssif_import_results'].get
+  update:
+    operationId: sSIFImportsSSIFImportResultsList
+- target: $.paths['/companies/{company_id}/tasks'].get
+  update:
+    operationId: tasksList2
+- target: $.paths['/companies/{company_id}/third_party_payment_providers/{id}'].delete
+  update:
+    operationId: companiesThirdPartyPaymentProviderDestroy
+- target: $.paths['/companies/{company_id}/third_party_payment_providers/{id}'].get
+  update:
+    operationId: companiesThirdPartyPaymentProvidersGet
+- target: $.paths['/companies/{company_id}/third_party_payment_providers'].get
+  update:
+    operationId: companiesThirdPartyPaymentProvidersList
+- target: $.paths['/companies/{company_id}/third_party_payment_providers/{id}/sensitive_data'].get
+  update:
+    operationId: companiesThirdPartyPaymentProvidersGet2
+- target: $.paths['/companies/{company_id}/total_funds_amcs'].get
+  update:
+    operationId: companiesTotalFundsAmcsList
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owner_and_configuration'].post
+  update:
+    operationId: ultimateBeneficialOwnerAndConfigurationsCreate
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owner_and_configuration'].get
+  update:
+    operationId: companiesUltimateBeneficialOwnerAndConfigurationsGet
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owner_and_configuration'].put
+  update:
+    operationId: ultimateBeneficialOwnerAndConfigurationsUpdate
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owner_and_configuration'].patch
+  update:
+    operationId: ultimateBeneficialOwnerAndConfigurationsUpdate2
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owners/{id}'].get
+  update:
+    operationId: companiesUltimateBeneficialOwnersGet
+- target: $.paths['/companies/{company_id}/ultimate_beneficial_owners'].get
+  update:
+    operationId: companiesUltimateBeneficialOwnersList
+- target: $.paths['/company_branding_stocks'].get
+  update:
+    operationId: companyBrandingStocksList
+- target: $.paths['/company_lookups/{country_code}/{id}'].get
+  update:
+    operationId: companyLookupsGet
+- target: $.paths['/company_lookups/{id}'].get
+  update:
+    operationId: companyLookupsGet2
+- target: $.paths['/company_lookups'].get
+  update:
+    operationId: companyLookupsList
+- target: $.paths['/constants'].get
+  update:
+    operationId: constantsGet
+- target: $.paths['/countries/legal_bank_location'].get
+  update:
+    operationId: countriesLegalBankLocationList
+- target: $.paths['/countries'].get
+  update:
+    operationId: countriesList
+- target: $.paths['/countries/nationality'].get
+  update:
+    operationId: countriesNationalityList
+- target: $.paths['/currencies'].get
+  update:
+    operationId: currenciesList
+- target: $.paths['/customer_leads/'].post
+  update:
+    operationId: customerLeadsCreate
+- target: $.paths['/customer_leads/earliest_plan_effective_date'].get
+  update:
+    operationId: customerLeadsEarliestPlanEffectiveDate
+- target: $.paths['/customer_leads/{customer_lead_id}'].get
+  update:
+    operationId: companiesGet2
+- target: $.paths['/customers/password'].post
+  update:
+    operationId: passwordCreate
+- target: $.paths['/customers/referrals'].post
+  update:
+    operationId: customersReferralsCreate
+- target: $.paths['/customers/session'].get
+  update:
+    operationId: customersSession
+- target: $.paths['/economic_zones'].get
+  update:
+    operationId: economicZonesGet
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/additional_tax_residences'].post
+  update:
+    operationId: companiesAdditionalTaxResidencesCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/additional_tax_residences'].get
+  update:
+    operationId: companiesAdditionalTaxResidencesList
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/additional_tax_residences/{id}'].delete
+  update:
+    operationId: companiesAdditionalTaxResidencesDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/additional_tax_residences/{id}'].put
+  update:
+    operationId: companiesAdditionalTaxResidencesUpdate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/additional_tax_residences/{id}'].patch
+  update:
+    operationId: companiesAdditionalTaxResidencesUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/benefits/{id}/request_benefit_checks'].post
+  update:
+    operationId: employeesBenefitsRequestBenefitChecks
+- target: $.paths['/employees/employment_periods'].get
+  update:
+    operationId: employeesEmploymentPeriodsList
+- target: $.paths['/employees/marketing_preference'].put
+  update:
+    operationId: employeesMarketingPreferenceUpdate
+- target: $.paths['/employees/marketing_preference'].patch
+  update:
+    operationId: employeesMarketingPreferenceUpdate2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/money_summary'].get
+  update:
+    operationId: employeesMoneySummary
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/presigned_post'].post
+  update:
+    operationId: employeesPresignedPostCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/recurring_contribution_schedule'].post
+  update:
+    operationId: employeesRecurringContributionScheduleCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/recurring_contribution_schedule'].delete
+  update:
+    operationId: employeesRecurringContributionScheduleDestroy
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/recurring_contribution_schedule'].get
+  update:
+    operationId: employeesRecurringContributionScheduleShow
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/recurring_contribution_schedule'].patch
+  update:
+    operationId: employeesRecurringContributionScheduleUpdate
+- target: $.paths['/employees/retirement'].get
+  update:
+    operationId: employeesRetirement
+- target: $.paths['/employees/retirement_options'].get
+  update:
+    operationId: employeesRetirementOptions
+- target: $.paths['/employees/session'].get
+  update:
+    operationId: employeesSession
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/single_contribution_payments'].post
+  update:
+    operationId: employeesSingleContributionPaymentsCreate
+- target: $.paths['/employees/subaccount_groups_valuations'].get
+  update:
+    operationId: subaccountGroupsValuationsList2
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccount_switch_plans/{id}/confirm'].post
+  update:
+    operationId: employeesAccountSubaccountsSwitchPlansConfirm
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/subaccount_switch_plans'].post
+  update:
+    operationId: employeesAccountSubaccountsSwitchPlansCreate
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/switches/delayability'].get
+  update:
+    operationId: companiesEmployeesSwitchesDelayability
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/switches/request_for_current_holdings'].post
+  update:
+    operationId: companiesEmployeesSwitchesRequestForCurrentHoldings
+- target: $.paths['/companies/{company_id}/employees/{employee_id}/switches/request_monetary'].post
+  update:
+    operationId: companiesEmployeesSwitchesRequestMonetary
+- target: $.paths['/employees/valuations'].post
+  update:
+    operationId: valuationsCreate2
+- target: $.paths['/employees/valuations'].get
+  update:
+    operationId: valuationsList2
+- target: $.paths['/employees/valuations/{id}'].get
+  update:
+    operationId: valuationsGet2
+- target: $.paths['/feature_flags'].get
+  update:
+    operationId: featureFlagsList
+- target: $.paths['/identity/api/profiles/personal-data'].get
+  update:
+    operationId: identityProfilesPersonalData
+- target: $.paths['/identity/api/profiles/personal-data'].patch
+  update:
+    operationId: identityProfilesPersonalData2
+- target: $.paths['/identity/api/profiles/registration-data'].get
+  update:
+    operationId: identityProfilesRegistrationData
+- target: $.paths['/individuals/retirement_age'].put
+  update:
+    operationId: individualsRetirementAge
+- target: $.paths['/.well-known/jwks'].get
+  update:
+    operationId: jwksGet
+- target: $.paths['/'].get
+  update:
+    operationId: discoveryList
+- target: $.paths['/mobile_app_versions/{mobile_platform}'].get
+  update:
+    operationId: mobileAppVersionsGet
+- target: $.paths['/notifications/accounts'].post
+  update:
+    operationId: notificationsAccountsCreate
+- target: $.paths['/onboarding/accept-terms'].post
+  update:
+    operationId: onboardingAcceptTerms
+- target: $.paths['/onboarding/status'].get
+  update:
+    operationId: onboardingStatus
+- target: $.paths['/onboarding/options'].get
+  update:
+    operationId: onboardingOptions
+- target: $.paths['/onboarding/personal-data'].get
+  update:
+    operationId: onboardingPersonalData
+- target: $.paths['/onboarding/personal-data'].patch
+  update:
+    operationId: onboardingPersonalData2
+- target: $.paths['/partners/employees/{employee_id}/transfer_out'].post
+  update:
+    operationId: transferOutsCreate
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates/{mandate_uuid}/complete'].post
+  update:
+    operationId: companiesMandatesComplete
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates'].post
+  update:
+    operationId: companiesMandatesCreate
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates'].get
+  update:
+    operationId: companiesMandatesList
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates/{mandate_uuid}'].delete
+  update:
+    operationId: companiesMandatesDestroy
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates/{mandate_uuid}'].get
+  update:
+    operationId: companiesMandatesGet
+- target: $.paths['/payments_service/companies/{company_uuid}/mandates/{mandate_uuid}/select'].post
+  update:
+    operationId: companiesMandatesSelect
+- target: $.paths['/pension_forecast/modeller_projection'].post
+  update:
+    operationId: pensionForecastModellerProjectionsCreate
+- target: $.paths['/schemes/available'].get
+  update:
+    operationId: schemesAvailable
+- target: $.paths['/schemes/default'].get
+  update:
+    operationId: schemesDefault
+- target: $.paths['/ssif_imports/download_template'].get
+  update:
+    operationId: sSIFImportGet
+- target: $.paths['/oauth/token/info'].get
+  update:
+    operationId: tokensInfo
+- target: $.paths['/oauth/token'].post
+  update:
+    operationId: tokensCreate
+- target: $.paths['/refresh_token'].post
+  update:
+    operationId: tokensRefresh
+- target: $.paths['/tpr/staging_date'].get
+  update:
+    operationId: stagingDateGet
+- target: $.paths['/urls'].get
+  update:
+    operationId: urlsList
+- target: $.paths['/users/marketing_preference'].put
+  update:
+    operationId: advisersUsersMarketingPreferenceUpdate
+- target: $.paths['/users/marketing_preference'].patch
+  update:
+    operationId: advisersUsersMarketingPreferenceUpdate2
+- target: $.paths['/users/password'].post
+  update:
+    operationId: password
+- target: $.paths['/users/session'].get
+  update:
+    operationId: usersSession
+- target: $.paths['/verification_checks/generate_verification_url'].post
+  update:
+    operationId: verificationChecksGenerateVerificationUrl2
+- target: $.paths['/verification_checks/state'].get
+  update:
+    operationId: verificationChecksState2
+- target: $.paths['/verification_checks/verification_url'].get
+  update:
+    operationId: verificationChecksVerificationUrl

@@ -1,0 +1,70 @@
+generated: '2026-08-05'
+method: searched
+source: openapi/smart-pension-keystone-openapi.yml
+docs: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  bearer_header: 'Authorization: Bearer <access_token>'
+  partner_registration_required: true
+schemes:
+- name: oAuth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+    tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+    scopes: 3
+    audience: >-
+      Front-end applications acting for a resource owner (adviser "user", employer "customer",
+      or scheme member "employee"). Documented as the recommended flow for most integrations.
+  - flow: clientCredentials
+    tokenUrl: https://id.autoenrolment.co.uk/oauth/token
+    sandbox_tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+    scopes: 33
+    audience: >-
+      Machine-to-machine partner applications with no user context — documented as the advanced
+      integration, aimed at enterprise consumers such as trading platforms and banks.
+    request:
+      method: POST
+      headers:
+        Token-Type: jwt
+        Content-Type: application/json
+      body_params: [client_id, client_secret, grant_type, scope]
+    response_fields: [access_token, token_type, expires_in, scope, created_at]
+    token_type: Bearer
+    token_lifetime: 10 minutes
+  sources:
+  - openapi/smart-pension-keystone-openapi.yml
+  - https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+  - https://developers.autoenrolment.co.uk/smart/yd0a98nlh9e6c-using-client-credentials
+credential_issuance:
+  model: self-serve partner account, then manual scope enablement by Smart
+  sandbox_signup: https://partner.sandbox.autoenrolment.co.uk/partners/sign-up
+  production_signup: https://partner.autoenrolment.co.uk/partners/sign-up
+  sandbox_signin: https://id.sandbox.autoenrolment.co.uk/partner/sign-in
+  production_signin: https://id.autoenrolment.co.uk/partner/sign-in
+  notes: >-
+    A separate client_id / client_secret pair is required per environment. The client secret is
+    revealed only through a "Reset Secret" action in the partner panel. Requested scopes must then
+    be enabled on the application by Smart's API support team (api@smartpension.co.uk) before calls
+    succeed — an explicit manual step, not self-serve.
+unauthenticated_behaviour:
+  status: 401
+  header: 'WWW-Authenticate: Token realm="Application"'
+  observed_on: https://api.autoenrolment.co.uk/
+coverage:
+  operations_total: 383
+  operations_with_security: 349
+  operations_without_security: 34
+  note: >-
+    The spec declares no global `security` block; authentication is applied per operation. The
+    operations without a security requirement are predominantly account-claiming and
+    password-reset flows, which are pre-authentication by design.
+x-evidence:
+  fetched: '2026-08-05'
+  url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/8746c0c6c82b7-o-auth?branch=main
+  http_status: 200

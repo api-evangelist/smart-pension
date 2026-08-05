@@ -1,0 +1,158 @@
+generated: '2026-08-05'
+method: searched
+source: https://developers.autoenrolment.co.uk/smart/451fbda1e0bde-introduction
+spec_source: openapi/smart-pension-keystone-openapi.yml
+docs:
+- https://developers.autoenrolment.co.uk/smart/451fbda1e0bde-introduction
+- https://developers.autoenrolment.co.uk/smart/28783c05ecb6a-using-the-api
+format: custom
+rfc9457: false
+media_type: application/json
+note: >-
+  Keystone does NOT use RFC 9457 problem+json. It publishes its own error envelope with
+  code / title / detail / source. The envelope appears in two shapes — a bare object, and an array
+  under an `errors` key — and the documentation itself shows both, sometimes for the same status
+  code. Clients must normalise. Internal server errors (500) return an HTML page rather than JSON,
+  so error handling cannot assume a JSON body on failure.
+
+envelope:
+  fields:
+  - name: code
+    description: Numeric or string error code used to reference the error.
+  - name: title
+    description: Human-readable description of the error; intended for display in-line with the action.
+  - name: detail
+    description: Additional information about the error; intended for display beneath the title or as a tooltip.
+  - name: source
+    description: Indicates which part of the request caused the error, as a JSON-Pointer-like object.
+  shapes:
+  - single object
+  - array under the `errors` key (validation failures produce multiple)
+  example:
+    code: 1504
+    title: Offset must be greater than or equal to 0.
+    detail: You need to enter an offset which must be a numerical value greater or equal than 0.
+    source:
+      pointer: /data/attributes/offset
+
+response_codes:
+  success:
+  - {status: 200, description: Success, request performed as expected}
+  - {status: 201, description: Success, object created}
+  - {status: 204, description: Success, no content returned}
+  failure:
+  - {status: 400, description: Bad Request}
+  - {status: 401, description: Unauthorized}
+  - {status: 403, description: Forbidden}
+  - {status: 404, description: Not Found}
+  - {status: 406, description: Not Acceptable}
+  - {status: 413, description: Payload Too Large}
+  - {status: 422, description: Unprocessable Entity}
+  - {status: 429, description: Too Many Requests}
+  - {status: 500, description: Internal Server Error}
+
+problems:
+- status: 401
+  title: Unauthorized
+  detail: The accessor of the API is not authorised to access the endpoint.
+  body: none documented
+  spec_occurrences: 144
+  remediation: >-
+    Obtain or refresh an OAuth 2.0 access token. Client-credentials tokens expire after 10 minutes.
+    Confirm the token carries a scope that covers the resource and that Smart has enabled that scope
+    on the partner application.
+  source: docs + openapi
+- status: 403
+  title: Forbidden
+  detail: The request is forbidden due to business logic.
+  body_shape: '{"errors": {"code": ..., "title": ..., "detail": ...}}'
+  spec_occurrences: 79
+  remediation: >-
+    Not an auth failure — a domain rule refused the action. Spec descriptions name concrete cases:
+    the caller's role is employee, the employee already has a contribution, or the employee is
+    already re-enrolled. Read `detail` and surface it to the user.
+  source: docs + openapi
+- status: 404
+  title: Not Found
+  detail: The requested resource was not found.
+  body: none documented
+  spec_occurrences: 147
+  remediation: >-
+    Verify the id or slug and that the parent resource in the path (usually company_id) is one the
+    token can access. Note that spelling of this description is inconsistent in the spec
+    ("Not Found", "Not found", "Not Fund").
+  source: docs + openapi
+- status: 405
+  title: Action not allowed
+  detail: Cannot perform requested action.
+  code: '55555'
+  body_shape: '{"code": "55555", "title": "Action not allowed", "detail": "Cannot perform requested action."}'
+  meaning: A resource state does not permit further changes.
+  spec_occurrences: 1
+  remediation: Re-read the resource and check its `state` before retrying the transition.
+  source: docs + openapi
+- status: 409
+  title: Error while processing request.
+  detail: We are processing your request, please try again later.
+  code: '99999'
+  body_shape: '{"errors": [{"code": "99999", "title": ..., "detail": ...}]}'
+  meaning: The resource being accessed is not unique, or an async operation is still in flight.
+  spec_occurrences: 4
+  remediation: >-
+    Retry after a delay. Because the API publishes no idempotency key, a retried write may create a
+    duplicate — dedupe on your own payroll external_id before retrying a contribution or employee POST.
+  source: docs + openapi
+- status: 422
+  title: Invalid parameters
+  detail: The request raised validation errors or is unprocessable.
+  body_shape: '{"errors": {"code": ..., "title": ..., "detail": ..., "source": {"pointer": ...}}}'
+  spec_occurrences: 150
+  remediation: >-
+    Read `source.pointer` to locate the offending attribute. This is the dominant failure mode of
+    the contributions and employee endpoints; validation failures return several errors at once.
+  source: docs + openapi
+- status: 429
+  title: Too Many Requests
+  detail: A published per-endpoint rate limit was exceeded.
+  spec_occurrences: 0
+  documented_in_spec: false
+  remediation: >-
+    Back off and retry. Default limit is 500 req/min; employee list/create are 80 req/min and
+    contribution create is 250 req/min. See rate-limits/smart-pension-rate-limits.yml. No
+    Retry-After header is published.
+  source: docs
+- status: 500
+  title: Internal Server Error
+  detail: Something went wrong on the server.
+  body: HTML page (not JSON)
+  remediation: >-
+    Do not attempt to JSON-parse the body. Capture the `x-request-id` response header and raise a
+    ticket through the Support section.
+  source: docs
+- status: 531
+  title: Non-standard error status
+  detail: >-
+    Two operations in the spec declare a 531 response — "with missing investment_returns_long_term"
+    and "Error - when missing platform configuration". 531 is outside the IANA HTTP status registry;
+    clients treating anything 5xx as retryable will retry a configuration error that will not resolve.
+  spec_occurrences: 2
+  source: openapi
+
+coverage:
+  operations_total: 383
+  operations_with_4xx_or_5xx: 324
+  responses_401: 144
+  responses_403: 79
+  responses_404: 147
+  responses_422: 150
+  json_error_bodies: 180
+  text_plain_error_bodies: 31
+  text_html_error_bodies: 13
+
+x-evidence:
+  fetched: '2026-08-05'
+  sources:
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/451fbda1e0bde-introduction?branch=main
+    http_status: 200
+  - url: https://stoplight.io/api/v1/projects/cHJqOjEyNDU4NA/nodes/28783c05ecb6a-using-the-api?branch=main
+    http_status: 200

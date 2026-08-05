@@ -1,0 +1,69 @@
+generated: '2026-08-05'
+method: generated
+provider: smart-pension
+api: openapi/smart-pension-keystone-openapi.yml
+note: >-
+  Packaged agent operating instructions for the three marquee Keystone flows named in Smart's own
+  "Flows" guide: payroll software submitting contributions, the PAPDIS light-integration import
+  path, and the read-only member/banking-app journey. Every step is grounded in an operation that
+  exists in the published OpenAPI. Because the provider's spec declares NO operationIds, the ids
+  used in these skills are the deterministic ones added by
+  overlays/smart-pension-keystone-overlay.yaml, derived from the provider's own operation
+  summaries — the method + path is given alongside every id so a reader can verify against the raw
+  spec.
+skills:
+- file: smart-pension-submit-payroll-contributions.md
+  name: Submit payroll contributions to a Smart Pension scheme
+  api: openapi/smart-pension-keystone-openapi.yml
+  audience: payroll software
+  scope: customer
+  operations:
+  - companiesEmployeesListWithHistoricalEmployeeData
+  - companiesEmployeesOptStatesGet
+  - contributionsCreate
+  - contributionsList
+  - contributionsUpdate2
+  - summariesGet
+  - summariesPayableGet
+  - batch
+- file: smart-pension-import-papdis-file.md
+  name: Import a PAPDIS contribution file into Smart Pension
+  api: openapi/smart-pension-keystone-openapi.yml
+  audience: payroll software (light integration)
+  scope: customer
+  operations:
+  - importCreate
+  - importList
+  - importGet
+  - importImportResultsList
+- file: smart-pension-read-member-pension-value.md
+  name: Read a member's pension value for a banking or benefits app
+  api: openapi/smart-pension-keystone-openapi.yml
+  audience: banking apps, HR and employee-benefits platforms
+  scope: employee
+  operations:
+  - listAllAccountsAssociatedWithTheAuthenticatedIdentity
+  - employeesSession
+  - valuationsList2
+  - valuationsGet2
+  - companiesEmployeesEmployeeFundHoldingsList
+  - companiesEmployeesFundsSplitsList
+  - contributionsList
+  - companiesEmployeesOptStatesGet
+  - employeesRetirementOptions
+cross_cutting_rules:
+- >-
+  An employer is a `company`, a scheme member is an `employee`, the employer's admin is a
+  `customer`. The API reflects the database, not the pensions domain.
+- >-
+  There is NO idempotency key. A retried write can duplicate a pension contribution. Always read
+  back before retrying, and dedupe on the payroll `external_id` you control.
+- >-
+  There are NO webhooks and no event stream. Change detection is by polling and by re-reading
+  member state before each pay run.
+- >-
+  Errors are a custom code/title/detail/source envelope, NOT RFC 9457, and arrive either as an
+  object or as an array under `errors`. 500s return HTML, not JSON.
+- >-
+  Client-credentials tokens expire after 10 minutes; scopes must be enabled on the application by
+  Smart before they work.
