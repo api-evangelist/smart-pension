@@ -15,7 +15,7 @@ image: https://cdn.prod.website-files.com/5ce68aba5375cabb8f952335/5d8a243dcd466
 url: https://raw.githubusercontent.com/api-evangelist/smart-pension/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.21'
+specificationVersion: '0.23'
 created: '2026-08-05'
 modified: '2026-08-05'
 tags:
