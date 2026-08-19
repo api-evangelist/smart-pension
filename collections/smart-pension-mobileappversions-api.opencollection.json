@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Mobile App Versions API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MobileAppVersions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "MobileAppVersions/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/mobile_app_versions/:mobile_platform",
+            "params": [
+              {
+                "name": "mobile_platform",
+                "value": "ios",
+                "type": "path",
+                "description": "Mobile platform (ios or android)"
+              }
+            ]
+          },
+          "docs": "MobileAppVersions/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

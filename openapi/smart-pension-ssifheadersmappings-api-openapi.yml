@@ -1,0 +1,455 @@
+openapi: 3.2.0
+info:
+  title: Keystone SSIF Headers Mappings API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: SSIFHeadersMappings
+paths:
+  /companies/{company_id}/ssif_headers_mappings:
+    post:
+      summary: SSIFHeadersMappings/Create
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1317
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_params:
+                value:
+                  name: HeadersMapping
+                  schema:
+                    example_attribute_1: ExampleAttribute1
+                    example_attribute_2: ExampleAttribute2
+                  one_time: false
+              invalid_name_parameters:
+                value:
+                  name: null
+                  schema:
+                    example_attribute_1: ExampleAttribute1
+                    example_attribute_2: ExampleAttribute2
+                  one_time: false
+              invalid_schema_parameters:
+                value:
+                  name: HeadersMapping
+                  schema:
+                    example_attribute_1: ExampleAttribute1
+                  one_time: false
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                one_time:
+                  type: boolean
+                  enum:
+                  - true
+                  - false
+                schema:
+                  type: object
+              required:
+              - name
+              - schema
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                active: true
+                company_id: 1317
+                deleted_at: null
+                name: HeadersMapping
+                one_time: false
+                schema:
+                  example_attribute_1: ExampleAttribute1
+                  example_attribute_2: ExampleAttribute2
+                created_at: '2026-08-05T13:04:41.448+01:00'
+                updated_at: '2026-08-05T13:04:41.448+01:00'
+              schema:
+                $ref: '#/components/schemas/response_ssif_headers_mapping'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 10306
+                  title: Some of the headers are not mapped.
+                  detail: 'Headers: "example_attribute_2" are not mapped.'
+                  meta:
+                    unmapped_headers:
+                    - example_attribute_2
+                  source:
+                    pointer: /data/attributes/schema
+    get:
+      summary: SSIFHeadersMappings/List
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1334
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                data:
+                - id: 14
+                  active: true
+                  company_id: 1334
+                  deleted_at: null
+                  name: SHM1
+                  one_time: false
+                  schema:
+                    example_attribute_1: test1
+                    example_attribute_2: test2
+                  created_at: '2026-08-05T13:04:45.086+01:00'
+                  updated_at: '2026-08-05T13:04:45.086+01:00'
+                - id: 15
+                  active: false
+                  company_id: 1334
+                  deleted_at: '2026-08-04T13:04:45.088+01:00'
+                  name: SHM1
+                  one_time: false
+                  schema:
+                    example_attribute_1: test3
+                    example_attribute_2: test4
+                  created_at: '2026-08-05T13:04:45.089+01:00'
+                  updated_at: '2026-08-05T13:04:45.089+01:00'
+              schema:
+                $ref: '#/components/schemas/response_ssif_headers_mapping'
+  /companies/{company_id}/ssif_headers_mappings/{id}:
+    delete:
+      summary: SSIFHeadersMappings/Destroy
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1320
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 2
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Forbidden when ssif_headers_mapping does not exist
+          content:
+            application/json:
+              examples:
+                ssif_headers_mapping_belong_to_other_company:
+                  value: ''
+                ssif_headers_mapping_does_not_exist:
+                  value: ''
+        '405':
+          description: Not allowed when ssif_headers_mapping is inactive
+    get:
+      summary: SSIFHeadersMappings/List
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1325
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 5
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 5
+                active: true
+                company_id: 1325
+                deleted_at: null
+                name: SHM1
+                one_time: false
+                schema:
+                  example_attribute_1: test1
+                  example_attribute_2: test2
+                created_at: '2026-08-05T13:04:43.933+01:00'
+                updated_at: '2026-08-05T13:04:43.933+01:00'
+              schema:
+                $ref: '#/components/schemas/response_ssif_headers_mapping'
+        '404':
+          description: Failing when mapping does not exist
+    put:
+      summary: SSIFHeadersMappings/Update
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1336
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 17
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_params:
+                value:
+                  name: UpdatedHeadersMapping
+                  schema:
+                    example_attribute_1: ExampleUpdatedAttribute1
+                    example_attribute_2: ExampleUpdatedAttribute2
+                  one_time: false
+              invalid_parameters:
+                value:
+                  name: null
+                  schema:
+                    example_attribute_1: ExampleUpdatedAttribute1
+                    example_attribute_2: ExampleUpdatedAttribute2
+                  one_time: false
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                one_time:
+                  type: boolean
+                  enum:
+                  - true
+                  - false
+                schema:
+                  type: object
+              required:
+              - name
+              - schema
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 18
+                active: true
+                company_id: 1336
+                deleted_at: null
+                name: UpdatedHeadersMapping
+                one_time: false
+                schema:
+                  example_attribute_1: ExampleUpdatedAttribute1
+                  example_attribute_2: ExampleUpdatedAttribute2
+                created_at: '2026-08-05T13:04:45.000+01:00'
+                updated_at: '2026-08-05T13:04:45.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_ssif_headers_mapping'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Name is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/name
+    patch:
+      summary: SSIFHeadersMappings/Update
+      tags:
+      - SSIFHeadersMappings
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1338
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 20
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_params:
+                value:
+                  name: UpdatedHeadersMapping
+                  schema:
+                    example_attribute_1: ExampleUpdatedAttribute1
+                    example_attribute_2: ExampleUpdatedAttribute2
+                  one_time: false
+              invalid_parameters:
+                value:
+                  name: null
+                  schema:
+                    example_attribute_1: ExampleUpdatedAttribute1
+                    example_attribute_2: ExampleUpdatedAttribute2
+                  one_time: false
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                one_time:
+                  type: boolean
+                  enum:
+                  - true
+                  - false
+                schema:
+                  type: object
+              required:
+              - name
+              - schema
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 21
+                active: true
+                company_id: 1338
+                deleted_at: null
+                name: UpdatedHeadersMapping
+                one_time: false
+                schema:
+                  example_attribute_1: ExampleUpdatedAttribute1
+                  example_attribute_2: ExampleUpdatedAttribute2
+                created_at: '2026-08-05T13:04:46.000+01:00'
+                updated_at: '2026-08-05T13:04:46.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_ssif_headers_mapping'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Name is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/name
+components:
+  schemas:
+    response_ssif_headers_mapping:
+      type: object
+      properties:
+        id:
+          type: integer
+        active:
+          type:
+          - boolean
+          - 'null'
+        company_id:
+          type: integer
+        deleted_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        name:
+          type:
+          - string
+          - 'null'
+        one_time:
+          type: boolean
+        schema:
+          type: object
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

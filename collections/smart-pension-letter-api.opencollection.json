@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Letter API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Letter",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Letters/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/letters",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1135",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Letters/Create"
+        },
+        {
+          "info": {
+            "name": "Companies/Letters/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/letters/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Letters/Destroy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

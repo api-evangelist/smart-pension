@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Investments Performance API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InvestmentsPerformance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "InvestmentsPerformance/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/investments_performance",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "698",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "343",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "start_date=2026-03-01",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "end_date=2026-03-31",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "InvestmentsPerformance/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

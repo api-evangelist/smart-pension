@@ -1,0 +1,390 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Groups API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitGroups
+paths:
+  /companies/{company_id}/benefit_groups/{id}:
+    get:
+      summary: Companies/BenefitGroups/List
+      tags:
+      - BenefitGroups
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 84
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 14
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 14
+                name: Group 14
+                employee_contribution_holiday_permitted: false
+                company_contribution_holiday_permitted: false
+                band_range_type: no_grouping
+                employer_earnings_type: earnings_1
+                employee_earnings_type: earnings_1
+                employer_salary_cap: null
+                employee_salary_cap: null
+                voluntary_enrolment: false
+                profit_share_allowed: false
+                contribution_match_type: null
+                stop_contributions_permitted: true
+                enrolment_type: automatic
+                bands: []
+              schema:
+                $ref: '#/components/schemas/response_benefit_group'
+        '401':
+          description: Unauthorized
+  /companies/{company_id}/benefit_groups:
+    get:
+      summary: Companies/BenefitGroups/List
+      tags:
+      - BenefitGroups
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 88
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit for pagination. Defaults to 20 if not provided.
+        required: false
+        schema:
+          type: integer
+        example: limit=2
+      - name: offset
+        in: query
+        description: Offset for pagination. Defaults to 0 if not provided.
+        required: false
+        schema:
+          type: integer
+        example: offset=1
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: direction
+        in: query
+        description: Sort order for the results. Can be "asc" or "desc". Defaults to "asc" if not provided.
+        required: false
+        schema:
+          type: string
+      - name: operator
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/86/benefit_groups
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/86/benefit_groups?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/86/benefit_groups?offset=0&limit=50
+                    benefit_groups:
+                    - id: 16
+                      name: Group 16
+                      employee_contribution_holiday_permitted: false
+                      company_contribution_holiday_permitted: false
+                      band_range_type: no_grouping
+                      employer_earnings_type: earnings_1
+                      employee_earnings_type: earnings_1
+                      employer_salary_cap: null
+                      employee_salary_cap: null
+                      voluntary_enrolment: false
+                      profit_share_allowed: false
+                      contribution_match_type: null
+                      stop_contributions_permitted: true
+                      enrolment_type: automatic
+                      bands: []
+                filtered_by_owner_type:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/88/benefit_groups
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/88/benefit_groups?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/88/benefit_groups?offset=0&limit=50
+                    benefit_groups:
+                    - id: 24
+                      name: Group 24
+                      employee_contribution_holiday_permitted: false
+                      company_contribution_holiday_permitted: false
+                      band_range_type: no_grouping
+                      employer_earnings_type: earnings_1
+                      employee_earnings_type: earnings_1
+                      employer_salary_cap: null
+                      employee_salary_cap: null
+                      voluntary_enrolment: false
+                      profit_share_allowed: false
+                      contribution_match_type: null
+                      stop_contributions_permitted: true
+                      enrolment_type: automatic
+                      bands: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_groups:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_group'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+  /companies/{company_id}/employees/{employee_id}/benefit_group:
+    get:
+      summary: BenefitGroups/Get
+      tags:
+      - BenefitGroups
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 409
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 168
+        schema:
+          type: string
+      - name: age
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: years_of_service
+        in: query
+        schema:
+          type: integer
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 33
+                name: Group 33
+                employee_contribution_holiday_permitted: false
+                company_contribution_holiday_permitted: false
+                band_range_type: no_grouping
+                employer_earnings_type: earnings_1
+                employee_earnings_type: earnings_1
+                employer_salary_cap: null
+                employee_salary_cap: null
+                voluntary_enrolment: false
+                profit_share_allowed: false
+                contribution_match_type: null
+                stop_contributions_permitted: true
+                enrolment_type: automatic
+                bands: []
+              schema:
+                $ref: '#/components/schemas/response_benefit_group'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_band:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_minimum_percentage:
+          type: number
+          format: float
+        employee_maximum_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_percentage:
+          type: number
+          format: float
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type: string
+          format: date
+        range_min:
+          type:
+          - integer
+          - 'null'
+        range_max:
+          type:
+          - integer
+          - 'null'
+        default:
+          type: boolean
+    response_benefit_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        employee_contribution_holiday_permitted:
+          type: boolean
+        company_contribution_holiday_permitted:
+          type: boolean
+        band_range_type:
+          type:
+          - string
+          - 'null'
+        employer_earnings_type:
+          type: string
+        employee_earnings_type:
+          type: string
+        employer_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        voluntary_enrolment:
+          type: boolean
+        profit_share_allowed:
+          type: boolean
+        contribution_match_type:
+          type:
+          - string
+          - 'null'
+        stop_contributions_permitted:
+          type: boolean
+        national_insurance_saving_share:
+          type:
+          - number
+          - 'null'
+          format: float
+        enrolment_type:
+          type:
+          - string
+          - 'null'
+        bands:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_band'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

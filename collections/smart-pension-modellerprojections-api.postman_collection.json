@@ -1,0 +1,202 @@
+{
+  "item": [
+    {
+      "id": "e5d5f27f-7914-4d29-931d-696c0ea6ed59",
+      "name": "ModellerProjections",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18563711-a9d9-4f96-a37f-c2f2122db7b3",
+          "name": "PensionForecast/ModellerProjections/Create",
+          "request": {
+            "name": "PensionForecast/ModellerProjections/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "pension_forecast",
+                "modeller_projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<string>\",\n  \"gender\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "658fd8b7-36c2-4c8c-aaaf-3fef48d20a52",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pension_forecast",
+                    "modeller_projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_birth\": \"1963-05-05\",\n  \"date_of_calculation\": \"2020-10-10\",\n  \"date_of_retirement\": \"2022-05-05\",\n  \"gender\": \"Male\",\n  \"inflation_rate\": 2.7,\n  \"fund_values\": [\n    {\n      \"value\": 250,\n      \"investment_returns\": {\n        \"long_term\": {\n          \"0\": 2\n        },\n        \"market_rates\": {\n          \"0\": 1\n        }\n      },\n      \"contribution_allocation_percentage\": 100,\n      \"annual_management_charge\": 0\n    }\n  ],\n  \"employee_contribution_salary\": 24000,\n  \"employer_contribution_salary\": 24000,\n  \"employee_contribution_salary_cap\": 20000,\n  \"employer_contribution_salary_cap\": 20000,\n  \"contribution_percentages\": [\n    {\n      \"from\": \"1900-01-01\",\n      \"employee_rate\": 1,\n      \"employer_rate\": 1.5,\n      \"avc_rate\": 2.5\n    }\n  ],\n  \"employee_amount_contribution\": 600,\n  \"contribution_charges\": {\n    \"employee\": 0,\n    \"employer\": 0,\n    \"other_avc\": 0\n  },\n  \"fees\": 0,\n  \"increase_factors\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limits\": {\n    \"age_min\": 58,\n    \"age_max\": 60,\n    \"value_min\": 0,\n    \"value_max\": 4000\n  },\n  \"values_per_age\": [\n    {\n      \"age\": 58,\n      \"value_in_real_terms\": 1173.03,\n      \"pension_in_real_terms\": 50.18\n    },\n    {\n      \"age\": 59,\n      \"value_in_real_terms\": 2698.65,\n      \"pension_in_real_terms\": 117.94\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef253b86-bc3b-4c7e-a18b-e2719c58369c",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pension_forecast",
+                    "modeller_projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_birth\": \"1963-05-05\",\n  \"date_of_calculation\": \"2020-10-10\",\n  \"date_of_retirement\": \"2022-05-05\",\n  \"gender\": \"Male\",\n  \"inflation_rate\": 2.7,\n  \"fund_values\": [\n    {\n      \"value\": 250,\n      \"investment_returns\": {\n        \"long_term\": {\n          \"0\": 2\n        },\n        \"market_rates\": {\n          \"0\": 1\n        }\n      },\n      \"contribution_allocation_percentage\": 100,\n      \"annual_management_charge\": 0\n    }\n  ],\n  \"employee_contribution_salary\": 24000,\n  \"employer_contribution_salary\": 24000,\n  \"employee_contribution_salary_cap\": 20000,\n  \"employer_contribution_salary_cap\": 20000,\n  \"contribution_percentages\": [\n    {\n      \"from\": \"1900-01-01\",\n      \"employee_rate\": 1,\n      \"employer_rate\": 1.5,\n      \"avc_rate\": 2.5\n    }\n  ],\n  \"employee_amount_contribution\": 600,\n  \"contribution_charges\": {\n    \"employee\": 0,\n    \"employer\": 0,\n    \"other_avc\": 0\n  },\n  \"fees\": 0,\n  \"increase_factors\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 106,\n      \"title\": \"There was a problem within PensionForecast calculator.\",\n      \"detail\": \"PensionForecast faced errors with passed inputs: Invalid inputs inflation_rate: is missing.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"pension_forecast_calculator_invalid_inputs\",\n      \"meta\": {\n        \"error_message\": \"Invalid inputs inflation_rate: is missing\"\n      },\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1c4af015-d78a-47fc-95ae-8cf3cfc326e8",
+    "name": "Keystone Modeller Projections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

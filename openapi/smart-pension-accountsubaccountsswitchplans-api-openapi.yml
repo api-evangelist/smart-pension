@@ -1,0 +1,284 @@
+openapi: 3.2.0
+info:
+  title: Keystone Account Subaccounts Switch Plans API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: AccountSubaccountsSwitchPlans
+paths:
+  /companies/{company_id}/employees/{employee_id}/subaccount_switch_plans/{id}/confirm:
+    post:
+      summary: Employees/AccountSubaccountsSwitchPlans/Confirm
+      tags:
+      - AccountSubaccountsSwitchPlans
+      security:
+      - oAuth2:
+        - user
+        - employee
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 1557
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 764
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                Not found when plan with given id does not exist:
+                  value: ''
+  /companies/{company_id}/employees/{employee_id}/subaccount_switch_plans:
+    post:
+      summary: Employees/AccountSubaccountsSwitchPlans/Create
+      tags:
+      - AccountSubaccountsSwitchPlans
+      security:
+      - oAuth2:
+        - user
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1563
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 767
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              source_subaccount_uuid: 1d47b063-4ee1-422a-a7da-2cf5418fc821
+              target_subaccount_uuid: 91ea94ac-03af-4386-ac77-b5633e87afcf
+              amount: 200
+              age: 65
+            schema:
+              type: object
+              properties:
+                target_subaccount_uuid:
+                  type: string
+                source_subaccount_uuid:
+                  type: string
+                switch_type:
+                  type: string
+                amount: {}
+                age:
+                  type: integer
+              required:
+              - target_subaccount_uuid
+              - source_subaccount_uuid
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 3
+                account_id: 767
+                source_subaccount_uuid: 1d47b063-4ee1-422a-a7da-2cf5418fc821
+                target_subaccount_uuid: 91ea94ac-03af-4386-ac77-b5633e87afcf
+                switch_type: partial
+                moved_amount_currency: GBP
+                moved_amount: 200
+                source_current_balance_amount_currency: GBP
+                source_current_balance_amount: 10
+                source_new_balance_amount_currency: GBP
+                source_new_balance_amount: -190
+                target_current_balance_amount_currency: GBP
+                target_current_balance_amount: 10
+                target_new_balance_amount_currency: GBP
+                target_new_balance_amount: 210
+                source_current_projection_age: null
+                source_new_projection_age: null
+                target_current_projection_age: null
+                target_new_projection_age: null
+                source_current_projection_amount_currency: null
+                source_current_projection_amount: null
+                source_new_projection_amount_currency: null
+                source_new_projection_amount: null
+                target_current_projection_amount_currency: null
+                target_current_projection_amount: null
+                target_new_projection_amount_currency: null
+                target_new_projection_amount: null
+                released: false
+                created_at: '2026-08-05T13:06:06.386+01:00'
+                updated_at: '2026-08-05T13:06:06.386+01:00'
+              schema:
+                $ref: '#/components/schemas/response_account_subaccount_switch_plan'
+        '422':
+          description: Invalid parameters
+components:
+  schemas:
+    response_account_subaccount_switch_plan:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_id:
+          type: integer
+        source_subaccount_uuid:
+          type: string
+        target_subaccount_uuid:
+          type: string
+        switch_type:
+          type: string
+        moved_amount_currency:
+          type:
+          - string
+          - 'null'
+        moved_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_current_balance_amount_currency:
+          type: string
+        source_current_balance_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_new_balance_amount_currency:
+          type: string
+        source_new_balance_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        target_current_balance_amount_currency:
+          type: string
+        target_current_balance_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        target_new_balance_amount_currency:
+          type: string
+        target_new_balance_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_current_projection_age:
+          type:
+          - integer
+          - 'null'
+        source_new_projection_age:
+          type:
+          - integer
+          - 'null'
+        target_current_projection_age:
+          type:
+          - integer
+          - 'null'
+        target_new_projection_age:
+          type:
+          - integer
+          - 'null'
+        source_current_projection_amount_currency:
+          type:
+          - string
+          - 'null'
+        source_current_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_new_projection_amount_currency:
+          type:
+          - string
+          - 'null'
+        source_new_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        target_current_projection_amount_currency:
+          type:
+          - string
+          - 'null'
+        target_current_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        target_new_projection_amount_currency:
+          type:
+          - string
+          - 'null'
+        target_new_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        released:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,245 @@
+openapi: 3.2.0
+info:
+  title: Keystone Subaccount Groups Valuations API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Subaccount Groups Valuations
+paths:
+  /companies/{company_id}/employees/{employee_id}/subaccount_groups_valuations:
+    get:
+      summary: SubaccountGroupsValuations/List
+      tags:
+      - Subaccount Groups Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 860
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 459
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 2
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/859/employees/458/subaccount_groups_valuations
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/859/employees/458/subaccount_groups_valuations?offset=0&limit=2
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/859/employees/458/subaccount_groups_valuations?offset=0&limit=2
+                    subaccount_groups_valuations:
+                    - name: group_a
+                      amount: 250
+                      currency: GBP
+                    - name: group_b
+                      amount: 500
+                      currency: GBP
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  subaccount_groups_valuations:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_subaccount_group_valuation'
+              example:
+                limit: 0
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/860/employees/459/subaccount_groups_valuations
+                - rel: prev
+                  title: prev
+                  href: http://api.host.com/companies/860/employees/459/subaccount_groups_valuations?offset=0&limit=0
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/860/employees/459/subaccount_groups_valuations?offset=0&limit=0
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/860/employees/459/subaccount_groups_valuations?offset=0&limit=0
+                subaccount_groups_valuations: []
+        '401':
+          description: Unauthorized
+  /employees/subaccount_groups_valuations:
+    get:
+      summary: SubaccountGroupsValuations/List
+      tags:
+      - Subaccount Groups Valuations
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 2
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/employees/subaccount_groups_valuations
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/employees/subaccount_groups_valuations?offset=0&limit=2
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/employees/subaccount_groups_valuations?offset=0&limit=2
+                    subaccount_groups_valuations:
+                    - name: group_a
+                      amount: 250
+                      currency: GBP
+                    - name: group_b
+                      amount: 500
+                      currency: GBP
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  subaccount_groups_valuations:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_subaccount_group_valuation'
+              example:
+                limit: 0
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/employees/subaccount_groups_valuations
+                - rel: prev
+                  title: prev
+                  href: http://api.host.com/employees/subaccount_groups_valuations?offset=0&limit=0
+                - rel: first
+                  title: first
+                  href: http://api.host.com/employees/subaccount_groups_valuations?offset=0&limit=0
+                - rel: last
+                  title: last
+                  href: http://api.host.com/employees/subaccount_groups_valuations?offset=0&limit=0
+                subaccount_groups_valuations: []
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    response_subaccount_group_valuation:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        currency:
+          type:
+          - string
+          - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

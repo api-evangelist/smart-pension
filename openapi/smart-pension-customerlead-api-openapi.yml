@@ -1,0 +1,315 @@
+openapi: 3.2.0
+info:
+  title: Keystone Customer Lead API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CustomerLead
+paths:
+  /customer_leads/:
+    post:
+      summary: CustomerLeads/Create
+      tags:
+      - CustomerLead
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  last_name: Riviera
+                  first_name: Fernando
+                  email: name@email.com
+                  role: finance_accounting
+                  other_role: ''
+                  telephone: '+18183991234'
+                  company_name: Stark Enterprise
+                  privacy_policy_accepted: true
+              invalid_parameters:
+                value:
+                  role: test
+            schema:
+              type: object
+              properties:
+                last_name:
+                  type: string
+                  x-ruby-regexp: (?-mix:\A[[:alpha:]\s`'\-]*\z)
+                  minimum: 2
+                  maximum: 80
+                first_name:
+                  type: string
+                  x-ruby-regexp: (?-mix:\A[[:alpha:]\s`'\-]*\z)
+                  maximum: 100
+                email:
+                  type: string
+                  minimum: 6
+                  maximum: 70
+                role:
+                  type: string
+                  enum:
+                  - hr
+                  - finance_accounting
+                  - owner_principal_ceo
+                  - other
+                other_role:
+                  type: string
+                telephone:
+                  type: string
+                company_name:
+                  type: string
+                  minimum: 2
+                  maximum: 115
+                  x-ruby-regexp: (?-mix:\A[^<>]*\z)
+                privacy_policy_accepted:
+                  type: boolean
+              required:
+              - first_name
+              - last_name
+              - email
+              - role
+              - telephone
+              - company_name
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                last_name: Riviera
+                first_name: Fernando
+                email: name@email.com
+                role: finance_accounting
+                other_role: null
+                telephone: '+18183991234'
+                company_name: Stark Enterprise
+                enrolment_details:
+                  company_details:
+                    company_name: Stark Enterprise
+                enrolment_state: started
+                sgid: eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMT9leHBpcmVzX2luPTg2NDAwIiwiZXhwIjoiMjAyNi0wOC0wNlQxMjowNToyMi45NzVaIiwicHVyIjoiZGVmYXVsdCJ9fQ==--709d3e987a963a46ca026ce0b414a051aecd198c
+              schema:
+                $ref: '#/components/schemas/response_customer_lead'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 190008
+                  title: Value can not be blank.
+                  detail: Enter a first name.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/first_name
+                - code: 190011
+                  title: Value can not be blank.
+                  detail: Enter a last name.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/last_name
+                - code: 190013
+                  title: Value is too short.
+                  detail: Enter a last name with two to 80 characters.
+                  meta:
+                    count: 2
+                  source:
+                    pointer: /data/attributes/last_name
+                - code: 190003
+                  title: Value can not be blank.
+                  detail: Enter an email address.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/email
+                - code: 190004
+                  title: Email address is not valid.
+                  detail: 'Enter an email address in the format: name@example.com.'
+                  meta:
+                    mx_with_fallback: true
+                    ban_disposable_email: true
+                  source:
+                    pointer: /data/attributes/email
+                - code: 190005
+                  title: Email is too short.
+                  detail: Enter an email address with six to 70 characters.
+                  meta:
+                    count: 6
+                  source:
+                    pointer: /data/attributes/email
+                - code: 190017
+                  title: Value can not be blank.
+                  detail: Enter a phone number.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/telephone
+                - code: 100002
+                  title: Value is not valid for the field.
+                  detail: 'Role should be one of the following values: hr, finance_accounting, owner_principal_ceo, and other.'
+                  meta:
+                    values:
+                    - hr
+                    - finance_accounting
+                    - owner_principal_ceo
+                    - other
+                    value: test
+                  source:
+                    pointer: /data/attributes/role
+                - code: 190019
+                  title: Value can not be blank.
+                  detail: Enter a company name.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/company_name
+                - code: 190021
+                  title: Value is too short.
+                  detail: Enter a company name with two to 115 characters.
+                  meta:
+                    count: 2
+                  source:
+                    pointer: /data/attributes/company_name
+                - code: 190024
+                  title: Value can not be blank.
+                  detail: Confirm you have read and agree to the privacy policy.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/privacy_policy_accepted
+  /customer_leads/earliest_plan_effective_date:
+    get:
+      summary: CustomerLeads/EarliestPlanEffectiveDate
+      tags:
+      - CustomerLead
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                earliest_plan_effective_on: '2026-09-19'
+  /customer_leads/{customer_lead_id}:
+    get:
+      summary: Companies/Get
+      tags:
+      - CustomerLead
+      parameters:
+      - name: customer_lead_id
+        in: path
+        required: true
+        example: 2
+        schema:
+          type: string
+      - name: Token
+        in: header
+        required: false
+        example: eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMiIsImV4cCI6IjIwMjYtMDktMDVUMTI6MDU6MjMuNzA2WiIsInB1ciI6ImRlZmF1bHQifX0=--ccaee34f29ddd4d783311272ccdd74df25b8ea22
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success - Getting a customer lead. You can fetch a customer lead with the company ID or the slug
+          content:
+            application/json:
+              example:
+                id: 2
+                last_name: Mills
+                first_name: Benjamin
+                email: 7847b2bb-e464-4425-b764-a764f77af3fb@example.com
+                role: finance_accounting
+                other_role: null
+                telephone: '+18183999507'
+                company_name: Dennis Hunter
+                enrolment_details:
+                  company_details:
+                    taxed_as: null
+                    telephone: '+18183992631'
+                    entity_type: Limited Company
+                    company_name: Dennis Hunter
+                    mailing_address:
+                      city: Signal Hill
+                      state: New Jersey
+                      address1: 0169 Village Green Center
+                      address2: null
+                      address_postcode: '82101'
+                    physical_address:
+                      city: Dinuba
+                      state: Massachusetts
+                      address1: 10163 Little Fleur Pass
+                      address2: null
+                      address_postcode: 03149
+                    tax_year_end_day: 30
+                    tax_year_end_month: 10
+                    number_of_employees: 6
+                    registration_number: 31-6790289
+                    state_of_incorporation: vermont
+                    use_mailing_address_as_physical_address: false
+                enrolment_state: started
+              schema:
+                $ref: '#/components/schemas/response_customer_lead'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_customer_lead:
+      type: object
+      properties:
+        id:
+          type: integer
+        last_name:
+          type: string
+        first_name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        other_role:
+          type:
+          - string
+          - 'null'
+        telephone:
+          type: string
+        company_name:
+          type:
+          - string
+          - 'null'
+        enrolment_details:
+          type: object
+        enrolment_state:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

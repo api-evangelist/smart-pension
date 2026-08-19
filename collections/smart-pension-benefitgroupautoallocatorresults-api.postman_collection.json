@@ -1,0 +1,785 @@
+{
+  "item": [
+    {
+      "id": "16d12e11-6956-40e5-95c1-01fc4e2e6a2f",
+      "name": "BenefitGroupAutoAllocatorResults",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b319f65e-8fce-425a-b2ee-eb39ea4ec2ac",
+          "name": "Companies/BenefitGroupAutoAllocatorResults/Get",
+          "request": {
+            "name": "Companies/BenefitGroupAutoAllocatorResults/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "benefit_group_auto_allocator_results",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "eacd2073-d179-4419-be01-433585a8f7d0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"employee_id\": 12,\n  \"employee_name\": \"Bursar Jane Alvarez\",\n  \"benefit_group_eligibility_criteria\": {},\n  \"eligibility_facts\": {},\n  \"previous_benefit_group_id\": null,\n  \"previous_benefit_group_name\": null,\n  \"current_benefit_group_id\": 2,\n  \"current_benefit_group_name\": \"Group 2\",\n  \"eligible_benefit_groups\": [\n    2\n  ],\n  \"state\": \"updated\",\n  \"reason_of_failure\": null,\n  \"effective_date\": \"05 August, 2026\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ee47abf-2f85-473a-964f-44364c533e1a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd0ed277-f602-448c-ab85-4f3e15cc4af7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1846b2e1-44d4-4041-947e-b14e91c496d1",
+          "name": "Companies/BenefitGroupAutoAllocatorResults/List",
+          "request": {
+            "name": "Companies/BenefitGroupAutoAllocatorResults/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "benefit_group_auto_allocator_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "Sort order for the results. Can be \"asc\" or \"desc\". Defaults to \"asc\" if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit for pagination. Defaults to 20 if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset for pagination. Defaults to 0 if not provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[created_at][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[created_at][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employment_period][employee_id]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "38ca107d-e7a2-4ddd-b305-9a56a2958a0e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employment_period][employee_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/65/benefit_group_auto_allocator_results\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/65/benefit_group_auto_allocator_results?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/65/benefit_group_auto_allocator_results?offset=0&limit=50\"\n    }\n  ],\n  \"benefit_group_auto_allocator_run_results\": [\n    {\n      \"id\": 4,\n      \"employee_id\": 15,\n      \"employee_name\": \"Dr Melissa Shaw\",\n      \"benefit_group_eligibility_criteria\": {},\n      \"eligibility_facts\": {},\n      \"previous_benefit_group_id\": null,\n      \"previous_benefit_group_name\": null,\n      \"current_benefit_group_id\": 5,\n      \"current_benefit_group_name\": \"Group 5\",\n      \"eligible_benefit_groups\": [\n        5\n      ],\n      \"state\": \"updated\",\n      \"reason_of_failure\": null,\n      \"effective_date\": \"05 August, 2026\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d494dee-47ff-4ef2-967f-26c6132cfe53",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employment_period][employee_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "107ef316-eed6-4349-8055-9def9f161cea",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "benefit_group_auto_allocator_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employment_period][employee_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1503,\n      \"title\": \"Offset must be numerical.\",\n      \"detail\": \"You need to enter an offset which must be a numerical value greater or equal than 0.\",\n      \"meta\": {\n        \"value\": \"bad-value\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/offset\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fece022f-d09c-41f7-9dc6-8a6ac1287294",
+    "name": "Keystone Benefit Group Auto Allocator Results API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Custom App Styling API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomAppStyling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CustomAppStyling/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/style",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "206",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "CustomAppStyling/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

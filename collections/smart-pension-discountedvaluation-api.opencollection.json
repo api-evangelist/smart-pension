@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Discounted Valuation API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "DiscountedValuation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DiscountedValuation/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/discounted_valuation",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "575",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "259",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "DiscountedValuation/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

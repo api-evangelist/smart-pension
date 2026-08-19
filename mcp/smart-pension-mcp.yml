@@ -4,23 +4,23 @@ status: candidate
 source: openapi/smart-pension-keystone-openapi.yml
 published_by_provider: false
 note: Smart Pension publishes NO MCP server. Searched the developer portal, the smartpension GitHub organisation,
-  and the web; nothing was found, and no /mcp or /.well-known/ MCP surface exists on any Smart host (the API origin
-  returns 401 on every path except /.well-known/jwks). The tools below are a CANDIDATE set derived from the published
-  OpenAPI — a proposal for what a Keystone MCP server would expose for the three integration journeys Smart documents
-  (payroll contributions, PAPDIS import, member read). Each tool names its backing operation, and that operation's
-  parameters and requestBody in the spec are its real input schema. Nothing here is deployed and none of it should
-  be presented as a Smart product.
+  and the web; nothing was found, and no /mcp or /.well-known/ MCP surface exists on any Smart host (the
+  API origin returns 401 on every path except /.well-known/jwks). The tools below are a CANDIDATE set
+  derived from the published OpenAPI — a proposal for what a Keystone MCP server would expose for the
+  three integration journeys Smart documents (payroll contributions, PAPDIS import, member read). Each
+  tool names its backing operation, and that operation's parameters and requestBody in the spec are its
+  real input schema. Nothing here is deployed and none of it should be presented as a Smart product.
 server:
   name: smart-pension-keystone
   transport: http
   url: null
 agent_safety:
-- 'No idempotency contract exists: create_contribution and create_employee are NOT safe to retry blindly. Any agent
-  must read back before retrying.'
-- create_contribution moves money into a pension. Treat as a consequential write requiring confirmation, not an
-  autonomous action.
-- Member valuation reads return personal financial data about an identified individual and must be bound to an employee-scoped
-  authorization-code token, never a broad machine token.
+- 'No idempotency contract exists: create_contribution and create_employee are NOT safe to retry blindly.
+  Any agent must read back before retrying.'
+- create_contribution moves money into a pension. Treat as a consequential write requiring confirmation,
+  not an autonomous action.
+- Member valuation reads return personal financial data about an identified individual and must be bound
+  to an employee-scoped authorization-code token, never a broad machine token.
 tool_count: 29
 tools:
 - name: list_companies
@@ -197,3 +197,9 @@ tools:
   source_operation: openapi/smart-pension-keystone-openapi.yml#batch
   http: POST /batch
   input_schema_source: parameters + requestBody of that operation in the OpenAPI
+deployment:
+  mode: none
+  verified: derived
+  tools: 29
+  checked: '2026-08-12'
+  source: catalog MCP census

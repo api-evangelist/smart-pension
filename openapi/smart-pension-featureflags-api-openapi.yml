@@ -1,0 +1,230 @@
+openapi: 3.2.0
+info:
+  title: Keystone Feature Flags API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: FeatureFlags
+paths:
+  /feature_flags:
+    get:
+      summary: FeatureFlags/List
+      tags:
+      - FeatureFlags
+      security:
+      - oAuth2:
+        - user
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                account_claiming: false
+                account_matching: false
+                account_matching_ui: false
+                additional_membership_notifications: false
+                address_check_for_withdrawal_journey: false
+                adviser_communications_branding: false
+                adviser_invitation_email: false
+                allow_create_employee_with_exit_details: false
+                annual_statements_for_printing: false
+                api_webhooks_for_pcs: false
+                automated_bank_details_check: false
+                bank_statement_transactions: false
+                bank_verification_name_control: false
+                benefit_automate_comms: false
+                benefit_instructions: false
+                beta_employer_app: false
+                brs_individuals: false
+                calculate_funds_original_cost: false
+                check_contribution_limits: false
+                company_address_extensions: false
+                company_aml_check: false
+                company_gone_away_flags: false
+                company_migration_multiple_products: false
+                configurable_benefit_paye_export: false
+                configured_autoenrolment_company_rules: false
+                contractual_enrolment: false
+                contribution_amount_tolerance_configuration: false
+                contribution_type_enabled: false
+                create_bacs_for_all_payable_contributions: false
+                crm_employment_category: false
+                custom_collection_date: false
+                custom_comms: false
+                custom_retirement_advice: false
+                data_retention_exports_removal: false
+                delayed_memberships: false
+                disable_late_payments: false
+                employee_dashboard_improvements: false
+                employee_one_off_payments: false
+                employee_page_tracking: false
+                employee_passed_nra_validation: false
+                enable_role_based_access: false
+                exit_statement_letter_automation: false
+                exited_employees_visibility: false
+                external_oidc_id_ui: false
+                external_oidc_provider_configurations: false
+                fe_employee_direct_payment_enabled: false
+                fe_employee_recurring_payment_enabled: false
+                fe_profile_hide_account_claim: false
+                fe_ras_claim_enabled: false
+                frontend_oauth_callback: false
+                generate_pdfs_using_rendering_service: false
+                hargreaves_R2_release: false
+                hargreaves_R3_release: false
+                hargreaves_oow_starts_on_upload_date: false
+                hide_sensitive_company_in_crm: false
+                individuals: false
+                membership_event_edit: false
+                missed_contribution_query: false
+                next_pay_period_report: false
+                payment_automation: false
+                payments_service_enabled: false
+                pbs_statement_letter_projection_section: false
+                pension_dashboard_reporting: false
+                polar_company_contributions_migration: false
+                pre_retirement_education: false
+                recent_contribution_ends_on_filter: false
+                recurring_contribution_schedules: false
+                redirection_enabled_frontend: false
+                reuse_completed_benefit_form_tasks: false
+                scheme_currency: false
+                scheme_wind_up: false
+                send_email_on_single_contribution_creation: false
+                skip_percentages_for_unusual_amount_reason: false
+                ssif_export_enabled: false
+                ssif_headers_mapping: false
+                ssif_imports_employee_nino_mismatch_validator_enabled: false
+                state_effective_on: false
+                subaccounts: false
+                suppress_letters_creation: false
+                target_retirement_age_employee_age_offset: false
+                tax_relief_summary: false
+                to_subaccount_splits: false
+                tradeless_adjustments: false
+                transfer_in_drafts: false
+                transfers_subaccounts: false
+                adviser_quicksight_dashboard: false
+                company_details_direct_debit_charging: false
+                compare_funds_v2: false
+                compare_investments_five_yr: false
+                employer_quicksight_dashboard: false
+                gavc_employee: false
+                individual_ee_contribution_creation: false
+                keystone_assessment: false
+                member_investments_improvements: false
+                multiple_retirement_pots: false
+                new_employer_sign_up_flow: false
+                pension_balance_chart_contributions: false
+                pension_balance_chart_five_year: false
+                pension_calculator_modes: false
+                scoped_adviser_invitations: false
+                sif_upload_enhancements: false
+                verify_member_data_before_withdrawal: false
+                benefit_group_import: false
+                benefit_group_removal: false
+                benefit_with_switch: false
+                broker_portal: false
+                charge_configurations.disable_fund_set_differentials: false
+                charge_sets.application_in_company_creation_processes: false
+                company_enhanced_compliance_data_collection: false
+                cookie_manager_one_trust: false
+                cookie_manager_required: false
+                cookie_manager_user_centrics: false
+                custom_app_stylings: false
+                direct_debit_company_task_required: false
+                display_subaccounts: false
+                download_mobile_app_banner: false
+                fe_ee_identity_login: false
+                fe_kyc_mccoy_enabled: false
+                generic_pdf_rendering: false
+                identity: false
+                identity_partial_match: false
+                identity_portal_migration: false
+                identity_predictions_in_crm: false
+                identity_ui: false
+                ifa_reports_enhancements_2026: false
+                individual_ee_creation: false
+                investment_return: false
+                kota_integration: false
+                laver_leisure_jlg: false
+                leaver_fees: false
+                legislatorial_retirement_setting: false
+                letters_per_subaccount_groups: false
+                live_employee_fund_holdings: false
+                login_redesign: false
+                manage_charge_package_assignees: false
+                mccoy_intergration_enabled: false
+                mfa_email_otp: false
+                mohre_api_integration: false
+                niac_er_todo_list_migration: false
+                partner_api: false
+                payment_schedules: false
+                payments_out_import: false
+                pdf_custom_headers_footers: false
+                personal_email_capture: false
+                ppa_minimum_retirement_age: false
+                profile_accounts_linking: false
+                profile_data_centralization: false
+                provider_scheme_migrations.hide_fund_set_and_instrument_for_multiple_products: false
+                provider_scheme_migrations.search_employee_identifiers_configuration: false
+                ras_adviser_additional_content: false
+                ras_er_new_signup: false
+                ras_for_offline_single_contributions: false
+                rebuild_membership_periods: false
+                rehires_day1_crm: false
+                retirement_calculator: false
+                salary_based_contribution: false
+                separated_bank_statement_transactions: false
+                signature_services_selection: false
+                smart_explore_new_reminders: false
+                spmt_new_theme: false
+                subaccounts_active_template_changes: false
+                tax_relief_in_pension_forecast: false
+                templates_documentation: false
+                voluntary_top_ups: false
+                xirr_end_of_cycle_contributions: false
+                zendesk_chat: false
+                re_enrolment: true
+                valuation_under_review: false
+              schema:
+                type: object
+                additionalProperties:
+                  type: boolean
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

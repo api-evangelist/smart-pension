@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "99b0ef81-ba00-4bcb-9ce1-18bc4ef2752f",
+      "name": "Discovery",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7dd151d4-d699-4022-83cb-846181ee2369",
+          "name": "Discovery/List",
+          "request": {
+            "name": "Discovery/List",
+            "description": {},
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c14f3f28-e724-467b-89a8-413fb096dc63",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"create_company\": \"/companies\",\n  \"create_adviser\": \"/advisers\",\n  \"constants\": \"/constants\",\n  \"errors\": null,\n  \"company_by_slug\": \"/companies/by_slug\",\n  \"customers_by_email\": null,\n  \"customer_password\": \"/customers/password\",\n  \"customers_referrals\": \"/customers/referrals\",\n  \"employees_referrals\": \"/employees/referrals\",\n  \"employees_password\": \"/employees/password\",\n  \"users_password\": \"/users/password\",\n  \"tpr\": \"/tpr/staging_date\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fa40d898-899e-4aea-9ef2-1bb58bcd557d",
+    "name": "Keystone Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Pension Forecast Inputs API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PensionForecastInputs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/PensionForecastInputs/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:id/pension_forecast_inputs",
+            "params": [
+              {
+                "name": "id",
+                "value": "387",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "768",
+                "type": "path"
+              },
+              {
+                "name": "date_of_retirement",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_amount_contribution",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "membership_period_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "apply_vesting",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "zero_out_contribution_percentages",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "employee_annual_contribution_amount",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/PensionForecastInputs/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

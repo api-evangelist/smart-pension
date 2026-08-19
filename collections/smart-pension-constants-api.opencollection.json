@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Constants API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Constants",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Constants/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/constants"
+          },
+          "docs": "Constants/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

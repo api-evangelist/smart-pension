@@ -1,0 +1,4395 @@
+{
+  "item": [
+    {
+      "id": "6d979911-573c-463f-b8cd-09397304b8f7",
+      "name": "Employee",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ac82331-2de6-454b-801e-14da3fc81aec",
+          "name": "ActivePayrollConfiguration/Get",
+          "request": {
+            "name": "ActivePayrollConfiguration/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "active_payroll_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71d371d1-3d2e-45d2-a875-de97f36a101e",
+              "name": "Success - when the employee has an active payroll configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "active_payroll_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"company_id\": 241,\n  \"description\": \"eget eleifend\",\n  \"frequency\": \"weekly\",\n  \"name\": \"morbi porttitor1\",\n  \"salary_rate\": \"annual\",\n  \"created_at\": \"2026-08-05T12:59:05.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:59:05.000+01:00\",\n  \"uuid\": \"1fb28d64-444d-48a0-8baf-8cf9c462c8ec\",\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/241\"\n    }\n  ],\n  \"frequency_editable\": false,\n  \"destroyable\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "68f8f63a-5ce5-4881-afbf-4bdfcde4c47a",
+              "name": "Not Found - when the employee does not have an active payroll configuration",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "active_payroll_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e83d6b96-6a7b-47a3-b2d7-e8df97118fdf",
+          "name": "Employees/Create",
+          "request": {
+            "name": "Employees/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"forename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"date_of_birth\": \"<string>\",\n  \"starts_on\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"ends_on\": \"<string>\",\n  \"title\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"external_oidc_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"national_insurance_number\": \"<string>\",\n  \"exit_reason\": \"<string>\",\n  \"opt_state\": \"<string>\",\n  \"event_date\": \"<string>\",\n  \"event_code\": \"<string>\",\n  \"percentage\": \"<number>\",\n  \"company_percentage\": \"<number>\",\n  \"company_match\": \"<boolean>\",\n  \"group_id\": \"<integer>\",\n  \"works_in_uk\": \"<boolean>\",\n  \"contribute_if_entitled\": \"<boolean>\",\n  \"customer_id\": \"<integer>\",\n  \"retirement_age\": \"<integer>\",\n  \"retirement_date\": \"<string>\",\n  \"scheme_origin\": \"<string>\",\n  \"secondary_email\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"civil_status\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"employment_status\": \"<string>\",\n  \"part_time_percentage\": \"<number>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"employment_category\": \"<string>\",\n  \"contractual_enrolment\": \"<boolean>\",\n  \"target_retirement_age\": \"<integer>\",\n  \"line3\": \"<string>\",\n  \"employment_type\": \"<string>\",\n  \"tax_residency_status_name\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"avc_percentage\": \"<number>\",\n  \"salary_sacrifice_signed\": \"<boolean>\",\n  \"annual_earnings1\": \"<number>\",\n  \"annual_earnings2\": \"<number>\",\n  \"region\": \"<string>\",\n  \"benefit_group_assigned_at\": \"<string>\",\n  \"opt_in_on\": \"<string>\",\n  \"minimum_percentage\": \"<number>\",\n  \"maximum_percentage\": \"<number>\",\n  \"minimum_company_percentage\": \"<number>\",\n  \"maximum_company_percentage\": \"<number>\",\n  \"minimum_roth_percentage\": \"<number>\",\n  \"maximum_roth_percentage\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f93010be-3383-4014-9a81-373adbbd1ca3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"postcode\": \"w6 4ra\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1985-05-05\",\n  \"starts_on\": \"2016-01-01\",\n  \"payroll_name\": \"payroll_name\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updatable\": true,\n  \"id\": 255,\n  \"email\": null,\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"date_of_birth\": \"1985-05-05\",\n  \"national_insurance_number\": null,\n  \"gender\": \"Male\",\n  \"telephone\": null,\n  \"identity_person_id\": null,\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"75a0fbedf6b3eb13\",\n  \"created_at\": \"2026-08-05T13:00:37.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:00:37.000+01:00\",\n  \"confirmation_token\": null,\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"title\": null,\n  \"authentication_token\": \"AQUtxUt8Ugzt7Qd5c6md\",\n  \"group_id\": null,\n  \"line2\": null,\n  \"city\": null,\n  \"region\": null,\n  \"country\": null,\n  \"postcode\": \"w6 4ra\",\n  \"line1\": null,\n  \"works_in_uk\": true,\n  \"starts_on\": \"2016-01-01\",\n  \"authentication_token_generated_at\": \"2026-08-05T13:00:37.000+01:00\",\n  \"company_percentage\": 4,\n  \"company_percentage_matched\": 4,\n  \"company_match\": false,\n  \"percentage\": 2,\n  \"avc_percentage\": null,\n  \"total_employee_percentage\": 2,\n  \"total_contribution_percentage\": 6,\n  \"contribute_if_entitled\": true,\n  \"enforce_password\": true,\n  \"ends_on\": null,\n  \"exit_reason\": null,\n  \"onboarded_at\": null,\n  \"opt_out_on\": null,\n  \"opt_state\": \"opted_in\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_window_starts_on\": \"2026-08-05\",\n  \"opt_out_window_ends_on\": \"2026-09-04\",\n  \"subject_to_money_purchase_annual_allowance\": false,\n  \"money_purchase_annual_allowance_effective_on\": null,\n  \"active_special_cases\": [],\n  \"company_id\": 564,\n  \"automatically_enrolled\": false,\n  \"contractually_enrolled\": false,\n  \"external_id\": null,\n  \"customer_id\": null,\n  \"referral_clicks\": 0,\n  \"retirement_age\": 65,\n  \"target_retirement_age\": null,\n  \"retirement_date\": \"2050-05-05\",\n  \"target_retirement_date\": null,\n  \"secondary_email\": null,\n  \"middle_name\": null,\n  \"civil_status\": null,\n  \"country_code\": null,\n  \"benefit_group_id\": 60,\n  \"online_login_disabled\": false,\n  \"line3\": null,\n  \"uuid\": \"a55c5d80-3d90-446b-a05a-7cb78e1464a8\",\n  \"eligible_for_modeller_projection\": true,\n  \"can_manage_contribution_rates\": true,\n  \"active_payroll_configuration\": {\n    \"id\": 3,\n    \"cancelled_at\": null,\n    \"company_id\": 564,\n    \"created_at\": \"2026-08-05T13:00:37.000+01:00\",\n    \"description\": \"nulla ac\",\n    \"frequency\": \"weekly\",\n    \"name\": \"payroll_name\",\n    \"salary_rate\": \"annual\",\n    \"updated_at\": \"2026-08-05T13:00:37.000+01:00\",\n    \"uuid\": \"fe7d9395-77ac-4ba7-b575-296350fbecc4\"\n  },\n  \"employment_type\": null,\n  \"tax_residency_status_name\": null,\n  \"salary_sacrifice_signed\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/564\"\n    }\n  ],\n  \"banned_params\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3c74aa6c-485d-42fc-8313-e482089f4586",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"postcode\": \"w6 4ra\",\n  \"gender\": \"Male\",\n  \"date_of_birth\": \"1985-05-05\",\n  \"starts_on\": \"2016-01-01\",\n  \"payroll_name\": \"payroll_name\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2526,\n      \"title\": \"Postcode is missing.\",\n      \"detail\": \"Enter a postcode.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/postcode\"\n      }\n    },\n    {\n      \"code\": 2522,\n      \"title\": \"Forename is missing.\",\n      \"detail\": \"Enter forename.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/forename\"\n      }\n    },\n    {\n      \"code\": 2524,\n      \"title\": \"Surname is missing.\",\n      \"detail\": \"Enter surname.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/surname\"\n      }\n    },\n    {\n      \"code\": 2681,\n      \"title\": \"Gender is missing.\",\n      \"detail\": \"Enter gender.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/gender\"\n      }\n    },\n    {\n      \"code\": 2504,\n      \"title\": \"Date of birth is missing.\",\n      \"detail\": \"Enter date of birth.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/date_of_birth\"\n      }\n    },\n    {\n      \"code\": 2527,\n      \"title\": \"Employment start date is missing.\",\n      \"detail\": \"Enter employment start date.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/starts_on\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0989d28c-4d86-460e-b367-701cdf198e4d",
+          "name": "Companies/Employees/List with Historical Employee Data",
+          "request": {
+            "name": "Companies/Employees/List with Historical Employee Data",
+            "description": {
+              "content": "Lists employees for a company. When the 'exited_employees_visibility' feature flag is enabled,\nemployees who exited more than 6 weeks ago will display historical employee data\n(forename, surname, national_insurance_number, email, gender, date_of_birth, and telephone\nas they were at the time of exit) instead of current data. These records are marked with\n'is_not_editable: true' to indicate they should not be modified.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[external_id][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[external_id][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[national_insurance_number][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[national_insurance_number][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[retirement_age][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[retirement_age][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[retirement_date][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[retirement_date][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_plan_participation][state]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[updated_at][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[updated_at][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_contribution_configurations][updated_at]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_out_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_out_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_in_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_in_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exit_reason][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exit_reason][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[benefit_group_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[benefit_group_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[group_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[group_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3b3c7849-b09e-4880-b956-060c4c067495",
+              "name": "Success with historical employee data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[national_insurance_number][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[national_insurance_number][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[retirement_age][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[retirement_age][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[retirement_date][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[retirement_date][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_plan_participation][state]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[updated_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[updated_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_contribution_configurations][updated_at]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_out_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_out_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_in_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_in_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[benefit_group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[benefit_group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 4,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/725/employees\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/725/employees?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/725/employees?offset=0&limit=50\"\n    }\n  ],\n  \"employees\": [\n    {\n      \"updatable\": true,\n      \"id\": 362,\n      \"email\": \"john.doe.old@example.com\",\n      \"forename\": \"John\",\n      \"surname\": \"Doe\",\n      \"date_of_birth\": \"1985-03-15\",\n      \"national_insurance_number\": \"AB123456C\",\n      \"gender\": \"Male\",\n      \"telephone\": 123456789,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"TKHWDBHdD\",\n      \"created_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Prof\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Rolling Hills\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"51011\",\n      \"line1\": \"042 Porter Alley\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 725,\n      \"automatically_enrolled\": false,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"174b7a2a-28dc-4921-b002-ca6aa3a7b680\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/725\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp362\",\n      \"intercom_user_id_hash\": \"d6d86cf0cb4d76b84b9a568f7fc77f879e436843b82e202c162ca37608f8d0c8\",\n      \"is_not_editable\": true\n    },\n    {\n      \"updatable\": true,\n      \"id\": 362,\n      \"email\": \"john.doe.old@example.com\",\n      \"forename\": \"John\",\n      \"surname\": \"Doe\",\n      \"date_of_birth\": \"1985-03-15\",\n      \"national_insurance_number\": \"AB123456C\",\n      \"gender\": \"Male\",\n      \"telephone\": 123456789,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"TKHWDBHdD\",\n      \"created_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Prof\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Rolling Hills\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"51011\",\n      \"line1\": \"042 Porter Alley\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 725,\n      \"automatically_enrolled\": false,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"174b7a2a-28dc-4921-b002-ca6aa3a7b680\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/725\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp362\",\n      \"intercom_user_id_hash\": \"d6d86cf0cb4d76b84b9a568f7fc77f879e436843b82e202c162ca37608f8d0c8\",\n      \"is_not_editable\": true\n    },\n    {\n      \"updatable\": true,\n      \"id\": 363,\n      \"email\": \"jane.smith@example.com\",\n      \"forename\": \"Jane\",\n      \"surname\": \"Smith\",\n      \"date_of_birth\": \"1990-07-22\",\n      \"national_insurance_number\": \"XY987654Z\",\n      \"gender\": \"Female\",\n      \"telephone\": 987654321,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"QsKz2Hdnk\",\n      \"created_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Captain\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Rio Dell\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"48785-9319\",\n      \"line1\": \"160 Springs Road\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 725,\n      \"automatically_enrolled\": false,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"c27238e3-6181-4e36-9488-1d78792bc232\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/725\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp363\",\n      \"intercom_user_id_hash\": \"b90c5bb493ca565187eadaa3705c7a8d504e24fbd8f98bb555eca110dfde4800\"\n    },\n    {\n      \"updatable\": true,\n      \"id\": 363,\n      \"email\": \"jane.smith@example.com\",\n      \"forename\": \"Jane\",\n      \"surname\": \"Smith\",\n      \"date_of_birth\": \"1990-07-22\",\n      \"national_insurance_number\": \"XY987654Z\",\n      \"gender\": \"Female\",\n      \"telephone\": 987654321,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"QsKz2Hdnk\",\n      \"created_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:25.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Captain\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Rio Dell\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"48785-9319\",\n      \"line1\": \"160 Springs Road\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 725,\n      \"automatically_enrolled\": false,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"c27238e3-6181-4e36-9488-1d78792bc232\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/725\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp363\",\n      \"intercom_user_id_hash\": \"b90c5bb493ca565187eadaa3705c7a8d504e24fbd8f98bb555eca110dfde4800\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ea785a7-ea8e-413b-b8d2-232c18044d1c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[national_insurance_number][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[national_insurance_number][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[retirement_age][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[retirement_age][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[retirement_date][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[retirement_date][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_plan_participation][state]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[updated_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[updated_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee_contribution_configurations][updated_at]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_out_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_out_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_in_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_in_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[benefit_group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[benefit_group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c95a010-3044-4efc-9e20-645c30ec901a",
+          "name": "Companies/Employees/Destroy",
+          "request": {
+            "name": "Companies/Employees/Destroy",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "15b8a93f-00ff-44d1-b422-eb5346b52748",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c354703-5cff-4046-9ba6-4f827f8c0071",
+              "name": "Forbidden - Employee cannot be deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7246478e-b9e4-4226-a978-f4f06dcd8172",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ed85f8f-b655-40bf-9c09-4fa36e382ec0",
+          "name": "Companies/Employees/Get",
+          "request": {
+            "name": "Companies/Employees/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7fc27bde-91a5-43a4-a219-36254ff2a0e5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updatable\": true,\n  \"id\": 303,\n  \"email\": \"employee_370@example.com\",\n  \"forename\": \"Frank\",\n  \"surname\": \"Gray\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"national_insurance_number\": null,\n  \"gender\": \"Male\",\n  \"telephone\": null,\n  \"identity_person_id\": null,\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"u9RdxK\",\n  \"created_at\": \"2026-08-05T13:01:01.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:01:01.000+01:00\",\n  \"confirmation_token\": null,\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"title\": \"Lord\",\n  \"authentication_token\": null,\n  \"group_id\": null,\n  \"line2\": null,\n  \"city\": \"Willits\",\n  \"region\": null,\n  \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n  \"postcode\": \"88192\",\n  \"line1\": \"702 Continental Circle\",\n  \"works_in_uk\": true,\n  \"starts_on\": \"2016-08-05\",\n  \"authentication_token_generated_at\": null,\n  \"company_percentage\": null,\n  \"company_percentage_matched\": 0,\n  \"company_match\": false,\n  \"percentage\": null,\n  \"avc_percentage\": null,\n  \"total_employee_percentage\": 0,\n  \"total_contribution_percentage\": 0,\n  \"contribute_if_entitled\": true,\n  \"enforce_password\": true,\n  \"ends_on\": null,\n  \"exit_reason\": null,\n  \"onboarded_at\": null,\n  \"opt_out_on\": null,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": null,\n  \"opt_out_window_starts_on\": null,\n  \"opt_out_window_ends_on\": null,\n  \"subject_to_money_purchase_annual_allowance\": false,\n  \"money_purchase_annual_allowance_effective_on\": null,\n  \"active_special_cases\": [],\n  \"company_id\": 633,\n  \"automatically_enrolled\": false,\n  \"contractually_enrolled\": false,\n  \"external_id\": null,\n  \"customer_id\": null,\n  \"referral_clicks\": 0,\n  \"retirement_age\": 65,\n  \"target_retirement_age\": null,\n  \"retirement_date\": \"2066-08-05\",\n  \"target_retirement_date\": null,\n  \"secondary_email\": null,\n  \"middle_name\": null,\n  \"civil_status\": null,\n  \"country_code\": \"GB\",\n  \"benefit_group_id\": null,\n  \"online_login_disabled\": false,\n  \"line3\": null,\n  \"uuid\": \"2bb7b27c-e3ed-4741-9b41-57752b322995\",\n  \"eligible_for_modeller_projection\": false,\n  \"can_manage_contribution_rates\": true,\n  \"active_payroll_configuration\": null,\n  \"employment_type\": null,\n  \"tax_residency_status_name\": null,\n  \"salary_sacrifice_signed\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/633\"\n    }\n  ],\n  \"banned_params\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c479a7-67f7-45b2-9f9b-e471c5db7871",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9e0124f-e2fa-44bc-8875-60ab9869ac64",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b784beb1-b414-492d-8552-a8e0a07ad0b1",
+          "name": "Employees/Update",
+          "request": {
+            "name": "Employees/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<string>\",\n  \"starts_on\": \"<string>\",\n  \"ends_on\": \"<string>\",\n  \"title\": \"<string>\",\n  \"forename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"external_oidc_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"national_insurance_number\": \"<string>\",\n  \"exit_reason\": \"<string>\",\n  \"opt_state\": \"<string>\",\n  \"event_date\": \"<string>\",\n  \"event_code\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"percentage\": \"<number>\",\n  \"company_percentage\": \"<number>\",\n  \"company_match\": \"<boolean>\",\n  \"group_id\": \"<integer>\",\n  \"works_in_uk\": \"<boolean>\",\n  \"contribute_if_entitled\": \"<boolean>\",\n  \"customer_id\": \"<integer>\",\n  \"retirement_age\": \"<integer>\",\n  \"retirement_date\": \"<string>\",\n  \"scheme_origin\": \"<string>\",\n  \"secondary_email\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"civil_status\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"employment_status\": \"<string>\",\n  \"part_time_percentage\": \"<number>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"employment_category\": \"<string>\",\n  \"contractual_enrolment\": \"<boolean>\",\n  \"target_retirement_age\": \"<integer>\",\n  \"line3\": \"<string>\",\n  \"employment_type\": \"<string>\",\n  \"tax_residency_status_name\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"avc_percentage\": \"<number>\",\n  \"salary_sacrifice_signed\": \"<boolean>\",\n  \"annual_earnings1\": \"<number>\",\n  \"annual_earnings2\": \"<number>\",\n  \"region\": \"<string>\",\n  \"password\": \"<string>\",\n  \"identity_person_id\": \"<string>\",\n  \"current_password\": \"<string>\",\n  \"opt_out_window_starts_on\": \"<string>\",\n  \"opt_in_on\": \"<string>\",\n  \"opt_out_on\": \"<string>\",\n  \"onboarded_at\": \"<string>\",\n  \"online_login_disabled\": \"<boolean>\",\n  \"employee_contribution_configuration_starts_at\": \"<string>\",\n  \"opt_out_reason\": \"<string>\",\n  \"contribution_percentages_confirmed\": \"<boolean>\",\n  \"moved_to_eu_company\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c2f9e4f2-4810-48d4-a7aa-cea853f81009",
+              "name": "Updates an employee. Only the field submitted in the request are used.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bf80d2b-48a6-4c7f-b812-1a081a5f32fd",
+              "name": "Employee data is managed by a profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 436,\n      \"title\": \"Direct profile data update is forbidden.\",\n      \"detail\": \"Personal data cannot be updated. This information is managed by the employee.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"forbidden_update_profile_data\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fde97543-2fa8-40b5-bd80-f512ed52a718",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2522,\n      \"title\": \"Forename is missing.\",\n      \"detail\": \"Enter forename.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/forename\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a1ba8c8-7c6b-4aaa-8957-5c7f39f0beeb",
+          "name": "Employees/Update",
+          "request": {
+            "name": "Employees/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<string>\",\n  \"starts_on\": \"<string>\",\n  \"ends_on\": \"<string>\",\n  \"title\": \"<string>\",\n  \"forename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"external_oidc_id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"national_insurance_number\": \"<string>\",\n  \"exit_reason\": \"<string>\",\n  \"opt_state\": \"<string>\",\n  \"event_date\": \"<string>\",\n  \"event_code\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"percentage\": \"<number>\",\n  \"company_percentage\": \"<number>\",\n  \"company_match\": \"<boolean>\",\n  \"group_id\": \"<integer>\",\n  \"works_in_uk\": \"<boolean>\",\n  \"contribute_if_entitled\": \"<boolean>\",\n  \"customer_id\": \"<integer>\",\n  \"retirement_age\": \"<integer>\",\n  \"retirement_date\": \"<string>\",\n  \"scheme_origin\": \"<string>\",\n  \"secondary_email\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"civil_status\": \"<string>\",\n  \"effective_date\": \"<string>\",\n  \"employment_status\": \"<string>\",\n  \"part_time_percentage\": \"<number>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"employment_category\": \"<string>\",\n  \"contractual_enrolment\": \"<boolean>\",\n  \"target_retirement_age\": \"<integer>\",\n  \"line3\": \"<string>\",\n  \"employment_type\": \"<string>\",\n  \"tax_residency_status_name\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"avc_percentage\": \"<number>\",\n  \"salary_sacrifice_signed\": \"<boolean>\",\n  \"annual_earnings1\": \"<number>\",\n  \"annual_earnings2\": \"<number>\",\n  \"region\": \"<string>\",\n  \"password\": \"<string>\",\n  \"identity_person_id\": \"<string>\",\n  \"current_password\": \"<string>\",\n  \"opt_out_window_starts_on\": \"<string>\",\n  \"opt_in_on\": \"<string>\",\n  \"opt_out_on\": \"<string>\",\n  \"onboarded_at\": \"<string>\",\n  \"online_login_disabled\": \"<boolean>\",\n  \"employee_contribution_configuration_starts_at\": \"<string>\",\n  \"opt_out_reason\": \"<string>\",\n  \"contribution_percentages_confirmed\": \"<boolean>\",\n  \"moved_to_eu_company\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "78cb0ea8-20b2-418c-8977-fb68a3c7ad09",
+              "name": "Updates an employee. Only the field submitted in the request are used.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "daf083cb-aafa-4e25-9186-30a9d2af7562",
+              "name": "Employee data is managed by a profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 436,\n      \"title\": \"Direct profile data update is forbidden.\",\n      \"detail\": \"Personal data cannot be updated. This information is managed by the employee.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"forbidden_update_profile_data\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "625c0471-2f40-4f0e-b2d6-9ffadb54c09b",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"forenameeee\",\n  \"surname\": \"surnameeee\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"starts_on\": \"2016-08-05\",\n  \"company_percentage\": 5,\n  \"percentage\": 5,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": \"2026-08-05\",\n  \"opt_out_on\": \"2026-08-05\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2522,\n      \"title\": \"Forename is missing.\",\n      \"detail\": \"Enter forename.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/forename\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "78fd312a-fbfa-42c6-a082-046a03a626fd",
+          "name": "Employees/MovedToEuCompany",
+          "request": {
+            "name": "Employees/MovedToEuCompany",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id",
+                "moved_to_eu_company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"moved_to_eu_company\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c6a11fe-5932-4cd4-8263-c6b0eb4ea476",
+              "name": "Updates an employment period",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id",
+                    "moved_to_eu_company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"moved_to_eu_company\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dc96551-fbed-4b2a-92c0-00c4959820d5",
+          "name": "Companies/Employees/OptStates/Get",
+          "request": {
+            "name": "Companies/Employees/OptStates/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id",
+                "opt_state"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "48705f1e-d989-456c-b609-d73361e0bdf4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id",
+                    "opt_state"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"active\": false,\n  \"automatically_enrolled\": false,\n  \"current\": \"ignition\",\n  \"ends_on\": null,\n  \"exit_reason\": null,\n  \"id\": 367,\n  \"membership_period_type\": null,\n  \"next\": \"opted_in\",\n  \"opt_in_on\": null,\n  \"opt_out_on\": null,\n  \"opt_out_window\": {\n    \"active?\": false,\n    \"past?\": false\n  },\n  \"scheme_starts_on\": \"2026-08-05\",\n  \"pending_assessment\": false,\n  \"starts_on\": null,\n  \"within_opt_out_window\": false,\n  \"can_rejoin\": true,\n  \"current_benefit_group_eligible\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c29e5bc-1c75-40d3-aec5-061da4de4993",
+          "name": "Employees/RecurringContributionSchedule/Create",
+          "request": {
+            "name": "Employees/RecurringContributionSchedule/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "recurring_contribution_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"day_of_month\": \"<integer>\",\n  \"annual_allowance_confirmation\": \"<boolean>\",\n  \"amount\": \"<number>\",\n  \"success_url\": \"<string>\",\n  \"failure_url\": \"<string>\",\n  \"source_of_funds\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8ef15848-9f7c-4406-a1ea-82aa749c00cf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://host.com/success\",\n  \"failure_url\": \"https://host.com/failure\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 200.55,\n  \"amount_currency\": \"GBP\",\n  \"day_of_month\": 15,\n  \"source_of_funds\": \"Income or Salary\",\n  \"redirect_url\": \"https://fake.com/billing/static/flow?id=BRF1\",\n  \"mandate_state\": \"pending\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be6cdcad-935a-4f07-86a7-30b420b776a8",
+              "name": "Employee unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://host.com/success\",\n  \"failure_url\": \"https://host.com/failure\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9c2adfb-1fb0-44c0-8015-4933fc29c68f",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://host.com/success\",\n  \"failure_url\": \"https://host.com/failure\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Day of month is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/day_of_month\"\n      }\n    },\n    {\n      \"code\": 102005,\n      \"title\": \"Value must be numerical.\",\n      \"detail\": \"Day of month should be a numerical value.\",\n      \"meta\": {\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/day_of_month\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Annual allowance confirmation is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/annual_allowance_confirmation\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Amount is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/amount\"\n      }\n    },\n    {\n      \"code\": 102005,\n      \"title\": \"Value must be numerical.\",\n      \"detail\": \"Amount should be a numerical value.\",\n      \"meta\": {\n        \"min_amount\": \"£1\",\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/amount\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Source of funds is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/source_of_funds\"\n      }\n    },\n    {\n      \"code\": 100002,\n      \"title\": \"Value is not valid for the field.\",\n      \"detail\": \"Source of funds should be one of the following values: Income or Salary, UK savings, Proceeds from the sale of an asset/business, Inheritance or gifts, and Lottery winnings.\",\n      \"meta\": {\n        \"values\": [\n          \"Income or Salary\",\n          \"UK savings\",\n          \"Proceeds from the sale of an asset/business\",\n          \"Inheritance or gifts\",\n          \"Lottery winnings\"\n        ],\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/source_of_funds\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7ad4f70-e29d-4674-89e8-ff0c4ec70d42",
+          "name": "Employees/RecurringContributionSchedule/Destroy",
+          "request": {
+            "name": "Employees/RecurringContributionSchedule/Destroy",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "recurring_contribution_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e7a6c21d-fbc2-4cf1-8cde-b2a9ad5e3322",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "caf6c3b1-92c2-4ceb-a212-8506d4ba941a",
+              "name": "Employee unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f15f7abd-a276-49cb-af49-8c045cdb8ee2",
+          "name": "Employees/RecurringContributionSchedule/Show",
+          "request": {
+            "name": "Employees/RecurringContributionSchedule/Show",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "recurring_contribution_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c40ec255-ff18-4c08-bbd2-d885fdc5ae0a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"amount\": 200,\n  \"amount_currency\": \"GBP\",\n  \"day_of_month\": 15,\n  \"source_of_funds\": \"UK savings\",\n  \"redirect_url\": null,\n  \"mandate_state\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6978adab-1ae7-4838-b56e-3e996b5ee679",
+              "name": "Employee unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fce2eece-496b-403e-a634-32546249a1d8",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7b4908d-c56a-4f94-9c2d-47490b41b919",
+          "name": "Employees/RecurringContributionSchedule/Update",
+          "request": {
+            "name": "Employees/RecurringContributionSchedule/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "recurring_contribution_schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"day_of_month\": \"<integer>\",\n  \"annual_allowance_confirmation\": \"<boolean>\",\n  \"amount\": \"<number>\",\n  \"success_url\": \"<string>\",\n  \"failure_url\": \"<string>\",\n  \"source_of_funds\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f777075-0ec5-4b8e-b36a-2769a2358044",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3fe6478-31c7-4f88-ae9f-b5f65a958b04",
+              "name": "Employee unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a60adbb-a3fe-4976-888b-0600e8738f56",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "recurring_contribution_schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 200.55,\n  \"day_of_month\": 15,\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 102004,\n      \"title\": \"Value is too large.\",\n      \"detail\": \"Day of month should be less than or equal to 28.\",\n      \"meta\": {\n        \"value\": 40,\n        \"count\": 28\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/day_of_month\"\n      }\n    },\n    {\n      \"code\": 12010,\n      \"title\": \"Amount should be greater than or equal to £1.\",\n      \"detail\": \"Amount should be greater than or equal to £1.\",\n      \"meta\": {\n        \"min_amount\": \"£1\",\n        \"value\": \"0.55\",\n        \"count\": \"1.0\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/amount\"\n      }\n    },\n    {\n      \"code\": 100002,\n      \"title\": \"Value is not valid for the field.\",\n      \"detail\": \"Source of funds should be one of the following values: Income or Salary, UK savings, Proceeds from the sale of an asset/business, Inheritance or gifts, and Lottery winnings.\",\n      \"meta\": {\n        \"values\": [\n          \"Income or Salary\",\n          \"UK savings\",\n          \"Proceeds from the sale of an asset/business\",\n          \"Inheritance or gifts\",\n          \"Lottery winnings\"\n        ],\n        \"value\": \"invalid_source\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/source_of_funds\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5faf0d9e-eec1-4e05-8d22-d25fbd7dc78d",
+          "name": "Employees/Retirement",
+          "request": {
+            "name": "Employees/Retirement",
+            "description": {},
+            "url": {
+              "path": [
+                "employees",
+                "retirement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e6024067-0fca-4563-88bd-826c14f53e29",
+              "name": "Success (jwt token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 726,\n  \"email\": \"employee_794@example.com\",\n  \"forename\": \"Anna\",\n  \"surname\": \"Morgan\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"line1\": \"38 Vernon Street\",\n  \"line2\": null,\n  \"city\": \"Westlake Village\",\n  \"country_code\": \"GB\",\n  \"postcode\": \"54588\",\n  \"national_insurance_number\": null,\n  \"telephone\": null,\n  \"valuation\": {\n    \"id\": 18,\n    \"amount\": 200,\n    \"calculated_on\": \"2026-08-05\",\n    \"created_at\": \"2026-08-05T13:05:53.000+01:00\",\n    \"updated_at\": \"2026-08-05T13:05:53.000+01:00\"\n  },\n  \"beneficiaries\": [\n    {\n      \"id\": 4,\n      \"address\": \"22 Trailsway Road\",\n      \"born_on\": \"2001-08-05\",\n      \"created_at\": \"2026-08-05T13:05:53.184+01:00\",\n      \"email\": \"levans@jamia.mil\",\n      \"expression_of_wish_id\": 8,\n      \"name\": \"Ryan\",\n      \"percentage\": \"100.0\",\n      \"postcode\": \"98263-9250\",\n      \"relation\": \"Friend\",\n      \"title\": \"Ms\",\n      \"updated_at\": \"2026-08-05T13:05:53.184+01:00\",\n      \"uuid\": \"ea8bb4b2-fd17-4dc6-8597-e89fc3b5f392\"\n    }\n  ],\n  \"gender\": \"Male\",\n  \"title\": \"Mr\",\n  \"employer_uuid\": \"076ce2b0-57fc-4367-888c-bb1aad271d86\",\n  \"eligible_for_retirement\": false,\n  \"money_purchase_annual_allowance_effective_on\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f5c1037-44f9-426a-b144-b6ce03363e38",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd45951d-262b-46df-bddd-85223b5bd2c3",
+          "name": "Employees/RetirementOptions",
+          "request": {
+            "name": "Employees/RetirementOptions",
+            "description": {},
+            "url": {
+              "path": [
+                "employees",
+                "retirement_options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "049551fe-d3ce-48f0-9cb3-a9dc42351dcd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"pension_wise_requirement\": false,\n  \"retirement_actions_enabled\": false,\n  \"pension_wise_requirement_state\": \"disabled\",\n  \"user_can_view_options\": false,\n  \"user_can_access_fad\": false,\n  \"custom_retirement_advice\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d864cfb-c26a-4928-807a-a6988df054b2",
+              "name": "Unathorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca9c9b5c-26d5-42e9-8b8e-f81cd87d31bb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 374,\n      \"title\": \"You don't have the neccessary rights to perform this action.\",\n      \"detail\": \"You don't have the necessary rights to perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"generic_forbidden\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d669b5d2-30be-47a0-b7ee-629a5b8b1480",
+              "name": "Not Found - When `EmployeeRetirementDetail` for logged in employee doesn't exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "retirement_options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3fa0662-ef8e-4fb0-835e-a2dc376b9822",
+          "name": "Employees/Session",
+          "request": {
+            "name": "Employees/Session",
+            "description": {},
+            "url": {
+              "path": [
+                "employees",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0aa3156c-4420-4f62-bb6b-63d8896c0c7f",
+              "name": "Success with identity personal data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updatable\": true,\n  \"id\": 733,\n  \"email\": \"employee_804@example.com\",\n  \"forename\": \"Amy\",\n  \"surname\": \"Owens\",\n  \"date_of_birth\": \"2001-08-05\",\n  \"national_insurance_number\": null,\n  \"gender\": \"Female\",\n  \"telephone\": null,\n  \"identity_person_id\": null,\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"tkprJU4xJI7f\",\n  \"created_at\": \"2026-08-05T13:05:56.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:05:56.000+01:00\",\n  \"confirmation_token\": null,\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"title\": \"Captain\",\n  \"authentication_token\": null,\n  \"group_id\": null,\n  \"line2\": null,\n  \"city\": \"Laguna Hills\",\n  \"region\": null,\n  \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n  \"postcode\": \"81374\",\n  \"line1\": \"0 Homewood Point\",\n  \"works_in_uk\": true,\n  \"starts_on\": \"2016-08-05\",\n  \"authentication_token_generated_at\": null,\n  \"company_percentage\": null,\n  \"company_percentage_matched\": 0,\n  \"company_match\": false,\n  \"percentage\": null,\n  \"avc_percentage\": null,\n  \"total_employee_percentage\": 0,\n  \"total_contribution_percentage\": 0,\n  \"contribute_if_entitled\": true,\n  \"enforce_password\": true,\n  \"ends_on\": null,\n  \"exit_reason\": null,\n  \"onboarded_at\": null,\n  \"opt_out_on\": null,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": null,\n  \"opt_out_window_starts_on\": null,\n  \"opt_out_window_ends_on\": null,\n  \"subject_to_money_purchase_annual_allowance\": false,\n  \"money_purchase_annual_allowance_effective_on\": null,\n  \"active_special_cases\": [],\n  \"company_id\": 1520,\n  \"automatically_enrolled\": false,\n  \"contractually_enrolled\": false,\n  \"external_id\": null,\n  \"customer_id\": null,\n  \"referral_clicks\": 0,\n  \"retirement_age\": 65,\n  \"target_retirement_age\": null,\n  \"retirement_date\": \"2066-08-05\",\n  \"target_retirement_date\": null,\n  \"secondary_email\": null,\n  \"middle_name\": null,\n  \"civil_status\": null,\n  \"country_code\": \"GB\",\n  \"benefit_group_id\": null,\n  \"online_login_disabled\": false,\n  \"line3\": null,\n  \"uuid\": \"c682766d-41eb-42de-afb3-a264bea4c648\",\n  \"eligible_for_modeller_projection\": false,\n  \"can_manage_contribution_rates\": true,\n  \"active_payroll_configuration\": null,\n  \"employment_type\": null,\n  \"tax_residency_status_name\": null,\n  \"salary_sacrifice_signed\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1520\"\n    }\n  ],\n  \"banned_params\": [\n    \"company_percentage\",\n    \"opt_in_on\",\n    \"opt_out_on\"\n  ],\n  \"intercom_user_id\": \"emp733\",\n  \"intercom_user_id_hash\": \"9514c600fbeb77230c60d0bea58a48f32a49f806012a8e7fd859f95cf4efed40\",\n  \"identity_personal_data\": {},\n  \"sso_enforced\": false,\n  \"membership_period_type\": null,\n  \"on_contribution_holiday\": false,\n  \"voluntary_enrolment_allowed\": true,\n  \"can_edit_personal_details\": true,\n  \"display_currency\": \"GBP\",\n  \"benefit_restricted\": false,\n  \"annuity_option_enabled\": true,\n  \"benefit_group_investments_locked\": false,\n  \"smart_rewards_on_the_employee_app\": true,\n  \"days_of_qualifying_service\": 0,\n  \"moved_to_eu_company\": null,\n  \"scheme_category\": \"Auto enrolment\",\n  \"retirement_age_range\": {\n    \"min\": 55,\n    \"max\": 75\n  },\n  \"restart_paying_contributions\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd95795b-f267-440a-b51e-be6bd0988be2",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e0a5d63-361f-4e5d-9258-da7d5dfed5cb",
+          "name": "Employees/SingleContributionPayments/Create",
+          "request": {
+            "name": "Employees/SingleContributionPayments/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "single_contribution_payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"annual_allowance_confirmation\": \"<boolean>\",\n  \"success_url\": \"<string>\",\n  \"failure_url\": \"<string>\",\n  \"source_of_funds\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1545b463-7e60-4daa-82b7-20429c709466",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "single_contribution_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1300,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://api.host.com/success_url\",\n  \"failure_url\": \"https://api.host.com/failure_url\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"redirect_url\": \"https://fake.com/billing/static/flow?id=BRF1\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a93a97b-edd0-495f-a2f5-7dd60dce1104",
+              "name": "Employee unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "single_contribution_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1300,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://api.host.com/success_url\",\n  \"failure_url\": \"https://api.host.com/failure_url\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3ba98a01-e833-46ab-bd79-b3be62116bcb",
+              "name": "Forbidden when employee opt_state is not eligible for one off payment",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "single_contribution_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1300,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://api.host.com/success_url\",\n  \"failure_url\": \"https://api.host.com/failure_url\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 526,\n      \"title\": \"One off payment cannot be made for this employee.\",\n      \"detail\": \"One off payment cannot be made for this employee.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"cannot_make_one_off_payments\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5ffe941f-8204-4b45-ac3b-de51ab025a62",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "single_contribution_payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 1300,\n  \"annual_allowance_confirmation\": true,\n  \"success_url\": \"https://api.host.com/success_url\",\n  \"failure_url\": \"https://api.host.com/failure_url\",\n  \"source_of_funds\": \"Income or Salary\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Amount is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/amount\"\n      }\n    },\n    {\n      \"code\": 102005,\n      \"title\": \"Value must be numerical.\",\n      \"detail\": \"Amount should be a numerical value.\",\n      \"meta\": {\n        \"min_amount\": \"£1\",\n        \"max_amount\": \"£25,000\",\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/amount\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Annual allowance confirmation is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/annual_allowance_confirmation\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Success url is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/success_url\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Failure url is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/failure_url\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Source of funds is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/source_of_funds\"\n      }\n    },\n    {\n      \"code\": 100002,\n      \"title\": \"Value is not valid for the field.\",\n      \"detail\": \"Source of funds should be one of the following values: Income or Salary, UK savings, Proceeds from the sale of an asset/business, Inheritance or gifts, and Lottery winnings.\",\n      \"meta\": {\n        \"values\": [\n          \"Income or Salary\",\n          \"UK savings\",\n          \"Proceeds from the sale of an asset/business\",\n          \"Inheritance or gifts\",\n          \"Lottery winnings\"\n        ],\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/source_of_funds\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "08a89d0c-f36a-4df1-a59a-de7eeda8f8e0",
+    "name": "Keystone Employee API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

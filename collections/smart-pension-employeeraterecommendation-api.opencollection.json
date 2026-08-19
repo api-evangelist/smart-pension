@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Employee Rate Recommendation API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmployeeRateRecommendation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeRateRecommendation/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:id/employee_rate_recommendation",
+            "params": [
+              {
+                "name": "id",
+                "value": "281",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "601",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeRateRecommendation/Create"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

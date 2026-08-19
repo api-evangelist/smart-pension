@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Economic Zone API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EconomicZone",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EconomicZones/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/economic_zones"
+          },
+          "docs": "EconomicZones/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Total Funds AM Cs API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TotalFundsAMCs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/TotalFundsAmcs/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/total_funds_amcs",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1395",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/TotalFundsAmcs/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

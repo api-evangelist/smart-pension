@@ -1,0 +1,959 @@
+{
+  "item": [
+    {
+      "id": "0d4ffb76-4801-468a-bde7-c4f3e5d6febc",
+      "name": "Onboarding",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "edf31436-44ab-4cf4-97df-568b6030f697",
+          "name": "Onboarding/AcceptTerms",
+          "request": {
+            "name": "Onboarding/AcceptTerms",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "accept-terms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accept\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "afca9690-4852-4c6d-873e-c54ce8acc7ed",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "accept-terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e40c648-c2f2-4f51-8232-6d79f3f00f30",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "accept-terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1842321-2808-4edc-8fc9-8e0e145b78b9",
+              "name": "Fail - fields validation",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "accept-terms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accept\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 119101,\n      \"title\": \"Terms and conditions not accepted\",\n      \"detail\": \"Please confirm you've read and agreed to the terms and conditions\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/accept\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fa03046-0fab-41f6-bdea-1c1185676a22",
+          "name": "Onboarding/Status",
+          "request": {
+            "name": "Onboarding/Status",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ec45bf64-1169-4052-97a1-5205ea90a2a1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"personalData\": \"not_started\",\n  \"kyc\": \"unavailable\",\n  \"termsAndConditions\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5fa0db6a-b96d-4873-82a6-faee1555e371",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "143931eb-e556-47d9-83b8-2257ccba9ce5",
+          "name": "Onboarding/Options",
+          "request": {
+            "name": "Onboarding/Options",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "options"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "field_names[]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "field_names[]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fae8acf7-24eb-41a3-a174-3453bf954d51",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_names[]",
+                      "value": "gender"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "residency"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "tax_information"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "employment_status"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "country"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"genderOptions\": [\n    {\n      \"id\": \"male\",\n      \"label\": \"Male\"\n    },\n    {\n      \"id\": \"female\",\n      \"label\": \"Female\"\n    }\n  ],\n  \"residencyOptions\": [\n    {\n      \"id\": \"uk_resident\",\n      \"label\": \"UK resident\"\n    },\n    {\n      \"id\": \"non_uk_resident\",\n      \"label\": \"Non UK resident\"\n    }\n  ],\n  \"taxInformationOptions\": [\n    {\n      \"id\": \"england\",\n      \"label\": \"England\"\n    },\n    {\n      \"id\": \"northern_ireland\",\n      \"label\": \"Northern Ireland\"\n    },\n    {\n      \"id\": \"wales\",\n      \"label\": \"Wales\"\n    },\n    {\n      \"id\": \"scotland\",\n      \"label\": \"Scotland\"\n    }\n  ],\n  \"employmentStatusOptions\": [\n    {\n      \"id\": \"employed\",\n      \"label\": \"Employed\"\n    },\n    {\n      \"id\": \"self_employed\",\n      \"label\": \"Self employed\"\n    },\n    {\n      \"id\": \"unemployed\",\n      \"label\": \"Not employed\"\n    }\n  ],\n  \"countryOptions\": [\n    {\n      \"id\": \"AW\",\n      \"label\": \"Aruba\"\n    },\n    {\n      \"id\": \"AF\",\n      \"label\": \"Afghanistan\"\n    },\n    {\n      \"id\": \"AO\",\n      \"label\": \"Angola\"\n    },\n    {\n      \"id\": \"AI\",\n      \"label\": \"Anguilla\"\n    },\n    {\n      \"id\": \"AX\",\n      \"label\": \"Åland Islands\"\n    },\n    {\n      \"id\": \"AL\",\n      \"label\": \"Albania\"\n    },\n    {\n      \"id\": \"AD\",\n      \"label\": \"Andorra\"\n    },\n    {\n      \"id\": \"AE\",\n      \"label\": \"United Arab Emirates\"\n    },\n    {\n      \"id\": \"AR\",\n      \"label\": \"Argentina\"\n    },\n    {\n      \"id\": \"AM\",\n      \"label\": \"Armenia\"\n    },\n    {\n      \"id\": \"AS\",\n      \"label\": \"American Samoa\"\n    },\n    {\n      \"id\": \"AQ\",\n      \"label\": \"Antarctica\"\n    },\n    {\n      \"id\": \"TF\",\n      \"label\": \"French Southern Territories\"\n    },\n    {\n      \"id\": \"AG\",\n      \"label\": \"Antigua and Barbuda\"\n    },\n    {\n      \"id\": \"AU\",\n      \"label\": \"Australia\"\n    },\n    {\n      \"id\": \"AT\",\n      \"label\": \"Austria\"\n    },\n    {\n      \"id\": \"AZ\",\n      \"label\": \"Azerbaijan\"\n    },\n    {\n      \"id\": \"BI\",\n      \"label\": \"Burundi\"\n    },\n    {\n      \"id\": \"BE\",\n      \"label\": \"Belgium\"\n    },\n    {\n      \"id\": \"BJ\",\n      \"label\": \"Benin\"\n    },\n    {\n      \"id\": \"BQ\",\n      \"label\": \"Bonaire, Sint Eustatius and Saba\"\n    },\n    {\n      \"id\": \"BF\",\n      \"label\": \"Burkina Faso\"\n    },\n    {\n      \"id\": \"BD\",\n      \"label\": \"Bangladesh\"\n    },\n    {\n      \"id\": \"BG\",\n      \"label\": \"Bulgaria\"\n    },\n    {\n      \"id\": \"BH\",\n      \"label\": \"Bahrain\"\n    },\n    {\n      \"id\": \"BS\",\n      \"label\": \"Bahamas\"\n    },\n    {\n      \"id\": \"BA\",\n      \"label\": \"Bosnia and Herzegovina\"\n    },\n    {\n      \"id\": \"BL\",\n      \"label\": \"Saint Barthélemy\"\n    },\n    {\n      \"id\": \"BY\",\n      \"label\": \"Belarus\"\n    },\n    {\n      \"id\": \"BZ\",\n      \"label\": \"Belize\"\n    },\n    {\n      \"id\": \"BM\",\n      \"label\": \"Bermuda\"\n    },\n    {\n      \"id\": \"BO\",\n      \"label\": \"Bolivia\"\n    },\n    {\n      \"id\": \"BR\",\n      \"label\": \"Brazil\"\n    },\n    {\n      \"id\": \"BB\",\n      \"label\": \"Barbados\"\n    },\n    {\n      \"id\": \"BN\",\n      \"label\": \"Brunei Darussalam\"\n    },\n    {\n      \"id\": \"BT\",\n      \"label\": \"Bhutan\"\n    },\n    {\n      \"id\": \"BV\",\n      \"label\": \"Bouvet Island\"\n    },\n    {\n      \"id\": \"BW\",\n      \"label\": \"Botswana\"\n    },\n    {\n      \"id\": \"CF\",\n      \"label\": \"Central African Republic\"\n    },\n    {\n      \"id\": \"CA\",\n      \"label\": \"Canada\"\n    },\n    {\n      \"id\": \"CC\",\n      \"label\": \"Cocos (Keeling) Islands\"\n    },\n    {\n      \"id\": \"CH\",\n      \"label\": \"Switzerland\"\n    },\n    {\n      \"id\": \"CL\",\n      \"label\": \"Chile\"\n    },\n    {\n      \"id\": \"CN\",\n      \"label\": \"China\"\n    },\n    {\n      \"id\": \"CI\",\n      \"label\": \"Côte d'Ivoire\"\n    },\n    {\n      \"id\": \"CM\",\n      \"label\": \"Cameroon\"\n    },\n    {\n      \"id\": \"CD\",\n      \"label\": \"Congo, The Democratic Republic of the\"\n    },\n    {\n      \"id\": \"CG\",\n      \"label\": \"Congo\"\n    },\n    {\n      \"id\": \"CK\",\n      \"label\": \"Cook Islands\"\n    },\n    {\n      \"id\": \"CO\",\n      \"label\": \"Colombia\"\n    },\n    {\n      \"id\": \"KM\",\n      \"label\": \"Comoros\"\n    },\n    {\n      \"id\": \"CV\",\n      \"label\": \"Cabo Verde\"\n    },\n    {\n      \"id\": \"CR\",\n      \"label\": \"Costa Rica\"\n    },\n    {\n      \"id\": \"CU\",\n      \"label\": \"Cuba\"\n    },\n    {\n      \"id\": \"CW\",\n      \"label\": \"Curaçao\"\n    },\n    {\n      \"id\": \"CX\",\n      \"label\": \"Christmas Island\"\n    },\n    {\n      \"id\": \"KY\",\n      \"label\": \"Cayman Islands\"\n    },\n    {\n      \"id\": \"CY\",\n      \"label\": \"Cyprus\"\n    },\n    {\n      \"id\": \"CZ\",\n      \"label\": \"Czechia\"\n    },\n    {\n      \"id\": \"DE\",\n      \"label\": \"Germany\"\n    },\n    {\n      \"id\": \"DJ\",\n      \"label\": \"Djibouti\"\n    },\n    {\n      \"id\": \"DM\",\n      \"label\": \"Dominica\"\n    },\n    {\n      \"id\": \"DK\",\n      \"label\": \"Denmark\"\n    },\n    {\n      \"id\": \"DO\",\n      \"label\": \"Dominican Republic\"\n    },\n    {\n      \"id\": \"DZ\",\n      \"label\": \"Algeria\"\n    },\n    {\n      \"id\": \"EC\",\n      \"label\": \"Ecuador\"\n    },\n    {\n      \"id\": \"EG\",\n      \"label\": \"Egypt\"\n    },\n    {\n      \"id\": \"ER\",\n      \"label\": \"Eritrea\"\n    },\n    {\n      \"id\": \"EH\",\n      \"label\": \"Western Sahara\"\n    },\n    {\n      \"id\": \"ES\",\n      \"label\": \"Spain\"\n    },\n    {\n      \"id\": \"EE\",\n      \"label\": \"Estonia\"\n    },\n    {\n      \"id\": \"ET\",\n      \"label\": \"Ethiopia\"\n    },\n    {\n      \"id\": \"FI\",\n      \"label\": \"Finland\"\n    },\n    {\n      \"id\": \"FJ\",\n      \"label\": \"Fiji\"\n    },\n    {\n      \"id\": \"FK\",\n      \"label\": \"Falkland Islands (Malvinas)\"\n    },\n    {\n      \"id\": \"FR\",\n      \"label\": \"France\"\n    },\n    {\n      \"id\": \"FO\",\n      \"label\": \"Faroe Islands\"\n    },\n    {\n      \"id\": \"FM\",\n      \"label\": \"Micronesia, Federated States of\"\n    },\n    {\n      \"id\": \"GA\",\n      \"label\": \"Gabon\"\n    },\n    {\n      \"id\": \"GB\",\n      \"label\": \"United Kingdom\"\n    },\n    {\n      \"id\": \"GE\",\n      \"label\": \"Georgia\"\n    },\n    {\n      \"id\": \"GG\",\n      \"label\": \"Guernsey\"\n    },\n    {\n      \"id\": \"GH\",\n      \"label\": \"Ghana\"\n    },\n    {\n      \"id\": \"GI\",\n      \"label\": \"Gibraltar\"\n    },\n    {\n      \"id\": \"GN\",\n      \"label\": \"Guinea\"\n    },\n    {\n      \"id\": \"GP\",\n      \"label\": \"Guadeloupe\"\n    },\n    {\n      \"id\": \"GM\",\n      \"label\": \"Gambia\"\n    },\n    {\n      \"id\": \"GW\",\n      \"label\": \"Guinea-Bissau\"\n    },\n    {\n      \"id\": \"GQ\",\n      \"label\": \"Equatorial Guinea\"\n    },\n    {\n      \"id\": \"GR\",\n      \"label\": \"Greece\"\n    },\n    {\n      \"id\": \"GD\",\n      \"label\": \"Grenada\"\n    },\n    {\n      \"id\": \"GL\",\n      \"label\": \"Greenland\"\n    },\n    {\n      \"id\": \"GT\",\n      \"label\": \"Guatemala\"\n    },\n    {\n      \"id\": \"GF\",\n      \"label\": \"French Guiana\"\n    },\n    {\n      \"id\": \"GU\",\n      \"label\": \"Guam\"\n    },\n    {\n      \"id\": \"GY\",\n      \"label\": \"Guyana\"\n    },\n    {\n      \"id\": \"HK\",\n      \"label\": \"Hong Kong\"\n    },\n    {\n      \"id\": \"HM\",\n      \"label\": \"Heard Island and McDonald Islands\"\n    },\n    {\n      \"id\": \"HN\",\n      \"label\": \"Honduras\"\n    },\n    {\n      \"id\": \"HR\",\n      \"label\": \"Croatia\"\n    },\n    {\n      \"id\": \"HT\",\n      \"label\": \"Haiti\"\n    },\n    {\n      \"id\": \"HU\",\n      \"label\": \"Hungary\"\n    },\n    {\n      \"id\": \"ID\",\n      \"label\": \"Indonesia\"\n    },\n    {\n      \"id\": \"IM\",\n      \"label\": \"Isle of Man\"\n    },\n    {\n      \"id\": \"IN\",\n      \"label\": \"India\"\n    },\n    {\n      \"id\": \"IO\",\n      \"label\": \"British Indian Ocean Territory\"\n    },\n    {\n      \"id\": \"IE\",\n      \"label\": \"Ireland\"\n    },\n    {\n      \"id\": \"IR\",\n      \"label\": \"Iran, Islamic Republic of\"\n    },\n    {\n      \"id\": \"IQ\",\n      \"label\": \"Iraq\"\n    },\n    {\n      \"id\": \"IS\",\n      \"label\": \"Iceland\"\n    },\n    {\n      \"id\": \"IL\",\n      \"label\": \"Israel\"\n    },\n    {\n      \"id\": \"IT\",\n      \"label\": \"Italy\"\n    },\n    {\n      \"id\": \"JM\",\n      \"label\": \"Jamaica\"\n    },\n    {\n      \"id\": \"JE\",\n      \"label\": \"Jersey\"\n    },\n    {\n      \"id\": \"JO\",\n      \"label\": \"Jordan\"\n    },\n    {\n      \"id\": \"JP\",\n      \"label\": \"Japan\"\n    },\n    {\n      \"id\": \"KZ\",\n      \"label\": \"Kazakhstan\"\n    },\n    {\n      \"id\": \"KE\",\n      \"label\": \"Kenya\"\n    },\n    {\n      \"id\": \"KG\",\n      \"label\": \"Kyrgyzstan\"\n    },\n    {\n      \"id\": \"KH\",\n      \"label\": \"Cambodia\"\n    },\n    {\n      \"id\": \"KI\",\n      \"label\": \"Kiribati\"\n    },\n    {\n      \"id\": \"KN\",\n      \"label\": \"Saint Kitts and Nevis\"\n    },\n    {\n      \"id\": \"KR\",\n      \"label\": \"Korea, Republic of\"\n    },\n    {\n      \"id\": \"KW\",\n      \"label\": \"Kuwait\"\n    },\n    {\n      \"id\": \"LA\",\n      \"label\": \"Lao People's Democratic Republic\"\n    },\n    {\n      \"id\": \"LB\",\n      \"label\": \"Lebanon\"\n    },\n    {\n      \"id\": \"LR\",\n      \"label\": \"Liberia\"\n    },\n    {\n      \"id\": \"LY\",\n      \"label\": \"Libya\"\n    },\n    {\n      \"id\": \"LC\",\n      \"label\": \"Saint Lucia\"\n    },\n    {\n      \"id\": \"LI\",\n      \"label\": \"Liechtenstein\"\n    },\n    {\n      \"id\": \"LK\",\n      \"label\": \"Sri Lanka\"\n    },\n    {\n      \"id\": \"LS\",\n      \"label\": \"Lesotho\"\n    },\n    {\n      \"id\": \"LT\",\n      \"label\": \"Lithuania\"\n    },\n    {\n      \"id\": \"LU\",\n      \"label\": \"Luxembourg\"\n    },\n    {\n      \"id\": \"LV\",\n      \"label\": \"Latvia\"\n    },\n    {\n      \"id\": \"MO\",\n      \"label\": \"Macao\"\n    },\n    {\n      \"id\": \"MF\",\n      \"label\": \"Saint Martin (French part)\"\n    },\n    {\n      \"id\": \"MA\",\n      \"label\": \"Morocco\"\n    },\n    {\n      \"id\": \"MC\",\n      \"label\": \"Monaco\"\n    },\n    {\n      \"id\": \"MD\",\n      \"label\": \"Moldova\"\n    },\n    {\n      \"id\": \"MG\",\n      \"label\": \"Madagascar\"\n    },\n    {\n      \"id\": \"MV\",\n      \"label\": \"Maldives\"\n    },\n    {\n      \"id\": \"MX\",\n      \"label\": \"Mexico\"\n    },\n    {\n      \"id\": \"MH\",\n      \"label\": \"Marshall Islands\"\n    },\n    {\n      \"id\": \"MK\",\n      \"label\": \"Macedonia, Republic of\"\n    },\n    {\n      \"id\": \"ML\",\n      \"label\": \"Mali\"\n    },\n    {\n      \"id\": \"MT\",\n      \"label\": \"Malta\"\n    },\n    {\n      \"id\": \"MM\",\n      \"label\": \"Myanmar\"\n    },\n    {\n      \"id\": \"ME\",\n      \"label\": \"Montenegro\"\n    },\n    {\n      \"id\": \"MN\",\n      \"label\": \"Mongolia\"\n    },\n    {\n      \"id\": \"MP\",\n      \"label\": \"Northern Mariana Islands\"\n    },\n    {\n      \"id\": \"MZ\",\n      \"label\": \"Mozambique\"\n    },\n    {\n      \"id\": \"MR\",\n      \"label\": \"Mauritania\"\n    },\n    {\n      \"id\": \"MS\",\n      \"label\": \"Montserrat\"\n    },\n    {\n      \"id\": \"MQ\",\n      \"label\": \"Martinique\"\n    },\n    {\n      \"id\": \"MU\",\n      \"label\": \"Mauritius\"\n    },\n    {\n      \"id\": \"MW\",\n      \"label\": \"Malawi\"\n    },\n    {\n      \"id\": \"MY\",\n      \"label\": \"Malaysia\"\n    },\n    {\n      \"id\": \"YT\",\n      \"label\": \"Mayotte\"\n    },\n    {\n      \"id\": \"NA\",\n      \"label\": \"Namibia\"\n    },\n    {\n      \"id\": \"NC\",\n      \"label\": \"New Caledonia\"\n    },\n    {\n      \"id\": \"NE\",\n      \"label\": \"Niger\"\n    },\n    {\n      \"id\": \"NF\",\n      \"label\": \"Norfolk Island\"\n    },\n    {\n      \"id\": \"NG\",\n      \"label\": \"Nigeria\"\n    },\n    {\n      \"id\": \"NI\",\n      \"label\": \"Nicaragua\"\n    },\n    {\n      \"id\": \"NU\",\n      \"label\": \"Niue\"\n    },\n    {\n      \"id\": \"NL\",\n      \"label\": \"Netherlands\"\n    },\n    {\n      \"id\": \"NO\",\n      \"label\": \"Norway\"\n    },\n    {\n      \"id\": \"NP\",\n      \"label\": \"Nepal\"\n    },\n    {\n      \"id\": \"NR\",\n      \"label\": \"Nauru\"\n    },\n    {\n      \"id\": \"NZ\",\n      \"label\": \"New Zealand\"\n    },\n    {\n      \"id\": \"OM\",\n      \"label\": \"Oman\"\n    },\n    {\n      \"id\": \"PK\",\n      \"label\": \"Pakistan\"\n    },\n    {\n      \"id\": \"PA\",\n      \"label\": \"Panama\"\n    },\n    {\n      \"id\": \"PN\",\n      \"label\": \"Pitcairn\"\n    },\n    {\n      \"id\": \"PE\",\n      \"label\": \"Peru\"\n    },\n    {\n      \"id\": \"PH\",\n      \"label\": \"Philippines\"\n    },\n    {\n      \"id\": \"PW\",\n      \"label\": \"Palau\"\n    },\n    {\n      \"id\": \"PG\",\n      \"label\": \"Papua New Guinea\"\n    },\n    {\n      \"id\": \"PL\",\n      \"label\": \"Poland\"\n    },\n    {\n      \"id\": \"PR\",\n      \"label\": \"Puerto Rico\"\n    },\n    {\n      \"id\": \"KP\",\n      \"label\": \"Korea, Democratic People's Republic of\"\n    },\n    {\n      \"id\": \"PT\",\n      \"label\": \"Portugal\"\n    },\n    {\n      \"id\": \"PY\",\n      \"label\": \"Paraguay\"\n    },\n    {\n      \"id\": \"PS\",\n      \"label\": \"Palestine, State of\"\n    },\n    {\n      \"id\": \"PF\",\n      \"label\": \"French Polynesia\"\n    },\n    {\n      \"id\": \"QA\",\n      \"label\": \"Qatar\"\n    },\n    {\n      \"id\": \"RE\",\n      \"label\": \"Réunion\"\n    },\n    {\n      \"id\": \"RO\",\n      \"label\": \"Romania\"\n    },\n    {\n      \"id\": \"RU\",\n      \"label\": \"Russian Federation\"\n    },\n    {\n      \"id\": \"RW\",\n      \"label\": \"Rwanda\"\n    },\n    {\n      \"id\": \"SA\",\n      \"label\": \"Saudi Arabia\"\n    },\n    {\n      \"id\": \"SD\",\n      \"label\": \"Sudan\"\n    },\n    {\n      \"id\": \"SN\",\n      \"label\": \"Senegal\"\n    },\n    {\n      \"id\": \"SG\",\n      \"label\": \"Singapore\"\n    },\n    {\n      \"id\": \"GS\",\n      \"label\": \"South Georgia and the South Sandwich Islands\"\n    },\n    {\n      \"id\": \"SH\",\n      \"label\": \"Saint Helena, Ascension and Tristan da Cunha\"\n    },\n    {\n      \"id\": \"SJ\",\n      \"label\": \"Svalbard and Jan Mayen\"\n    },\n    {\n      \"id\": \"SB\",\n      \"label\": \"Solomon Islands\"\n    },\n    {\n      \"id\": \"SL\",\n      \"label\": \"Sierra Leone\"\n    },\n    {\n      \"id\": \"SV\",\n      \"label\": \"El Salvador\"\n    },\n    {\n      \"id\": \"SM\",\n      \"label\": \"San Marino\"\n    },\n    {\n      \"id\": \"SO\",\n      \"label\": \"Somalia\"\n    },\n    {\n      \"id\": \"PM\",\n      \"label\": \"Saint Pierre and Miquelon\"\n    },\n    {\n      \"id\": \"RS\",\n      \"label\": \"Serbia\"\n    },\n    {\n      \"id\": \"SS\",\n      \"label\": \"South Sudan\"\n    },\n    {\n      \"id\": \"ST\",\n      \"label\": \"Sao Tome and Principe\"\n    },\n    {\n      \"id\": \"SR\",\n      \"label\": \"Suriname\"\n    },\n    {\n      \"id\": \"SK\",\n      \"label\": \"Slovakia\"\n    },\n    {\n      \"id\": \"SI\",\n      \"label\": \"Slovenia\"\n    },\n    {\n      \"id\": \"SE\",\n      \"label\": \"Sweden\"\n    },\n    {\n      \"id\": \"SZ\",\n      \"label\": \"Swaziland\"\n    },\n    {\n      \"id\": \"SX\",\n      \"label\": \"Sint Maarten (Dutch part)\"\n    },\n    {\n      \"id\": \"SC\",\n      \"label\": \"Seychelles\"\n    },\n    {\n      \"id\": \"SY\",\n      \"label\": \"Syrian Arab Republic\"\n    },\n    {\n      \"id\": \"TC\",\n      \"label\": \"Turks and Caicos Islands\"\n    },\n    {\n      \"id\": \"TD\",\n      \"label\": \"Chad\"\n    },\n    {\n      \"id\": \"TG\",\n      \"label\": \"Togo\"\n    },\n    {\n      \"id\": \"TH\",\n      \"label\": \"Thailand\"\n    },\n    {\n      \"id\": \"TJ\",\n      \"label\": \"Tajikistan\"\n    },\n    {\n      \"id\": \"TK\",\n      \"label\": \"Tokelau\"\n    },\n    {\n      \"id\": \"TM\",\n      \"label\": \"Turkmenistan\"\n    },\n    {\n      \"id\": \"TL\",\n      \"label\": \"Timor-Leste\"\n    },\n    {\n      \"id\": \"TO\",\n      \"label\": \"Tonga\"\n    },\n    {\n      \"id\": \"TT\",\n      \"label\": \"Trinidad and Tobago\"\n    },\n    {\n      \"id\": \"TN\",\n      \"label\": \"Tunisia\"\n    },\n    {\n      \"id\": \"TR\",\n      \"label\": \"Turkey\"\n    },\n    {\n      \"id\": \"TV\",\n      \"label\": \"Tuvalu\"\n    },\n    {\n      \"id\": \"TW\",\n      \"label\": \"Taiwan\"\n    },\n    {\n      \"id\": \"TZ\",\n      \"label\": \"Tanzania\"\n    },\n    {\n      \"id\": \"UG\",\n      \"label\": \"Uganda\"\n    },\n    {\n      \"id\": \"UA\",\n      \"label\": \"Ukraine\"\n    },\n    {\n      \"id\": \"UM\",\n      \"label\": \"United States Minor Outlying Islands\"\n    },\n    {\n      \"id\": \"UY\",\n      \"label\": \"Uruguay\"\n    },\n    {\n      \"id\": \"US\",\n      \"label\": \"United States\"\n    },\n    {\n      \"id\": \"UZ\",\n      \"label\": \"Uzbekistan\"\n    },\n    {\n      \"id\": \"VA\",\n      \"label\": \"Holy See (Vatican City State)\"\n    },\n    {\n      \"id\": \"VC\",\n      \"label\": \"Saint Vincent and the Grenadines\"\n    },\n    {\n      \"id\": \"VE\",\n      \"label\": \"Venezuela\"\n    },\n    {\n      \"id\": \"VG\",\n      \"label\": \"Virgin Islands, British\"\n    },\n    {\n      \"id\": \"VI\",\n      \"label\": \"Virgin Islands, U.S.\"\n    },\n    {\n      \"id\": \"VN\",\n      \"label\": \"Vietnam\"\n    },\n    {\n      \"id\": \"VU\",\n      \"label\": \"Vanuatu\"\n    },\n    {\n      \"id\": \"WF\",\n      \"label\": \"Wallis and Futuna\"\n    },\n    {\n      \"id\": \"WS\",\n      \"label\": \"Samoa\"\n    },\n    {\n      \"id\": \"YE\",\n      \"label\": \"Yemen\"\n    },\n    {\n      \"id\": \"ZA\",\n      \"label\": \"South Africa\"\n    },\n    {\n      \"id\": \"ZM\",\n      \"label\": \"Zambia\"\n    },\n    {\n      \"id\": \"ZW\",\n      \"label\": \"Zimbabwe\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b976bc91-edb9-4e28-8aec-35b7222841ae",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_names[]",
+                      "value": "gender"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "residency"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "tax_information"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "employment_status"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "country"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"field_names\": \"can't be blank\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d610fc6-3d0c-469f-a802-6bc8f208fd67",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "options"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "field_names[]",
+                      "value": "gender"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "residency"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "tax_information"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "employment_status"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "country"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"field_names\": \"Available options: gender, residency, tax_information, employment_status, country\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3430130a-39cc-49b3-ab25-b07c79e3f7fa",
+          "name": "Onboarding/PersonalData",
+          "request": {
+            "name": "Onboarding/PersonalData",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "personal-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "522950e2-d4d1-4334-8b6b-fb58b67a8486",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"first_name\": \"Kendall\",\n  \"last_name\": \"Roy\",\n  \"gender\": \"male\",\n  \"birth_date\": \"1978-09-22\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\",\n  \"ni_number\": \"AA123456B\",\n  \"country_of_birth\": \"GB\",\n  \"citizenship\": \"PL\",\n  \"residency\": \"uk_resident\",\n  \"tax_information\": \"northern_ireland\",\n  \"employment_status\": \"employed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "130051d9-67ee-40e9-9b2e-c02b2e80f857",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c84dfa65-e70b-4a51-b020-761832baaf43",
+          "name": "Onboarding/PersonalData",
+          "request": {
+            "name": "Onboarding/PersonalData",
+            "description": {},
+            "url": {
+              "path": [
+                "onboarding",
+                "personal-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"last_step\": \"<boolean,null>\",\n  \"first_name\": \"<string,null>\",\n  \"last_name\": \"<string,null>\",\n  \"gender\": \"<string,null>\",\n  \"birth_date\": \"<string,null>\",\n  \"phone_number\": \"<string,null>\",\n  \"address_line_1\": \"<string,null>\",\n  \"address_line_2\": \"<string,null>\",\n  \"address_line_3\": \"<string,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"postcode\": \"<string,null>\",\n  \"ni_number\": \"<string,null>\",\n  \"country_of_birth\": \"<string,null>\",\n  \"citizenship\": \"<string,null>\",\n  \"residency\": \"<string,null>\",\n  \"tax_information\": \"<string,null>\",\n  \"employment_status\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4fe1dba-53db-4a09-82f8-8187a9ce7b56",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "06376ef2-df7a-469b-a036-8464faafbf8a",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a8099e49-c2b6-4389-b9ab-46de0c4824db",
+              "name": "Fail - not all fields provided when setting last_step=true",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "onboarding",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 119019,\n      \"title\": \"Country code is invalid.\",\n      \"detail\": \"Enter valid Country code.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/country\"\n      }\n    },\n    {\n      \"code\": 119021,\n      \"title\": \"Postcode is invalid.\",\n      \"detail\": \"Provide postcode in a proper format.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/postcode\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "49c81a14-406c-4591-a936-6760ec5cae70",
+    "name": "Keystone Onboarding API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

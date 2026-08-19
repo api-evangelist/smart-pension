@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Todo Items API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "TodoItems",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "TodoItems/Complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/todo_items/complete",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "908",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "497",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "TodoItems/Complete"
+        },
+        {
+          "info": {
+            "name": "TodoItems/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/todo_items",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "911",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "500",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "TodoItems/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

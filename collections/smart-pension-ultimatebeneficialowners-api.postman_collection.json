@@ -1,0 +1,760 @@
+{
+  "item": [
+    {
+      "id": "fc84bcba-ab3d-410f-bb41-9abf5983d832",
+      "name": "UltimateBeneficialOwners",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba43599b-f63f-4f1a-9a4d-b0f9dfe03f73",
+          "name": "Companies/UltimateBeneficialOwners/Get",
+          "request": {
+            "name": "Companies/UltimateBeneficialOwners/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owners",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f38e22b5-3863-4d4b-abfc-eec2fc9504a9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owners",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 32,\n  \"company_id\": 1406,\n  \"country_of_jurisdiction\": \"UK\",\n  \"date_of_birth\": \"1980-01-02\",\n  \"entity_name\": \"Umbrella Corporation\",\n  \"forename\": \"Jose\",\n  \"title\": \"Dr\",\n  \"gender\": \"Female\",\n  \"nationality\": \"United Kingdom\",\n  \"registered_address\": \"0 Northport Court\",\n  \"surname\": \"Clark\",\n  \"exempt\": false,\n  \"exemption_reason\": \"Government body established under UAE Law\",\n  \"type\": \"The individual has significant control or influence over the company\",\n  \"line1\": null,\n  \"line2\": null,\n  \"city\": \"London\",\n  \"country\": null,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1406\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc220a26-fdd5-4a5b-81bf-fd250a494eec",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owners",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5f127a5-a292-49ad-9c96-38b4d297f295",
+          "name": "Companies/UltimateBeneficialOwners/List",
+          "request": {
+            "name": "Companies/UltimateBeneficialOwners/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[country_of_jurisdiction][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[country_of_jurisdiction][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[nationality][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[nationality][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[entity_name][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[entity_name][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[registered_address][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[registered_address][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d539cab3-58a5-4aeb-bb84-34e41e6fb40d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1408/ultimate_beneficial_owners\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1408/ultimate_beneficial_owners?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1408/ultimate_beneficial_owners?offset=0&limit=50\"\n    }\n  ],\n  \"ultimate_beneficial_owners\": [\n    {\n      \"id\": 33,\n      \"company_id\": 1408,\n      \"country_of_jurisdiction\": \"UK\",\n      \"date_of_birth\": \"1980-01-02\",\n      \"entity_name\": \"Umbrella Corporation\",\n      \"forename\": \"Wayne\",\n      \"title\": \"Lord\",\n      \"gender\": \"Undeclared\",\n      \"nationality\": \"United Kingdom\",\n      \"registered_address\": \"01 2nd Trail\",\n      \"surname\": \"Allen\",\n      \"exempt\": false,\n      \"exemption_reason\": \"Government body established under UAE Law\",\n      \"type\": \"The individual has significant control or influence over the company\",\n      \"line1\": null,\n      \"line2\": null,\n      \"city\": \"London\",\n      \"country\": null,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1408\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1599b7ca-b922-4091-b276-89711b1f02c5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98f829be-23a5-450d-94d6-bd89c193f262",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[country_of_jurisdiction][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[nationality][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[entity_name][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[registered_address][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ff56cf9-d232-4ac1-961c-9b401b10a449",
+    "name": "Keystone Ultimate Beneficial Owners API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "item": [
+    {
+      "id": "e57b24df-339b-4acd-a9e8-9b46cb681f68",
+      "name": "Payment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66c73140-532a-4f6f-a7db-3a412d47f0e3",
+          "name": "Companies/Payments/Get",
+          "request": {
+            "name": "Companies/Payments/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ea25af2-98e4-4495-83fb-5ae3effe4a83",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "payments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 21,\n  \"state\": \"ignition\",\n  \"amount\": 20,\n  \"description\": null,\n  \"invoice_name\": \"curabitur convallis\",\n  \"paid_at\": null,\n  \"charge_on\": null,\n  \"created_at\": \"2026-08-05T13:04:05.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:04:05.000+01:00\",\n  \"invoice_url\": \"/invoices/original/missing.png\",\n  \"invoice_details_url\": \"/invoice_details/original/missing.png\",\n  \"invoice_details_file_name\": null,\n  \"source_of_funds\": \"UK savings\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d09a100-a860-460e-aa40-1e93e7e38cf7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "payments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d203dbfc-e932-4f5f-a17c-6a0fcd547595",
+          "name": "Companies/Payments/List",
+          "request": {
+            "name": "Companies/Payments/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46c40d70-d958-4c6c-966b-ec3926883877",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "payments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1226/payments\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1226/payments?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1226/payments?offset=0&limit=50\"\n    }\n  ],\n  \"payments\": [\n    {\n      \"id\": 23,\n      \"state\": \"ignition\",\n      \"amount\": 20,\n      \"description\": null,\n      \"invoice_name\": \"suscipit ligula\",\n      \"paid_at\": null,\n      \"charge_on\": null,\n      \"created_at\": \"2026-08-05T13:04:06.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:04:06.000+01:00\",\n      \"invoice_url\": \"/invoices/original/missing.png\",\n      \"invoice_details_url\": \"/invoice_details/original/missing.png\",\n      \"invoice_details_file_name\": null,\n      \"source_of_funds\": \"UK savings\"\n    },\n    {\n      \"id\": 24,\n      \"state\": \"ignition\",\n      \"amount\": 20,\n      \"description\": null,\n      \"invoice_name\": \"nam tristique\",\n      \"paid_at\": null,\n      \"charge_on\": null,\n      \"created_at\": \"2026-08-05T13:04:06.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:04:06.000+01:00\",\n      \"invoice_url\": \"/invoices/original/missing.png\",\n      \"invoice_details_url\": \"/invoice_details/original/missing.png\",\n      \"invoice_details_file_name\": null,\n      \"source_of_funds\": \"UK savings\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fc6e4220-f00c-4f27-83a6-47d1e8322969",
+    "name": "Keystone Payment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  title: Keystone Jwks API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Jwks
+paths:
+  /.well-known/jwks:
+    get:
+      summary: Jwks/Get
+      tags:
+      - Jwks
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                keys:
+                - kty: RSA
+                  n: wRL2Rrk60zfpi9_DFHe7wQQtrA2NBxRpAbFUhKcJ_6sPH94wgmRNfgYZ8VwIB64XW3dRXOsDm_LFjKX6NJJF9lyqJ4BxqYN6DfaQlPEgYROqI1qwnzJvSfQxZnSeZaK8oS1zD97uEDmLx_PV8mbLSYlWMseI7LpUzImrWeOshJc
+                  e: AQAB
+                  kid: 95b0578129afc250fce3c5dd047ab4ea4b17fa951823d557548c1a11eb6f759f
+              schema:
+                type: object
+                properties:
+                  keys:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        kty:
+                          type: string
+                        n:
+                          type: string
+                        e:
+                          type: string
+                        kid:
+                          type: string
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

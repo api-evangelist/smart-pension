@@ -1,0 +1,319 @@
+openapi: 3.2.0
+info:
+  title: Keystone Income Adequacy Projection API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: IncomeAdequacyProjection
+paths:
+  /companies/{company_id}/employees/{id}/income_adequacy_projection:
+    post:
+      summary: Companies/Employees/IncomeAdequacyProjection/Create (modes)
+      tags:
+      - IncomeAdequacyProjection
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 338
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 685
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Creating income adequacy projection:
+                value:
+                  retirement_age: 65
+                  employee_rate: 5
+                  include_state_pension: true
+                  one_off_payment: 1000
+                  employee_monthly_contribution_amount: 150
+              Creating smart_active income adequacy projection:
+                value:
+                  mode: active
+                  retirement_age: 65
+                  employee_rate: 5
+                  include_state_pension: true
+                  one_off_payment: 1000
+              Creating smart_deferred_left_employment income adequacy projection:
+                value:
+                  mode: deferred_left_employment
+                  retirement_age: 65
+                  include_state_pension: true
+                  one_off_payment: 1000
+                  employee_monthly_contribution_amount: 200
+              Creating smart_deferred_still_employed income adequacy projection:
+                value:
+                  mode: deferred_still_employed
+                  retirement_age: 65
+                  include_state_pension: true
+                  opted_in: true
+                  one_off_payment: 1000
+                  annual_salary: 2000
+            schema:
+              type: object
+              properties:
+                retirement_age:
+                  type: integer
+                include_state_pension:
+                  type: boolean
+                opted_in:
+                  type: boolean
+                one_off_payment:
+                  type: number
+                annual_salary:
+                  type: number
+              required:
+              - retirement_age
+      responses:
+        '200':
+          description: Success (smart_deferred_still_employed)
+          content:
+            application/json:
+              examples:
+                Creating income adequacy projection:
+                  value:
+                    retirement_age: 65
+                    value_at_retirement_age: 2158.61
+                    state_pension_value: 11973
+                    state_pension_age: 68
+                    total_annual_pension_at_retirement_age: 154.19
+                    total_monthly_pension_at_retirement_age: 12.84
+                    total_annual_pension_at_state_pension_age: 12127.19
+                    employer_rate_applied: 5
+                    grades:
+                      minimum: 13900
+                      moderate: 32700
+                      comfortable: 45400
+                    breakdown_at_retirement_age:
+                      workplace_pension: 101.89
+                      state_pension: 0
+                      other_pensions: 0
+                      one_off_payment: 52.3
+                    breakdown_at_state_pension_age:
+                      workplace_pension: 101.89
+                      state_pension: 11973
+                      other_pensions: 0
+                      one_off_payment: 52.3
+                    key_assumptions:
+                      investment_growth: 2.78
+                      years_remaining: 40
+                      months_remaining: 3
+                      future_contributions: 483
+                Creating smart_active income adequacy projection:
+                  value:
+                    retirement_age: 65
+                    value_at_retirement_age: 2183.98
+                    state_pension_value: 11973
+                    state_pension_age: 68
+                    total_annual_pension_at_retirement_age: 155.37
+                    total_monthly_pension_at_retirement_age: 12.94
+                    total_annual_pension_at_state_pension_age: 12128.37
+                    employer_rate_applied: 5
+                    grades:
+                      minimum: 13900
+                      moderate: 32700
+                      comfortable: 45400
+                    breakdown_at_retirement_age:
+                      workplace_pension: 103.09
+                      state_pension: 0
+                      other_pensions: 0
+                      one_off_payment: 52.28
+                    breakdown_at_state_pension_age:
+                      workplace_pension: 103.09
+                      state_pension: 11973
+                      other_pensions: 0
+                      one_off_payment: 52.28
+                Creating smart_deferred_left_employment income adequacy projection:
+                  value:
+                    retirement_age: 65
+                    value_at_retirement_age: 103861.69
+                    state_pension_value: 11973
+                    state_pension_age: 68
+                    total_annual_pension_at_retirement_age: 4954.72
+                    total_monthly_pension_at_retirement_age: 412.89
+                    total_annual_pension_at_state_pension_age: 16927.72
+                    grades:
+                      minimum: 13900
+                      moderate: 32700
+                      comfortable: 45400
+                    breakdown_at_retirement_age:
+                      workplace_pension: 4902.42
+                      state_pension: 0
+                      other_pensions: 0
+                      one_off_payment: 52.3
+                    breakdown_at_state_pension_age:
+                      workplace_pension: 4902.42
+                      state_pension: 11973
+                      other_pensions: 0
+                      one_off_payment: 52.3
+                Creating smart_deferred_still_employed income adequacy projection:
+                  value:
+                    retirement_age: 65
+                    value_at_retirement_age: 9252.44
+                    state_pension_value: 11973
+                    state_pension_age: 68
+                    total_annual_pension_at_retirement_age: 489.02
+                    total_monthly_pension_at_retirement_age: 40.75
+                    total_annual_pension_at_state_pension_age: 12462.02
+                    grades:
+                      minimum: 13900
+                      moderate: 32700
+                      comfortable: 45400
+                    breakdown_at_retirement_age:
+                      workplace_pension: 436.73
+                      state_pension: 0
+                      other_pensions: 0
+                      one_off_payment: 52.29
+                    breakdown_at_state_pension_age:
+                      workplace_pension: 436.73
+                      state_pension: 11973
+                      other_pensions: 0
+                      one_off_payment: 52.29
+                    employee_rate: 4
+                    employer_rate: 5
+              schema:
+                $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_smart_deferred_still_employed_representer'
+        '422':
+          description: Invalid parameters (smart_deferred_still_employed)
+components:
+  schemas:
+    response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
+      type: object
+      properties:
+        minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        moderate:
+          type:
+          - number
+          - 'null'
+          format: float
+        comfortable:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown:
+      type: object
+      properties:
+        workplace_pension:
+          type:
+          - number
+          - 'null'
+          format: float
+        state_pension:
+          type:
+          - number
+          - 'null'
+          format: float
+        other_pensions:
+          type:
+          - number
+          - 'null'
+          format: float
+        one_off_payment:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_generate_income_adequacy_projection_s_smart_deferred_still_employed_representer:
+      type: object
+      properties:
+        retirement_age:
+          type:
+          - integer
+          - 'null'
+        value_at_retirement_age:
+          type:
+          - number
+          - 'null'
+          format: float
+        state_pension_value:
+          type:
+          - number
+          - 'null'
+          format: float
+        state_pension_age:
+          type:
+          - integer
+          - 'null'
+        total_annual_pension_at_retirement_age:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_monthly_pension_at_retirement_age:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_annual_pension_at_state_pension_age:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        grades:
+          $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_income_grades'
+        breakdown_at_retirement_age:
+          $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
+        breakdown_at_state_pension_age:
+          $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Tokens API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Tokens/Callback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/employee/callbacks/smartpension",
+            "headers": [
+              {
+                "name": "Token-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Tokens/Callback"
+        },
+        {
+          "info": {
+            "name": "Tokens/Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/oauth/token/info",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Tokens/Info"
+        },
+        {
+          "info": {
+            "name": "Tokens/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/oauth/token",
+            "headers": [
+              {
+                "name": "Token-Type",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "token_type",
+                "value": "",
+                "type": "query",
+                "description": "Fallback for the Token-Type header: request a JWT by passing `jwt` when the HTTP client cannot set custom headers."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Please contact our support if you are interested in connecting to our API through the external\napplication. Once they create an Partner application you will be issued with a Client ID and a\nClient Secret. If you already are one of our partners please remember to use scope to define what\nkind of resource JWT token will have access."
+        },
+        {
+          "info": {
+            "name": "Tokens/Refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/refresh_token",
+            "headers": [
+              {
+                "name": "Token-Type",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Tokens/Refresh"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

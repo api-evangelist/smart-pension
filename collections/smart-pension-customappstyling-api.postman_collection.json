@@ -1,0 +1,196 @@
+{
+  "item": [
+    {
+      "id": "fc3a2250-c5bb-4b32-93a9-8841a62bf7b7",
+      "name": "CustomAppStyling",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd10093c-61df-4759-a361-3d2d2517232f",
+          "name": "CustomAppStyling/Get",
+          "request": {
+            "name": "CustomAppStyling/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "style"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "64ca7e6b-5d8a-43fd-8d47-991ab11a9776",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "style"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"highlight\": {\n    \"baseOne\": {\n      \"core\": \"#00819D\",\n      \"hover\": \"#0A7793\",\n      \"active\": \"#005975\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"contentPrimary\": \"#FFFFFF\"\n    },\n    \"baseTwo\": {\n      \"core\": \"#00819D\",\n      \"hover\": \"#0A7793\",\n      \"active\": \"#005975\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"contentPrimary\": \"#FFFFFF\"\n    },\n    \"baseThree\": {\n      \"core\": \"#00819D\",\n      \"hover\": \"#0A7793\",\n      \"active\": \"#005975\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"contentPrimary\": \"#FFFFFF\"\n    },\n    \"baseFour\": {\n      \"core\": \"#264C73\",\n      \"hover\": \"#12385F\",\n      \"active\": \"#00244B\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"contentPrimary\": \"#FFFFFF\"\n    }\n  },\n  \"highlightOutline\": {\n    \"baseOne\": {\n      \"hover\": \"#F0F0F0\",\n      \"active\": \"#E6E6E6\",\n      \"contentPrimary\": \"#007793\",\n      \"borderPrimary\": \"#007793\"\n    },\n    \"baseTwo\": {\n      \"hover\": \"#F0F0F0\",\n      \"active\": \"#E6E6E6\",\n      \"contentPrimary\": \"#007793\",\n      \"borderPrimary\": \"#007793\"\n    },\n    \"baseThree\": {\n      \"hover\": \"#3A6087\",\n      \"active\": \"#264C73\",\n      \"contentPrimary\": \"#FFFFFF\",\n      \"borderPrimary\": \"#FFFFFF\"\n    },\n    \"baseFour\": {\n      \"hover\": \"#67CCAE\",\n      \"active\": \"#49AE90\",\n      \"contentPrimary\": \"#103354\",\n      \"borderPrimary\": \"#103354\"\n    }\n  },\n  \"baseOne\": {\n    \"baseOne\": {\n      \"core\": \"#F5F7FB\",\n      \"contrast\": \"#FFFFFF\",\n      \"active\": \"#EBEDF1\",\n      \"borderPrimary\": \"#999999\",\n      \"borderSecondary\": \"#D6D6D6\",\n      \"borderTertiary\": \"#E8E8E8\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#666666\",\n      \"link\": \"#007793\",\n      \"linkHover\": \"#003357\",\n      \"accentPrimary\": \"#00819D\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#588DF3\"\n    },\n    \"baseTwo\": {\n      \"core\": \"#F5F7FB\",\n      \"contrast\": \"#FFFFFF\",\n      \"active\": \"#EBEDF1\",\n      \"borderPrimary\": \"#999999\",\n      \"borderSecondary\": \"#D6D6D6\",\n      \"borderTertiary\": \"#E8E8E8\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#666666\",\n      \"link\": \"#007793\",\n      \"linkHover\": \"#003357\",\n      \"accentPrimary\": \"#00819D\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#588DF3\"\n    }\n  },\n  \"baseTwo\": {\n    \"baseOne\": {\n      \"contrast\": \"#F5F7FB\",\n      \"active\": \"#F8F8F8\",\n      \"borderPrimary\": \"#999999\",\n      \"borderSecondary\": \"#E0E0E0\",\n      \"borderTertiary\": \"#EFEFEF\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#666666\",\n      \"link\": \"#007793\",\n      \"linkHover\": \"#003357\",\n      \"accentPrimary\": \"#00819D\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#588DF3\"\n    },\n    \"baseTwo\": {\n      \"contrast\": \"#F5F7FB\",\n      \"active\": \"#F8F8F8\",\n      \"borderPrimary\": \"#999999\",\n      \"borderSecondary\": \"#E0E0E0\",\n      \"borderTertiary\": \"#EFEFEF\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#666666\",\n      \"link\": \"#007793\",\n      \"linkHover\": \"#003357\",\n      \"accentPrimary\": \"#00819D\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#588DF3\"\n    }\n  },\n  \"baseThree\": {\n    \"baseThree\": {\n      \"core\": \"#103354\",\n      \"contrast\": \"#0C2943\",\n      \"active\": \"#1E3F5E\",\n      \"borderPrimary\": \"#587EA5\",\n      \"borderSecondary\": \"#294F75\",\n      \"borderTertiary\": \"#183E64\",\n      \"contentPrimary\": \"#7BE0C2\",\n      \"contentSecondary\": \"#FFFFFF\",\n      \"contentTertiary\": \"#CCCCCC\",\n      \"link\": \"#7BE0C2\",\n      \"linkHover\": \"#FFFFFF\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#7FB3F6\"\n    },\n    \"baseFour\": {\n      \"core\": \"#103354\",\n      \"contrast\": \"#0C2943\",\n      \"active\": \"#1E3F5E\",\n      \"borderPrimary\": \"#587EA5\",\n      \"borderSecondary\": \"#294F75\",\n      \"borderTertiary\": \"#183E64\",\n      \"contentPrimary\": \"#7BE0C2\",\n      \"contentSecondary\": \"#FFFFFF\",\n      \"contentTertiary\": \"#CCCCCC\",\n      \"link\": \"#7BE0C2\",\n      \"linkHover\": \"#FFFFFF\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"accentSecondary\": \"#F07C91\",\n      \"focus\": \"#7FB3F6\"\n    }\n  },\n  \"baseFour\": {\n    \"baseThree\": {\n      \"core\": \"#7BE0C2\",\n      \"contrast\": \"#67CCAE\",\n      \"active\": \"#74D3B6\",\n      \"borderPrimary\": \"#49AE90\",\n      \"borderSecondary\": \"#67CCAE\",\n      \"borderTertiary\": \"#73D8BA\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#525252\",\n      \"link\": \"#222222\",\n      \"linkHover\": \"#005975\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"accentSecondary\": \"#0C2943\",\n      \"focus\": \"#003D85\"\n    },\n    \"baseFour\": {\n      \"core\": \"#7BE0C2\",\n      \"contrast\": \"#67CCAE\",\n      \"active\": \"#74D3B6\",\n      \"borderPrimary\": \"#49AE90\",\n      \"borderSecondary\": \"#67CCAE\",\n      \"borderTertiary\": \"#73D8BA\",\n      \"contentPrimary\": \"#003357\",\n      \"contentSecondary\": \"#222222\",\n      \"contentTertiary\": \"#525252\",\n      \"link\": \"#222222\",\n      \"linkHover\": \"#005975\",\n      \"accentPrimary\": \"#FFFFFF\",\n      \"accentSecondary\": \"#0C2943\",\n      \"focus\": \"#003D85\"\n    }\n  },\n  \"logoUrl\": \"sample1.png\",\n  \"lightMobileLogoUrl\": \"sample4.svg\",\n  \"darkMobileLogoUrl\": \"sample5.svg\",\n  \"mastheadImageUrl\": \"sample2.png\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d5af369-81b9-491f-9ee9-926c656f02a3",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "style"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8da13510-dffb-4b47-a96a-5d6e85868b65",
+    "name": "Keystone Custom App Styling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

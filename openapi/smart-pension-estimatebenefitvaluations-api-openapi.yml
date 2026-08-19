@@ -1,0 +1,136 @@
+openapi: 3.2.0
+info:
+  title: Keystone Estimate Benefit Valuations API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: EstimateBenefitValuations
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/estimate_benefit_valuations:
+    get:
+      summary: EstimateBenefitValuations/Get
+      tags:
+      - EstimateBenefitValuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1051
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 567
+        schema:
+          type: string
+      - name: benefit_category_id
+        in: path
+        required: true
+        example: 90
+        schema:
+          type: string
+      - name: subaccount_uuid
+        in: query
+        required: false
+        example: subaccount_uuid=8700b2c3-9fa7-4774-8f4e-49681833386a
+        schema:
+          type: string
+      - name: requested_benefit_amount
+        in: query
+        required: true
+        example: requested_benefit_amount=123
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    crystallised_amount: 369
+                    remaining_uncrystallised_amount: 476.8
+                    remaining_total_amount: 845.8
+                    crystallised_amount_per_subaccount: []
+              schema:
+                $ref: '#/components/schemas/response_estimate_benefit_valuations'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_estimate_benefit_valuations:
+      type: object
+      properties:
+        crystallised_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        remaining_uncrystallised_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        remaining_total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        crystallised_amount_per_subaccount:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_estimate_benefit_valuations_subaccount_amount_representer'
+    response_estimate_benefit_valuations_subaccount_amount_representer:
+      type: object
+      properties:
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

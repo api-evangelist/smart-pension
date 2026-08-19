@@ -1,0 +1,168 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payroll configuration details API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Payroll configuration details
+paths:
+  /companies/{company_id}/payroll_configurations/{payroll_id}/preview_payroll_configuration_details:
+    post:
+      summary: preview_payroll_configuration_details
+      tags:
+      - Payroll configuration details
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1279
+        schema:
+          type: string
+      - name: payroll_id
+        in: path
+        required: true
+        example: 46
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_params:
+                value:
+                  initial_payroll_configuration_details:
+                  - pay_period_starts_on: '2021-01-01'
+                    payday: '2021-01-26'
+                    cutoff_date: '2021-01-25'
+              invalid_params:
+                value:
+                  initial_payroll_configuration_details: []
+            schema:
+              type: object
+              properties:
+                initial_payroll_configuration_details:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      cutoff_date:
+                        type: string
+                      payday:
+                        type: string
+                      pay_period_starts_on:
+                        type: string
+                      payroll_configuration: {}
+                    required:
+                    - pay_period_starts_on
+                    - cutoff_date
+                    - payday
+              required:
+              - initial_payroll_configuration_details
+      responses:
+        '200':
+          description: Success - you can generate a preview of the payroll calendar.
+          content:
+            application/json:
+              example:
+              - pay_period_starts_on: '2021-01-01'
+                cutoff_date: '2021-01-25'
+                payday: '2021-01-26'
+                pay_period_ends_on: '2021-01-31'
+              - pay_period_starts_on: '2021-02-01'
+                cutoff_date: '2021-02-25'
+                payday: '2021-02-26'
+                pay_period_ends_on: '2021-02-28'
+              - pay_period_starts_on: '2021-03-01'
+                cutoff_date: '2021-03-25'
+                payday: '2021-03-26'
+                pay_period_ends_on: '2021-03-31'
+              - pay_period_starts_on: '2021-04-01'
+                cutoff_date: '2021-04-25'
+                payday: '2021-04-26'
+                pay_period_ends_on: '2021-04-30'
+              - pay_period_starts_on: '2021-05-01'
+                cutoff_date: '2021-05-25'
+                payday: '2021-05-26'
+                pay_period_ends_on: '2021-05-31'
+              - pay_period_starts_on: '2021-06-01'
+                cutoff_date: '2021-06-25'
+                payday: '2021-06-26'
+                pay_period_ends_on: '2021-06-30'
+              - pay_period_starts_on: '2021-07-01'
+                cutoff_date: '2021-07-25'
+                payday: '2021-07-26'
+                pay_period_ends_on: '2021-07-31'
+              - pay_period_starts_on: '2021-08-01'
+                cutoff_date: '2021-08-25'
+                payday: '2021-08-26'
+                pay_period_ends_on: '2021-08-31'
+              - pay_period_starts_on: '2021-09-01'
+                cutoff_date: '2021-09-25'
+                payday: '2021-09-26'
+                pay_period_ends_on: '2021-09-30'
+              - pay_period_starts_on: '2021-10-01'
+                cutoff_date: '2021-10-25'
+                payday: '2021-10-26'
+                pay_period_ends_on: '2021-10-31'
+              - pay_period_starts_on: '2021-11-01'
+                cutoff_date: '2021-11-25'
+                payday: '2021-11-26'
+                pay_period_ends_on: '2021-11-30'
+              - pay_period_starts_on: '2021-12-01'
+                cutoff_date: '2021-12-25'
+                payday: '2021-12-26'
+                pay_period_ends_on: '2021-12-31'
+        '403':
+          description: Forbidden action for user
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Initial payroll configuration details is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/initial_payroll_configuration_details
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,75 @@
+openapi: 3.2.0
+info:
+  title: Keystone Pensionlab Consent API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PensionlabConsent
+paths:
+  /companies/{company_id}/employees/{employee_id}/pensionlab_consent:
+    get:
+      summary: PensionlabConsent/Get
+      tags:
+      - PensionlabConsent
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 776
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 391
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                pensionlab_url: https://stg.thepensionlab.co.uk/smartpension/oauth/connect/check
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

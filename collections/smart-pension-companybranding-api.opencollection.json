@@ -1,0 +1,190 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Company Branding API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CompanyBranding",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CompanyBranding/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/company_branding",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "104",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "CompanyBranding/Get"
+        },
+        {
+          "info": {
+            "name": "CompanyBranding/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/company_branding",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "98",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "logo",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "company_branding_stock_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "CompanyBranding/Create"
+        },
+        {
+          "info": {
+            "name": "CompanyBranding/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/company_branding",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "105",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "logo",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "company_branding_stock_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "CompanyBranding/Update"
+        },
+        {
+          "info": {
+            "name": "CompanyBranding/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/company_branding",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "111",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "description",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "logo",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "company_branding_stock_id",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "CompanyBranding/Update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

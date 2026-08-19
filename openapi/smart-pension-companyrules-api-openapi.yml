@@ -1,0 +1,142 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Rules API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyRules
+paths:
+  /companies/{company_id}/company_rules:
+    get:
+      summary: Companies/CompanyRules/Get
+      tags:
+      - CompanyRules
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 135
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    scheme_detail_display_name: Test Name
+                    enrolment_type: null
+                    employee_percentage: null
+                    employer_percentage: null
+                    tax_relief_basis_type: true
+                    salary_sacrifice_consent_type: express
+                    national_insurance_saving_share: 10
+                    how_employee_amend_their_contribution: Test response 1
+                    any_other_restrictions: Test response 2
+                    how_often_employee_amend_contributions: Test response 3
+              schema:
+                $ref: '#/components/schemas/response_company_rules'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '404':
+          description: Not Found
+          content:
+            text/html:
+              examples:
+                not_found:
+                  value: ''
+components:
+  schemas:
+    response_company_rules:
+      type: object
+      properties:
+        scheme_detail_display_name:
+          type:
+          - string
+          - 'null'
+        enrolment_type:
+          type:
+          - string
+          - 'null'
+        employee_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_relief_basis_type:
+          type:
+          - boolean
+          - 'null'
+        salary_sacrifice_consent_type:
+          type:
+          - string
+          - 'null'
+        national_insurance_saving_share:
+          type:
+          - number
+          - 'null'
+          format: float
+        how_employee_amend_their_contribution:
+          type:
+          - string
+          - 'null'
+        any_other_restrictions:
+          type:
+          - string
+          - 'null'
+        how_often_employee_amend_contributions:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

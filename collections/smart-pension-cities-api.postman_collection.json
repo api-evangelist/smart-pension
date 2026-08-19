@@ -1,0 +1,212 @@
+{
+  "item": [
+    {
+      "id": "95f5aed2-3913-47ae-a3c1-2d044bd3833a",
+      "name": "Cities",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0a3e181d-66a3-4941-b82a-2535e3a01572",
+          "name": "Cities/Autocomplete",
+          "request": {
+            "name": "Cities/Autocomplete",
+            "description": {
+              "content": "Autocomplete cities by country code and city prefix",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cities",
+                ":country_code",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "city_prefix",
+                  "value": "<string>",
+                  "description": "(Required) Prefix of the city name to filter cities"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit the number of returned cities"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Offset the results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country_code",
+                  "description": "(Required) Country code to filter cities"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "096dad86-ae42-4b8a-91f4-06d946638f1f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cities",
+                    ":country_code",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "city_prefix",
+                      "value": "city_prefix=New"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code to filter cities"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cities\": [\n    {\n      \"name\": \"New Albany\",\n      \"country_code\": \"US\",\n      \"state_code\": \"IN\"\n    },\n    {\n      \"name\": \"New Albany\",\n      \"country_code\": \"US\",\n      \"state_code\": \"MS\"\n    },\n    {\n      \"name\": \"New Albany\",\n      \"country_code\": \"US\",\n      \"state_code\": \"OH\"\n    },\n    {\n      \"name\": \"New Athens\",\n      \"country_code\": \"US\",\n      \"state_code\": \"IL\"\n    },\n    {\n      \"name\": \"New Augusta\",\n      \"country_code\": \"US\",\n      \"state_code\": \"MS\"\n    },\n    {\n      \"name\": \"New Baden\",\n      \"country_code\": \"US\",\n      \"state_code\": \"IL\"\n    },\n    {\n      \"name\": \"New Baltimore\",\n      \"country_code\": \"US\",\n      \"state_code\": \"VA\"\n    },\n    {\n      \"name\": \"New Baltimore\",\n      \"country_code\": \"US\",\n      \"state_code\": \"MI\"\n    },\n    {\n      \"name\": \"New Beaver\",\n      \"country_code\": \"US\",\n      \"state_code\": \"PA\"\n    },\n    {\n      \"name\": \"New Bedford\",\n      \"country_code\": \"US\",\n      \"state_code\": \"MA\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "037e86e4-ee2c-41bb-a459-4c502336b007",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cities",
+                    ":country_code",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "city_prefix",
+                      "value": "city_prefix=New"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) Country code to filter cities"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Prefix cannot be empty\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f14533d7-f764-4868-a9bd-d57092446491",
+    "name": "Keystone Cities API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

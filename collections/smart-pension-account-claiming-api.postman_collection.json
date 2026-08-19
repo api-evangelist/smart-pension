@@ -1,0 +1,1553 @@
+{
+  "item": [
+    {
+      "id": "1a9d22b9-9f9a-4098-947c-62fa05f537a7",
+      "name": "Account-Claiming",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2a98992-0351-469f-b657-365ca14e94f1",
+          "name": "Account-Claiming/confirm-personal-data",
+          "request": {
+            "name": "Account-Claiming/confirm-personal-data",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "account-claiming",
+                "confirm-personal-data"
+              ],
+              "host": [
+                "account-claiming",
+                "sandbox",
+                "autoenrolment",
+                "co",
+                "uk"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string,null>\",\n  \"first_name\": \"<string,null>\",\n  \"middle_name\": \"<string,null>\",\n  \"last_name\": \"<string,null>\",\n  \"phone_number\": \"<string,null>\",\n  \"address_line_1\": \"<string,null>\",\n  \"address_line_2\": \"<string,null>\",\n  \"address_line_3\": \"<string,null>\",\n  \"city\": \"<string,null>\",\n  \"country\": \"<string,null>\",\n  \"postcode\": \"<string,null>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "de13afb8-46f2-41b4-a58a-3bb26fd9fb71",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "confirm-personal-data"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Mr\",\n  \"first_name\": \"Kendall\",\n  \"middle_name\": null,\n  \"last_name\": \"Roy\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"019fd1c8-fa96-745f-8734-ec645fd157ed\",\n  \"state\": \"succeeded\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bae3fbd-de40-427a-b74e-964af82592aa",
+              "name": "Unauthorized - incorrect auth header",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "confirm-personal-data"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Mr\",\n  \"first_name\": \"Kendall\",\n  \"middle_name\": null,\n  \"last_name\": \"Roy\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d10e551a-dabd-4900-9ea9-021390013f0a",
+              "name": "No attempt found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "confirm-personal-data"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Mr\",\n  \"first_name\": \"Kendall\",\n  \"middle_name\": null,\n  \"last_name\": \"Roy\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66a965ec-3153-4f66-8752-2e506c3edc99",
+              "name": "Invalid attempt state",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "confirm-personal-data"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Mr\",\n  \"first_name\": \"Kendall\",\n  \"middle_name\": null,\n  \"last_name\": \"Roy\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Attempt KYC must be completed\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da2030c3-5028-4df1-b78a-91aaca5ecbae",
+              "name": "Personal data validation error",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "confirm-personal-data"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Mr\",\n  \"first_name\": \"Kendall\",\n  \"middle_name\": null,\n  \"last_name\": \"Roy\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"10 Downing Street\",\n  \"address_line_2\": \"Flat 12\",\n  \"address_line_3\": \"SW1A 2AA\",\n  \"city\": \"London\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"019fd1c9-0096-76fd-a1b9-9df2561d3f06\",\n  \"state\": \"failed_cannot_link\",\n  \"errors\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5be561a-5ef9-4686-931c-1a49c031211d",
+          "name": "Account-Claiming/current-attempt",
+          "request": {
+            "name": "Account-Claiming/current-attempt",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "account-claiming",
+                "current-attempt"
+              ],
+              "host": [
+                "account-claiming",
+                "sandbox",
+                "autoenrolment",
+                "co",
+                "uk"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5038ed1f-2662-4160-9602-c77effb83e56",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "current-attempt"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_attempt\": {\n    \"id\": \"019fd1c9-0868-71b0-81a0-e12e7e2bba04\",\n    \"state\": \"kyc_completed\",\n    \"person_identifier\": \"a572a005-90b5-474e-a7d3-b623a64f9478\",\n    \"assumed_personal_data\": {\n      \"title\": \"Mr\",\n      \"first_name\": \"Kendall\",\n      \"middle_name\": null,\n      \"last_name\": \"Roy\",\n      \"date_of_birth\": \"1978-09-22\",\n      \"national_insurance_number\": \"AA123456B\",\n      \"email\": \"kendall.roy@example.com\",\n      \"phone_number\": \"+442071234567\",\n      \"address_line_1\": \"10 Downing Street\",\n      \"address_line_2\": \"Flat 12\",\n      \"address_line_3\": null,\n      \"region\": \"England\",\n      \"city\": \"London\",\n      \"country\": \"GB\",\n      \"postcode\": \"SW1A 2AA\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65859a55-6cbb-445f-b6ad-7f4b77998fd7",
+              "name": "Unauthorized - incorrect auth header",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "current-attempt"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12ee5fcf-26ad-4978-95a8-8d763a6bebc1",
+          "name": "Account-Claiming/Attempt",
+          "request": {
+            "name": "Account-Claiming/Attempt",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "account-claiming",
+                "attempts",
+                ":uuid",
+                ""
+              ],
+              "host": [
+                "account-claiming",
+                "sandbox",
+                "autoenrolment",
+                "co",
+                "uk"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed1fea85-8542-4b9e-9b14-379ceb0295b5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attempt\": {\n    \"id\": \"019fd1c9-0b84-7c51-98f2-41840fe294d9\",\n    \"state\": \"kyc_completed\",\n    \"person_identifier\": \"9c367203-d7c9-45df-82d8-3d90bc350500\",\n    \"assumed_personal_data\": {\n      \"title\": \"Mr\",\n      \"first_name\": \"Kendall\",\n      \"middle_name\": null,\n      \"last_name\": \"Roy\",\n      \"date_of_birth\": \"1978-09-22\",\n      \"national_insurance_number\": \"AA123456B\",\n      \"email\": \"kendall.roy@example.com\",\n      \"phone_number\": \"+442071234567\",\n      \"address_line_1\": \"10 Downing Street\",\n      \"address_line_2\": \"Flat 12\",\n      \"address_line_3\": null,\n      \"region\": \"England\",\n      \"city\": \"London\",\n      \"country\": \"GB\",\n      \"postcode\": \"SW1A 2AA\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc879034-4127-47b2-b54a-0280df0d5cac",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    ""
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Not Found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7de32b4c-e31d-4f0c-b7db-8c913fb3989b",
+          "name": "Account-Claiming/Password-Validations",
+          "request": {
+            "name": "Account-Claiming/Password-Validations",
+            "description": {},
+            "url": {
+              "protocol": "https",
+              "path": [
+                "account-claiming",
+                "password-validations"
+              ],
+              "host": [
+                "account-claiming",
+                "sandbox",
+                "autoenrolment",
+                "co",
+                "uk"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb4e03e8-4fcd-473e-96bc-ce40af789583",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "account-claiming",
+                    "password-validations"
+                  ],
+                  "host": [
+                    "account-claiming",
+                    "sandbox",
+                    "autoenrolment",
+                    "co",
+                    "uk"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"format\": [\n    {\n      \"regexp\": \".{10,}\",\n      \"description\": \"Password must be at least 10 characters long\"\n    },\n    {\n      \"regexp\": \"^.{0, 65}$\",\n      \"description\": \"Password must be at most 65 characters long\"\n    },\n    {\n      \"regexp\": \"(?=.*[a-z])(?=.*[A-Z])\",\n      \"description\": \"Password must include at least one lowercase and one uppercase letter\"\n    },\n    {\n      \"regexp\": \"(?=.*[0-9])\",\n      \"description\": \"Password must include at least one number\"\n    },\n    {\n      \"regexp\": \"(?=.*[^A-Za-z0-9])\",\n      \"description\": \"Password must include at least one symbol\"\n    }\n  ],\n  \"length\": {\n    \"min\": 10,\n    \"max\": 65\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0d3a7cb-3314-4540-be53-f0235120c8fd",
+          "name": "Account-Claiming/Attempt/AdditionalData",
+          "request": {
+            "name": "Account-Claiming/Attempt/AdditionalData",
+            "description": {},
+            "url": {
+              "path": [
+                "account-claiming",
+                "attempts",
+                ":uuid",
+                "additional-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"previous_email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"address_line_1\": \"<string>\",\n  \"address_line_2\": \"<string,null>\",\n  \"address_line_3\": \"<string,null>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postcode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0cf4a57-b8f8-4172-ba89-ff6ce4989ca4",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "additional-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"previous_email\": \"luke@skywalker.com\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"Lars Homestead\",\n  \"address_line_2\": \"4\",\n  \"address_line_3\": \"\",\n  \"city\": \"Tatooine\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "263755d8-f794-4548-85b0-3456d33b0a03",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "additional-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"previous_email\": \"luke@skywalker.com\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"Lars Homestead\",\n  \"address_line_2\": \"4\",\n  \"address_line_3\": \"\",\n  \"city\": \"Tatooine\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Cannot provide additional data in current state\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4831c45-e69d-424a-8403-50da09aa0221",
+              "name": "Invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "additional-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"previous_email\": \"luke@skywalker.com\",\n  \"phone_number\": \"+442071234567\",\n  \"address_line_1\": \"Lars Homestead\",\n  \"address_line_2\": \"4\",\n  \"address_line_3\": \"\",\n  \"city\": \"Tatooine\",\n  \"country\": \"GB\",\n  \"postcode\": \"SW1A 2AA\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 400015,\n      \"title\": \"Address line 1 is a required field.\",\n      \"detail\": \"Enter an address line 1.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/address_line_1\"\n      }\n    },\n    {\n      \"code\": 400019,\n      \"title\": \"City is a required field.\",\n      \"detail\": \"Enter a city.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/city\"\n      }\n    },\n    {\n      \"code\": 400022,\n      \"title\": \"Country is a required field.\",\n      \"detail\": \"Enter a Country.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/country\"\n      }\n    },\n    {\n      \"code\": 400024,\n      \"title\": \"Postcode is a required field.\",\n      \"detail\": \"Enter a Postcode.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/postcode\"\n      }\n    },\n    {\n      \"code\": 400027,\n      \"title\": \"Previous email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/previous_email\"\n      }\n    },\n    {\n      \"code\": 400014,\n      \"title\": \"Phone number format is invalid.\",\n      \"detail\": \"Phone number is in invalid format.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/phone_number\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20e13027-c20f-4bbc-9748-1b984a70b1d9",
+          "name": "Account-Claiming/Attempt/Email",
+          "request": {
+            "name": "Account-Claiming/Attempt/Email",
+            "description": {},
+            "url": {
+              "path": [
+                "account-claiming",
+                "attempts",
+                ":uuid",
+                "email"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"current_email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9ef55bf-54de-4e2e-b8fd-73d418379e43",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"current_email\": \"luke@skywalker.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05aa04a8-f0c0-4375-9c2c-ae1622dc770f",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"current_email\": \"luke@skywalker.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Cannot provide email in current state\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5740cd5d-7636-401d-a2ef-fef9f41ed74b",
+              "name": "Invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "email"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"current_email\": \"luke@skywalker.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 403002,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/current_email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cf7046cc-4c44-40f9-b30a-0e88cc26eb9a",
+          "name": "Account-Claiming/Attempt/Password",
+          "request": {
+            "name": "Account-Claiming/Attempt/Password",
+            "description": {},
+            "url": {
+              "path": [
+                "account-claiming",
+                "attempts",
+                ":uuid",
+                "password"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"<string>\",\n  \"password_confirmation\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "912abedb-5b96-4d23-ab52-2323cf4f9a86",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"1234Qwertyuiop!\",\n  \"password_confirmation\": \"1234Qwertyuiop!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ce21f4e-c217-427a-a5cb-b42aebbbb671",
+              "name": "Invalid state",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"1234Qwertyuiop!\",\n  \"password_confirmation\": \"1234Qwertyuiop!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Cannot provide password in current state\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9adab2e9-b438-4def-ba91-f40bea9f1213",
+              "name": "Invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts",
+                    ":uuid",
+                    "password"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"password\": \"1234Qwertyuiop!\",\n  \"password_confirmation\": \"1234Qwertyuiop!\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 404001,\n      \"title\": \"Password is too short.\",\n      \"detail\": \"Password is too short.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/password\"\n      }\n    },\n    {\n      \"code\": 404002,\n      \"title\": \"Password is invalid.\",\n      \"detail\": \"Password is invalid.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/password\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ad25a39-bee4-4305-84b3-3a8cfed4b248",
+          "name": "Account-Claiming/Attempt",
+          "request": {
+            "name": "Account-Claiming/Attempt",
+            "description": {},
+            "url": {
+              "path": [
+                "account-claiming",
+                "attempts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"date_of_birth\": \"<string>\",\n  \"national_insurance_number\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "980982ed-3eef-4d6b-a52c-6aadeae32cc7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Anthony\",\n  \"last_name\": \"Davis\",\n  \"date_of_birth\": \"1986-01-22\",\n  \"national_insurance_number\": \"AA123456B\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"019fd1c9-1f5a-7e76-bd1f-21b766ec0f32\",\n  \"requires_additional_info\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cf28eec-d177-4879-af49-27e1f9ba3252",
+              "name": "Invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account-claiming",
+                    "attempts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"Anthony\",\n  \"last_name\": \"Davis\",\n  \"date_of_birth\": \"1986-01-22\",\n  \"national_insurance_number\": \"AA123456B\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 400003,\n      \"title\": \"First name is required.\",\n      \"detail\": \"Enter a first name.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/first_name\"\n      }\n    },\n    {\n      \"code\": 400009,\n      \"title\": \"Date of birth is required.\",\n      \"detail\": \"Enter a date of birth.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/date_of_birth\"\n      }\n    },\n    {\n      \"code\": 400012,\n      \"title\": \"National insurance number is invalid.\",\n      \"detail\": \"Enter national insurance number in a proper format.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/national_insurance_number\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "540dfbc6-73a6-42e5-b968-7050947c78b4",
+    "name": "Keystone Account Claiming API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

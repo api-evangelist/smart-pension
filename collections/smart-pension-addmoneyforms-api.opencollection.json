@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Add Money Forms API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AddMoneyForms",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AddMoneyForms/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/add_money_forms/:type",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "249",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "61",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "single",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AddMoneyForms/Get"
+        },
+        {
+          "info": {
+            "name": "AddMoneyForms/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/add_money_forms/:type",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "245",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "59",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "single",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AddMoneyForms/Create"
+        },
+        {
+          "info": {
+            "name": "AddMoneyForms/SubmitRasConsent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/add_money_forms/:type/submit_ras_consent",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "253",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "63",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "single",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AddMoneyForms/SubmitRasConsent"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

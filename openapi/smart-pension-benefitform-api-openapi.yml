@@ -1,0 +1,1152 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Form API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitForm
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/confirm_all:
+    patch:
+      summary: BenefitEvidenceUploads/ConfirmAll
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 349
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 126
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error: Not Found
+  /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads:
+    post:
+      summary: BenefitEvidenceUploads/Create
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 351
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 128
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            examples:
+              empty_parameters:
+                value:
+                  benefit_evidence_type_id: ''
+                  file: ''
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                benefit_evidence_type_id:
+                  type: integer
+                state:
+                  type: string
+                comment:
+                  type: string
+                  maximum: 30000
+                preupload_url:
+                  type: string
+                expires_on:
+                  type: string
+                file:
+                  type: string
+                  format: binary
+              required:
+              - benefit_evidence_type_id
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 9
+                state: created
+                file_name: image.jpeg
+                file_url: https://api.host.com/benefit_evidence_uploads/9/file?signature=eyJpZCI6OSwidXVpZCI6IjRmYmRiY2Q1LTE2ZTEtNDFjZC1hNjA4LThjMWMyM2NlYjljMiJ9--d7d2058622a3d473bf21d64b5acc66b6c2ae160f
+                comment: null
+                owner_id: 128
+                owner_type: Employee
+                benefit_evidence_type_id: 15
+              schema:
+                $ref: '#/components/schemas/response_benefit_evidence_upload'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                empty_parameters:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Benefit evidence type id is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/benefit_evidence_type_id
+                    - code: 100002
+                      title: Value is not valid for the field.
+                      detail: 'Benefit evidence type id should be one of the following values: 16.'
+                      meta:
+                        values:
+                        - 16
+                        value: ''
+                      source:
+                        pointer: /data/attributes/benefit_evidence_type_id
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: File is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/file
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Preupload url is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/preupload_url
+                    - code: 16406
+                      title: The file size is less than allowed.
+                      detail: The file size must be greater than 1 byte.
+                      meta:
+                        human_max_file_size: 10 MB
+                        value: 0
+                        count: 1
+                      source:
+                        pointer: /data/attributes/file_file_size
+    get:
+      summary: BenefitEvidenceUploads/Get
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 360
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 136
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/358/employees/134/benefit_form/benefit_evidence_uploads
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/358/employees/134/benefit_form/benefit_evidence_uploads?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/358/employees/134/benefit_form/benefit_evidence_uploads?offset=0&limit=50
+                    benefit_evidence_uploads:
+                    - id: 12
+                      state: pending
+                      file_name: file.pdf
+                      file_url: https://api.host.com/benefit_evidence_uploads/12/file?signature=eyJpZCI6MTIsInV1aWQiOiJiMmJiOTdhZS02YmIwLTQ0Y2YtOTk4Ni1mMjZlNjMxNTNhYTEifQ%3D%3D--90e2b41e787c9fe3543634ae54434a86add12381
+                      comment: null
+                      owner_id: 134
+                      owner_type: Employee
+                      benefit_evidence_type_id: 19
+                success_document_rejected_via_verification_check_service:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/360/employees/136/benefit_form/benefit_evidence_uploads
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/360/employees/136/benefit_form/benefit_evidence_uploads?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/360/employees/136/benefit_form/benefit_evidence_uploads?offset=0&limit=50
+                    benefit_evidence_uploads:
+                    - id: 13
+                      state: request_replacement
+                      file_name: file.pdf
+                      file_url: https://api.host.com/benefit_evidence_uploads/13/file?signature=eyJpZCI6MTMsInV1aWQiOiI3NjQzNjU4ZS03MWZhLTRlZWQtYTUxYy01OTc1MWNkNDI4ZTYifQ%3D%3D--a5bc2725ebac5b7dc5014439af342ef301ceaede
+                      owner_id: 136
+                      owner_type: Employee
+                      benefit_evidence_type_id: 20
+                      rejection_reasons:
+                      - Document originality could not be verified.
+                      - DOB on the document doesn't match.
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_evidence_uploads:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_evidence_upload'
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/{benefit_evidence_upload_id}:
+    delete:
+      summary: BenefitEvidenceUploads/Destroy
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 353
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 130
+        schema:
+          type: string
+      - name: benefit_evidence_upload_id
+        in: path
+        required: true
+        example: 10
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error: Not Found
+    put:
+      summary: BenefitEvidenceUploads/Update
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 363
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 140
+        schema:
+          type: string
+      - name: benefit_evidence_upload_id
+        in: path
+        required: true
+        example: 15
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            examples:
+              invalid_parameters:
+                value:
+                  file: ''
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+              - file
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: File is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/file
+    patch:
+      summary: BenefitEvidenceUploads/Update
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 365
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 142
+        schema:
+          type: string
+      - name: benefit_evidence_upload_id
+        in: path
+        required: true
+        example: 17
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            examples:
+              invalid_parameters:
+                value:
+                  file: ''
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+              required:
+              - file
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: File is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/file
+  /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_question_responses/:
+    patch:
+      summary: BenefitQuestionResponses/Update
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 368
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 145
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success_response:
+                value:
+                  lta:
+                    response: 'yes'
+              success_pension_history:
+                value:
+                  first_time_retirement_benefits_after_april_2024:
+                    details:
+                    - date_paid: '2012-12-12'
+                      tax_free_lump_sum_paid: 2000
+                      pension_scheme: Some Pension Scheme
+              forbidden:
+                value:
+                  pension_scams:
+                    response: 'yes'
+                  mpaa:
+                    response: 'yes'
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+                properties:
+                  response:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - 'yes'
+                    - 'no'
+                  details:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      type: object
+                      properties:
+                        date_paid:
+                          type: string
+                          example: '2012-12-12'
+                        tax_free_lump_sum_paid:
+                          type: integer
+                          example: 2000
+                        pension_scheme:
+                          type:
+                          - string
+                          - 'null'
+                          example: Some Pension Scheme
+                        percentage_of_lifetime_allowance_used:
+                          type:
+                          - integer
+                          - 'null'
+                          example: 12
+                    description: Send additional data for first_time_retirement_benefits, first_time_retirement_benefits_after_april_2024 or any_tax_free_serious_ill_health_lump_sum
+              description: Key should be one of mpaa, lta, lsa_exceeded, tax_estimate, financial_dependents, debt_status, financial_advice, pension_scams, existing_lta_protections, first_time_retirement_benefits_after_april_2024, first_time_retirement_benefits, any_tax_free_lump_sum_below_limit, any_tax_free_serious_ill_health_lump_sum
+              properties: {}
+      responses:
+        '204':
+          description: 'Success '
+        '403':
+          description: Forbidden
+  /companies/{company_id}/employees/{employee_id}/benefit_form/cancel:
+    post:
+      summary: BenefitForms/Cancel
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 372
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 148
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                status: 404
+                error: Not Found
+  /companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form:
+    post:
+      summary: BenefitForms/Create
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 378
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 151
+        schema:
+          type: string
+      - name: benefit_category_id
+        in: path
+        required: true
+        example: 48
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              created:
+                value:
+                  requested_benefit_amount: 10
+                  regular_income_amount: 15
+                  regular_income_end_age: 55
+            schema:
+              type: object
+              properties:
+                requested_benefit_amount:
+                  type: number
+                regular_income_amount:
+                  type: number
+                regular_income_end_age:
+                  type: integer
+      responses:
+        '201':
+          description: successfully create Benefit Form
+          content:
+            application/json:
+              example:
+                state: created
+                benefit_rule_set_id: '48'
+                automatic_kyc_verification: false
+                created_at: '2026-08-05T12:59:49.000+01:00'
+                requested_benefit_amount: 10
+                requested_benefit_amount_currency: GBP
+                regular_income_amount: 15
+                regular_income_amount_currency: GBP
+                regular_income_end_age: 55
+                frontend_tag: null
+                benefit_task_list:
+                - task_type: verify_identity
+                  task_status: not_started
+                - task_type: pension_guidance
+                  task_status: in_progress
+                - task_type: bank_details
+                  task_status: not_started
+                - task_type: lta_protections
+                  task_status: not_started
+                - task_type: confirm_request
+                  task_status: preconditions_outstanding
+                benefit_question_responses: []
+                benefit_questions:
+                - question_code: lta
+                  category: lta_protections
+                historical_benefit_question_responses:
+                - question_code: lta
+                  response: 'yes'
+                  details: null
+        '403':
+          description: Employee is not eligible for the given Benefit Rule Set
+    put:
+      summary: BenefitForms/Update
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 396
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 161
+        schema:
+          type: string
+      - name: benefit_category_id
+        in: path
+        required: true
+        example: 56
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  requested_benefit_amount: 20
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+              invalid_parameter:
+                value:
+                  requested_benefit_amount: 3000
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+              not_found:
+                value:
+                  requested_benefit_amount: 20
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+            schema:
+              type: object
+              properties:
+                requested_benefit_amount:
+                  type: number
+                regular_income_amount:
+                  type: number
+                regular_income_end_age:
+                  type: integer
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not found
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 160006
+                  title: Requested benefit amount should be less than or equal to 20.00.
+                  detail: Requested benefit amount should be less than or equal to 20.00.
+                  meta:
+                    amount:
+                      cents: 2000
+                      currency_iso: GBP
+                  source:
+                    pointer: /data/attributes/requested_benefit_amount
+    patch:
+      summary: BenefitForms/Update
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 402
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 164
+        schema:
+          type: string
+      - name: benefit_category_id
+        in: path
+        required: true
+        example: 59
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  requested_benefit_amount: 20
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+              invalid_parameter:
+                value:
+                  requested_benefit_amount: 3000
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+              not_found:
+                value:
+                  requested_benefit_amount: 20
+                  regular_income_amount: 5
+                  regular_income_end_age: 55
+            schema:
+              type: object
+              properties:
+                requested_benefit_amount:
+                  type: number
+                regular_income_amount:
+                  type: number
+                regular_income_end_age:
+                  type: integer
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not found
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 160006
+                  title: Requested benefit amount should be less than or equal to 20.00.
+                  detail: Requested benefit amount should be less than or equal to 20.00.
+                  meta:
+                    amount:
+                      cents: 2000
+                      currency_iso: GBP
+                  source:
+                    pointer: /data/attributes/requested_benefit_amount
+  /companies/{company_id}/employees/{employee_id}/benefit_form/verification_url:
+    post:
+      summary: BenefitForms/GenerateVerificationUrl
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 384
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 154
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              redirect_url: https://www.example.com/callback
+            schema:
+              type: object
+              properties:
+                redirect_url:
+                  type: string
+              required:
+              - redirect_url
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                verification_url: null
+              schema:
+                type: object
+                properties:
+                  verification_url:
+                    type:
+                    - string
+                    - 'null'
+    get:
+      summary: BenefitForms/VerificationUrl
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 408
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 167
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                verification_url: https://www.example.com/
+              schema:
+                type: object
+                properties:
+                  verification_url:
+                    type:
+                    - string
+                    - 'null'
+  /companies/{company_id}/employees/{employee_id}/benefit_form:
+    get:
+      summary: BenefitForms/Get
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 386
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 155
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                state: created
+                benefit_rule_set_id: '52'
+                automatic_kyc_verification: false
+                created_at: '2026-08-05T12:59:51.757+01:00'
+                requested_benefit_amount: null
+                requested_benefit_amount_currency: null
+                regular_income_amount: null
+                regular_income_amount_currency: null
+                regular_income_end_age: null
+                frontend_tag: null
+                benefit_task_list:
+                - task_type: verify_identity
+                  task_status: not_started
+                - task_type: pension_guidance
+                  task_status: not_started
+                - task_type: bank_details
+                  task_status: not_started
+                - task_type: confirm_request
+                  task_status: preconditions_outstanding
+                benefit_question_responses:
+                - question_code: lta
+                  response: 'yes'
+                  details:
+                    date: '2026-08-04'
+                    name: name
+                benefit_questions:
+                - question_code: lta
+                  category: confirm_request
+                historical_benefit_question_responses: []
+              schema:
+                $ref: '#/components/schemas/response_benefit_form'
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/benefit_form/submit:
+    post:
+      summary: BenefitForms/Submit
+      tags:
+      - BenefitForm
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 390
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 159
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                state: submitted
+                benefit_rule_set_id: '54'
+                automatic_kyc_verification: false
+                created_at: '2026-08-05T12:59:52.855+01:00'
+                requested_benefit_amount: null
+                requested_benefit_amount_currency: null
+                regular_income_amount: null
+                regular_income_amount_currency: null
+                regular_income_end_age: null
+                frontend_tag: null
+                benefit_task_list:
+                - task_type: verify_identity
+                  task_status: completed
+                - task_type: pension_guidance
+                  task_status: completed
+                - task_type: bank_details
+                  task_status: completed
+                - task_type: confirm_request
+                  task_status: completed
+                benefit_question_responses:
+                - question_code: lta
+                  response: 'no'
+                  details: null
+                benefit_questions:
+                - question_code: lta
+                  category: confirm_request
+                historical_benefit_question_responses: []
+              schema:
+                $ref: '#/components/schemas/response_benefit_form'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_benefit_form'
+components:
+  schemas:
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
+    response_task_list:
+      type: object
+      properties:
+        task_type:
+          type:
+          - string
+          - 'null'
+        task_status:
+          type:
+          - string
+          - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_question_response:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        response:
+          type: string
+        details:
+          type:
+          - object
+          - 'null'
+    response_benefit_form:
+      type: object
+      properties:
+        state:
+          type: string
+        benefit_rule_set_id:
+          type: string
+        automatic_kyc_verification:
+          type:
+          - boolean
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        requested_benefit_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        requested_benefit_amount_currency:
+          type:
+          - string
+          - 'null'
+        regular_income_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        regular_income_amount_currency:
+          type:
+          - string
+          - 'null'
+        regular_income_end_age:
+          type:
+          - integer
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        benefit_task_list:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_task_list'
+        benefit_question_responses:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_question_response'
+        benefit_questions:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_question'
+        historical_benefit_question_responses:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_question_response'
+    response_benefit_question:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

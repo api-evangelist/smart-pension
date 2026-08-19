@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  title: Keystone Role API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Role
+paths:
+  /companies/{company_id}/customers/{customer_id}/role:
+    post:
+      summary: Customers/Roles/Create
+      tags:
+      - Role
+      security:
+      - oAuth2:
+        - user
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 223
+        schema:
+          type: string
+      - name: customer_id
+        in: path
+        required: true
+        example: 120
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request: {}
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 120
+                role: signatory
+              schema:
+                $ref: '#/components/schemas/response_customer_role'
+        '403':
+          description: Forbidden Error
+    delete:
+      summary: Customers/Roles/Destroy
+      tags:
+      - Role
+      security:
+      - oAuth2:
+        - user
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 225
+        schema:
+          type: string
+      - name: customer_id
+        in: path
+        required: true
+        example: 124
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Success
+    patch:
+      summary: Customers/Roles/Update
+      tags:
+      - Role
+      security:
+      - oAuth2:
+        - user
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 227
+        schema:
+          type: string
+      - name: customer_id
+        in: path
+        required: true
+        example: 127
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              switch_customer_role:
+                signatory_id: 128
+            schema:
+              type: object
+              properties:
+                admin_id:
+                  type: integer
+                signatory_id:
+                  type: integer
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Forbidden
+        '422':
+          description: Invalid parameters
+components:
+  schemas:
+    response_customer_role:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        role:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,387 @@
+{
+  "item": [
+    {
+      "id": "8aaa8b89-a819-4192-a09a-8e1853c4dfc9",
+      "name": "Tasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a608dcc-0718-4e7e-9cd3-a8f85617e3f2",
+          "name": "Tasks/List",
+          "request": {
+            "name": "Tasks/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8a7911f2-505b-4c40-9eb9-f519bde2c8d0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tasks\": [\n    {\n      \"id\": \"profile-employee_address\",\n      \"type\": \"profile\",\n      \"name\": \"employee_address\",\n      \"state\": \"done\",\n      \"owner_id\": 477,\n      \"owner_type\": \"employee\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": false,\n      \"done?\": true\n    },\n    {\n      \"id\": \"profile-telephone\",\n      \"type\": \"profile\",\n      \"name\": \"telephone\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 477,\n      \"owner_type\": \"employee\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    },\n    {\n      \"id\": \"profile-email\",\n      \"type\": \"profile\",\n      \"name\": \"email\",\n      \"state\": \"done\",\n      \"owner_id\": 477,\n      \"owner_type\": \"employee\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": false,\n      \"done?\": true\n    },\n    {\n      \"id\": \"profile-expression_of_wish\",\n      \"type\": \"profile\",\n      \"name\": \"expression_of_wish\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 477,\n      \"owner_type\": \"employee\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    },\n    {\n      \"id\": \"profile-visit_income_adequacy_page\",\n      \"type\": \"profile\",\n      \"name\": \"visit_income_adequacy_page\",\n      \"state\": \"done\",\n      \"owner_id\": 477,\n      \"owner_type\": \"employee\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": false,\n      \"done?\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ed768864-d085-41a4-a4f3-c796e2239061",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "877fb5a2-270d-4e0d-8ebf-729ad265c0d9",
+          "name": "Tasks/List",
+          "request": {
+            "name": "Tasks/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3db7e553-d2d6-4e27-b0bd-358a86e13924",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"tasks\": [\n    {\n      \"id\": \"company-direct_debit\",\n      \"type\": \"company\",\n      \"name\": \"direct_debit\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    },\n    {\n      \"id\": \"company-confirm_scheme_starts_on\",\n      \"type\": \"company\",\n      \"name\": \"confirm_scheme_starts_on\",\n      \"state\": \"done\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": false,\n      \"done?\": true\n    },\n    {\n      \"id\": \"company-edit_company\",\n      \"type\": \"company\",\n      \"name\": \"edit_company\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    },\n    {\n      \"id\": \"company-add_employees\",\n      \"type\": \"company\",\n      \"name\": \"add_employees\",\n      \"state\": \"done\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": false,\n      \"done?\": true\n    },\n    {\n      \"id\": \"on_going-welcome_letters\",\n      \"type\": \"on_going\",\n      \"name\": \"welcome_letters\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    },\n    {\n      \"id\": \"on_going-contributions\",\n      \"type\": \"on_going\",\n      \"name\": \"contributions\",\n      \"state\": \"outstanding\",\n      \"owner_id\": 1382,\n      \"owner_type\": \"company\",\n      \"available?\": true,\n      \"blocked?\": false,\n      \"delegatable?\": true,\n      \"done?\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d7e25de-19a0-40db-9ef5-b89715ebed10",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "75fbc7a7-5a33-407b-ad31-7bf5dfe4bebd",
+    "name": "Keystone Tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

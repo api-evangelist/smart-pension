@@ -1,0 +1,1223 @@
+openapi: 3.2.0
+info:
+  title: Keystone Onboarding API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Onboarding
+paths:
+  /onboarding/accept-terms:
+    post:
+      summary: Onboarding/AcceptTerms
+      tags:
+      - Onboarding
+      security:
+      - oAuth2:
+        - individual
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_accept:
+                value:
+                  accept: true
+              invalid_accept:
+                value:
+                  accept: false
+            schema:
+              type: object
+              properties:
+                accept:
+                  type: boolean
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: ''
+        '401':
+          description: Fail
+        '422':
+          description: Fail - fields validation
+          content:
+            application/json:
+              examples:
+                invalid_accept:
+                  value:
+                    errors:
+                    - code: 119101
+                      title: Terms and conditions not accepted
+                      detail: Please confirm you've read and agreed to the terms and conditions
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/accept
+  /onboarding/status:
+    get:
+      summary: Onboarding/Status
+      tags:
+      - Onboarding
+      security:
+      - oAuth2:
+        - individual
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                personalData: not_started
+                kyc: unavailable
+                termsAndConditions: false
+              schema:
+                type: object
+                properties:
+                  personalData:
+                    type: string
+                    enum:
+                    - not_started
+                    - in_progress
+                    - completed
+                    - deleted
+                  kyc:
+                    type: string
+                    enum:
+                    - unavailable
+                    - pending
+                    - available
+                  termsAndConditions:
+                    type: boolean
+                required:
+                - personalData
+                - kyc
+                - termsAndConditions
+        '401':
+          description: Fail
+  /onboarding/options:
+    get:
+      summary: Onboarding/Options
+      tags:
+      - Onboarding
+      parameters:
+      - name: field_names[]
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - gender
+            - residency
+            - tax_information
+            - employment_status
+            - country
+        examples:
+          valid_full:
+            value:
+            - gender
+            - residency
+            - tax_information
+            - employment_status
+            - country
+          valid_partial:
+            value:
+            - gender
+            - residency
+          missing:
+            value: []
+          invalid:
+            value:
+            - city
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                genderOptions:
+                - id: male
+                  label: Male
+                - id: female
+                  label: Female
+                residencyOptions:
+                - id: uk_resident
+                  label: UK resident
+                - id: non_uk_resident
+                  label: Non UK resident
+                taxInformationOptions:
+                - id: england
+                  label: England
+                - id: northern_ireland
+                  label: Northern Ireland
+                - id: wales
+                  label: Wales
+                - id: scotland
+                  label: Scotland
+                employmentStatusOptions:
+                - id: employed
+                  label: Employed
+                - id: self_employed
+                  label: Self employed
+                - id: unemployed
+                  label: Not employed
+                countryOptions:
+                - id: AW
+                  label: Aruba
+                - id: AF
+                  label: Afghanistan
+                - id: AO
+                  label: Angola
+                - id: AI
+                  label: Anguilla
+                - id: AX
+                  label: Åland Islands
+                - id: AL
+                  label: Albania
+                - id: AD
+                  label: Andorra
+                - id: AE
+                  label: United Arab Emirates
+                - id: AR
+                  label: Argentina
+                - id: AM
+                  label: Armenia
+                - id: AS
+                  label: American Samoa
+                - id: AQ
+                  label: Antarctica
+                - id: TF
+                  label: French Southern Territories
+                - id: AG
+                  label: Antigua and Barbuda
+                - id: AU
+                  label: Australia
+                - id: AT
+                  label: Austria
+                - id: AZ
+                  label: Azerbaijan
+                - id: BI
+                  label: Burundi
+                - id: BE
+                  label: Belgium
+                - id: BJ
+                  label: Benin
+                - id: BQ
+                  label: Bonaire, Sint Eustatius and Saba
+                - id: BF
+                  label: Burkina Faso
+                - id: BD
+                  label: Bangladesh
+                - id: BG
+                  label: Bulgaria
+                - id: BH
+                  label: Bahrain
+                - id: BS
+                  label: Bahamas
+                - id: BA
+                  label: Bosnia and Herzegovina
+                - id: BL
+                  label: Saint Barthélemy
+                - id: BY
+                  label: Belarus
+                - id: BZ
+                  label: Belize
+                - id: BM
+                  label: Bermuda
+                - id: BO
+                  label: Bolivia
+                - id: BR
+                  label: Brazil
+                - id: BB
+                  label: Barbados
+                - id: BN
+                  label: Brunei Darussalam
+                - id: BT
+                  label: Bhutan
+                - id: BV
+                  label: Bouvet Island
+                - id: BW
+                  label: Botswana
+                - id: CF
+                  label: Central African Republic
+                - id: CA
+                  label: Canada
+                - id: CC
+                  label: Cocos (Keeling) Islands
+                - id: CH
+                  label: Switzerland
+                - id: CL
+                  label: Chile
+                - id: CN
+                  label: China
+                - id: CI
+                  label: Côte d'Ivoire
+                - id: CM
+                  label: Cameroon
+                - id: CD
+                  label: Congo, The Democratic Republic of the
+                - id: CG
+                  label: Congo
+                - id: CK
+                  label: Cook Islands
+                - id: CO
+                  label: Colombia
+                - id: KM
+                  label: Comoros
+                - id: CV
+                  label: Cabo Verde
+                - id: CR
+                  label: Costa Rica
+                - id: CU
+                  label: Cuba
+                - id: CW
+                  label: Curaçao
+                - id: CX
+                  label: Christmas Island
+                - id: KY
+                  label: Cayman Islands
+                - id: CY
+                  label: Cyprus
+                - id: CZ
+                  label: Czechia
+                - id: DE
+                  label: Germany
+                - id: DJ
+                  label: Djibouti
+                - id: DM
+                  label: Dominica
+                - id: DK
+                  label: Denmark
+                - id: DO
+                  label: Dominican Republic
+                - id: DZ
+                  label: Algeria
+                - id: EC
+                  label: Ecuador
+                - id: EG
+                  label: Egypt
+                - id: ER
+                  label: Eritrea
+                - id: EH
+                  label: Western Sahara
+                - id: ES
+                  label: Spain
+                - id: EE
+                  label: Estonia
+                - id: ET
+                  label: Ethiopia
+                - id: FI
+                  label: Finland
+                - id: FJ
+                  label: Fiji
+                - id: FK
+                  label: Falkland Islands (Malvinas)
+                - id: FR
+                  label: France
+                - id: FO
+                  label: Faroe Islands
+                - id: FM
+                  label: Micronesia, Federated States of
+                - id: GA
+                  label: Gabon
+                - id: GB
+                  label: United Kingdom
+                - id: GE
+                  label: Georgia
+                - id: GG
+                  label: Guernsey
+                - id: GH
+                  label: Ghana
+                - id: GI
+                  label: Gibraltar
+                - id: GN
+                  label: Guinea
+                - id: GP
+                  label: Guadeloupe
+                - id: GM
+                  label: Gambia
+                - id: GW
+                  label: Guinea-Bissau
+                - id: GQ
+                  label: Equatorial Guinea
+                - id: GR
+                  label: Greece
+                - id: GD
+                  label: Grenada
+                - id: GL
+                  label: Greenland
+                - id: GT
+                  label: Guatemala
+                - id: GF
+                  label: French Guiana
+                - id: GU
+                  label: Guam
+                - id: GY
+                  label: Guyana
+                - id: HK
+                  label: Hong Kong
+                - id: HM
+                  label: Heard Island and McDonald Islands
+                - id: HN
+                  label: Honduras
+                - id: HR
+                  label: Croatia
+                - id: HT
+                  label: Haiti
+                - id: HU
+                  label: Hungary
+                - id: ID
+                  label: Indonesia
+                - id: IM
+                  label: Isle of Man
+                - id: IN
+                  label: India
+                - id: IO
+                  label: British Indian Ocean Territory
+                - id: IE
+                  label: Ireland
+                - id: IR
+                  label: Iran, Islamic Republic of
+                - id: IQ
+                  label: Iraq
+                - id: IS
+                  label: Iceland
+                - id: IL
+                  label: Israel
+                - id: IT
+                  label: Italy
+                - id: JM
+                  label: Jamaica
+                - id: JE
+                  label: Jersey
+                - id: JO
+                  label: Jordan
+                - id: JP
+                  label: Japan
+                - id: KZ
+                  label: Kazakhstan
+                - id: KE
+                  label: Kenya
+                - id: KG
+                  label: Kyrgyzstan
+                - id: KH
+                  label: Cambodia
+                - id: KI
+                  label: Kiribati
+                - id: KN
+                  label: Saint Kitts and Nevis
+                - id: KR
+                  label: Korea, Republic of
+                - id: KW
+                  label: Kuwait
+                - id: LA
+                  label: Lao People's Democratic Republic
+                - id: LB
+                  label: Lebanon
+                - id: LR
+                  label: Liberia
+                - id: LY
+                  label: Libya
+                - id: LC
+                  label: Saint Lucia
+                - id: LI
+                  label: Liechtenstein
+                - id: LK
+                  label: Sri Lanka
+                - id: LS
+                  label: Lesotho
+                - id: LT
+                  label: Lithuania
+                - id: LU
+                  label: Luxembourg
+                - id: LV
+                  label: Latvia
+                - id: MO
+                  label: Macao
+                - id: MF
+                  label: Saint Martin (French part)
+                - id: MA
+                  label: Morocco
+                - id: MC
+                  label: Monaco
+                - id: MD
+                  label: Moldova
+                - id: MG
+                  label: Madagascar
+                - id: MV
+                  label: Maldives
+                - id: MX
+                  label: Mexico
+                - id: MH
+                  label: Marshall Islands
+                - id: MK
+                  label: Macedonia, Republic of
+                - id: ML
+                  label: Mali
+                - id: MT
+                  label: Malta
+                - id: MM
+                  label: Myanmar
+                - id: ME
+                  label: Montenegro
+                - id: MN
+                  label: Mongolia
+                - id: MP
+                  label: Northern Mariana Islands
+                - id: MZ
+                  label: Mozambique
+                - id: MR
+                  label: Mauritania
+                - id: MS
+                  label: Montserrat
+                - id: MQ
+                  label: Martinique
+                - id: MU
+                  label: Mauritius
+                - id: MW
+                  label: Malawi
+                - id: MY
+                  label: Malaysia
+                - id: YT
+                  label: Mayotte
+                - id: NA
+                  label: Namibia
+                - id: NC
+                  label: New Caledonia
+                - id: NE
+                  label: Niger
+                - id: NF
+                  label: Norfolk Island
+                - id: NG
+                  label: Nigeria
+                - id: NI
+                  label: Nicaragua
+                - id: NU
+                  label: Niue
+                - id: NL
+                  label: Netherlands
+                - id: 'NO'
+                  label: Norway
+                - id: NP
+                  label: Nepal
+                - id: NR
+                  label: Nauru
+                - id: NZ
+                  label: New Zealand
+                - id: OM
+                  label: Oman
+                - id: PK
+                  label: Pakistan
+                - id: PA
+                  label: Panama
+                - id: PN
+                  label: Pitcairn
+                - id: PE
+                  label: Peru
+                - id: PH
+                  label: Philippines
+                - id: PW
+                  label: Palau
+                - id: PG
+                  label: Papua New Guinea
+                - id: PL
+                  label: Poland
+                - id: PR
+                  label: Puerto Rico
+                - id: KP
+                  label: Korea, Democratic People's Republic of
+                - id: PT
+                  label: Portugal
+                - id: PY
+                  label: Paraguay
+                - id: PS
+                  label: Palestine, State of
+                - id: PF
+                  label: French Polynesia
+                - id: QA
+                  label: Qatar
+                - id: RE
+                  label: Réunion
+                - id: RO
+                  label: Romania
+                - id: RU
+                  label: Russian Federation
+                - id: RW
+                  label: Rwanda
+                - id: SA
+                  label: Saudi Arabia
+                - id: SD
+                  label: Sudan
+                - id: SN
+                  label: Senegal
+                - id: SG
+                  label: Singapore
+                - id: GS
+                  label: South Georgia and the South Sandwich Islands
+                - id: SH
+                  label: Saint Helena, Ascension and Tristan da Cunha
+                - id: SJ
+                  label: Svalbard and Jan Mayen
+                - id: SB
+                  label: Solomon Islands
+                - id: SL
+                  label: Sierra Leone
+                - id: SV
+                  label: El Salvador
+                - id: SM
+                  label: San Marino
+                - id: SO
+                  label: Somalia
+                - id: PM
+                  label: Saint Pierre and Miquelon
+                - id: RS
+                  label: Serbia
+                - id: SS
+                  label: South Sudan
+                - id: ST
+                  label: Sao Tome and Principe
+                - id: SR
+                  label: Suriname
+                - id: SK
+                  label: Slovakia
+                - id: SI
+                  label: Slovenia
+                - id: SE
+                  label: Sweden
+                - id: SZ
+                  label: Swaziland
+                - id: SX
+                  label: Sint Maarten (Dutch part)
+                - id: SC
+                  label: Seychelles
+                - id: SY
+                  label: Syrian Arab Republic
+                - id: TC
+                  label: Turks and Caicos Islands
+                - id: TD
+                  label: Chad
+                - id: TG
+                  label: Togo
+                - id: TH
+                  label: Thailand
+                - id: TJ
+                  label: Tajikistan
+                - id: TK
+                  label: Tokelau
+                - id: TM
+                  label: Turkmenistan
+                - id: TL
+                  label: Timor-Leste
+                - id: TO
+                  label: Tonga
+                - id: TT
+                  label: Trinidad and Tobago
+                - id: TN
+                  label: Tunisia
+                - id: TR
+                  label: Turkey
+                - id: TV
+                  label: Tuvalu
+                - id: TW
+                  label: Taiwan
+                - id: TZ
+                  label: Tanzania
+                - id: UG
+                  label: Uganda
+                - id: UA
+                  label: Ukraine
+                - id: UM
+                  label: United States Minor Outlying Islands
+                - id: UY
+                  label: Uruguay
+                - id: US
+                  label: United States
+                - id: UZ
+                  label: Uzbekistan
+                - id: VA
+                  label: Holy See (Vatican City State)
+                - id: VC
+                  label: Saint Vincent and the Grenadines
+                - id: VE
+                  label: Venezuela
+                - id: VG
+                  label: Virgin Islands, British
+                - id: VI
+                  label: Virgin Islands, U.S.
+                - id: VN
+                  label: Vietnam
+                - id: VU
+                  label: Vanuatu
+                - id: WF
+                  label: Wallis and Futuna
+                - id: WS
+                  label: Samoa
+                - id: YE
+                  label: Yemen
+                - id: ZA
+                  label: South Africa
+                - id: ZM
+                  label: Zambia
+                - id: ZW
+                  label: Zimbabwe
+              schema:
+                type: object
+                properties:
+                  genderOptions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                      required:
+                      - id
+                      - label
+                  employmentStatusOptions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                      required:
+                      - id
+                      - label
+                  residencyOptions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                      required:
+                      - id
+                      - label
+                  taxInformationOptions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                      required:
+                      - id
+                      - label
+                  countryOptions:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        label:
+                          type: string
+                      required:
+                      - id
+                      - label
+        '400':
+          description: Fail
+          content:
+            application/json:
+              example:
+                errors:
+                  field_names: can't be blank
+        '422':
+          description: Fail
+          content:
+            application/json:
+              example:
+                errors:
+                  field_names: 'Available options: gender, residency, tax_information, employment_status, country'
+  /onboarding/personal-data:
+    get:
+      summary: Onboarding/PersonalData
+      tags:
+      - Onboarding
+      security:
+      - oAuth2:
+        - individual
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                first_name: Kendall
+                last_name: Roy
+                gender: male
+                birth_date: '1978-09-22'
+                phone_number: '+442071234567'
+                address_line_1: 10 Downing Street
+                address_line_2: Flat 12
+                address_line_3: SW1A 2AA
+                city: London
+                country: GB
+                postcode: SW1A 2AA
+                ni_number: AA123456B
+                country_of_birth: GB
+                citizenship: PL
+                residency: uk_resident
+                tax_information: northern_ireland
+                employment_status: employed
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type:
+                    - string
+                    - 'null'
+                  last_name:
+                    type:
+                    - string
+                    - 'null'
+                  gender:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - female
+                    - male
+                  birth_date:
+                    type:
+                    - string
+                    - 'null'
+                  phone_number:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_1:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_2:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_3:
+                    type:
+                    - string
+                    - 'null'
+                  city:
+                    type:
+                    - string
+                    - 'null'
+                  country:
+                    type:
+                    - string
+                    - 'null'
+                  postcode:
+                    type:
+                    - string
+                    - 'null'
+                  ni_number:
+                    type:
+                    - string
+                    - 'null'
+                  country_of_birth:
+                    type:
+                    - string
+                    - 'null'
+                  citizenship:
+                    type:
+                    - string
+                    - 'null'
+                  residency:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - uk_resident
+                    - non_uk_resident
+                  tax_information:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - england
+                    - northern_ireland
+                    - wales
+                    - scotland
+                  employment_status:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - employed
+                    - self_employed
+                    - unemployed
+        '401':
+          description: Fail
+    patch:
+      summary: Onboarding/PersonalData
+      tags:
+      - Onboarding
+      security:
+      - oAuth2:
+        - individual
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  phone_number: '+442071234567'
+                  address_line_1: 10 Downing Street
+                  address_line_2: Flat 12
+                  address_line_3: SW1A 2AA
+                  city: London
+                  country: GB
+                  postcode: SW1A 2AA
+              invalid_parameters:
+                value:
+                  country: Great B!
+                  postcode: invalid_postcode
+              missing_parameters_for_last_step:
+                value:
+                  last_step: true
+                  phone_number: '+442071234567'
+                  address_line_1: 10 Downing Street
+                  address_line_2: Flat 12
+                  address_line_3: SW1A 2AA
+                  city: London
+                  country: GB
+                  postcode: SW1A 2AA
+            schema:
+              type: object
+              properties:
+                last_step:
+                  type:
+                  - boolean
+                  - 'null'
+                first_name:
+                  type:
+                  - string
+                  - 'null'
+                last_name:
+                  type:
+                  - string
+                  - 'null'
+                gender:
+                  type:
+                  - string
+                  - 'null'
+                  enum:
+                  - female
+                  - male
+                birth_date:
+                  type:
+                  - string
+                  - 'null'
+                phone_number:
+                  type:
+                  - string
+                  - 'null'
+                address_line_1:
+                  type:
+                  - string
+                  - 'null'
+                address_line_2:
+                  type:
+                  - string
+                  - 'null'
+                address_line_3:
+                  type:
+                  - string
+                  - 'null'
+                city:
+                  type:
+                  - string
+                  - 'null'
+                country:
+                  type:
+                  - string
+                  - 'null'
+                postcode:
+                  type:
+                  - string
+                  - 'null'
+                ni_number:
+                  type:
+                  - string
+                  - 'null'
+                country_of_birth:
+                  type:
+                  - string
+                  - 'null'
+                citizenship:
+                  type:
+                  - string
+                  - 'null'
+                residency:
+                  type:
+                  - string
+                  - 'null'
+                  enum:
+                  - uk_resident
+                  - non_uk_resident
+                tax_information:
+                  type:
+                  - string
+                  - 'null'
+                  enum:
+                  - england
+                  - northern_ireland
+                  - wales
+                  - scotland
+                employment_status:
+                  type:
+                  - string
+                  - 'null'
+                  enum:
+                  - employed
+                  - self_employed
+                  - unemployed
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                valid_parameters:
+                  value:
+                    phone_number: '+442071234567'
+                    address_line_1: 10 Downing Street
+                    address_line_2: Flat 12
+                    address_line_3: SW1A 2AA
+                    city: London
+                    country: GB
+                    postcode: SW1A 2AA
+              schema:
+                type: object
+                properties:
+                  first_name:
+                    type:
+                    - string
+                    - 'null'
+                  last_name:
+                    type:
+                    - string
+                    - 'null'
+                  gender:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - female
+                    - male
+                  birth_date:
+                    type:
+                    - string
+                    - 'null'
+                  phone_number:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_1:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_2:
+                    type:
+                    - string
+                    - 'null'
+                  address_line_3:
+                    type:
+                    - string
+                    - 'null'
+                  city:
+                    type:
+                    - string
+                    - 'null'
+                  country:
+                    type:
+                    - string
+                    - 'null'
+                  postcode:
+                    type:
+                    - string
+                    - 'null'
+                  ni_number:
+                    type:
+                    - string
+                    - 'null'
+                  country_of_birth:
+                    type:
+                    - string
+                    - 'null'
+                  citizenship:
+                    type:
+                    - string
+                    - 'null'
+                  residency:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - uk_resident
+                    - non_uk_resident
+                  tax_information:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - england
+                    - northern_ireland
+                    - wales
+                    - scotland
+                  employment_status:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - employed
+                    - self_employed
+                    - unemployed
+        '401':
+          description: Fail
+        '422':
+          description: Fail - not all fields provided when setting last_step=true
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 119019
+                      title: Country code is invalid.
+                      detail: Enter valid Country code.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country
+                    - code: 119021
+                      title: Postcode is invalid.
+                      detail: Provide postcode in a proper format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/postcode
+                missing_parameters_for_last_step:
+                  value:
+                    errors:
+                    - code: 119007
+                      title: Gender is required.
+                      detail: Enter a gender.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/gender
+                    - code: 119008
+                      title: Enter an option for gender.
+                      detail: 'Provide either: female or male.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/gender
+                    - code: 119009
+                      title: Birth date is a required field.
+                      detail: Enter a birth date.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/birth_date
+                    - code: 119022
+                      title: National Insurance number is a required field.
+                      detail: Enter a National Insurance number.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/ni_number
+                    - code: 119023
+                      title: National Insurance number is invalid.
+                      detail: Enter National Insurance number in a proper format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/ni_number
+                    - code: 119024
+                      title: Country of birth is a required field.
+                      detail: Enter a country of birth
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country_of_birth
+                    - code: 119026
+                      title: Citizenship is a required field.
+                      detail: Enter a Citizenship.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/citizenship
+                    - code: 119028
+                      title: Residency is a required field.
+                      detail: Enter a Residency.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/residency
+                    - code: 119029
+                      title: Residency is invalid.
+                      detail: 'Provide either: UK resident or non UK resident.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/residency
+                    - code: 119030
+                      title: Tax information is a required field.
+                      detail: Enter a tax information.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/tax_information
+                    - code: 119031
+                      title: Tax information is invalid.
+                      detail: 'Provide either: England, Northern Ireland, Wales or Scotland.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/tax_information
+                    - code: 119032
+                      title: Employment status is a required field.
+                      detail: Enter an Employment status.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/employment_status
+                    - code: 119033
+                      title: Employment status is invalid.
+                      detail: 'Provide either: employed, self employed or not employed.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/employment_status
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

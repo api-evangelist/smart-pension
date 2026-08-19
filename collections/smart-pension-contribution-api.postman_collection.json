@@ -1,0 +1,915 @@
+{
+  "item": [
+    {
+      "id": "0492ce4d-3a12-451d-93fa-98d4aa820fe5",
+      "name": "Contribution",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "24e70b74-6243-4e88-8e4b-58f0961ac817",
+          "name": "Companies/Contributions/List with Historical Employee Data",
+          "request": {
+            "name": "Companies/Contributions/List with Historical Employee Data",
+            "description": {
+              "content": "Lists contributions for a company. When the 'exited_employees_visibility' feature flag is enabled,\ncontributions for employees who exited more than 6 weeks ago will display historical employee data\n(forename, surname, and national_insurance_number as they were at the time of exit) instead of current data.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "contributions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[period_type][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[period_type][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[pensionable_earnings][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[pensionable_earnings][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_percentage][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_percentage][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_percentage][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_percentage][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[voluntary_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[voluntary_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee][forename]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee][surname]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[assessment][category]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ni_rebate_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ni_rebate_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[total_employee_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[total_employee_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_sal_sac_amount][0]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employee_sal_sac_amount][1]",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[scheme][external_id]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f72ec86f-e186-47b4-a455-a9ec3c1a2e07",
+              "name": "Success with historical employee data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee][forename]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee][surname]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[scheme][external_id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/144/contributions?include%5B%5D=employee\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/144/contributions?include%5B%5D=employee&offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/144/contributions?include%5B%5D=employee&offset=0&limit=50\"\n    }\n  ],\n  \"contributions\": [\n    {\n      \"is_not_editable\": true,\n      \"id\": 12,\n      \"category\": \"Eligible jobholders\",\n      \"employee_id\": 34,\n      \"period_type\": \"Weekly\",\n      \"gross_qualifying_earnings\": 1000,\n      \"second_gross_qualifying_earnings_amount\": null,\n      \"pensionable_earnings\": 200,\n      \"employee_pensionable_earnings_amount\": null,\n      \"employer_pensionable_earnings_amount\": null,\n      \"company_percentage\": 10,\n      \"employee_percentage\": 10,\n      \"avc_percentage\": null,\n      \"state\": \"created\",\n      \"created_at\": \"2026-08-05T12:58:39.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:39.000+01:00\",\n      \"contribute_if_entitled\": true,\n      \"company_amount\": 4,\n      \"employee_amount\": 6,\n      \"voluntary_amount\": 0,\n      \"total_amount\": 10,\n      \"currency\": \"GBP\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2026-08-01\",\n      \"ends_on\": \"2026-08-08\",\n      \"lower_level\": null,\n      \"upper_level\": null,\n      \"trigger_level\": null,\n      \"pensionable_earning_type\": \"banded\",\n      \"contribution_type\": \"regular\",\n      \"uuid\": \"837020c6-c62d-467c-9d2b-a8823c7922a1\",\n      \"company_name\": \"diam id 205\",\n      \"contribution_amounts\": [\n        {\n          \"id\": 35,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 6,\n          \"currency\": \"GBP\",\n          \"source_type\": \"employee\",\n          \"state\": \"created\"\n        },\n        {\n          \"id\": 34,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 4,\n          \"currency\": \"GBP\",\n          \"source_type\": \"employer\",\n          \"state\": \"created\"\n        },\n        {\n          \"id\": 36,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 0,\n          \"currency\": \"GBP\",\n          \"source_type\": \"other_avc\",\n          \"state\": \"created\"\n        }\n      ],\n      \"links\": [\n        {\n          \"rel\": \"employee\",\n          \"title\": \"employee\",\n          \"href\": \"https://api.host.com/companies/144/employees/34\"\n        }\n      ],\n      \"employee\": {\n        \"updatable\": true,\n        \"id\": 34,\n        \"email\": \"employee_33@example.com\",\n        \"forename\": \"John\",\n        \"surname\": \"Doe\",\n        \"date_of_birth\": \"2001-08-05\",\n        \"national_insurance_number\": \"AB123456C\",\n        \"gender\": \"Female\",\n        \"telephone\": null,\n        \"identity_person_id\": null,\n        \"reset_password_sent_at\": null,\n        \"remember_created_at\": null,\n        \"last_sign_in_at\": null,\n        \"slug\": \"RUf0roZr\",\n        \"created_at\": \"2026-08-05T12:58:38.000+01:00\",\n        \"updated_at\": \"2026-08-05T12:58:38.000+01:00\",\n        \"confirmation_token\": null,\n        \"gauth_enabled\": false,\n        \"gauth_tmp\": null,\n        \"title\": \"Captain\",\n        \"authentication_token\": null,\n        \"group_id\": null,\n        \"line2\": null,\n        \"city\": \"Ojai\",\n        \"region\": null,\n        \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n        \"postcode\": \"64809-9549\",\n        \"line1\": \"342 Meadow Valley Trail\",\n        \"works_in_uk\": true,\n        \"starts_on\": \"2016-08-05\",\n        \"authentication_token_generated_at\": null,\n        \"company_percentage\": null,\n        \"company_percentage_matched\": 0,\n        \"company_match\": false,\n        \"percentage\": null,\n        \"avc_percentage\": null,\n        \"total_employee_percentage\": 0,\n        \"total_contribution_percentage\": 0,\n        \"contribute_if_entitled\": true,\n        \"enforce_password\": true,\n        \"ends_on\": null,\n        \"exit_reason\": null,\n        \"onboarded_at\": null,\n        \"opt_out_on\": null,\n        \"opt_state\": \"ignition\",\n        \"opt_in_on\": null,\n        \"opt_out_window_starts_on\": null,\n        \"opt_out_window_ends_on\": null,\n        \"subject_to_money_purchase_annual_allowance\": null,\n        \"money_purchase_annual_allowance_effective_on\": null,\n        \"active_special_cases\": [],\n        \"company_id\": 144,\n        \"automatically_enrolled\": false,\n        \"contractually_enrolled\": false,\n        \"external_id\": null,\n        \"customer_id\": null,\n        \"referral_clicks\": 0,\n        \"retirement_age\": 65,\n        \"target_retirement_age\": null,\n        \"retirement_date\": \"2066-08-05\",\n        \"target_retirement_date\": null,\n        \"secondary_email\": null,\n        \"middle_name\": null,\n        \"civil_status\": null,\n        \"country_code\": \"GB\",\n        \"benefit_group_id\": null,\n        \"online_login_disabled\": false,\n        \"line3\": null,\n        \"uuid\": \"3850aed6-7c8f-4588-9214-7706ebab2651\",\n        \"eligible_for_modeller_projection\": false,\n        \"can_manage_contribution_rates\": true,\n        \"active_payroll_configuration\": null,\n        \"employment_type\": null,\n        \"tax_residency_status_name\": null,\n        \"salary_sacrifice_signed\": false,\n        \"links\": [\n          {\n            \"rel\": \"company\",\n            \"title\": \"company\",\n            \"href\": \"https://api.host.com/companies/144\"\n          }\n        ],\n        \"banned_params\": [],\n        \"intercom_user_id\": \"emp34\",\n        \"intercom_user_id_hash\": \"897feac58212fa442cf61f0b393c6493865142ca7ec283dec724fc6352ab8e75\"\n      }\n    },\n    {\n      \"id\": 13,\n      \"category\": \"Eligible jobholders\",\n      \"employee_id\": 35,\n      \"period_type\": \"Weekly\",\n      \"gross_qualifying_earnings\": 1000,\n      \"second_gross_qualifying_earnings_amount\": null,\n      \"pensionable_earnings\": 400,\n      \"employee_pensionable_earnings_amount\": null,\n      \"employer_pensionable_earnings_amount\": null,\n      \"company_percentage\": 10,\n      \"employee_percentage\": 10,\n      \"avc_percentage\": null,\n      \"state\": \"created\",\n      \"created_at\": \"2026-08-05T12:58:39.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:39.000+01:00\",\n      \"contribute_if_entitled\": true,\n      \"company_amount\": 8,\n      \"employee_amount\": 12,\n      \"voluntary_amount\": 0,\n      \"total_amount\": 20,\n      \"currency\": \"GBP\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2026-08-01\",\n      \"ends_on\": \"2026-08-08\",\n      \"lower_level\": null,\n      \"upper_level\": null,\n      \"trigger_level\": null,\n      \"pensionable_earning_type\": \"banded\",\n      \"contribution_type\": \"regular\",\n      \"uuid\": \"ee45bc85-6ca8-4cbe-8019-56c2740e7c97\",\n      \"company_name\": \"diam id 205\",\n      \"contribution_amounts\": [\n        {\n          \"id\": 38,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 12,\n          \"currency\": \"GBP\",\n          \"source_type\": \"employee\",\n          \"state\": \"created\"\n        },\n        {\n          \"id\": 37,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 8,\n          \"currency\": \"GBP\",\n          \"source_type\": \"employer\",\n          \"state\": \"created\"\n        },\n        {\n          \"id\": 39,\n          \"display_name\": \"RegularContribution_ER\",\n          \"amount\": 0,\n          \"currency\": \"GBP\",\n          \"source_type\": \"other_avc\",\n          \"state\": \"created\"\n        }\n      ],\n      \"links\": [\n        {\n          \"rel\": \"employee\",\n          \"title\": \"employee\",\n          \"href\": \"https://api.host.com/companies/144/employees/35\"\n        }\n      ],\n      \"employee\": {\n        \"updatable\": true,\n        \"id\": 35,\n        \"email\": \"employee_34@example.com\",\n        \"forename\": \"Jane\",\n        \"surname\": \"Smith\",\n        \"date_of_birth\": \"2001-08-05\",\n        \"national_insurance_number\": \"XY987654Z\",\n        \"gender\": \"Female\",\n        \"telephone\": null,\n        \"identity_person_id\": null,\n        \"reset_password_sent_at\": null,\n        \"remember_created_at\": null,\n        \"last_sign_in_at\": null,\n        \"slug\": \"gq3rA3qdf\",\n        \"created_at\": \"2026-08-05T12:58:38.000+01:00\",\n        \"updated_at\": \"2026-08-05T12:58:38.000+01:00\",\n        \"confirmation_token\": null,\n        \"gauth_enabled\": false,\n        \"gauth_tmp\": null,\n        \"title\": \"Mrs\",\n        \"authentication_token\": null,\n        \"group_id\": null,\n        \"line2\": null,\n        \"city\": \"San Marino\",\n        \"region\": null,\n        \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n        \"postcode\": \"87712-8208\",\n        \"line1\": \"95 Hagan Road\",\n        \"works_in_uk\": true,\n        \"starts_on\": \"2016-08-05\",\n        \"authentication_token_generated_at\": null,\n        \"company_percentage\": null,\n        \"company_percentage_matched\": 0,\n        \"company_match\": false,\n        \"percentage\": null,\n        \"avc_percentage\": null,\n        \"total_employee_percentage\": 0,\n        \"total_contribution_percentage\": 0,\n        \"contribute_if_entitled\": true,\n        \"enforce_password\": true,\n        \"ends_on\": null,\n        \"exit_reason\": null,\n        \"onboarded_at\": null,\n        \"opt_out_on\": null,\n        \"opt_state\": \"ignition\",\n        \"opt_in_on\": null,\n        \"opt_out_window_starts_on\": null,\n        \"opt_out_window_ends_on\": null,\n        \"subject_to_money_purchase_annual_allowance\": null,\n        \"money_purchase_annual_allowance_effective_on\": null,\n        \"active_special_cases\": [],\n        \"company_id\": 144,\n        \"automatically_enrolled\": false,\n        \"contractually_enrolled\": false,\n        \"external_id\": null,\n        \"customer_id\": null,\n        \"referral_clicks\": 0,\n        \"retirement_age\": 65,\n        \"target_retirement_age\": null,\n        \"retirement_date\": \"2066-08-05\",\n        \"target_retirement_date\": null,\n        \"secondary_email\": null,\n        \"middle_name\": null,\n        \"civil_status\": null,\n        \"country_code\": \"GB\",\n        \"benefit_group_id\": null,\n        \"online_login_disabled\": false,\n        \"line3\": null,\n        \"uuid\": \"000fc0a4-7210-43c8-912c-9153f32972dd\",\n        \"eligible_for_modeller_projection\": false,\n        \"can_manage_contribution_rates\": true,\n        \"active_payroll_configuration\": null,\n        \"employment_type\": null,\n        \"tax_residency_status_name\": null,\n        \"salary_sacrifice_signed\": false,\n        \"links\": [\n          {\n            \"rel\": \"company\",\n            \"title\": \"company\",\n            \"href\": \"https://api.host.com/companies/144\"\n          }\n        ],\n        \"banned_params\": [],\n        \"intercom_user_id\": \"emp35\",\n        \"intercom_user_id_hash\": \"e2cc6f1fa26e50ec80f612adb1081106934fbd51e9d84f95dbeebdf65291d5c7\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c2721463-2c5d-4ebd-8795-a62b093566f6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee][forename]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee][surname]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[scheme][external_id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e646186-0563-4e31-ac66-f6d39f5a504c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[pensionable_earnings][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[company_percentage][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[voluntary_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employee][forename]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[employee][surname]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[ni_rebate_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[total_employee_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][0]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[employee_sal_sac_amount][1]",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "filter[scheme][external_id]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eafb3222-eafa-4fca-a4eb-594813a31a26",
+    "name": "Keystone Contribution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

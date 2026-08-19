@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "a0c05e52-5fdf-4dc7-b30f-c9e3b5f09e4c",
+      "name": "IncomeAdequacyProjection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbf277d3-73f8-4902-b164-f238e7ae954e",
+          "name": "Companies/Employees/IncomeAdequacyProjection/Create (modes)",
+          "request": {
+            "name": "Companies/Employees/IncomeAdequacyProjection/Create (modes)",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":id",
+                "income_adequacy_projection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"retirement_age\": \"<integer>\",\n  \"include_state_pension\": \"<boolean>\",\n  \"opted_in\": \"<boolean>\",\n  \"one_off_payment\": \"<number>\",\n  \"annual_salary\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a9e9d487-a6e8-4fb9-b360-3758917a40af",
+              "name": "Success (smart_deferred_still_employed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id",
+                    "income_adequacy_projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"retirement_age\": 65,\n  \"employee_rate\": 5,\n  \"include_state_pension\": true,\n  \"one_off_payment\": 1000,\n  \"employee_monthly_contribution_amount\": 150\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"retirement_age\": 65,\n  \"value_at_retirement_age\": 2158.61,\n  \"state_pension_value\": 11973,\n  \"state_pension_age\": 68,\n  \"total_annual_pension_at_retirement_age\": 154.19,\n  \"total_monthly_pension_at_retirement_age\": 12.84,\n  \"total_annual_pension_at_state_pension_age\": 12127.19,\n  \"employer_rate_applied\": 5,\n  \"grades\": {\n    \"minimum\": 13900,\n    \"moderate\": 32700,\n    \"comfortable\": 45400\n  },\n  \"breakdown_at_retirement_age\": {\n    \"workplace_pension\": 101.89,\n    \"state_pension\": 0,\n    \"other_pensions\": 0,\n    \"one_off_payment\": 52.3\n  },\n  \"breakdown_at_state_pension_age\": {\n    \"workplace_pension\": 101.89,\n    \"state_pension\": 11973,\n    \"other_pensions\": 0,\n    \"one_off_payment\": 52.3\n  },\n  \"key_assumptions\": {\n    \"investment_growth\": 2.78,\n    \"years_remaining\": 40,\n    \"months_remaining\": 3,\n    \"future_contributions\": 483\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b5e44a4-7327-479a-a6ff-b64a8894688e",
+              "name": "Invalid parameters (smart_deferred_still_employed)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":id",
+                    "income_adequacy_projection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"retirement_age\": 65,\n  \"employee_rate\": 5,\n  \"include_state_pension\": true,\n  \"one_off_payment\": 1000,\n  \"employee_monthly_contribution_amount\": 150\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0c3a4a35-3a19-4f3d-bfd1-2699e23433a0",
+    "name": "Keystone Income Adequacy Projection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

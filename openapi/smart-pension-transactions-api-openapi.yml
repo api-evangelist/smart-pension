@@ -1,0 +1,988 @@
+openapi: 3.2.0
+info:
+  title: Keystone Transactions API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Transactions
+paths:
+  /companies/{company_id}/employees/{employee_id}/transactions/{transaction_type}/{transaction_id}:
+    get:
+      summary: Transactions/Get
+      tags:
+      - Transactions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 923
+        schema:
+          type: integer
+      - name: employee_id
+        in: path
+        required: true
+        example: 511
+        schema:
+          type: integer
+      - name: transaction_type
+        in: path
+        schema:
+          type: string
+          enum:
+          - transfer_out
+          - contribution
+          - transfer_in
+          - asset_transfer
+          - adjustment
+          - benefit
+          - fee
+          - contribution_charge
+          - transfer_in_charge
+          - historical_contribution
+          - historical_transfer_in
+          - switch
+        required: true
+        example: adjustment
+      - name: transaction_id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                created_at: '2026-08-05T13:02:23.000+01:00'
+                state: created
+                amount_currency: GBP
+                amount: '100.0'
+                type: adjustment
+                investment_groups: []
+                completed_at: null
+                request_mode: unit
+                benefit_type: full
+                frontend_tag: null
+                source_subaccounts:
+                - uuid: cc57f5c6-5fc5-4db3-9066-f4e62cbb9ed6
+                  name: nKZPeytMpz
+                contribution_type: regular
+                category: payroll_error
+                starts_on: '2026-08-01'
+                ends_on: '2026-08-08'
+                currency: GBP
+                employee_pensionable_earnings_amount: null
+                employee_percentage: '10.0'
+                employee_amount: '100.0'
+                employer_pensionable_earnings_amount: null
+                company_percentage: '10.0'
+                company_amount: '100.0'
+                voluntary_amount: '0.0'
+                avc_percentage: null
+                pensionable_earnings: '10.0'
+                gross_qualifying_earnings: '1000.0'
+                updated_at: '2026-08-05T13:02:23.000+01:00'
+                bank_reference: null
+                ceding_scheme_employee_reference: emp-1
+                ceding_scheme_name: schema_name
+                ceding_scheme_type: approved
+                description: null
+                payment_received_on: '2026-08-05'
+                processed_at: null
+                adjustment_type: monetary
+                direction: positive
+                processable_at: null
+                processing_at: null
+                cancelled_at: null
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  created_at:
+                    type:
+                    - string
+                    - 'null'
+                  state:
+                    type: string
+                    enum:
+                    - created
+                    - processable
+                    - processing
+                    - partially_processed
+                    - processed
+                    - rejected
+                  amount_currency:
+                    type: string
+                  amount:
+                    type: string
+                  type:
+                    type: string
+                    enum:
+                    - adjustment
+                  investment_groups:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: number
+                        type:
+                          type: string
+                        state:
+                          type: string
+                          enum:
+                          - created
+                          - in_progress
+                          - completed
+                          - rejected
+                          - hold
+                          - priced
+                          - cancelled
+                        amount_currency:
+                          type: string
+                        amount:
+                          type: string
+                        fund_units:
+                          type: string
+                        fund_price:
+                          type: string
+                        traded_on:
+                          type: string
+                        fund:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                            name:
+                              type: string
+                            fund_split:
+                              type: object
+                              properties:
+                                percentage:
+                                  type: string
+                  completed_at:
+                    type:
+                    - string
+                    - 'null'
+                  request_mode:
+                    type: string
+                    enum:
+                    - monetary
+                    - unit
+                  frontend_tag:
+                    type:
+                    - string
+                    - 'null'
+                  benefit_type:
+                    type: string
+                    enum:
+                    - full
+                    - partial
+                  source_subaccounts:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - uuid
+                      - name
+                      properties:
+                        uuid:
+                          type: string
+                        name:
+                          type: string
+                  contribution_type:
+                    type: string
+                    enum:
+                    - regular
+                    - single
+                  category:
+                    type:
+                    - string
+                    - 'null'
+                    enum:
+                    - payroll_error
+                    - adviser_error
+                    - employer_error
+                    - platform_operator_error
+                    - system_error
+                    - manual_fee
+                    - subaccounts_migration
+                  starts_on:
+                    type: string
+                  ends_on:
+                    type: string
+                  employee_pensionable_earnings_amount:
+                    type:
+                    - string
+                    - 'null'
+                  employee_percentage:
+                    type: string
+                  employee_amount:
+                    type: string
+                  employer_pensionable_earnings_amount:
+                    type:
+                    - string
+                    - 'null'
+                  company_percentage:
+                    type: string
+                  company_amount:
+                    type: string
+                  voluntary_amount:
+                    type: string
+                  avc_percentage:
+                    type:
+                    - string
+                    - 'null'
+                  pensionable_earnings:
+                    type: string
+                  gross_qualifying_earnings:
+                    type: string
+                  bank_reference:
+                    type:
+                    - string
+                    - 'null'
+                  ceding_scheme_employee_reference:
+                    type: string
+                  ceding_scheme_name:
+                    type: string
+                  schema_name:
+                    type: string
+                  ceding_scheme_type:
+                    type: string
+                  description:
+                    type:
+                    - string
+                    - 'null'
+                  payment_received_on:
+                    type: string
+                  processed_at:
+                    type:
+                    - string
+                    - 'null'
+                  updated_at:
+                    type: string
+                  adjustment_type:
+                    type: string
+                    enum:
+                    - monetary
+                    - unit
+                  direction:
+                    type: string
+                    enum:
+                    - positive
+                    - negative
+                  processable_at:
+                    type:
+                    - string
+                    - 'null'
+                  processing_at:
+                    type:
+                    - string
+                    - 'null'
+                  cancelled_at:
+                    type:
+                    - string
+                    - 'null'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+  /companies/{company_id}/employees/{employee_id}/transactions:
+    get:
+      summary: Transactions/List
+      tags:
+      - Transactions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 933
+        schema:
+          type: integer
+      - name: employee_id
+        in: path
+        required: true
+        example: 518
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - DESC
+          - ASC
+        required: false
+      - name: starts_on
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: ends_on
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: types
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - transfer_out
+            - contribution
+            - transfer_in
+            - asset_transfer
+            - adjustment
+            - benefit
+            - fee
+            - contribution_charge
+            - transfer_in_charge
+            - historical_contribution
+            - historical_transfer_in
+            - switch
+        required: false
+      - name: adjustment_categories
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - payroll_error
+            - adviser_error
+            - employer_error
+            - platform_operator_error
+            - system_error
+            - manual_fee
+            - subaccounts_migration
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 20
+                offset: 0
+                total: 15
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/933/employees/518/transactions
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/933/employees/518/transactions?offset=0&limit=20
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/933/employees/518/transactions?offset=0&limit=20
+                transactions:
+                - id: 2
+                  type: adjustment
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '100.0'
+                  amount_currency: GBP
+                  state: created
+                  adjustment_type: monetary
+                  adjustment_category: payroll_error
+                - id: 3
+                  type: adjustment
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '-100.0'
+                  amount_currency: GBP
+                  state: created
+                  adjustment_type: monetary
+                  adjustment_category: payroll_error
+                - id: 4
+                  type: adjustment
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: null
+                  amount_currency: null
+                  state: created
+                  adjustment_type: unit
+                  adjustment_category: payroll_error
+                - id: 23
+                  type: benefit
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '1000.0'
+                  amount_currency: GBP
+                  state: created
+                  request_mode: unit
+                  frontend_tag: null
+                  benefit_type: full
+                  completed_at: null
+                  source_subaccounts: []
+                - id: 24
+                  type: benefit
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: null
+                  amount_currency: null
+                  state: created
+                  request_mode: unit
+                  frontend_tag: null
+                  benefit_type: full
+                  completed_at: null
+                  source_subaccounts: []
+                - id: 120
+                  type: contribution
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '200.0'
+                  amount_currency: GBP
+                  state: created
+                  contribution_type: regular
+                - id: 1
+                  type: contribution_charge
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '5.0'
+                  amount_currency: GBP
+                  contribution_type: regular
+                - id: 5
+                  type: fee
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '75.0'
+                  amount_currency: GBP
+                  charge_type: null
+                  state: created
+                - id: 2
+                  type: transfer_in
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '75.0'
+                  amount_currency: GBP
+                  state: created
+                - id: 25
+                  type: transfer_out
+                  created_at: '2026-08-05T12:02:25.000Z'
+                  amount: '2000.0'
+                  amount_currency: GBP
+                  state: created
+                  request_mode: unit
+                  frontend_tag: null
+                  benefit_type: full
+                  completed_at: null
+                  source_subaccounts: []
+                - id: 2
+                  type: asset_transfer
+                  created_at: '2026-08-05T12:02:25.169Z'
+                  amount: '75.0'
+                  amount_currency: GBP
+                  state: created
+                - id: 95
+                  type: switch
+                  created_at: '2026-08-05T12:02:26.000Z'
+                  state: completed
+                - id: 2
+                  type: transfer_in_charge
+                  created_at: '2026-08-05T12:02:26.000Z'
+                  amount: '200.0'
+                  amount_currency: USD
+                - id: 6
+                  type: historical_contribution
+                  created_at: '2026-08-05T12:02:26.131Z'
+                  amount: '30.0'
+                  amount_currency: GBP
+                - id: 8
+                  type: historical_transfer_in
+                  created_at: '2026-08-05T12:02:26.136Z'
+                  amount: '150.0'
+                  amount_currency: GBP
+              schema:
+                type: object
+                required:
+                - transactions
+                properties:
+                  limit:
+                    type: number
+                  offset:
+                    type: number
+                  total:
+                    type: number
+                  transactions:
+                    type: array
+                    items:
+                      oneOf:
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        - contribution_type
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - contribution
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - released
+                            - payable
+                            - payment_pending
+                            - payment_failed
+                            - payment_cancelled
+                            - paid
+                            - investing
+                            - invested
+                            - refunding
+                            - refunded
+                            - payment_charged_back
+                            - payment_conflict
+                            - refund_failed
+                            - opted_out
+                            - rejected
+                          contribution_type:
+                            type: string
+                            enum:
+                            - regular
+                            - single
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - transfer_in
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                          state:
+                            type: string
+                            enum:
+                            - draft
+                            - created
+                            - processable
+                            - processing
+                            - partially_processed
+                            - processed
+                            - rejected
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - asset_transfer
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - processable
+                            - processing
+                            - processed
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        - adjustment_type
+                        - adjustment_category
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - adjustment
+                          amount:
+                            type:
+                            - string
+                            - 'null'
+                          created_at:
+                            type: string
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - processable
+                            - processing
+                            - partially_processed
+                            - processed
+                            - rejected
+                          adjustment_type:
+                            type: string
+                            enum:
+                            - monetary
+                            - unit
+                          adjustment_category:
+                            type: string
+                            enum:
+                            - payroll_error
+                            - adviser_error
+                            - employer_error
+                            - platform_operator_error
+                            - system_error
+                            - manual_fee
+                            - subaccounts_migration
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        - request_mode
+                        - frontend_tag
+                        - benefit_type
+                        - completed_at
+                        - source_subaccounts
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - benefit
+                          amount:
+                            type:
+                            - string
+                            - 'null'
+                          created_at:
+                            type: string
+                          completed_at:
+                            type:
+                            - string
+                            - 'null'
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - processable
+                            - processing
+                            - partially_processed
+                            - processed
+                            - tax_pending
+                            - payment_pending
+                            - payment_submitted
+                            - completed
+                            - rejected
+                            - cancelled
+                          request_mode:
+                            type: string
+                            enum:
+                            - monetary
+                            - unit
+                          frontend_tag:
+                            type:
+                            - string
+                            - 'null'
+                          benefit_type:
+                            type: string
+                            enum:
+                            - full
+                            - partial
+                          source_subaccounts:
+                            type: array
+                            items:
+                              type: object
+                              required:
+                              - uuid
+                              - name
+                              properties:
+                                uuid:
+                                  type: string
+                                name:
+                                  type: string
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - state
+                        - request_mode
+                        - frontend_tag
+                        - benefit_type
+                        - completed_at
+                        - source_subaccounts
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - transfer_out
+                          amount:
+                            type:
+                            - string
+                            - 'null'
+                          created_at:
+                            type: string
+                          completed_at:
+                            type:
+                            - string
+                            - 'null'
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - processable
+                            - processing
+                            - partially_processed
+                            - processed
+                            - tax_pending
+                            - payment_pending
+                            - payment_submitted
+                            - completed
+                            - rejected
+                            - cancelled
+                          request_mode:
+                            type: string
+                            enum:
+                            - monetary
+                            - unit
+                          frontend_tag:
+                            type:
+                            - string
+                            - 'null'
+                          benefit_type:
+                            type: string
+                            enum:
+                            - full
+                            - partial
+                          source_subaccounts:
+                            type: array
+                            items:
+                              type: object
+                              required:
+                              - uuid
+                              - name
+                              properties:
+                                uuid:
+                                  type: string
+                                name:
+                                  type: string
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - charge_type
+                        - state
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - fee
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                          state:
+                            type: string
+                            enum:
+                            - created
+                            - failed
+                            - payment_cancelled
+                            - payment_charged_back
+                            - payment_conflict
+                            - payment_failed
+                            - processable
+                            - processed
+                            - processing
+                            - partially_processed
+                            - rebated
+                            - refunded
+                            - refunding
+                            - refund_failed
+                            - waived
+                            - charge_obligation_cancelled
+                            - manually_cancelled
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        - contribution_type
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - contribution_charge
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                          contribution_type:
+                            type: string
+                            enum:
+                            - regular
+                            - single
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - transfer_in_charge
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - historical_contribution
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - amount
+                        - amount_currency
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - historical_transfer_in
+                          amount:
+                            type: string
+                          created_at:
+                            type: string
+                      - type: object
+                        required:
+                        - id
+                        - type
+                        - created_at
+                        - state
+                        properties:
+                          id:
+                            type: number
+                          type:
+                            type: string
+                            enum:
+                            - switch
+                          created_at:
+                            type: string
+                      discriminator:
+                        propertyName: type
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "08bbeeb6-bec1-4d4f-9045-209fc2ca04ce",
+      "name": "Currency",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b31aff2c-014c-4a18-aa28-416db0f048cb",
+          "name": "Currencies/List",
+          "request": {
+            "name": "Currencies/List",
+            "description": {},
+            "url": {
+              "path": [
+                "currencies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6e37731-1c5c-4598-849e-b8c58cf29e60",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "currencies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 145,\n  \"offset\": 0,\n  \"total\": 145,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/currencies\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/currencies?offset=0&limit=145\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/currencies?offset=0&limit=145\"\n    }\n  ],\n  \"currencies\": [\n    {\n      \"name\": \"Afghan Afghani\",\n      \"symbol\": \"؋\",\n      \"iso_code\": \"AFN\"\n    },\n    {\n      \"name\": \"Albanian Lek\",\n      \"symbol\": \"L\",\n      \"iso_code\": \"ALL\"\n    },\n    {\n      \"name\": \"Algerian Dinar\",\n      \"symbol\": \"د.ج\",\n      \"iso_code\": \"DZD\"\n    },\n    {\n      \"name\": \"Angolan Kwanza\",\n      \"symbol\": \"Kz\",\n      \"iso_code\": \"AOA\"\n    },\n    {\n      \"name\": \"Argentine Peso\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"ARS\"\n    },\n    {\n      \"name\": \"Armenian Dram\",\n      \"symbol\": \"դր.\",\n      \"iso_code\": \"AMD\"\n    },\n    {\n      \"name\": \"Aruban Florin\",\n      \"symbol\": \"ƒ\",\n      \"iso_code\": \"AWG\"\n    },\n    {\n      \"name\": \"Australian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"AUD\"\n    },\n    {\n      \"name\": \"Azerbaijani Manat\",\n      \"symbol\": \"₼\",\n      \"iso_code\": \"AZN\"\n    },\n    {\n      \"name\": \"Bahamian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"BSD\"\n    },\n    {\n      \"name\": \"Bahraini Dinar\",\n      \"symbol\": \"د.ب\",\n      \"iso_code\": \"BHD\"\n    },\n    {\n      \"name\": \"Bangladeshi Taka\",\n      \"symbol\": \"৳\",\n      \"iso_code\": \"BDT\"\n    },\n    {\n      \"name\": \"Barbadian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"BBD\"\n    },\n    {\n      \"name\": \"Belize Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"BZD\"\n    },\n    {\n      \"name\": \"Bermudian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"BMD\"\n    },\n    {\n      \"name\": \"Bhutanese Ngultrum\",\n      \"symbol\": \"Nu.\",\n      \"iso_code\": \"BTN\"\n    },\n    {\n      \"name\": \"Bolivian Boliviano\",\n      \"symbol\": \"Bs.\",\n      \"iso_code\": \"BOB\"\n    },\n    {\n      \"name\": \"Bosnia and Herzegovina Convertible Mark\",\n      \"symbol\": \"КМ\",\n      \"iso_code\": \"BAM\"\n    },\n    {\n      \"name\": \"Botswana Pula\",\n      \"symbol\": \"P\",\n      \"iso_code\": \"BWP\"\n    },\n    {\n      \"name\": \"Brazilian Real\",\n      \"symbol\": \"R$\",\n      \"iso_code\": \"BRL\"\n    },\n    {\n      \"name\": \"British Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"GBP\"\n    },\n    {\n      \"name\": \"Brunei Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"BND\"\n    },\n    {\n      \"name\": \"Bulgarian Lev\",\n      \"symbol\": \"лв.\",\n      \"iso_code\": \"BGN\"\n    },\n    {\n      \"name\": \"Burundian Franc\",\n      \"symbol\": \"Fr\",\n      \"iso_code\": \"BIF\"\n    },\n    {\n      \"name\": \"Cambodian Riel\",\n      \"symbol\": \"៛\",\n      \"iso_code\": \"KHR\"\n    },\n    {\n      \"name\": \"Canadian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"CAD\"\n    },\n    {\n      \"name\": \"Cape Verdean Escudo\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"CVE\"\n    },\n    {\n      \"name\": \"Cayman Islands Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"KYD\"\n    },\n    {\n      \"name\": \"Central African Cfa Franc\",\n      \"symbol\": \"CFA\",\n      \"iso_code\": \"XAF\"\n    },\n    {\n      \"name\": \"Cfp Franc\",\n      \"symbol\": \"Fr\",\n      \"iso_code\": \"XPF\"\n    },\n    {\n      \"name\": \"Chilean Peso\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"CLP\"\n    },\n    {\n      \"name\": \"Chinese Renminbi Yuan\",\n      \"symbol\": \"¥\",\n      \"iso_code\": \"CNY\"\n    },\n    {\n      \"name\": \"Colombian Peso\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"COP\"\n    },\n    {\n      \"name\": \"Comorian Franc\",\n      \"symbol\": \"Fr\",\n      \"iso_code\": \"KMF\"\n    },\n    {\n      \"name\": \"Costa Rican Colón\",\n      \"symbol\": \"₡\",\n      \"iso_code\": \"CRC\"\n    },\n    {\n      \"name\": \"Croatian Kuna\",\n      \"symbol\": \"kn\",\n      \"iso_code\": \"HRK\"\n    },\n    {\n      \"name\": \"Czech Koruna\",\n      \"symbol\": \"Kč\",\n      \"iso_code\": \"CZK\"\n    },\n    {\n      \"name\": \"Danish Krone\",\n      \"symbol\": \"kr.\",\n      \"iso_code\": \"DKK\"\n    },\n    {\n      \"name\": \"Djiboutian Franc\",\n      \"symbol\": \"Fdj\",\n      \"iso_code\": \"DJF\"\n    },\n    {\n      \"name\": \"Dominican Peso\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"DOP\"\n    },\n    {\n      \"name\": \"East Caribbean Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"XCD\"\n    },\n    {\n      \"name\": \"Egyptian Pound\",\n      \"symbol\": \"ج.م\",\n      \"iso_code\": \"EGP\"\n    },\n    {\n      \"name\": \"Ethiopian Birr\",\n      \"symbol\": \"Br\",\n      \"iso_code\": \"ETB\"\n    },\n    {\n      \"name\": \"Euro\",\n      \"symbol\": \"€\",\n      \"iso_code\": \"EUR\"\n    },\n    {\n      \"name\": \"Falkland Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"FKP\"\n    },\n    {\n      \"name\": \"Fijian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"FJD\"\n    },\n    {\n      \"name\": \"Gambian Dalasi\",\n      \"symbol\": \"D\",\n      \"iso_code\": \"GMD\"\n    },\n    {\n      \"name\": \"Georgian Lari\",\n      \"symbol\": \"ლ\",\n      \"iso_code\": \"GEL\"\n    },\n    {\n      \"name\": \"Ghanaian Cedi\",\n      \"symbol\": \"₵\",\n      \"iso_code\": \"GHS\"\n    },\n    {\n      \"name\": \"Gibraltar Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"GIP\"\n    },\n    {\n      \"name\": \"Guatemalan Quetzal\",\n      \"symbol\": \"Q\",\n      \"iso_code\": \"GTQ\"\n    },\n    {\n      \"name\": \"Guinean Franc\",\n      \"symbol\": \"Fr\",\n      \"iso_code\": \"GNF\"\n    },\n    {\n      \"name\": \"Guyanese Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"GYD\"\n    },\n    {\n      \"name\": \"Haitian Gourde\",\n      \"symbol\": \"G\",\n      \"iso_code\": \"HTG\"\n    },\n    {\n      \"name\": \"Honduran Lempira\",\n      \"symbol\": \"L\",\n      \"iso_code\": \"HNL\"\n    },\n    {\n      \"name\": \"Hong Kong Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"HKD\"\n    },\n    {\n      \"name\": \"Hungarian Forint\",\n      \"symbol\": \"Ft\",\n      \"iso_code\": \"HUF\"\n    },\n    {\n      \"name\": \"Icelandic Króna\",\n      \"symbol\": \"kr.\",\n      \"iso_code\": \"ISK\"\n    },\n    {\n      \"name\": \"Indian Rupee\",\n      \"symbol\": \"₹\",\n      \"iso_code\": \"INR\"\n    },\n    {\n      \"name\": \"Indonesian Rupiah\",\n      \"symbol\": \"Rp\",\n      \"iso_code\": \"IDR\"\n    },\n    {\n      \"name\": \"Isle of Man Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"IMP\"\n    },\n    {\n      \"name\": \"Israeli New Sheqel\",\n      \"symbol\": \"₪\",\n      \"iso_code\": \"ILS\"\n    },\n    {\n      \"name\": \"Jamaican Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"JMD\"\n    },\n    {\n      \"name\": \"Japanese Yen\",\n      \"symbol\": \"¥\",\n      \"iso_code\": \"JPY\"\n    },\n    {\n      \"name\": \"Jersey Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"JEP\"\n    },\n    {\n      \"name\": \"Jordanian Dinar\",\n      \"symbol\": \"د.ا\",\n      \"iso_code\": \"JOD\"\n    },\n    {\n      \"name\": \"Kazakhstani Tenge\",\n      \"symbol\": \"₸\",\n      \"iso_code\": \"KZT\"\n    },\n    {\n      \"name\": \"Kenyan Shilling\",\n      \"symbol\": \"KSh\",\n      \"iso_code\": \"KES\"\n    },\n    {\n      \"name\": \"Kuwaiti Dinar\",\n      \"symbol\": \"د.ك\",\n      \"iso_code\": \"KWD\"\n    },\n    {\n      \"name\": \"Kyrgyzstani Som\",\n      \"symbol\": \"som\",\n      \"iso_code\": \"KGS\"\n    },\n    {\n      \"name\": \"Lao Kip\",\n      \"symbol\": \"₭\",\n      \"iso_code\": \"LAK\"\n    },\n    {\n      \"name\": \"Lebanese Pound\",\n      \"symbol\": \"ل.ل\",\n      \"iso_code\": \"LBP\"\n    },\n    {\n      \"name\": \"Lesotho Loti\",\n      \"symbol\": \"L\",\n      \"iso_code\": \"LSL\"\n    },\n    {\n      \"name\": \"Libyan Dinar\",\n      \"symbol\": \"ل.د\",\n      \"iso_code\": \"LYD\"\n    },\n    {\n      \"name\": \"Macanese Pataca\",\n      \"symbol\": \"P\",\n      \"iso_code\": \"MOP\"\n    },\n    {\n      \"name\": \"Macedonian Denar\",\n      \"symbol\": \"ден\",\n      \"iso_code\": \"MKD\"\n    },\n    {\n      \"name\": \"Malagasy Ariary\",\n      \"symbol\": \"Ar\",\n      \"iso_code\": \"MGA\"\n    },\n    {\n      \"name\": \"Malawian Kwacha\",\n      \"symbol\": \"MK\",\n      \"iso_code\": \"MWK\"\n    },\n    {\n      \"name\": \"Malaysian Ringgit\",\n      \"symbol\": \"RM\",\n      \"iso_code\": \"MYR\"\n    },\n    {\n      \"name\": \"Maldivian Rufiyaa\",\n      \"symbol\": \"MVR\",\n      \"iso_code\": \"MVR\"\n    },\n    {\n      \"name\": \"Mauritanian Ouguiya\",\n      \"symbol\": \"UM\",\n      \"iso_code\": \"MRU\"\n    },\n    {\n      \"name\": \"Mauritian Rupee\",\n      \"symbol\": \"₨\",\n      \"iso_code\": \"MUR\"\n    },\n    {\n      \"name\": \"Mexican Peso\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"MXN\"\n    },\n    {\n      \"name\": \"Moldovan Leu\",\n      \"symbol\": \"L\",\n      \"iso_code\": \"MDL\"\n    },\n    {\n      \"name\": \"Mongolian Tögrög\",\n      \"symbol\": \"₮\",\n      \"iso_code\": \"MNT\"\n    },\n    {\n      \"name\": \"Moroccan Dirham\",\n      \"symbol\": \"د.م.\",\n      \"iso_code\": \"MAD\"\n    },\n    {\n      \"name\": \"Mozambican Metical\",\n      \"symbol\": \"MTn\",\n      \"iso_code\": \"MZN\"\n    },\n    {\n      \"name\": \"Namibian Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"NAD\"\n    },\n    {\n      \"name\": \"Nepalese Rupee\",\n      \"symbol\": \"Rs.\",\n      \"iso_code\": \"NPR\"\n    },\n    {\n      \"name\": \"Netherlands Antillean Gulden\",\n      \"symbol\": \"ƒ\",\n      \"iso_code\": \"ANG\"\n    },\n    {\n      \"name\": \"New Taiwan Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"TWD\"\n    },\n    {\n      \"name\": \"New Zealand Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"NZD\"\n    },\n    {\n      \"name\": \"Nicaraguan Córdoba\",\n      \"symbol\": \"C$\",\n      \"iso_code\": \"NIO\"\n    },\n    {\n      \"name\": \"Nigerian Naira\",\n      \"symbol\": \"₦\",\n      \"iso_code\": \"NGN\"\n    },\n    {\n      \"name\": \"Norwegian Krone\",\n      \"symbol\": \"kr\",\n      \"iso_code\": \"NOK\"\n    },\n    {\n      \"name\": \"Omani Rial\",\n      \"symbol\": \"ر.ع.\",\n      \"iso_code\": \"OMR\"\n    },\n    {\n      \"name\": \"Pakistani Rupee\",\n      \"symbol\": \"₨\",\n      \"iso_code\": \"PKR\"\n    },\n    {\n      \"name\": \"Panamanian Balboa\",\n      \"symbol\": \"B/.\",\n      \"iso_code\": \"PAB\"\n    },\n    {\n      \"name\": \"Papua New Guinean Kina\",\n      \"symbol\": \"K\",\n      \"iso_code\": \"PGK\"\n    },\n    {\n      \"name\": \"Paraguayan Guaraní\",\n      \"symbol\": \"₲\",\n      \"iso_code\": \"PYG\"\n    },\n    {\n      \"name\": \"Peruvian Sol\",\n      \"symbol\": \"S/\",\n      \"iso_code\": \"PEN\"\n    },\n    {\n      \"name\": \"Philippine Peso\",\n      \"symbol\": \"₱\",\n      \"iso_code\": \"PHP\"\n    },\n    {\n      \"name\": \"Polish Złoty\",\n      \"symbol\": \"zł\",\n      \"iso_code\": \"PLN\"\n    },\n    {\n      \"name\": \"Qatari Riyal\",\n      \"symbol\": \"ر.ق\",\n      \"iso_code\": \"QAR\"\n    },\n    {\n      \"name\": \"Romanian Leu\",\n      \"symbol\": \"Lei\",\n      \"iso_code\": \"RON\"\n    },\n    {\n      \"name\": \"Russian Ruble\",\n      \"symbol\": \"₽\",\n      \"iso_code\": \"RUB\"\n    },\n    {\n      \"name\": \"Rwandan Franc\",\n      \"symbol\": \"FRw\",\n      \"iso_code\": \"RWF\"\n    },\n    {\n      \"name\": \"Saint Helenian Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"SHP\"\n    },\n    {\n      \"name\": \"Samoan Tala\",\n      \"symbol\": \"T\",\n      \"iso_code\": \"WST\"\n    },\n    {\n      \"name\": \"Saudi Riyal\",\n      \"symbol\": \"ر.س\",\n      \"iso_code\": \"SAR\"\n    },\n    {\n      \"name\": \"Serbian Dinar\",\n      \"symbol\": \"РСД\",\n      \"iso_code\": \"RSD\"\n    },\n    {\n      \"name\": \"Seychellois Rupee\",\n      \"symbol\": \"₨\",\n      \"iso_code\": \"SCR\"\n    },\n    {\n      \"name\": \"Sierra Leonean Leone\",\n      \"symbol\": \"Le\",\n      \"iso_code\": \"SLL\"\n    },\n    {\n      \"name\": \"Singapore Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"SGD\"\n    },\n    {\n      \"name\": \"Solomon Islands Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"SBD\"\n    },\n    {\n      \"name\": \"Somali Shilling\",\n      \"symbol\": \"Sh\",\n      \"iso_code\": \"SOS\"\n    },\n    {\n      \"name\": \"South African Rand\",\n      \"symbol\": \"R\",\n      \"iso_code\": \"ZAR\"\n    },\n    {\n      \"name\": \"South Korean Won\",\n      \"symbol\": \"₩\",\n      \"iso_code\": \"KRW\"\n    },\n    {\n      \"name\": \"South Sudanese Pound\",\n      \"symbol\": \"£\",\n      \"iso_code\": \"SSP\"\n    },\n    {\n      \"name\": \"Sri Lankan Rupee\",\n      \"symbol\": \"₨\",\n      \"iso_code\": \"LKR\"\n    },\n    {\n      \"name\": \"Surinamese Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"SRD\"\n    },\n    {\n      \"name\": \"Swazi Lilangeni\",\n      \"symbol\": \"E\",\n      \"iso_code\": \"SZL\"\n    },\n    {\n      \"name\": \"Swedish Krona\",\n      \"symbol\": \"kr\",\n      \"iso_code\": \"SEK\"\n    },\n    {\n      \"name\": \"Swiss Franc\",\n      \"symbol\": \"CHF\",\n      \"iso_code\": \"CHF\"\n    },\n    {\n      \"name\": \"São Tomé and Príncipe Dobra\",\n      \"symbol\": \"Db\",\n      \"iso_code\": \"STD\"\n    },\n    {\n      \"name\": \"Tajikistani Somoni\",\n      \"symbol\": \"ЅМ\",\n      \"iso_code\": \"TJS\"\n    },\n    {\n      \"name\": \"Tanzanian Shilling\",\n      \"symbol\": \"Sh\",\n      \"iso_code\": \"TZS\"\n    },\n    {\n      \"name\": \"Thai Baht\",\n      \"symbol\": \"฿\",\n      \"iso_code\": \"THB\"\n    },\n    {\n      \"name\": \"Tongan Paʻanga\",\n      \"symbol\": \"T$\",\n      \"iso_code\": \"TOP\"\n    },\n    {\n      \"name\": \"Trinidad and Tobago Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"TTD\"\n    },\n    {\n      \"name\": \"Tunisian Dinar\",\n      \"symbol\": \"د.ت\",\n      \"iso_code\": \"TND\"\n    },\n    {\n      \"name\": \"Turkish Lira\",\n      \"symbol\": \"₺\",\n      \"iso_code\": \"TRY\"\n    },\n    {\n      \"name\": \"Turkmenistani Manat\",\n      \"symbol\": \"T\",\n      \"iso_code\": \"TMT\"\n    },\n    {\n      \"name\": \"Ugandan Shilling\",\n      \"symbol\": \"USh\",\n      \"iso_code\": \"UGX\"\n    },\n    {\n      \"name\": \"Ukrainian Hryvnia\",\n      \"symbol\": \"₴\",\n      \"iso_code\": \"UAH\"\n    },\n    {\n      \"name\": \"United Arab Emirates Dirham\",\n      \"symbol\": \"AED\",\n      \"iso_code\": \"AED\"\n    },\n    {\n      \"name\": \"United States Dollar\",\n      \"symbol\": \"$\",\n      \"iso_code\": \"USD\"\n    },\n    {\n      \"name\": \"Uruguayan Peso\",\n      \"symbol\": \"$U\",\n      \"iso_code\": \"UYU\"\n    },\n    {\n      \"name\": \"Uzbekistan Som\",\n      \"symbol\": \"so'm\",\n      \"iso_code\": \"UZS\"\n    },\n    {\n      \"name\": \"Vanuatu Vatu\",\n      \"symbol\": \"Vt\",\n      \"iso_code\": \"VUV\"\n    },\n    {\n      \"name\": \"Venezuelan Bolívar Soberano\",\n      \"symbol\": \"Bs\",\n      \"iso_code\": \"VES\"\n    },\n    {\n      \"name\": \"Vietnamese Đồng\",\n      \"symbol\": \"₫\",\n      \"iso_code\": \"VND\"\n    },\n    {\n      \"name\": \"West African Cfa Franc\",\n      \"symbol\": \"Fr\",\n      \"iso_code\": \"XOF\"\n    },\n    {\n      \"name\": \"Yemeni Rial\",\n      \"symbol\": \"﷼\",\n      \"iso_code\": \"YER\"\n    },\n    {\n      \"name\": \"Zambian Kwacha\",\n      \"symbol\": \"K\",\n      \"iso_code\": \"ZMW\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "53eda422-8cb8-4239-87ba-f6c3b2079a8a",
+    "name": "Keystone Currency API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

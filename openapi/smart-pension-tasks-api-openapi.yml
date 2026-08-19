@@ -1,0 +1,265 @@
+openapi: 3.2.0
+info:
+  title: Keystone Tasks API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Tasks
+paths:
+  /companies/{company_id}/employees/{employee_id}/tasks:
+    get:
+      summary: Tasks/List
+      tags:
+      - Tasks
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 888
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 477
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                tasks:
+                - id: profile-employee_address
+                  type: profile
+                  name: employee_address
+                  state: done
+                  owner_id: 477
+                  owner_type: employee
+                  available?: true
+                  blocked?: false
+                  delegatable?: false
+                  done?: true
+                - id: profile-telephone
+                  type: profile
+                  name: telephone
+                  state: outstanding
+                  owner_id: 477
+                  owner_type: employee
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+                - id: profile-email
+                  type: profile
+                  name: email
+                  state: done
+                  owner_id: 477
+                  owner_type: employee
+                  available?: true
+                  blocked?: false
+                  delegatable?: false
+                  done?: true
+                - id: profile-expression_of_wish
+                  type: profile
+                  name: expression_of_wish
+                  state: outstanding
+                  owner_id: 477
+                  owner_type: employee
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+                - id: profile-visit_income_adequacy_page
+                  type: profile
+                  name: visit_income_adequacy_page
+                  state: done
+                  owner_id: 477
+                  owner_type: employee
+                  available?: true
+                  blocked?: false
+                  delegatable?: false
+                  done?: true
+              schema:
+                $ref: '#/components/schemas/response_tasks'
+        '401':
+          description: Unauthorized
+  /companies/{company_id}/tasks:
+    get:
+      summary: Tasks/List
+      tags:
+      - Tasks
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1382
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                tasks:
+                - id: company-direct_debit
+                  type: company
+                  name: direct_debit
+                  state: outstanding
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+                - id: company-confirm_scheme_starts_on
+                  type: company
+                  name: confirm_scheme_starts_on
+                  state: done
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: false
+                  done?: true
+                - id: company-edit_company
+                  type: company
+                  name: edit_company
+                  state: outstanding
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+                - id: company-add_employees
+                  type: company
+                  name: add_employees
+                  state: done
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: false
+                  done?: true
+                - id: on_going-welcome_letters
+                  type: on_going
+                  name: welcome_letters
+                  state: outstanding
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+                - id: on_going-contributions
+                  type: on_going
+                  name: contributions
+                  state: outstanding
+                  owner_id: 1382
+                  owner_type: company
+                  available?: true
+                  blocked?: false
+                  delegatable?: true
+                  done?: false
+              schema:
+                $ref: '#/components/schemas/response_tasks'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_tasks:
+      type: object
+      properties:
+        tasks:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_task'
+    response_task:
+      type: object
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        available?:
+          type:
+          - boolean
+          - 'null'
+        blocked?:
+          type:
+          - boolean
+          - 'null'
+        delegatable?:
+          type:
+          - boolean
+          - 'null'
+        done?:
+          type:
+          - boolean
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

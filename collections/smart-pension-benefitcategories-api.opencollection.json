@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Categories API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitCategories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BenefitCategories/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories/:benefit_rule_set_id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "318",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "104",
+                "type": "path"
+              },
+              {
+                "name": "benefit_rule_set_id",
+                "value": "5",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitCategories/Get"
+        },
+        {
+          "info": {
+            "name": "BenefitCategories/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "327",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "107",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitCategories/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

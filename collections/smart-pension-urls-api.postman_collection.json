@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "61206c92-de35-4d1c-b4ed-62fb72f83df2",
+      "name": "Urls",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca69c65b-3083-48a9-88e1-2b7765d43b4e",
+          "name": "Urls/List",
+          "request": {
+            "name": "Urls/List",
+            "description": {},
+            "url": {
+              "path": [
+                "urls"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "05e0d371-760f-4d34-a8cb-db04ddffe518",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "urls"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"api_url\": \"https://api.host.com/\",\n  \"root_domain\": \"host.com\",\n  \"generate_token_url\": \"https://id.host.com/oauth/token\",\n  \"personal_token_exchange_url\": \"https://id.host.com/personal_token_exchange\",\n  \"web_socket_url\": \"wss://api.host.com/cable\",\n  \"oauth_company_slug_url\": \"https://id.host.com/oauth/company_slug\",\n  \"employee_url\": \"https://slug.host.com/employee\",\n  \"employee_sign_in_url\": \"https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Femployee%2Fcallbacks%2Fsmartpension&response_type=code&scope=employee\",\n  \"employee_sign_out_url\": \"https://id.host.com/employee/sign-out\",\n  \"employee_id_sign_out_url\": \"https://id.host.com/employee/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89\",\n  \"employer_url\": \"https://slug.host.com/\",\n  \"employer_sign_in_url\": \"https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Fcustomer%2Fcallbacks%2Fsmartpension&response_type=code&scope=customer\",\n  \"employer_sign_out_url\": \"https://id.host.com/customer/sign-out\",\n  \"employer_id_sign_out_url\": \"https://id.host.com/customer/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89\",\n  \"adviser_url\": \"https://adviser.host.com/\",\n  \"user_sign_in_url\": \"https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Fuser%2Fcallbacks%2Fsmartpension&response_type=code&scope=user\",\n  \"user_sign_out_url\": \"https://id.host.com/user/sign-out\",\n  \"user_id_sign_out_url\": \"https://id.host.com/user/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89\",\n  \"identity_sign_in_url\": \"https://identity-portal.host.com/identity/auth/authorize?client_id=test-fake-client-id&prompt=consent&redirect_uri=https%3A%2F%2Fapi.host.com%2Fidentity-callback&response_mode=query&response_type=code&scope=openid+offline_access\",\n  \"identity_generate_token_url\": \"https://identity-portal.host.com/identity/auth/token\",\n  \"profile_url\": \"https://profile.host.com/\",\n  \"identity_profile_logout_url\": \"https://identity-portal.host.com/identity/api/profiles/logout\",\n  \"broker_portal_url\": \"https://broker.host.com/broker_portal\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "734f38f9-a246-496f-a1b5-27f50bc6e634",
+    "name": "Keystone URLS API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

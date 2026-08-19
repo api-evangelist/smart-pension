@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Membership Fees API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "MembershipFees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/MembershipFees/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/membership_fees",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1205",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/MembershipFees/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

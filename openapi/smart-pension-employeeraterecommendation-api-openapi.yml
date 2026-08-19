@@ -1,0 +1,109 @@
+openapi: 3.2.0
+info:
+  title: Keystone Employee Rate Recommendation API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: EmployeeRateRecommendation
+paths:
+  /companies/{company_id}/employees/{id}/employee_rate_recommendation:
+    post:
+      summary: Companies/Employees/EmployeeRateRecommendation/Create
+      tags:
+      - EmployeeRateRecommendation
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 281
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 601
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              Creating employee rate recommendation:
+                value:
+                  target_annual_pension: 64.68
+                  one_off_payment: 1000
+            schema:
+              type: object
+              properties:
+                target_annual_pension:
+                  type: number
+                include_state_pension:
+                  type: boolean
+                retirement_age:
+                  type: integer
+                one_off_payment:
+                  type: number
+              required:
+              - target_annual_pension
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                Creating employee rate recommendation:
+                  value:
+                    employee_rate: 4
+              schema:
+                $ref: '#/components/schemas/response_employee_rate_recommendation'
+        '422':
+          description: Invalid parameters
+components:
+  schemas:
+    response_employee_rate_recommendation:
+      type: object
+      properties:
+        employee_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

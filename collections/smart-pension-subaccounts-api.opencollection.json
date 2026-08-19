@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Subaccounts API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subaccounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/Subaccounts/DefaultFundSplits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccounts/:uuid/default_fund_splits",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "863",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "462",
+                "type": "path"
+              },
+              {
+                "name": "uuid",
+                "value": "c1c19ed3-ca0e-4d3f-b209-2890fd513f32",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Subaccounts/DefaultFundSplits"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/Subaccounts/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccounts/:uuid",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "867",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "465",
+                "type": "path"
+              },
+              {
+                "name": "uuid",
+                "value": "62e32c44-a825-4889-8813-df98de3c9c2b",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Subaccounts/Get"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/Subaccounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccounts",
+            "headers": [
+              {
+                "name": "X-Account-Id",
+                "value": "471"
+              }
+            ],
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "filter%5Bfrontend_tag%5D=yxz",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "company_id",
+                "value": "884",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "473",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Subaccounts"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

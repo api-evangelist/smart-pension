@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone URLS API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Urls",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Urls/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/urls"
+          },
+          "docs": "Urls/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

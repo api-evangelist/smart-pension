@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Money Out State API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitMoneyOutState",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BenefitMoneyOutState/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_money_out_state",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "414",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "170",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitMoneyOutState/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

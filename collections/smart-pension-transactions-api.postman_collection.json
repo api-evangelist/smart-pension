@@ -1,0 +1,920 @@
+{
+  "item": [
+    {
+      "id": "38158fbe-327d-473c-ba96-6d6e12da44bf",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bd6a9c07-3103-403a-9ce9-276890648bf2",
+          "name": "Transactions/Get",
+          "request": {
+            "name": "Transactions/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "transactions",
+                ":transaction_type",
+                ":transaction_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "transaction_type",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "transaction_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9782f6ab-9037-4f36-bdee-b3fc1ec30606",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions",
+                    ":transaction_type",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"created_at\": \"2026-08-05T13:02:23.000+01:00\",\n  \"state\": \"created\",\n  \"amount_currency\": \"GBP\",\n  \"amount\": \"100.0\",\n  \"type\": \"adjustment\",\n  \"investment_groups\": [],\n  \"completed_at\": null,\n  \"request_mode\": \"unit\",\n  \"benefit_type\": \"full\",\n  \"frontend_tag\": null,\n  \"source_subaccounts\": [\n    {\n      \"uuid\": \"cc57f5c6-5fc5-4db3-9066-f4e62cbb9ed6\",\n      \"name\": \"nKZPeytMpz\"\n    }\n  ],\n  \"contribution_type\": \"regular\",\n  \"category\": \"payroll_error\",\n  \"starts_on\": \"2026-08-01\",\n  \"ends_on\": \"2026-08-08\",\n  \"currency\": \"GBP\",\n  \"employee_pensionable_earnings_amount\": null,\n  \"employee_percentage\": \"10.0\",\n  \"employee_amount\": \"100.0\",\n  \"employer_pensionable_earnings_amount\": null,\n  \"company_percentage\": \"10.0\",\n  \"company_amount\": \"100.0\",\n  \"voluntary_amount\": \"0.0\",\n  \"avc_percentage\": null,\n  \"pensionable_earnings\": \"10.0\",\n  \"gross_qualifying_earnings\": \"1000.0\",\n  \"updated_at\": \"2026-08-05T13:02:23.000+01:00\",\n  \"bank_reference\": null,\n  \"ceding_scheme_employee_reference\": \"emp-1\",\n  \"ceding_scheme_name\": \"schema_name\",\n  \"ceding_scheme_type\": \"approved\",\n  \"description\": null,\n  \"payment_received_on\": \"2026-08-05\",\n  \"processed_at\": null,\n  \"adjustment_type\": \"monetary\",\n  \"direction\": \"positive\",\n  \"processable_at\": null,\n  \"processing_at\": null,\n  \"cancelled_at\": null\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "446f7905-882a-429a-9d2f-6c6c15bafdcb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions",
+                    ":transaction_type",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "52e7bcf8-8f38-409b-a508-ac38c833561c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions",
+                    ":transaction_type",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "393e5256-6821-42ed-b95c-8b5b97a3f1d7",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions",
+                    ":transaction_type",
+                    ":transaction_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "transaction_type",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "transaction_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59d7cfb8-af63-4f7a-b6b0-62418ccdd10e",
+          "name": "Transactions/List",
+          "request": {
+            "name": "Transactions/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "starts_on",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ends_on",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "types",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "adjustment_categories",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "adjustment_categories",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d113749c-c511-4280-a3e1-f9c7bb53b8ce",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "starts_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ends_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 20,\n  \"offset\": 0,\n  \"total\": 15,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/933/employees/518/transactions\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/933/employees/518/transactions?offset=0&limit=20\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/933/employees/518/transactions?offset=0&limit=20\"\n    }\n  ],\n  \"transactions\": [\n    {\n      \"id\": 2,\n      \"type\": \"adjustment\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"100.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\",\n      \"adjustment_type\": \"monetary\",\n      \"adjustment_category\": \"payroll_error\"\n    },\n    {\n      \"id\": 3,\n      \"type\": \"adjustment\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"-100.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\",\n      \"adjustment_type\": \"monetary\",\n      \"adjustment_category\": \"payroll_error\"\n    },\n    {\n      \"id\": 4,\n      \"type\": \"adjustment\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": null,\n      \"amount_currency\": null,\n      \"state\": \"created\",\n      \"adjustment_type\": \"unit\",\n      \"adjustment_category\": \"payroll_error\"\n    },\n    {\n      \"id\": 23,\n      \"type\": \"benefit\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"1000.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\",\n      \"request_mode\": \"unit\",\n      \"frontend_tag\": null,\n      \"benefit_type\": \"full\",\n      \"completed_at\": null,\n      \"source_subaccounts\": []\n    },\n    {\n      \"id\": 24,\n      \"type\": \"benefit\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": null,\n      \"amount_currency\": null,\n      \"state\": \"created\",\n      \"request_mode\": \"unit\",\n      \"frontend_tag\": null,\n      \"benefit_type\": \"full\",\n      \"completed_at\": null,\n      \"source_subaccounts\": []\n    },\n    {\n      \"id\": 120,\n      \"type\": \"contribution\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"200.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\",\n      \"contribution_type\": \"regular\"\n    },\n    {\n      \"id\": 1,\n      \"type\": \"contribution_charge\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"5.0\",\n      \"amount_currency\": \"GBP\",\n      \"contribution_type\": \"regular\"\n    },\n    {\n      \"id\": 5,\n      \"type\": \"fee\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"75.0\",\n      \"amount_currency\": \"GBP\",\n      \"charge_type\": null,\n      \"state\": \"created\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"transfer_in\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"75.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\"\n    },\n    {\n      \"id\": 25,\n      \"type\": \"transfer_out\",\n      \"created_at\": \"2026-08-05T12:02:25.000Z\",\n      \"amount\": \"2000.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\",\n      \"request_mode\": \"unit\",\n      \"frontend_tag\": null,\n      \"benefit_type\": \"full\",\n      \"completed_at\": null,\n      \"source_subaccounts\": []\n    },\n    {\n      \"id\": 2,\n      \"type\": \"asset_transfer\",\n      \"created_at\": \"2026-08-05T12:02:25.169Z\",\n      \"amount\": \"75.0\",\n      \"amount_currency\": \"GBP\",\n      \"state\": \"created\"\n    },\n    {\n      \"id\": 95,\n      \"type\": \"switch\",\n      \"created_at\": \"2026-08-05T12:02:26.000Z\",\n      \"state\": \"completed\"\n    },\n    {\n      \"id\": 2,\n      \"type\": \"transfer_in_charge\",\n      \"created_at\": \"2026-08-05T12:02:26.000Z\",\n      \"amount\": \"200.0\",\n      \"amount_currency\": \"USD\"\n    },\n    {\n      \"id\": 6,\n      \"type\": \"historical_contribution\",\n      \"created_at\": \"2026-08-05T12:02:26.131Z\",\n      \"amount\": \"30.0\",\n      \"amount_currency\": \"GBP\"\n    },\n    {\n      \"id\": 8,\n      \"type\": \"historical_transfer_in\",\n      \"created_at\": \"2026-08-05T12:02:26.136Z\",\n      \"amount\": \"150.0\",\n      \"amount_currency\": \"GBP\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bdff740f-5a34-461d-8df7-e5ceed41dadf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "starts_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ends_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "dbb74058-c4fb-4d8a-a7d4-a7b942b1d620",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "starts_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ends_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "826ee077-78d9-47bf-97bc-f2982409c801",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "starts_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ends_on",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "adjustment_categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f9b1720e-bfa3-484b-a028-3a32243d69d0",
+    "name": "Keystone Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

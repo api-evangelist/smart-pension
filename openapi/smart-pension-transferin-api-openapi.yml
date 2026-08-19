@@ -1,0 +1,331 @@
+openapi: 3.2.0
+info:
+  title: Keystone Transfer In API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: TransferIn
+paths:
+  /companies/{company_id}/employees/{employee_id}/transfer_ins/{id}:
+    get:
+      summary: TransferIn/Get
+      tags:
+      - TransferIn
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 4
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 946
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 528
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 4
+                employee_id: 528
+                total_amount: 75
+                amount_currency: GBP
+                bank_reference: ABC-4-DEF
+                category: transfer_in
+                ceding_scheme_employee_reference: emp-4
+                ceding_scheme_name: schema_name
+                ceding_scheme_type: approved
+                description: This is a basic description
+                payment_received_on: '2026-08-05'
+                processed_at: null
+                state: created
+                created_at: '2026-08-05T13:02:27.000+01:00'
+                updated_at: '2026-08-05T13:02:27.000+01:00'
+                transfer_in_amounts:
+                - id: 11
+                  display_name: RegularContribution_ER
+                  amount: 25
+                  pot: transfer_employer
+                  state: created
+                - id: 12
+                  display_name: RegularContribution_ER
+                  amount: 25
+                  pot: transfer_employee
+                  state: created
+                - id: 13
+                  display_name: RegularContribution_ER
+                  amount: 25
+                  pot: transfer_other_avc
+                  state: created
+              schema:
+                $ref: '#/components/schemas/response_transfer_in'
+        '404':
+          description: Not Fund
+  /companies/{company_id}/employees/{employee_id}/transfer_ins:
+    get:
+      summary: TransferIn/List
+      tags:
+      - TransferIn
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 948
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 530
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            category:
+              type: array
+              items:
+                type: string
+            total_amount:
+              type: array
+              items:
+                type: number
+            description:
+              type: array
+              items:
+                type: string
+            state:
+              type: array
+              items:
+                type: string
+            bank_reference:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/948/employees/530/transfer_ins
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/948/employees/530/transfer_ins?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/948/employees/530/transfer_ins?offset=0&limit=50
+                transfer_ins: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  transfer_ins:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_transfer_in'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_transfer_in_amount:
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        pot:
+          type: string
+        state:
+          type: string
+    response_transfer_in:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        amount_currency:
+          type:
+          - string
+          - 'null'
+        bank_reference:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_employee_reference:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_name:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_type:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        payment_received_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        processed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        transfer_in_amounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_transfer_in_amount'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,590 @@
+{
+  "item": [
+    {
+      "id": "283ca550-e84c-489a-b2e4-1363d3cfe052",
+      "name": "EnrolmentEmployees",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5284e0b2-4dec-49be-9369-ae7335599e5e",
+          "name": "Companies/Enrolments/Employees/List",
+          "request": {
+            "name": "Companies/Enrolments/Employees/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments",
+                ":enrolment_id",
+                "employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[external_id][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[external_id][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[slug][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[slug][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[opt_state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[group_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[group_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exit_reason][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[exit_reason][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_match][0]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[company_match][1]",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "enrolment_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "35efbf9e-8f8c-48f5-8891-182eae7b0c8c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":enrolment_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[slug][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[slug][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[exit_reason][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[company_match][0]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[company_match][1]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrolment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1015/enrolments/43/employees\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1015/enrolments/43/employees?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1015/enrolments/43/employees?offset=0&limit=50\"\n    }\n  ],\n  \"employees\": [\n    {\n      \"updatable\": true,\n      \"id\": 559,\n      \"email\": \"employee_648@example.com\",\n      \"forename\": \"m1\",\n      \"surname\": \"Jones\",\n      \"date_of_birth\": \"2001-08-05\",\n      \"national_insurance_number\": null,\n      \"gender\": \"Female\",\n      \"telephone\": null,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"hwkd6v\",\n      \"created_at\": \"2026-08-05T13:02:47.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:02:47.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Sir\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Sebastopol\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"39009-2873\",\n      \"line1\": \"2197 Shoshone Hill\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": \"2025-05-05\",\n      \"opt_state\": \"opted_out\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 1015,\n      \"automatically_enrolled\": true,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"053a84ce-b6c5-4813-99fa-6fd8dd808773\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1015\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp559\",\n      \"intercom_user_id_hash\": \"fcb5e6e61324eb6ac92d1e5268be7ab4987c5ad4c1a17da23f366f3db38697c0\"\n    },\n    {\n      \"updatable\": true,\n      \"id\": 560,\n      \"email\": \"employee_650@example.com\",\n      \"forename\": \"m2\",\n      \"surname\": \"Franklin\",\n      \"date_of_birth\": \"2001-08-05\",\n      \"national_insurance_number\": null,\n      \"gender\": \"Female\",\n      \"telephone\": null,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"aYQsFezXzL0\",\n      \"created_at\": \"2026-08-05T13:02:47.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:02:47.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Lady\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Orland\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"97287-9715\",\n      \"line1\": \"9953 Fallview Plaza\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": \"2025-05-05\",\n      \"opt_state\": \"opted_out\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 1015,\n      \"automatically_enrolled\": true,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"f9f09898-891f-47f2-804d-7d2c51dec1ff\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1015\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp560\",\n      \"intercom_user_id_hash\": \"f6aee1fe4461418874853df7e62b75574b077cc339d562bb24e9e9a96d40fb79\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1c326cd7-2b50-42ab-aa6b-b8cd830a5e25",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":enrolment_id",
+                    "employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[external_id][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[slug][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[slug][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[opt_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[group_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[group_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[exit_reason][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[exit_reason][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[company_match][0]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "filter[company_match][1]",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "enrolment_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "90c33e4f-3213-41c1-9d9f-dc67178cb1b4",
+    "name": "Keystone Enrolment Employees API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

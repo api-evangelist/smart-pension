@@ -1,0 +1,500 @@
+openapi: 3.2.0
+info:
+  title: Keystone Pension Forecast API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PensionForecast
+paths:
+  /companies/{company_id}/employees/{employee_id}/pension_forecast:
+    post:
+      summary: Companies/Employees/PensionForecastInputs/Create
+      tags:
+      - PensionForecast
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        example: 380
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 751
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              date_of_calculation: 9-10-2019
+              date_of_birth: '1990-10-10'
+              fund_values:
+              - value: 1000
+                investment_returns:
+                  '0': 3
+                contribution_allocation_percentage: 100
+                annual_management_charge: 1.5
+              date_of_retirement: 16-01-2030
+              inflation_rate: 2
+              contribution_percentages:
+              - from: '2000-03-03'
+                employee_rate: 1
+                employer_rate: 3
+                avc_rate: 4
+              employee_contribution_salary: 120000
+              employer_contribution_salary: 120000
+              employee_contribution_salary_cap: 121000
+              employer_contribution_salary_cap: 121000
+              employee_amount_contribution: 1200
+              annuity_rate: 10
+              fees: 2
+              contribution_charges:
+                employee: 1
+                employer: 1
+                other_avc: 1
+              increase_factors:
+                employee_contribution_salary:
+                  month: 12
+                  rate: 1.5
+                employer_contribution_salary:
+                  month: 12
+                  rate: '1.5'
+                employee_amount_contribution:
+                  month: 12
+                  rate: 2
+              flat_fees_applicable_min_holdings: 0
+            schema:
+              type: object
+              properties:
+                date_of_retirement:
+                  type: string
+                employee_amount_contribution:
+                  type: number
+                membership_period_type:
+                  type: string
+                  enum:
+                  - active
+                  - deferred
+                  - pensioner
+                  - cancelled
+                  - no_liability
+                  - died
+                apply_vesting:
+                  type: boolean
+                zero_out_contribution_percentages:
+                  type: boolean
+                employee_annual_contribution_amount:
+                  type: number
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                annuity_rate: 10
+                date_of_calculation: '2019-10-09'
+                date_of_retirement: '2030-01-16'
+                fund_value_without_charges: 133401.39
+                fund_value_with_charges: 121610.18
+                fund_value_in_real_terms: 99225.98
+                fund_values_per_age:
+                - age: 29
+                  value_in_real_terms: 1889.01
+                - age: 30
+                  value_in_real_terms: 12487.49
+                - age: 31
+                  value_in_real_terms: 22853.7
+                - age: 32
+                  value_in_real_terms: 32985.8
+                - age: 33
+                  value_in_real_terms: 42888.54
+                - age: 34
+                  value_in_real_terms: 52563.71
+                - age: 35
+                  value_in_real_terms: 62021.07
+                - age: 36
+                  value_in_real_terms: 71262.75
+                - age: 37
+                  value_in_real_terms: 80293.15
+                - age: 38
+                  value_in_real_terms: 89111.73
+                - age: 39
+                  value_in_real_terms: 97731.89
+                total_employee_contributions: 75971.25
+                total_employer_contributions: 37272.07
+                salary_at_retirement: 141353.87
+                employee_salary_cap_at_retirement: 121000
+                employer_salary_cap_at_retirement: 121000
+                annual_pension_at_retirement: 12161.02
+                annual_pension_at_retirement_in_real_terms: 9922.6
+                total_charges: 10571.46
+                average_return_percentage: 1.2
+                average_return_without_charges_percentage: 2.95
+                effect_of_charges_percentage: 1.75
+                employee_forecast_inputs: null
+                number_of_iterations: 124
+              schema:
+                $ref: '#/components/schemas/response_pension_forecast_response'
+        '422':
+          description: when passing invalid parameters
+    get:
+      summary: Companies/Employees/PensionForecastInputs/Create
+      tags:
+      - PensionForecast
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 383
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 756
+      - name: date_of_retirement
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: employee_amount_contribution
+        in: query
+        schema:
+          type: number
+        required: false
+      - name: membership_period_type
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - deferred
+          - pensioner
+          - cancelled
+          - no_liability
+          - died
+        required: false
+      - name: apply_vesting
+        in: query
+        schema:
+          type: boolean
+        required: false
+      - name: zero_out_contribution_percentages
+        in: query
+        schema:
+          type: boolean
+        required: false
+      - name: employee_annual_contribution_amount
+        in: query
+        schema:
+          type: number
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                annuity_rate: 26.19676143
+                date_of_calculation: '2019-08-20'
+                date_of_retirement: '2049-03-27'
+                fund_value_without_charges: 293961.87
+                fund_value_with_charges: 293961.87
+                fund_value_in_real_terms: 141529.5
+                fund_values_per_age:
+                - age: 25
+                  value_in_real_terms: 2611.21
+                - age: 26
+                  value_in_real_terms: 7186.36
+                - age: 27
+                  value_in_real_terms: 11773.04
+                - age: 28
+                  value_in_real_terms: 16371.1
+                - age: 29
+                  value_in_real_terms: 20980.63
+                - age: 30
+                  value_in_real_terms: 25599.93
+                - age: 31
+                  value_in_real_terms: 30232.21
+                - age: 32
+                  value_in_real_terms: 34876.12
+                - age: 33
+                  value_in_real_terms: 39531.7
+                - age: 34
+                  value_in_real_terms: 44196.03
+                - age: 35
+                  value_in_real_terms: 48874.83
+                - age: 36
+                  value_in_real_terms: 53565.47
+                - age: 37
+                  value_in_real_terms: 58268.01
+                - age: 38
+                  value_in_real_terms: 62978.27
+                - age: 39
+                  value_in_real_terms: 67704.48
+                - age: 40
+                  value_in_real_terms: 72442.77
+                - age: 41
+                  value_in_real_terms: 77193.2
+                - age: 42
+                  value_in_real_terms: 81950.28
+                - age: 43
+                  value_in_real_terms: 86724.84
+                - age: 44
+                  value_in_real_terms: 91511.72
+                - age: 45
+                  value_in_real_terms: 96310.97
+                - age: 46
+                  value_in_real_terms: 101115.81
+                - age: 47
+                  value_in_real_terms: 105939.67
+                - age: 48
+                  value_in_real_terms: 110776.08
+                - age: 49
+                  value_in_real_terms: 115625.11
+                - age: 50
+                  value_in_real_terms: 120478.67
+                - age: 51
+                  value_in_real_terms: 125352.78
+                - age: 52
+                  value_in_real_terms: 130239.7
+                - age: 53
+                  value_in_real_terms: 135139.48
+                - age: 54
+                  value_in_real_terms: 140042.72
+                total_employee_contributions: 94214.23
+                total_employer_contributions: 104682.48
+                salary_at_retirement: 100683.24
+                employee_salary_cap_at_retirement: null
+                employer_salary_cap_at_retirement: null
+                annual_pension_at_retirement: 11221.31
+                annual_pension_at_retirement_in_real_terms: 5402.56
+                total_charges: 0
+                average_return_percentage: 2.74
+                average_return_without_charges_percentage: 2.74
+                effect_of_charges_percentage: 0
+                employee_forecast_inputs:
+                  date_of_calculation: '2019-08-20'
+                  date_of_birth: '1994-10-24'
+                  employee_amount_contribution: 0
+                  increase_factors:
+                    employee_contribution_salary:
+                      rate: 2.5
+                      month: 2
+                    employer_contribution_salary:
+                      rate: 2.5
+                      month: 2
+                    employee_contribution_salary_cap:
+                      rate: 0
+                      month: 1
+                    employer_contribution_salary_cap:
+                      rate: 0
+                      month: 1
+                    employee_amount_contribution:
+                      rate: 2.5
+                      month: 12
+                    fees:
+                      rate: 2.5
+                      month: 2
+                  fund_values:
+                  - contribution_allocation_percentage: 50
+                    value: 630
+                    investment_returns:
+                      '0': 2.5
+                    annual_management_charges:
+                    - from: '2019-08-20'
+                      rate: 0
+                    apply_bonuses: false
+                  - contribution_allocation_percentage: 50
+                    value: 840
+                    investment_returns:
+                      '0': 3
+                    annual_management_charges:
+                    - from: '2019-08-20'
+                      rate: 0
+                    apply_bonuses: false
+                  employee_contribution_salary: 48000
+                  employer_contribution_salary: 48000
+                  date_of_retirement: '2049-03-27'
+                  inflation_rate: 2.5
+                  contribution_percentages:
+                  - from: '2019-08-20'
+                    employee_rate: 4
+                    avc_rate: 0.5
+                    employer_rate: 5
+                  flat_fees_applicable_min_holdings: 100
+                  fees: 0
+                  contribution_charges:
+                    employee: 0
+                    employer: 0
+                    other_avc: 0
+                number_of_iterations: 356
+              schema:
+                $ref: '#/components/schemas/response_pension_forecast_response'
+        '403':
+          description: when employee has no portfolio
+        '404':
+          description: when employee does not exist
+        '422':
+          description: when passing invalid parameters
+        '531':
+          description: with missing investment_returns_long_term
+components:
+  schemas:
+    response_pension_forecast_response:
+      type: object
+      properties:
+        annuity_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        date_of_calculation:
+          type:
+          - string
+          - 'null'
+          format: date
+        date_of_retirement:
+          type:
+          - string
+          - 'null'
+          format: date
+        fund_value_without_charges:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund_value_with_charges:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund_value_in_real_terms:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_employee_contributions:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_employer_contributions:
+          type:
+          - number
+          - 'null'
+          format: float
+        salary_at_retirement:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_salary_cap_at_retirement:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_salary_cap_at_retirement:
+          type:
+          - number
+          - 'null'
+          format: float
+        annual_pension_at_retirement:
+          type:
+          - number
+          - 'null'
+          format: float
+        annual_pension_at_retirement_in_real_terms:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_charges:
+          type:
+          - number
+          - 'null'
+          format: float
+        average_return_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        average_return_without_charges_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        effect_of_charges_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_forecast_inputs:
+          type:
+          - object
+          - 'null'
+        number_of_iterations:
+          type:
+          - integer
+          - 'null'
+        fund_values_per_age:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              age:
+                type:
+                - integer
+                - 'null'
+              value_in_real_terms:
+                type:
+                - number
+                - 'null'
+                format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

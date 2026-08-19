@@ -1,0 +1,266 @@
+openapi: 3.2.0
+info:
+  title: Keystone Employee External Pensions API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: EmployeeExternalPensions
+paths:
+  /companies/{company_id}/employees/{employee_id}/employee_external_pensions/bulk_update:
+    post:
+      summary: Companies/Employees/EmployeeExternalPensions/BulkUpdate
+      tags:
+      - EmployeeExternalPensions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 585
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 266
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  employee_external_pensions:
+                  - name: External Company Pension
+                    type: DB
+                    amount: 1000
+              invalid_parameters:
+                value:
+                  employee_external_pensions:
+                  - name: External Company Pension
+                    type: invalid type
+                    amount: -1000
+            schema:
+              type: object
+              properties:
+                employee_external_pensions:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      type:
+                        type: string
+                      amount: {}
+                      _destroy:
+                        type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                employee_external_pensions:
+                - id: 1
+                  amount: 1000
+                  employee_id: 266
+                  name: External Company Pension
+                  type: DB
+                  created_at: '2026-08-05T13:00:45.020+01:00'
+                  updated_at: '2026-08-05T13:00:45.020+01:00'
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  employee_external_pensions:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_employee_external_pension'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100002
+                  title: Value is not valid for the field.
+                  detail: 'Type should be one of the following values: DB and DC.'
+                  meta:
+                    values:
+                    - DB
+                    - DC
+                    value: invalid type
+                  source:
+                    pointer: /data/relationships/employee_external_pensions/0/attributes/type
+                - code: 102002
+                  title: Value is too small.
+                  detail: Amount should be greater than or equal to 0.
+                  meta:
+                    value: '-1000.0'
+                    count: 0
+                  source:
+                    pointer: /data/relationships/employee_external_pensions/0/attributes/amount
+  /companies/{company_id}/employees/{employee_id}/employee_external_pensions:
+    get:
+      summary: Companies/Employees/EmployeeExternalPensions/List
+      tags:
+      - EmployeeExternalPensions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 589
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 268
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 1
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/589/employees/268/employee_external_pensions
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/589/employees/268/employee_external_pensions?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/589/employees/268/employee_external_pensions?offset=0&limit=50
+                employee_external_pensions:
+                - id: 2
+                  amount: 9279.62
+                  employee_id: 268
+                  name: Coca-Cola Pensions
+                  type: DB
+                  created_at: '2026-08-05T13:00:45.482+01:00'
+                  updated_at: '2026-08-05T13:00:45.482+01:00'
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  employee_external_pensions:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_employee_external_pension'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_employee_external_pension:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

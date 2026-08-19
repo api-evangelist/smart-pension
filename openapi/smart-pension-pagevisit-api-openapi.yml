@@ -1,0 +1,112 @@
+openapi: 3.2.0
+info:
+  title: Keystone Page Visit API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PageVisit
+paths:
+  /companies/{company_id}/employees/{employee_id}/page_visits:
+    post:
+      summary: Employees/PageVisits/Create
+      tags:
+      - PageVisit
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 738
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 371
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  page: /dashboard/pension
+                  browser: Chrome
+              missing_fields:
+                value:
+                  page: ''
+                  browser: ''
+            schema:
+              type: object
+              properties:
+                page:
+                  type: string
+                browser:
+                  type: string
+              required:
+              - page
+              - browser
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                missing_fields:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Page is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/page
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Browser is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/browser
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

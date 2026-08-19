@@ -1,0 +1,192 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Automations API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyAutomations
+paths:
+  /companies/{company_id}/company_automation:
+    get:
+      summary: CompanyAutomations/Get
+      tags:
+      - CompanyAutomations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 92
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 15
+                letter: true
+                company_id: 92
+                postponement_period: null
+                created_at: '2026-08-05T12:58:21.000+01:00'
+                updated_at: '2026-08-05T12:58:21.000+01:00'
+                links:
+                - rel: company
+                  title: company
+                  href: https://api.host.com/companies/92
+              schema:
+                $ref: '#/components/schemas/response_company_automation'
+        '404':
+          description: Not Found
+    put:
+      summary: CompanyAutomations/Update
+      tags:
+      - CompanyAutomations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 94
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              company_automation:
+                postponement_period: 3 months
+            schema:
+              type: object
+              properties:
+                letter:
+                  type: boolean
+                postponement_period:
+                  type: string
+                  enum:
+                  - 1 week
+                  - 2 weeks
+                  - 3 weeks
+                  - 4 weeks
+                  - 1 month
+                  - 2 months
+                  - 3 months
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Unprocessable entity
+    patch:
+      summary: CompanyAutomations/Update
+      tags:
+      - CompanyAutomations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 96
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              company_automation:
+                postponement_period: 3 months
+            schema:
+              type: object
+              properties:
+                letter:
+                  type: boolean
+                postponement_period:
+                  type: string
+                  enum:
+                  - 1 week
+                  - 2 weeks
+                  - 3 weeks
+                  - 4 weeks
+                  - 1 month
+                  - 2 months
+                  - 3 months
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Unprocessable entity
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_company_automation:
+      type: object
+      properties:
+        id:
+          type: integer
+        letter:
+          type: boolean
+        company_id:
+          type: integer
+        postponement_period:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

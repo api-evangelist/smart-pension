@@ -1,0 +1,194 @@
+{
+  "item": [
+    {
+      "id": "f73a22c1-3cf2-4e06-b1f2-be42cdf08c5c",
+      "name": "EmploymentPeriods",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3641d974-747e-4c14-a42c-837651cd8aad",
+          "name": "Employees/EmploymentPeriods/List",
+          "request": {
+            "name": "Employees/EmploymentPeriods/List",
+            "description": {},
+            "url": {
+              "path": [
+                "employees",
+                "employment_periods"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7fcd2b28-4d39-46a9-95dd-3ce0d54a2059",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employees",
+                    "employment_periods"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/employees/employment_periods\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/employees/employment_periods?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/employees/employment_periods?offset=0&limit=50\"\n    }\n  ],\n  \"employment_periods\": [\n    {\n      \"id\": 663,\n      \"employee_id\": 671,\n      \"company_id\": 1450,\n      \"benefit_group_id\": null,\n      \"starts_on\": \"2016-08-05\",\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"external_id\": null,\n      \"opt_in_on\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_out_reason\": null,\n      \"current\": true,\n      \"uuid\": \"39619847-8f5a-4442-86ae-ada6ec4ac514\",\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1450\"\n        }\n      ]\n    },\n    {\n      \"id\": 664,\n      \"employee_id\": 671,\n      \"company_id\": 1450,\n      \"benefit_group_id\": null,\n      \"starts_on\": \"2016-08-05\",\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"external_id\": null,\n      \"opt_in_on\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_out_reason\": null,\n      \"current\": true,\n      \"uuid\": \"d5385eec-b6d3-4440-b94b-01ff341c5dbb\",\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1450\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f6755f9c-45c9-46ee-a004-a165a4d1941f",
+    "name": "Keystone Employment Periods API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone SSIF Imports API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSIFImports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SSIFImports/AssignSSIFHeadersMapping",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/:ssif_import_id/assign_ssif_headers_mapping",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1340",
+                "type": "path"
+              },
+              {
+                "name": "ssif_import_id",
+                "value": "2",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/AssignSSIFHeadersMapping"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1366",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/List"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1348",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/Create"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/FileHeaders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/:ssif_import_id/file_headers",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1350",
+                "type": "path"
+              },
+              {
+                "name": "ssif_import_id",
+                "value": "8",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/FileHeaders"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/template",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1356",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/Template"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/:ssif_import_id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1363",
+                "type": "path"
+              },
+              {
+                "name": "ssif_import_id",
+                "value": "14",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/Get"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/SSIFImportMissingEmployees/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/:ssif_import_id/ssif_import_missing_employees",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1368",
+                "type": "path"
+              },
+              {
+                "name": "ssif_import_id",
+                "value": "16",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/SSIFImportMissingEmployees/List"
+        },
+        {
+          "info": {
+            "name": "SSIFImports/SSIFImportResults/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ssif_imports/:ssif_import_id/ssif_import_results",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1378",
+                "type": "path"
+              },
+              {
+                "name": "ssif_import_id",
+                "value": "25",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImports/SSIFImportResults/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

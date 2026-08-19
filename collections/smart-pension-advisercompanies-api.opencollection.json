@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Adviser Companies API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AdviserCompanies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AdviserCompany/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/adviser_companies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AdviserCompany/Create"
+        },
+        {
+          "info": {
+            "name": "AdviserCompanies/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/adviser_companies/adviser/:adviser_id/company/:company_id",
+            "params": [
+              {
+                "name": "adviser_id",
+                "value": "3",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "6",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AdviserCompanies/Update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

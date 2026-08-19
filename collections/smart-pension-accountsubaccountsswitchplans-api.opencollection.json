@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Account Subaccounts Switch Plans API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AccountSubaccountsSwitchPlans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Employees/AccountSubaccountsSwitchPlans/Confirm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccount_switch_plans/:id/confirm",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "1557",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "764",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Employees/AccountSubaccountsSwitchPlans/Confirm"
+        },
+        {
+          "info": {
+            "name": "Employees/AccountSubaccountsSwitchPlans/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccount_switch_plans",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1563",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "767",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Employees/AccountSubaccountsSwitchPlans/Create"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

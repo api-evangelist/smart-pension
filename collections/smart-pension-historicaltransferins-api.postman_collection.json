@@ -1,0 +1,395 @@
+{
+  "item": [
+    {
+      "id": "b6c44e42-326e-4e6f-99bc-972ad5650831",
+      "name": "HistoricalTransferIns",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55c420ce-c7b2-4918-807c-f0d8401867a1",
+          "name": "HistoricalTransferIns/List",
+          "request": {
+            "name": "HistoricalTransferIns/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "historical_transfer_ins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[category][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[category][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[payment_received_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[payment_received_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[payment_invested_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[payment_invested_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "32a58cdf-ac8a-45c4-8b40-2311386c8402",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "historical_transfer_ins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[category][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[category][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_received_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_received_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_invested_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_invested_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/647/employees/317/historical_transfer_ins\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/647/employees/317/historical_transfer_ins?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/647/employees/317/historical_transfer_ins?offset=0&limit=50\"\n    }\n  ],\n  \"historical_transfer_ins\": [\n    {\n      \"id\": 4,\n      \"employee_id\": 317,\n      \"bank_reference\": \"ABC-123\",\n      \"category\": \"transfer_in\",\n      \"ceding_scheme_name\": \"schema_name\",\n      \"ceding_scheme_reference\": \"ceding_scheme_reference\",\n      \"ceding_scheme_type\": \"approved\",\n      \"payment_invested_on\": \"2026-08-05\",\n      \"payment_received_on\": \"2026-08-05\",\n      \"pensionable_service_months\": 1,\n      \"pensionable_service_years\": 1,\n      \"pot_values\": [\n        {\n          \"pot\": \"pot_1\",\n          \"amount\": 150\n        }\n      ],\n      \"created_at\": \"2026-08-05T13:01:08.557+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:08.557+01:00\",\n      \"total_amount\": 150\n    },\n    {\n      \"id\": 5,\n      \"employee_id\": 317,\n      \"bank_reference\": \"ABC-123\",\n      \"category\": \"transfer_in\",\n      \"ceding_scheme_name\": \"schema_name\",\n      \"ceding_scheme_reference\": \"ceding_scheme_reference\",\n      \"ceding_scheme_type\": \"approved\",\n      \"payment_invested_on\": \"2026-08-05\",\n      \"payment_received_on\": \"2026-08-05\",\n      \"pensionable_service_months\": 1,\n      \"pensionable_service_years\": 1,\n      \"pot_values\": [\n        {\n          \"pot\": \"pot_1\",\n          \"amount\": 150\n        }\n      ],\n      \"created_at\": \"2026-08-05T13:01:08.562+01:00\",\n      \"updated_at\": \"2026-08-05T13:01:08.562+01:00\",\n      \"total_amount\": 150\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38b3a2e4-2411-4303-bc5c-94dfe5a11f69",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "historical_transfer_ins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[category][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[category][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_received_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_received_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_invested_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[payment_invested_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d32a1776-6567-4141-880d-932f33854355",
+    "name": "Keystone Historical Transfer Ins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

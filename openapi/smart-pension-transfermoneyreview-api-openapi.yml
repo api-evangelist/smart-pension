@@ -1,0 +1,206 @@
+openapi: 3.2.0
+info:
+  title: Keystone Transfer Money Review API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: TransferMoneyReview
+paths:
+  /companies/{company_id}/employees/{employee_id}/transfer_money_review:
+    post:
+      summary: TransferMoneyReview/Post
+      tags:
+      - TransferMoneyReview
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 949
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 531
+        schema:
+          type: string
+      - name: source_subaccount_id
+        in: query
+        required: false
+        example: source_subaccount_id=617
+        schema:
+          type: integer
+      - name: target_subaccount_id
+        in: query
+        required: false
+        example: target_subaccount_id=618
+        schema:
+          type: integer
+      - name: transfered_amount
+        in: query
+        required: false
+        example: transfered_amount=100
+        schema:
+          type: number
+      - name: projection_amount
+        in: query
+        required: false
+        example: projection_amount=50
+        schema:
+          type: number
+      - name: projection_age
+        in: query
+        required: false
+        example: projection_age=99
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            example:
+              source_subaccount_id: 617
+              target_subaccount_id: 618
+              transfered_amount: 100
+              projection_amount: 50
+              projection_age: 99
+            schema:
+              type: object
+              properties:
+                include:
+                  type: array
+                  items:
+                    enum:
+                    - company
+                    - company.scheme_detail
+                    - company.scheme_detail.current_company_tax_relief
+                    - company.scheme_details
+                    - company.scheme_details.current_company_tax_relief
+                    - company.default_investment_instrument
+                    - company.economic_zone
+                    - company.scheme
+                    - customer
+                    - shortcut
+                    - marketing_preference
+                    - employee_configuration
+                    - portfolios
+                    - valuations
+                    - contributions
+                    - expression_of_wish
+                    - employee_plan_participation
+                    - employment_statuses
+                    - salaries
+                    - employment_category
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    transfered_amount: 100
+                    source_subaccount:
+                      name: iG5OsWRBet
+                      current_amount: 100
+                      new_amount: 70
+                      current_projection_amount: 80
+                      new_projection_amount: 70
+                      current_projection_age: 60
+                      new_projection_age: 60
+                    target_subaccount:
+                      name: wxVmivnI3n
+                      current_amount: 0
+                      new_amount: 30
+                      current_projection_amount: null
+                      new_projection_amount: 30
+                      current_projection_age: null
+                      new_projection_age: 65
+              schema:
+                $ref: '#/components/schemas/response_transfer_money_review'
+components:
+  schemas:
+    response_transfer_money_review:
+      type: object
+      properties:
+        transfered_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_subaccount:
+          $ref: '#/components/schemas/response_subaccount_comparison'
+        target_subaccount:
+          $ref: '#/components/schemas/response_subaccount_comparison'
+    response_subaccount_comparison:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        current_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        new_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        current_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        new_projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        current_projection_age:
+          type:
+          - integer
+          - 'null'
+        new_projection_age:
+          type:
+          - integer
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Income Adequacy Projection API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IncomeAdequacyProjection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/IncomeAdequacyProjection/Create (modes)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:id/income_adequacy_projection",
+            "params": [
+              {
+                "name": "id",
+                "value": "338",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "685",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/IncomeAdequacyProjection/Create (modes)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

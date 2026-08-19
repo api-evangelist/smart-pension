@@ -1,0 +1,991 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payroll Configuration Detail API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PayrollConfigurationDetail
+paths:
+  /companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/batch_create:
+    post:
+      summary: PayrollConfigurationDetails/BatchCreate
+      tags:
+      - PayrollConfigurationDetail
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1227
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 4
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  initial_payroll_configuration_details:
+                  - payroll_configuration: config_name
+                    pay_period_starts_on: '2021-01-01'
+                    pay_period_ends_on: '2021-02-01'
+                    cutoff_date: '2021-01-20'
+                    payday: '2021-01-21'
+              wrong_company_id:
+                value:
+                  initial_payroll_configuration_details:
+                  - payroll_configuration: config_name
+                    pay_period_starts_on: '2021-01-01'
+                    pay_period_ends_on: '2021-02-01'
+                    cutoff_date: '2021-01-20'
+                    payday: '2021-01-21'
+              wrong_payroll_configuration:
+                value:
+                  initial_payroll_configuration_details:
+                  - payroll_configuration: config_name
+                    pay_period_starts_on: '2021-01-01'
+                    pay_period_ends_on: '2021-02-01'
+                    cutoff_date: '2021-01-20'
+                    payday: '2021-01-21'
+              invalid_parameters:
+                value: {}
+            schema:
+              type: object
+              properties:
+                initial_payroll_configuration_details:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      cutoff_date:
+                        type: string
+                      payday:
+                        type: string
+                      pay_period_starts_on:
+                        type: string
+                      payroll_configuration: {}
+                    required:
+                    - pay_period_starts_on
+                    - cutoff_date
+                    - payday
+              required:
+              - initial_payroll_configuration_details
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+              - id: 1
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-01-01'
+                cutoff_date: '2021-01-20'
+                payday: '2021-01-21'
+                pay_period_ends_on: '2021-01-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 2
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-02-01'
+                cutoff_date: '2021-02-20'
+                payday: '2021-02-21'
+                pay_period_ends_on: '2021-02-28'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 3
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-03-01'
+                cutoff_date: '2021-03-20'
+                payday: '2021-03-21'
+                pay_period_ends_on: '2021-03-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 4
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-04-01'
+                cutoff_date: '2021-04-20'
+                payday: '2021-04-21'
+                pay_period_ends_on: '2021-04-30'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 5
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-05-01'
+                cutoff_date: '2021-05-20'
+                payday: '2021-05-21'
+                pay_period_ends_on: '2021-05-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 6
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-06-01'
+                cutoff_date: '2021-06-20'
+                payday: '2021-06-21'
+                pay_period_ends_on: '2021-06-30'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 7
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-07-01'
+                cutoff_date: '2021-07-20'
+                payday: '2021-07-21'
+                pay_period_ends_on: '2021-07-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 8
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-08-01'
+                cutoff_date: '2021-08-20'
+                payday: '2021-08-21'
+                pay_period_ends_on: '2021-08-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 9
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-09-01'
+                cutoff_date: '2021-09-20'
+                payday: '2021-09-21'
+                pay_period_ends_on: '2021-09-30'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 10
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-10-01'
+                cutoff_date: '2021-10-20'
+                payday: '2021-10-21'
+                pay_period_ends_on: '2021-10-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 11
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-11-01'
+                cutoff_date: '2021-11-20'
+                payday: '2021-11-21'
+                pay_period_ends_on: '2021-11-30'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+              - id: 12
+                payroll_configuration_id: 4
+                pay_period_starts_on: '2021-12-01'
+                cutoff_date: '2021-12-20'
+                payday: '2021-12-21'
+                pay_period_ends_on: '2021-12-31'
+                created_at: '2026-08-05T13:04:07.000+01:00'
+                updated_at: '2026-08-05T13:04:07.000+01:00'
+                updatable: false
+        '403':
+          description: Forbidden when company scheme detail start date is blank
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 11
+                  title: Scheme start date is missing.
+                  detail: Please set your company scheme start date. Without the scheme start date you can not perform this action.
+                  form: null
+                  attribute: base
+                  error: scheme_starts_on_blank
+                  meta: {}
+                  source:
+                    pointer: /base
+        '404':
+          description: Not Found when payroll configuration with given id does not exist
+          content:
+            text/html:
+              examples:
+                wrong_company_id:
+                  value: ''
+            application/json:
+              examples:
+                wrong_payroll_configuration:
+                  value: ''
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Initial payroll configuration details is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/initial_payroll_configuration_details
+  /companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/{id}:
+    get:
+      summary: PayrollConfigurationDetails/Get
+      tags:
+      - PayrollConfigurationDetail
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1233
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 9
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 13
+        schema:
+          type: string
+      - name: include
+        in: query
+        schema:
+          type: string
+          example: payroll_configuration
+        required: false
+        example: include=payroll_configuration
+      - name: include[]
+        in: query
+        schema:
+          type: array
+          items:
+            enum:
+            - payroll_configuration
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 13
+                payroll_configuration_id: 9
+                pay_period_starts_on: '2026-08-05'
+                cutoff_date: '2026-08-06'
+                payday: '2026-08-08'
+                pay_period_ends_on: '2026-08-11'
+                created_at: '2026-08-05T13:04:10.000+01:00'
+                updated_at: '2026-08-05T13:04:10.000+01:00'
+                updatable: false
+                payroll_configuration:
+                  id: 9
+                  company_id: 1233
+                  description: ac nulla
+                  frequency: weekly
+                  name: curae nulla8
+                  salary_rate: annual
+                  created_at: '2026-08-05T13:04:10.000+01:00'
+                  updated_at: '2026-08-05T13:04:10.000+01:00'
+                  uuid: dad1136d-7c2d-43ae-8fd0-5ff240af4373
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1233
+                  frequency_editable: false
+                  destroyable: true
+              schema:
+                $ref: '#/components/schemas/response_payroll_configuration_detail'
+        '403':
+          description: Forbidden when user role is employee
+        '404':
+          description: Not Found when payroll detail does not exist
+          content:
+            text/html:
+              examples:
+                company_does_not_exist:
+                  value: ''
+            application/json:
+              examples:
+                payroll_configuration_does_not_exist:
+                  value: ''
+    put:
+      summary: PayrollConfigurationDetails
+      tags:
+      - PayrollConfigurationDetail
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1246
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 21
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 29
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              company_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              company_has_other_payroll_configuration:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              payroll_configuration_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              payroll_configuration_details_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              invalid_parameters_null:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: null
+                  payday: '2021-02-28'
+              invalid_parameters_date_format:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: not_a_date
+                  payday: 42-20-1202
+            schema:
+              type: object
+              properties:
+                cutoff_date:
+                  type: string
+                payday:
+                  type: string
+              required:
+              - payday
+              - cutoff_date
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Forbidden when user role is employee
+        '404':
+          description: Not Found when payroll configuration detail with given id does not exist
+          content:
+            text/html:
+              examples:
+                company_does_not_exist:
+                  value: ''
+            application/json:
+              examples:
+                company_has_other_payroll_configuration:
+                  value: ''
+                payroll_configuration_does_not_exist:
+                  value: ''
+                payroll_configuration_details_does_not_exist:
+                  value: ''
+        '422':
+          description: Incorrect payday and cutoff dates' formats
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 130001
+                  title: Payday date is invalid.
+                  detail: Payday date must be present and in correct format.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/payday
+                - code: 130002
+                  title: Cutoff date is invalid.
+                  detail: Cutoff date must be present and in correct format.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/cutoff_date
+    patch:
+      summary: PayrollConfigurationDetails
+      tags:
+      - PayrollConfigurationDetail
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1255
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 29
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 37
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              company_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              company_has_other_payroll_configuration:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              payroll_configuration_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              payroll_configuration_details_does_not_exist:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: '2021-02-24'
+                  payday: '2021-02-28'
+              invalid_parameters_null:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: null
+                  payday: '2021-02-28'
+              invalid_parameters_date_format:
+                value:
+                  payroll_configuration: config_name
+                  pay_period_starts_on: '2021-01-01'
+                  pay_period_ends_on: '2021-02-01'
+                  cutoff_date: not_a_date
+                  payday: 42-20-1202
+            schema:
+              type: object
+              properties:
+                cutoff_date:
+                  type: string
+                payday:
+                  type: string
+              required:
+              - payday
+              - cutoff_date
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Forbidden when user role is employee
+        '404':
+          description: Not Found when payroll configuration detail with given id does not exist
+          content:
+            text/html:
+              examples:
+                company_does_not_exist:
+                  value: ''
+            application/json:
+              examples:
+                company_has_other_payroll_configuration:
+                  value: ''
+                payroll_configuration_does_not_exist:
+                  value: ''
+                payroll_configuration_details_does_not_exist:
+                  value: ''
+        '422':
+          description: Incorrect payday and cutoff dates' formats
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 130001
+                  title: Payday date is invalid.
+                  detail: Payday date must be present and in correct format.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/payday
+                - code: 130002
+                  title: Cutoff date is invalid.
+                  detail: Cutoff date must be present and in correct format.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/cutoff_date
+  /companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details:
+    get:
+      summary: PayrollConfigurationDetails/List
+      tags:
+      - PayrollConfigurationDetail
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1242
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 18
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+        example: limit=1
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+        example: offset=1
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            pay_period_starts_on:
+              type: array
+              items:
+                type: string
+            pay_period_ends_on:
+              type: array
+              items:
+                type: string
+            cutoff_date:
+              type: array
+              items:
+                type: string
+            payday:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+        example: filter%5Bpay_period_starts_on%5D=2026-08-05+between+2026-08-06
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                with_no_payroll_configuration_details:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1238/payroll_configurations/14/payroll_configuration_details
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1238/payroll_configurations/14/payroll_configuration_details?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1238/payroll_configurations/14/payroll_configuration_details?offset=0&limit=50
+                    payroll_configuration_details: []
+                    first_order_number: null
+                    frequency_value: null
+                with_payroll_configuration_details:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 3
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1239/payroll_configurations/15/payroll_configuration_details
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1239/payroll_configurations/15/payroll_configuration_details?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1239/payroll_configurations/15/payroll_configuration_details?offset=0&limit=50
+                    payroll_configuration_details:
+                    - id: 17
+                      payroll_configuration_id: 15
+                      pay_period_starts_on: '2026-08-06'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-12'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:12.000+01:00'
+                      updated_at: '2026-08-05T13:04:12.000+01:00'
+                      updatable: true
+                    - id: 18
+                      payroll_configuration_id: 15
+                      pay_period_starts_on: '2026-08-05'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-13'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:12.000+01:00'
+                      updated_at: '2026-08-05T13:04:12.000+01:00'
+                      updatable: false
+                    - id: 19
+                      payroll_configuration_id: 15
+                      pay_period_starts_on: '2026-08-04'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-14'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:12.000+01:00'
+                      updated_at: '2026-08-05T13:04:12.000+01:00'
+                      updatable: false
+                    first_order_number: 1
+                    frequency_value: 52
+                with_offset_and_limit_set:
+                  value:
+                    limit: 1
+                    offset: 1
+                    total: 3
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1240/payroll_configurations/16/payroll_configuration_details?limit=1&offset=1
+                    - rel: next
+                      title: next
+                      href: http://api.host.com/companies/1240/payroll_configurations/16/payroll_configuration_details?limit=1&offset=2
+                    - rel: prev
+                      title: prev
+                      href: http://api.host.com/companies/1240/payroll_configurations/16/payroll_configuration_details?limit=1&offset=0
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1240/payroll_configurations/16/payroll_configuration_details?limit=1&offset=0
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1240/payroll_configurations/16/payroll_configuration_details?limit=1&offset=2
+                    payroll_configuration_details:
+                    - id: 21
+                      payroll_configuration_id: 16
+                      pay_period_starts_on: '2026-08-05'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-16'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:13.000+01:00'
+                      updated_at: '2026-08-05T13:04:13.000+01:00'
+                      updatable: false
+                    first_order_number: 2
+                    frequency_value: 52
+                filtered_by_pay_period_starts_on:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1241/payroll_configurations/17/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=%3E%3D2026-08-05
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1241/payroll_configurations/17/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=%3E%3D2026-08-05&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1241/payroll_configurations/17/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=%3E%3D2026-08-05&offset=0&limit=50
+                    payroll_configuration_details:
+                    - id: 23
+                      payroll_configuration_id: 17
+                      pay_period_starts_on: '2026-08-06'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-18'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:13.000+01:00'
+                      updated_at: '2026-08-05T13:04:13.000+01:00'
+                      updatable: true
+                    - id: 24
+                      payroll_configuration_id: 17
+                      pay_period_starts_on: '2026-08-05'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-19'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:13.000+01:00'
+                      updated_at: '2026-08-05T13:04:13.000+01:00'
+                      updatable: false
+                    first_order_number: 2
+                    frequency_value: 52
+                filtered_by_pay_period_starts_on_range:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1242/payroll_configurations/18/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=2026-08-05+between+2026-08-06
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1242/payroll_configurations/18/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=2026-08-05+between+2026-08-06&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1242/payroll_configurations/18/payroll_configuration_details?filter%5Bpay_period_starts_on%5D=2026-08-05+between+2026-08-06&offset=0&limit=50
+                    payroll_configuration_details:
+                    - id: 26
+                      payroll_configuration_id: 18
+                      pay_period_starts_on: '2026-08-06'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-21'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:14.000+01:00'
+                      updated_at: '2026-08-05T13:04:14.000+01:00'
+                      updatable: true
+                    - id: 27
+                      payroll_configuration_id: 18
+                      pay_period_starts_on: '2026-08-05'
+                      cutoff_date: '2026-08-06'
+                      payday: '2026-08-22'
+                      pay_period_ends_on: '2026-08-11'
+                      created_at: '2026-08-05T13:04:14.000+01:00'
+                      updated_at: '2026-08-05T13:04:14.000+01:00'
+                      updatable: false
+                    first_order_number: 2
+                    frequency_value: 52
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  first_order_number:
+                    type:
+                    - integer
+                    - 'null'
+                  frequency_value:
+                    type:
+                    - integer
+                    - 'null'
+                  payroll_configuration_details:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_payroll_configuration_detail'
+        '403':
+          description: Forbidden when user role is employee
+        '404':
+          description: Not Found when payroll configuration does not exist
+          content:
+            text/html:
+              examples:
+                company_does_not_exist:
+                  value: ''
+            application/json:
+              examples:
+                payroll_configuration_does_not_exist:
+                  value: ''
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_payroll_configuration_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        payroll_configuration_id:
+          type: integer
+        pay_period_starts_on:
+          type: string
+          format: date
+        cutoff_date:
+          type: string
+          format: date
+        payday:
+          type: string
+          format: date
+        pay_period_ends_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        updatable:
+          type:
+          - boolean
+          - 'null'
+        payroll_configuration:
+          $ref: '#/components/schemas/response_payroll_configuration'
+    response_payroll_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type: string
+        name:
+          type: string
+        salary_rate:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        frequency_editable:
+          type:
+          - boolean
+          - 'null'
+        destroyable:
+          type:
+          - boolean
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: Keystone Regular Income Projection API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: RegularIncomeProjection
+paths:
+  /companies/{company_id}/employees/{employee_id}/regular_income_projection:
+    get:
+      summary: RegularIncomeProjection/Get
+      tags:
+      - RegularIncomeProjection
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 843
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 443
+        schema:
+          type: string
+      - name: regular_income_amount
+        in: query
+        required: false
+        example: regular_income_amount=100
+        schema:
+          type: number
+      - name: regular_income_end_age
+        in: query
+        required: false
+        schema:
+          type: integer
+        example: regular_income_end_age=80
+      - name: total_amount
+        in: query
+        required: false
+        schema:
+          type: number
+        example: total_amount=100
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                total_amount: 100
+                employee_age: 25
+                regular_income_end_age: 80
+                regular_income_amount: 0
+              schema:
+                $ref: '#/components/schemas/response_regular_income_projection'
+        '422':
+          description: Parameters invalid.
+components:
+  schemas:
+    response_regular_income_projection:
+      type: object
+      properties:
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_age:
+          type:
+          - integer
+          - 'null'
+        regular_income_end_age:
+          type:
+          - integer
+          - 'null'
+        regular_income_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

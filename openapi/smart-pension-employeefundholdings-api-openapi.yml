@@ -1,0 +1,421 @@
+openapi: 3.2.0
+info:
+  title: Keystone Employee Fund Holdings API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: EmployeeFundHoldings
+paths:
+  /companies/{company_id}/employees/{employee_id}/employee_fund_holdings/{id}:
+    get:
+      summary: Companies/Employees/EmployeeFundHoldings/Get
+      tags:
+      - EmployeeFundHoldings
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 590
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 269
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                fund_unit: 1
+                calculated_on: '2026-08-05'
+                amount: null
+                price: null
+              schema:
+                $ref: '#/components/schemas/response_employee_fund_holding_with_value_data'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/employee_fund_holdings:
+    get:
+      summary: Companies/Employees/EmployeeFundHoldings/List
+      tags:
+      - EmployeeFundHoldings
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 593
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 272
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/593/employees/272/employee_fund_holdings
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/593/employees/272/employee_fund_holdings?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/593/employees/272/employee_fund_holdings?offset=0&limit=50
+                employee_fund_holdings:
+                - id: 3
+                  fund_unit: 1
+                  calculated_on: '2026-08-05'
+                  amount: null
+                  price: null
+                - id: 4
+                  fund_unit: 1
+                  calculated_on: '2026-08-05'
+                  amount: null
+                  price: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  employee_fund_holdings:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_employee_fund_holding_with_value_data'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/employee_funds_valuations:
+    get:
+      summary: Companies/Employees/EmployeeFundsValuations/Get
+      tags:
+      - EmployeeFundHoldings
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 600
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 279
+        schema:
+          type: string
+      - name: subaccount_uuid
+        in: query
+        schema:
+          type: string
+        required: false
+        example: subaccount_uuid=4f61bad7-50a6-42aa-9d16-8ab9093f6685
+      - name: investment_account_uuids[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        required: false
+      - name: pots[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                valuations_per_funds:
+                - fund_id: 70
+                  fund_name: base display name
+                  fund_description: base description
+                  fund_fact_sheet_url: null
+                  fund_split_percentage: 100
+                  fund_invested_only: false
+                  total_fund_units: 10
+                  total_amount: 10
+                  fund_price: 1
+                  fund_price_currency: GBP
+                  fund_price_date: '2026-08-05'
+                pending_switch: true
+              schema:
+                $ref: '#/components/schemas/response_valuations_per_funds'
+              examples:
+                Response with funds original cost:
+                  value:
+                    valuations_per_funds:
+                    - fund_id: 68
+                      fund_name: base display name
+                      fund_description: base description
+                      fund_fact_sheet_url: null
+                      fund_split_percentage: 100
+                      fund_invested_only: false
+                      total_fund_units: 0
+                      total_amount: 0
+                      fund_price: 1
+                      fund_price_currency: GBP
+                      fund_price_date: '2026-08-05'
+                      original_cost: 0
+                      growth_amount: 0
+                      percentage_growth: 0
+                    pending_switch: false
+                Response without funds original cost:
+                  value:
+                    valuations_per_funds:
+                    - fund_id: 69
+                      fund_name: base display name
+                      fund_description: base description
+                      fund_fact_sheet_url: null
+                      fund_split_percentage: 100
+                      fund_invested_only: false
+                      total_fund_units: 0
+                      total_amount: 0
+                      fund_price: 1
+                      fund_price_currency: GBP
+                      fund_price_date: '2026-08-05'
+                    pending_switch: true
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    response_valuations_per_funds:
+      type: object
+      properties:
+        pending_switch:
+          type:
+          - boolean
+          - 'null'
+        valuations_per_funds:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_valuation_per_fund'
+    response_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_provider:
+          type:
+          - string
+          - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_employee_fund_holding_with_value_data:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        fund_unit:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        price:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund:
+          $ref: '#/components/schemas/response_fund'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+    response_valuation_per_fund:
+      type: object
+      properties:
+        fund_id:
+          type:
+          - integer
+          - 'null'
+        fund_name:
+          type:
+          - string
+          - 'null'
+        fund_description:
+          type:
+          - string
+          - 'null'
+        fund_fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_split_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund_invested_only:
+          type:
+          - boolean
+          - 'null'
+        total_fund_units:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund_price:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund_price_currency:
+          type:
+          - string
+          - 'null'
+        fund_price_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        original_cost:
+          type:
+          - number
+          - 'null'
+          format: float
+        growth_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        percentage_growth:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

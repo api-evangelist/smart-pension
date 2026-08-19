@@ -1,0 +1,513 @@
+openapi: 3.2.0
+info:
+  title: Keystone Subaccounts API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Subaccounts
+paths:
+  /companies/{company_id}/employees/{employee_id}/subaccounts/{uuid}/default_fund_splits:
+    get:
+      summary: Companies/Employees/Subaccounts/DefaultFundSplits
+      tags:
+      - Subaccounts
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 863
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 462
+        schema:
+          type: string
+      - name: uuid
+        in: path
+        required: true
+        example: c1c19ed3-ca0e-4d3f-b209-2890fd513f32
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    fund_splits:
+                    - fund:
+                        id: 137
+                        name: Fund-137
+                        display_name: base display name
+                        description: base description
+                        fact_sheet_url: https://www.fund.com
+                        fund_provider: FundProvider 137
+                      percentage: 100
+              schema:
+                $ref: '#/components/schemas/response_subaccount_default_fund_splits'
+              example:
+                fund_splits: []
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/subaccounts/{uuid}:
+    get:
+      summary: Companies/Employees/Subaccounts/Get
+      tags:
+      - Subaccounts
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 867
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 465
+        schema:
+          type: string
+      - name: uuid
+        in: path
+        required: true
+        example: 62e32c44-a825-4889-8813-df98de3c9c2b
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    id: 511
+                    uuid: 62e32c44-a825-4889-8813-df98de3c9c2b
+                    name: Kxj669plnQ
+                    scheme_id: 1213
+                    subaccount_group: Uncrystallised
+                    frontend_tag: null
+                    active_from: '2026-08-05T13:02:03.775+01:00'
+                    active_until: null
+                    investments_locked: false
+                    redirect_allowed: true
+                    created_at: '2026-08-05T13:02:03.775+01:00'
+                    updated_at: '2026-08-05T13:02:03.775+01:00'
+                    valuation: 300
+                    valuation_available_for_disinvestment: 270
+                    active_for_employee: true
+                    pending_switch_to_subaccount_uuid: 7d142048-7760-47dc-a9fe-eb9bbaf9967b
+                    money_movement_locked: true
+                    projection_age: null
+                    projection_amount: null
+                    projection_amount_currency: null
+              schema:
+                $ref: '#/components/schemas/response_investment_account'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/subaccounts:
+    get:
+      summary: Companies/Employees/Subaccounts
+      tags:
+      - Subaccounts
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            subaccount_group:
+              type: array
+              items:
+                type: string
+            frontend_tag:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+        example: filter%5Bfrontend_tag%5D=yxz
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      - name: company_id
+        in: path
+        required: true
+        example: 884
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 473
+        schema:
+          type: string
+      - name: X-Account-Id
+        in: header
+        description: Account ID, provided when authenticating with profile JWT token
+        required: false
+        schema:
+          type: string
+        example: '471'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                With valid params without filtering:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 3
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/880/employees/471/subaccounts
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/880/employees/471/subaccounts?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/880/employees/471/subaccounts?offset=0&limit=50
+                    subaccounts:
+                    - id: 531
+                      uuid: a7bc89de-d01c-4497-983b-af404581b6f6
+                      name: rMbBKm77zt
+                      scheme_id: 1231
+                      subaccount_group: Uncrystallised
+                      frontend_tag: null
+                      active_from: '2026-08-05T13:02:06.907+01:00'
+                      active_until: null
+                      investments_locked: false
+                      redirect_allowed: true
+                      created_at: '2026-08-05T13:02:06.908+01:00'
+                      updated_at: '2026-08-05T13:02:06.908+01:00'
+                      valuation: 0
+                      valuation_available_for_disinvestment: 0
+                      active_for_employee: true
+                      pending_switch_to_subaccount_uuid: null
+                      money_movement_locked: false
+                      projection_age: null
+                      projection_amount: null
+                      projection_amount_currency: null
+                    - id: 532
+                      uuid: 665e49fd-6515-4e34-8f35-b8b34f4d3b08
+                      name: WpaSozdSAc
+                      scheme_id: 1231
+                      subaccount_group: abc
+                      frontend_tag: null
+                      active_from: '2026-08-05T13:02:06.913+01:00'
+                      active_until: null
+                      investments_locked: false
+                      redirect_allowed: true
+                      created_at: '2026-08-05T13:02:06.914+01:00'
+                      updated_at: '2026-08-05T13:02:06.914+01:00'
+                      valuation: 300
+                      valuation_available_for_disinvestment: 270
+                      active_for_employee: true
+                      pending_switch_to_subaccount_uuid: a7bc89de-d01c-4497-983b-af404581b6f6
+                      money_movement_locked: true
+                      projection_age: 70
+                      projection_amount: 100
+                      projection_amount_currency: GBP
+                    - id: 533
+                      uuid: f6c5ac2e-5c79-4ca8-a466-92485d4815f8
+                      name: GM9tApxlgC
+                      scheme_id: 1231
+                      subaccount_group: Uncrystallised
+                      frontend_tag: null
+                      active_from: '2026-08-05T13:02:06.923+01:00'
+                      active_until: null
+                      investments_locked: false
+                      redirect_allowed: true
+                      created_at: '2026-08-05T13:02:06.923+01:00'
+                      updated_at: '2026-08-05T13:02:06.923+01:00'
+                      valuation: 0
+                      valuation_available_for_disinvestment: 0
+                      active_for_employee: false
+                      pending_switch_to_subaccount_uuid: null
+                      money_movement_locked: false
+                      projection_age: null
+                      projection_amount: null
+                      projection_amount_currency: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  subaccounts:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_investment_account'
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/884/employees/473/subaccounts?filter%5Bfrontend_tag%5D=yxz
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/884/employees/473/subaccounts?filter%5Bfrontend_tag%5D=yxz&offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/884/employees/473/subaccounts?filter%5Bfrontend_tag%5D=yxz&offset=0&limit=50
+                subaccounts: []
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_provider:
+          type:
+          - string
+          - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
+    response_subaccount_default_fund_split:
+      type: object
+      properties:
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund:
+          $ref: '#/components/schemas/response_fund'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_investment_account:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        uuid:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        scheme_id:
+          type:
+          - integer
+          - 'null'
+        subaccount_group:
+          type:
+          - string
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        active_from:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active_until:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        investments_locked:
+          type:
+          - boolean
+          - 'null'
+        redirect_allowed:
+          type:
+          - boolean
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        valuation:
+          type:
+          - number
+          - 'null'
+          format: float
+        valuation_available_for_disinvestment:
+          type:
+          - number
+          - 'null'
+          format: float
+        active_for_employee:
+          type:
+          - boolean
+          - 'null'
+        pending_switch_to_subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        money_movement_locked:
+          type:
+          - boolean
+          - 'null'
+        projection_age:
+          type:
+          - integer
+          - 'null'
+        projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        projection_amount_currency:
+          type:
+          - string
+          - 'null'
+    response_subaccount_default_fund_splits:
+      type: object
+      properties:
+        fund_splits:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_subaccount_default_fund_split'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

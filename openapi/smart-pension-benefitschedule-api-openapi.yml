@@ -1,0 +1,275 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Schedule API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitSchedule
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_schedule:
+    delete:
+      summary: BenefitSchedules/Destroy
+      tags:
+      - BenefitSchedule
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 430
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 178
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: ''
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                status: 404
+                error: Not Found
+    get:
+      summary: BenefitSchedules/Update
+      tags:
+      - BenefitSchedule
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 432
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 180
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                state: active
+                benefit_rule_set_id: 70
+                created_at: '2026-08-05T13:00:02.743+01:00'
+                amount: 100
+                currency: GBP
+                regular_income_end_age: null
+              schema:
+                $ref: '#/components/schemas/response_benefit_schedule'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error: Not Found
+    put:
+      summary: BenefitSchedules/Update
+      tags:
+      - BenefitSchedule
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 434
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 182
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request:
+                value:
+                  amount: 66
+                  regular_income_end_age: 65
+              invalid_request:
+                value:
+                  amount: invalid amount
+                  regular_income_end_age: invalid age
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                regular_income_end_age:
+                  type: integer
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error: Not Found
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_request:
+                  value:
+                    errors:
+                    - code: 102005
+                      title: Value must be numerical.
+                      detail: Amount should be a numerical value.
+                      meta:
+                        value: invalid amount
+                      source:
+                        pointer: /data/attributes/amount
+    patch:
+      summary: BenefitSchedules/Update
+      tags:
+      - BenefitSchedule
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 437
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 185
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request:
+                value:
+                  amount: 66
+                  regular_income_end_age: 65
+              invalid_request:
+                value:
+                  amount: invalid amount
+                  regular_income_end_age: invalid age
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                regular_income_end_age:
+                  type: integer
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value:
+                    status: 404
+                    error: Not Found
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_request:
+                  value:
+                    errors:
+                    - code: 102005
+                      title: Value must be numerical.
+                      detail: Amount should be a numerical value.
+                      meta:
+                        value: invalid amount
+                      source:
+                        pointer: /data/attributes/amount
+components:
+  schemas:
+    response_benefit_schedule:
+      type: object
+      properties:
+        state:
+          type: string
+        benefit_rule_set_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        currency:
+          type: string
+        regular_income_end_age:
+          type:
+          - integer
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,150 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Groups API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitGroups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/BenefitGroups/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/benefit_groups/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "84",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "14",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BenefitGroups/List"
+        },
+        {
+          "info": {
+            "name": "Companies/BenefitGroups/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/benefit_groups",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "88",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "limit=2",
+                "type": "query",
+                "description": "Limit for pagination. Defaults to 20 if not provided."
+              },
+              {
+                "name": "offset",
+                "value": "offset=1",
+                "type": "query",
+                "description": "Offset for pagination. Defaults to 0 if not provided."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for the results. Can be \"asc\" or \"desc\". Defaults to \"asc\" if not provided."
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BenefitGroups/List"
+        },
+        {
+          "info": {
+            "name": "BenefitGroups/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_group",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "409",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "168",
+                "type": "path"
+              },
+              {
+                "name": "age",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "years_of_service",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitGroups/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

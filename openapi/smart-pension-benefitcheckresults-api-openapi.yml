@@ -1,0 +1,275 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Check Results API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitCheckResults
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefits/{id}/benefit_check_results:
+    get:
+      summary: BenefitCheckResults/Get
+      tags:
+      - BenefitCheckResults
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 332
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 109
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/332/employees/109/benefits/1/benefit_check_results
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/332/employees/109/benefits/1/benefit_check_results?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/332/employees/109/benefits/1/benefit_check_results?offset=0&limit=50
+                benefit_check_results: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_check_results:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_check_result'
+        '404':
+          description: Not Fund
+  /companies/{company_id}/employees/{employee_id}/benefits/{benefit_id}/benefit_check_results/{id}:
+    put:
+      summary: BenefitCheckResults/Update
+      tags:
+      - BenefitCheckResults
+      description: Should to be used when the employee / user finishes Shufti Pro (KYC) journey and gets redirected back to Smart Platform.
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        description: ID of a benefit check result
+        required: true
+        example: 1
+        schema:
+          type: string
+      - name: signature
+        in: header
+        required: true
+        description: Signature captured from third-party service that is used to verify the authenticity of user return back event.
+        example: 88a43b1b8ef6d2e900797363da21fd2bb29351d3022389feb31fb1340a94dae2
+        schema:
+          type: string
+      - name: benefit_id
+        in: path
+        description: ID of a benefit check result
+        required: true
+        example: 3
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        description: ID of a company
+        required: true
+        example: 334
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        description: ID of an employee
+        required: true
+        example: 111
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+    patch:
+      summary: BenefitCheckResults/Update
+      tags:
+      - BenefitCheckResults
+      description: Should to be used when the employee / user finishes Shufti Pro (KYC) journey and gets redirected back to Smart Platform.
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        description: ID of a benefit check result
+        required: true
+        example: 4
+        schema:
+          type: string
+      - name: signature
+        in: header
+        required: true
+        description: Signature captured from third-party service that is used to verify the authenticity of user return back event.
+        example: a2e59b8ed3a756ff5675bc66c8c8f43edd3917982ce19afab18e2a61b26f0bc8
+        schema:
+          type: string
+      - name: benefit_id
+        in: path
+        description: ID of a benefit check result
+        required: true
+        example: 6
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        description: ID of a company
+        required: true
+        example: 337
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        description: ID of an employee
+        required: true
+        example: 114
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: {}
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_check_result:
+      type: object
+      properties:
+        id:
+          type: integer
+        benefit_id:
+          type: integer
+        state:
+          type: string
+        redirect_url:
+          type:
+          - string
+          - 'null'
+        has_redirect_url:
+          type:
+          - boolean
+          - 'null'
+        returned_back_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        comment:
+          type:
+          - string
+          - 'null'
+          format: text
+        automated_checks_available:
+          type: boolean
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

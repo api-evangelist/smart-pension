@@ -1,0 +1,439 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Group Auto Allocator Results API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitGroupAutoAllocatorResults
+paths:
+  /companies/{company_id}/benefit_group_auto_allocator_results/{id}:
+    get:
+      summary: Companies/BenefitGroupAutoAllocatorResults/Get
+      tags:
+      - BenefitGroupAutoAllocatorResults
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 59
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    id: 1
+                    employee_id: 12
+                    employee_name: Bursar Jane Alvarez
+                    benefit_group_eligibility_criteria: {}
+                    eligibility_facts: {}
+                    previous_benefit_group_id: null
+                    previous_benefit_group_name: null
+                    current_benefit_group_id: 2
+                    current_benefit_group_name: Group 2
+                    eligible_benefit_groups:
+                    - 2
+                    state: updated
+                    reason_of_failure: null
+                    effective_date: 05 August, 2026
+              schema:
+                $ref: '#/components/schemas/response_benefit_group_auto_allocator_run_result'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example: ''
+  /companies/{company_id}/benefit_group_auto_allocator_results:
+    get:
+      summary: Companies/BenefitGroupAutoAllocatorResults/List
+      tags:
+      - BenefitGroupAutoAllocatorResults
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 76
+        schema:
+          type: string
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: direction
+        in: query
+        description: Sort order for the results. Can be "asc" or "desc". Defaults to "asc" if not provided.
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Limit for pagination. Defaults to 20 if not provided.
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        description: Offset for pagination. Defaults to 0 if not provided.
+        required: false
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            employee_id:
+              type: array
+              items:
+                type: integer
+            state:
+              type: array
+              items:
+                type: string
+            created_at:
+              type: array
+              items:
+                type: string
+            employment_period:
+              type: object
+              properties:
+                employee_id:
+                  type: integer
+        required: false
+        style: deepObject
+        example: filter%5Beffective_date%5D=2026-06-23
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/65/benefit_group_auto_allocator_results
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/65/benefit_group_auto_allocator_results?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/65/benefit_group_auto_allocator_results?offset=0&limit=50
+                    benefit_group_auto_allocator_run_results:
+                    - id: 4
+                      employee_id: 15
+                      employee_name: Dr Melissa Shaw
+                      benefit_group_eligibility_criteria: {}
+                      eligibility_facts: {}
+                      previous_benefit_group_id: null
+                      previous_benefit_group_name: null
+                      current_benefit_group_id: 5
+                      current_benefit_group_name: Group 5
+                      eligible_benefit_groups:
+                      - 5
+                      state: updated
+                      reason_of_failure: null
+                      effective_date: 05 August, 2026
+                filtered_by_employee_id:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/67/benefit_group_auto_allocator_results?filter%5Bemployee_id%5D=16
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/67/benefit_group_auto_allocator_results?filter%5Bemployee_id%5D=16&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/67/benefit_group_auto_allocator_results?filter%5Bemployee_id%5D=16&offset=0&limit=50
+                    benefit_group_auto_allocator_run_results:
+                    - id: 5
+                      employee_id: 16
+                      employee_name: Prof Daniel Little
+                      benefit_group_eligibility_criteria: {}
+                      eligibility_facts: {}
+                      previous_benefit_group_id: null
+                      previous_benefit_group_name: null
+                      current_benefit_group_id: 6
+                      current_benefit_group_name: Group 6
+                      eligible_benefit_groups:
+                      - 6
+                      state: updated
+                      reason_of_failure: null
+                      effective_date: 05 August, 2026
+                filtered_by_state:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/71/benefit_group_auto_allocator_results?filter%5Bstate%5D=updated
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/71/benefit_group_auto_allocator_results?filter%5Bstate%5D=updated&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/71/benefit_group_auto_allocator_results?filter%5Bstate%5D=updated&offset=0&limit=50
+                    benefit_group_auto_allocator_run_results:
+                    - id: 7
+                      employee_id: 18
+                      employee_name: Mrs Christina Wilson
+                      benefit_group_eligibility_criteria: {}
+                      eligibility_facts: {}
+                      previous_benefit_group_id: null
+                      previous_benefit_group_name: null
+                      current_benefit_group_id: 8
+                      current_benefit_group_name: Group 8
+                      eligible_benefit_groups:
+                      - 8
+                      state: updated
+                      reason_of_failure: null
+                      effective_date: 05 August, 2026
+                filtered_by_effective_date:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/76/benefit_group_auto_allocator_results?filter%5Beffective_date%5D=2026-06-23
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/76/benefit_group_auto_allocator_results?filter%5Beffective_date%5D=2026-06-23&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/76/benefit_group_auto_allocator_results?filter%5Beffective_date%5D=2026-06-23&offset=0&limit=50
+                    benefit_group_auto_allocator_run_results:
+                    - id: 9
+                      employee_id: 20
+                      employee_name: Mrs Brenda Burns
+                      benefit_group_eligibility_criteria: {}
+                      eligibility_facts: {}
+                      previous_benefit_group_id: null
+                      previous_benefit_group_name: null
+                      current_benefit_group_id: 11
+                      current_benefit_group_name: Group 11
+                      eligible_benefit_groups:
+                      - 11
+                      state: updated
+                      reason_of_failure: null
+                      effective_date: 23 June, 2026
+                    - id: 10
+                      employee_id: 21
+                      employee_name: Rev Russell Porter
+                      benefit_group_eligibility_criteria: {}
+                      eligibility_facts: {}
+                      previous_benefit_group_id: 12
+                      previous_benefit_group_name: Group 12
+                      current_benefit_group_id: 11
+                      current_benefit_group_name: Group 11
+                      eligible_benefit_groups: []
+                      state: updated
+                      reason_of_failure: null
+                      effective_date: 23 June, 2026
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_group_auto_allocator_run_results:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_group_auto_allocator_run_result'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 1503
+                      title: Offset must be numerical.
+                      detail: You need to enter an offset which must be a numerical value greater or equal than 0.
+                      meta:
+                        value: bad-value
+                      source:
+                        pointer: /data/attributes/offset
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_group_auto_allocator_run_result:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        employee_name:
+          type:
+          - string
+          - 'null'
+        benefit_group_eligibility_criteria:
+          type: object
+        eligibility_facts:
+          type: object
+        previous_benefit_group_id:
+          type:
+          - integer
+          - 'null'
+        previous_benefit_group_name:
+          type:
+          - string
+          - 'null'
+        current_benefit_group_id:
+          type:
+          - integer
+          - 'null'
+        current_benefit_group_name:
+          type:
+          - string
+          - 'null'
+        eligible_benefit_groups:
+          type: array
+          items: {}
+        state:
+          type: string
+        reason_of_failure:
+          type:
+          - string
+          - 'null'
+        effective_date:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

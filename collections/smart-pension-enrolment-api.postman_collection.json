@@ -1,0 +1,1408 @@
+{
+  "item": [
+    {
+      "id": "2ed3248f-af34-4d0e-9f97-adb776d99f5a",
+      "name": "Enrolment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "47cd69aa-3ee1-4c75-a9c4-eb7dd6b0e03e",
+          "name": "Companies/Enrolments/Create",
+          "request": {
+            "name": "Companies/Enrolments/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_on\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "301ba808-e5c3-4bde-a71f-e17c9bd80595",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2026-08-05\",\n  \"company\": {\n    \"id\": 1006,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"nibh in 1394\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"sociis-1065\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"uuid\": \"146d8d01-a949-4e95-b959-70a827a2b5d7\",\n    \"welcome_letters_reminder_sent_at\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 33,\n  \"company_id\": 1006,\n  \"event_on\": \"2026-08-05\",\n  \"next_re_declaration_of_compliance_deadline_on\": \"2030-01-04\",\n  \"next_re_enrolment_window_starts_on\": \"2029-05-05\",\n  \"next_re_enrolment_window_ends_on\": \"2029-11-04\",\n  \"created_at\": \"2026-08-05T13:02:44.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:02:44.000+01:00\",\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1006\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d1daadb-5fc2-4fef-b78f-7f14f8741ce9",
+              "name": "Forbidden when enrolment is locked",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2026-08-05\",\n  \"company\": {\n    \"id\": 1006,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"nibh in 1394\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"sociis-1065\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"uuid\": \"146d8d01-a949-4e95-b959-70a827a2b5d7\",\n    \"welcome_letters_reminder_sent_at\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 11,\n      \"title\": \"Scheme start date is missing.\",\n      \"detail\": \"Please set your company scheme start date. Without the scheme start date you can not perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"scheme_starts_on_blank\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "55da4006-d52e-4df2-bdf9-6f8061c88d1d",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2026-08-05\",\n  \"company\": {\n    \"id\": 1006,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"nibh in 1394\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"sociis-1065\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:44.000+01:00\",\n    \"uuid\": \"146d8d01-a949-4e95-b959-70a827a2b5d7\",\n    \"welcome_letters_reminder_sent_at\": null\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 3201,\n      \"title\": \"Enrolment event on is a required field.\",\n      \"detail\": \"Please include your re-enrolment date.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    },\n    {\n      \"code\": 3202,\n      \"title\": \"Enrolment event date is out of range.\",\n      \"detail\": \"Please choose your enrolment date from within a six-month window, which starts on 01 August, 2026 and ends on 31 January, 2027.\",\n      \"meta\": {\n        \"first_day\": \"01 August, 2026\",\n        \"last_day\": \"31 January, 2027\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "39b55fde-f8b7-4497-bd66-94c00690617f",
+          "name": "Companies/Enrolments/List",
+          "request": {
+            "name": "Companies/Enrolments/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[event_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[event_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5ffa6395-ec72-4059-b5e9-38fc0edbc551",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[event_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[event_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1025/enrolments\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1025/enrolments?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1025/enrolments?offset=0&limit=50\"\n    }\n  ],\n  \"enrolments\": [\n    {\n      \"id\": 47,\n      \"company_id\": 1025,\n      \"event_on\": \"2023-10-01\",\n      \"next_re_declaration_of_compliance_deadline_on\": \"2027-02-28\",\n      \"next_re_enrolment_window_starts_on\": \"2026-07-01\",\n      \"next_re_enrolment_window_ends_on\": \"2026-12-31\",\n      \"created_at\": \"2026-08-05T13:02:49.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:02:49.000+01:00\",\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1025\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cc55df36-3176-4955-835d-4a944a4a5ad0",
+          "name": "Companies/Enrolments/Destroy",
+          "request": {
+            "name": "Companies/Enrolments/Destroy",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "b1f9b75e-f1f1-4aa8-ad43-0a9b072ae59d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3570568c-3e54-4123-9259-04885f0cc914",
+              "name": "Forbidden when an employee is already re-enrolled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b719a778-e9ce-4abf-b678-2afe43075575",
+          "name": "Companies/Enrolments/Get",
+          "request": {
+            "name": "Companies/Enrolments/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ab06631a-5e81-4666-9b57-d351519ce1b9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 45,\n  \"company_id\": 1023,\n  \"event_on\": \"2026-08-05\",\n  \"next_re_declaration_of_compliance_deadline_on\": \"2030-01-04\",\n  \"next_re_enrolment_window_starts_on\": \"2029-05-05\",\n  \"next_re_enrolment_window_ends_on\": \"2029-11-04\",\n  \"created_at\": \"2026-08-05T13:02:48.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:02:48.000+01:00\",\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1023\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ef9c98d5-d05b-45ef-ac2a-018659cfca72",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c83de13-0cbe-4af8-9b83-da2e859013d3",
+          "name": "Companies/Enrolments/Update",
+          "request": {
+            "name": "Companies/Enrolments/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_on\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb2481ca-0481-4f5a-baf2-f2e3735f6112",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1026,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"eget semper 1425\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"id-1084\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"uuid\": \"f783deef-6091-4c97-98bd-66e2f35cb05f\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 49,\n    \"company_id\": 1026,\n    \"created_at\": \"2026-08-05T13:02:50.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:50.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b66fdd2-eb49-408a-a6e2-961fa8ba9cc6",
+              "name": "Forbidden when an employee is already re-enrolled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1026,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"eget semper 1425\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"id-1084\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"uuid\": \"f783deef-6091-4c97-98bd-66e2f35cb05f\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 49,\n    \"company_id\": 1026,\n    \"created_at\": \"2026-08-05T13:02:50.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:50.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 48,\n      \"title\": \"Enrolment cannot be updated/deleted.\",\n      \"detail\": \"You can't update/delete your first enrolment event.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"first_enrolment\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20228c1c-160f-4e1a-aa56-5f783668f06b",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1026,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"eget semper 1425\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"id-1084\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:49.000+01:00\",\n    \"uuid\": \"f783deef-6091-4c97-98bd-66e2f35cb05f\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 49,\n    \"company_id\": 1026,\n    \"created_at\": \"2026-08-05T13:02:50.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:50.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 3201,\n      \"title\": \"Enrolment event on is a required field.\",\n      \"detail\": \"Please include your re-enrolment date.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    },\n    {\n      \"code\": 3202,\n      \"title\": \"Enrolment event date is out of range.\",\n      \"detail\": \"Please choose your enrolment date from within a six-month window, which starts on 01 August, 2026 and ends on 31 January, 2027.\",\n      \"meta\": {\n        \"first_day\": \"01 August, 2026\",\n        \"last_day\": \"31 January, 2027\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "49b13486-b6e0-40cb-b46d-dd6274ef41e1",
+          "name": "Companies/Enrolments/Update",
+          "request": {
+            "name": "Companies/Enrolments/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "enrolments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_on\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04f084e5-f2bc-4639-9d34-140a47900def",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1032,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"neque libero 1436\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"quis-1090\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"uuid\": \"9598ddb9-84c1-4e20-8402-5353d3e18b65\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 60,\n    \"company_id\": 1032,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "60864339-741d-4891-9e61-76c2bac17e1b",
+              "name": "Forbidden when an employee is already re-enrolled",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1032,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"neque libero 1436\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"quis-1090\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"uuid\": \"9598ddb9-84c1-4e20-8402-5353d3e18b65\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 60,\n    \"company_id\": 1032,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 48,\n      \"title\": \"Enrolment cannot be updated/deleted.\",\n      \"detail\": \"You can't update/delete your first enrolment event.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"first_enrolment\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea7abdc8-1eea-496a-aa13-ffb88e5a76ed",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "enrolments",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"event_on\": \"2023-11-01\",\n  \"company\": {\n    \"id\": 1032,\n    \"approved_payer_reference\": null,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"default_percentage\": \"3.0\",\n    \"direct_debit_optional\": false,\n    \"economic_zone_id\": null,\n    \"electronic_data_feed\": false,\n    \"employee_can_change_contribution\": true,\n    \"external_id\": null,\n    \"external_oidc_provider_configuration_id\": null,\n    \"incorporated_on\": null,\n    \"kind_id\": null,\n    \"kind_type\": \"Company\",\n    \"layout_configuration_id\": null,\n    \"legal_structure\": \"Limited Company\",\n    \"name\": \"neque libero 1436\",\n    \"national_insurance_saving_share\": null,\n    \"only_employer_manages_membership\": false,\n    \"only_employer_manages_personal_details\": false,\n    \"payment_method\": null,\n    \"pension_regulator_letter_code\": null,\n    \"pensionable_earning_type\": \"unbanded\",\n    \"prior_reference\": null,\n    \"provider_scheme_migration_id\": null,\n    \"reg_address1\": null,\n    \"reg_address2\": null,\n    \"reg_address3\": null,\n    \"reg_address4\": null,\n    \"reg_address_country_code\": null,\n    \"reg_address_gone_away\": false,\n    \"reg_address_postcode\": null,\n    \"registration_number\": \"1\",\n    \"rewards_section_enabled\": true,\n    \"scheme_origin\": \"standard\",\n    \"scheme_origin_provider_id\": null,\n    \"scheme_origin_provider_name\": null,\n    \"self_certification_started_at\": null,\n    \"service_starts_on\": null,\n    \"skip_contribution_validations\": false,\n    \"slug\": \"quis-1090\",\n    \"state\": \"active\",\n    \"state_effective_on\": null,\n    \"state_of_incorporation\": null,\n    \"tax_office_employer_reference\": null,\n    \"tax_office_number\": null,\n    \"tax_year_end_day\": null,\n    \"tax_year_end_month\": null,\n    \"taxed_as\": null,\n    \"telephone\": null,\n    \"trading_address1\": null,\n    \"trading_address2\": null,\n    \"trading_address3\": null,\n    \"trading_address4\": null,\n    \"trading_address_country_code\": null,\n    \"trading_address_gone_away\": false,\n    \"trading_address_postcode\": null,\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"uuid\": \"9598ddb9-84c1-4e20-8402-5353d3e18b65\",\n    \"welcome_letters_reminder_sent_at\": null\n  },\n  \"enrolment\": {\n    \"id\": 60,\n    \"company_id\": 1032,\n    \"created_at\": \"2026-08-05T13:02:52.000+01:00\",\n    \"event_on\": \"2026-08-05\",\n    \"updated_at\": \"2026-08-05T13:02:52.000+01:00\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 3201,\n      \"title\": \"Enrolment event on is a required field.\",\n      \"detail\": \"Please include your re-enrolment date.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    },\n    {\n      \"code\": 3202,\n      \"title\": \"Enrolment event date is out of range.\",\n      \"detail\": \"Please choose your enrolment date from within a six-month window, which starts on 01 August, 2026 and ends on 31 January, 2027.\",\n      \"meta\": {\n        \"first_day\": \"01 August, 2026\",\n        \"last_day\": \"31 January, 2027\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/event_on\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6b44d3e1-c311-47ee-bc6f-3dd99cc87695",
+    "name": "Keystone Enrolment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

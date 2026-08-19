@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Account Claiming API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account-Claiming",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account-Claiming/confirm-personal-data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/confirm-personal-data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Account-Claiming/confirm-personal-data"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/current-attempt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/current-attempt",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Account-Claiming/current-attempt"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Attempt",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/attempts/:uuid/",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "019fd1c9-0b84-7c51-98f2-41840fe294d9",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Account-Claiming/Attempt"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Password-Validations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/password-validations"
+          },
+          "docs": "Account-Claiming/Password-Validations"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Attempt/AdditionalData",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/attempts/:uuid/additional-data",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "019fd1c9-0fea-7926-ba74-a84471811663",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Account-Claiming/Attempt/AdditionalData"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Attempt/Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/attempts/:uuid/email",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "019fd1c9-1478-7ac6-adf2-d982c764a62a",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Account-Claiming/Attempt/Email"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Attempt/Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/attempts/:uuid/password",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "019fd1c9-18f2-7d37-9aa4-f014ac22b68b",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Account-Claiming/Attempt/Password"
+        },
+        {
+          "info": {
+            "name": "Account-Claiming/Attempt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/account-claiming/attempts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Account-Claiming/Attempt"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

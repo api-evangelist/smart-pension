@@ -1,0 +1,82 @@
+openapi: 3.2.0
+info:
+  title: Keystone URLS API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Urls
+paths:
+  /urls:
+    get:
+      summary: Urls/List
+      tags:
+      - Urls
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                api_url: https://api.host.com/
+                root_domain: host.com
+                generate_token_url: https://id.host.com/oauth/token
+                personal_token_exchange_url: https://id.host.com/personal_token_exchange
+                web_socket_url: wss://api.host.com/cable
+                oauth_company_slug_url: https://id.host.com/oauth/company_slug
+                employee_url: https://slug.host.com/employee
+                employee_sign_in_url: https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Femployee%2Fcallbacks%2Fsmartpension&response_type=code&scope=employee
+                employee_sign_out_url: https://id.host.com/employee/sign-out
+                employee_id_sign_out_url: https://id.host.com/employee/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89
+                employer_url: https://slug.host.com/
+                employer_sign_in_url: https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Fcustomer%2Fcallbacks%2Fsmartpension&response_type=code&scope=customer
+                employer_sign_out_url: https://id.host.com/customer/sign-out
+                employer_id_sign_out_url: https://id.host.com/customer/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89
+                adviser_url: https://adviser.host.com/
+                user_sign_in_url: https://id.host.com/oauth/authorize?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89&redirect_uri=https%3A%2F%2Fid.host.com%2Fuser%2Fcallbacks%2Fsmartpension&response_type=code&scope=user
+                user_sign_out_url: https://id.host.com/user/sign-out
+                user_id_sign_out_url: https://id.host.com/user/id-sign-out?client_id=923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89
+                identity_sign_in_url: https://identity-portal.host.com/identity/auth/authorize?client_id=test-fake-client-id&prompt=consent&redirect_uri=https%3A%2F%2Fapi.host.com%2Fidentity-callback&response_mode=query&response_type=code&scope=openid+offline_access
+                identity_generate_token_url: https://identity-portal.host.com/identity/auth/token
+                profile_url: https://profile.host.com/
+                identity_profile_logout_url: https://identity-portal.host.com/identity/api/profiles/logout
+                broker_portal_url: https://broker.host.com/broker_portal
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

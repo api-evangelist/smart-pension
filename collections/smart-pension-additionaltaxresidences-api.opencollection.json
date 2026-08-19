@@ -1,0 +1,221 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Additional Tax Residences API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AdditionalTaxResidences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/AdditionalTaxResidences/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/additional_tax_residences",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1433",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "657",
+                "type": "path"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/AdditionalTaxResidences/List"
+        },
+        {
+          "info": {
+            "name": "Companies/AdditionalTaxResidences/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/additional_tax_residences",
+            "headers": [
+              {
+                "name": "Accept-Language",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1425",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "649",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/AdditionalTaxResidences/Create"
+        },
+        {
+          "info": {
+            "name": "Companies/AdditionalTaxResidences/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/additional_tax_residences/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1436",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "660",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "7",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/AdditionalTaxResidences/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/AdditionalTaxResidences/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/additional_tax_residences/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1439",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "663",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "10",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/AdditionalTaxResidences/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/AdditionalTaxResidences/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/additional_tax_residences/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1428",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "652",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "2",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/AdditionalTaxResidences/Destroy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

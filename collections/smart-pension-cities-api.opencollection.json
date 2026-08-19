@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Cities API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Cities/Autocomplete",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/cities/:country_code/autocomplete",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "US",
+                "type": "path",
+                "description": "Country code to filter cities"
+              },
+              {
+                "name": "city_prefix",
+                "value": "city_prefix=New",
+                "type": "query",
+                "description": "Prefix of the city name to filter cities"
+              },
+              {
+                "name": "limit",
+                "value": "limit=10",
+                "type": "query",
+                "description": "Limit the number of returned cities"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Offset the results"
+              }
+            ]
+          },
+          "docs": "Autocomplete cities by country code and city prefix"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

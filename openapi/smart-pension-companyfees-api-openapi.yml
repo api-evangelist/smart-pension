@@ -1,0 +1,292 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Fees API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyFees
+paths:
+  /companies/{company_id}/company_fees/{company_fee_id}/invoice:
+    get:
+      summary: CompanyFees/Invoice
+      tags:
+      - CompanyFees
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 117
+        schema:
+          type: string
+      - name: company_fee_id
+        in: path
+        required: true
+        example: 1
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                invoice_url: /__w/api/api/spec/test_files/0/fees/company_fees/000/000/001/original/file.pdf
+                invoice_file_name: file.pdf
+              schema:
+                $ref: '#/components/schemas/response_company_fee_invoice_link'
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable entity
+  /companies/{company_id}/company_fees:
+    get:
+      summary: CompanyFees/List
+      tags:
+      - CompanyFees
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 133
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            id:
+              type: array
+              items:
+                type: integer
+            total_amount:
+              type: array
+              items:
+                type: number
+            created_at:
+              type: array
+              items:
+                type: string
+            starts_on:
+              type: array
+              items:
+                type: string
+            ends_on:
+              type: array
+              items:
+                type: string
+            state:
+              type: array
+              items:
+                type: string
+            processed_at:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: include[]
+        in: query
+        schema:
+          type: array
+          items:
+            enum:
+            - charge_configuration
+        required: false
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/133/company_fees
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/133/company_fees?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/133/company_fees?offset=0&limit=50
+                company_fees: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  company_fees:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_company_fee'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_charge_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        charge_type:
+          type:
+          - string
+          - 'null'
+        display_name:
+          type: string
+    response_company_fee:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        slug:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type: string
+          format: date
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        name:
+          type:
+          - string
+          - 'null'
+        display_payment_method:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        processed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        charge_configuration:
+          $ref: '#/components/schemas/response_charge_configuration'
+    response_company_fee_invoice_link:
+      type: object
+      properties:
+        invoice_url:
+          type:
+          - string
+          - 'null'
+        invoice_file_name:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

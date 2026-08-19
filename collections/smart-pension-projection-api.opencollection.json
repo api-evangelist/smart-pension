@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Projection API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Projections/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/subaccounts/:subaccount_uuid/projections",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "886",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "475",
+                "type": "path"
+              },
+              {
+                "name": "subaccount_uuid",
+                "value": "eb747518-3f46-4358-9fca-484458be42ab",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Projections/Create"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

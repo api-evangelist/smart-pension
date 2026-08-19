@@ -1,0 +1,216 @@
+openapi: 3.2.0
+info:
+  title: Keystone Batch API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Batch
+paths:
+  /batch:
+    post:
+      summary: Batch
+      tags:
+      - Batch
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              operations:
+              - path: companies/15
+                http_method: GET
+              - path: companies/15
+                http_method: GET
+            schema:
+              type: object
+              properties:
+                operations:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      path:
+                        type: string
+                      http_method:
+                        type: string
+                    required:
+                    - path
+                    - http_method
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                operations:
+                - status: 200
+                  headers:
+                    X-Frame-Options: SAMEORIGIN
+                    X-XSS-Protection: '0'
+                    X-Content-Type-Options: nosniff
+                    X-Permitted-Cross-Domain-Policies: none
+                    Referrer-Policy: strict-origin-when-cross-origin
+                    Content-Type: application/json; charset=utf-8
+                    Cache-Control: no-store; max-age=0
+                    Pragma: no-cache
+                    ETag: W/"970df745d26471477f588a948922c381"
+                    Content-Security-Policy: font-src 'self' *.amazonaws.com fonts.googleapis.com fonts.gstatic.com *.typekit.net *.intercomcdn.com
+                    Content-Security-Policy-Report-Only: 'script-src ''self'' ''report-sample'' ''unsafe-inline'' ''unsafe-eval'' *.amazonaws.com cdnjs.cloudflare.com code.jquery.com *.google-analytics.com *.analytics.google.com *.googleapis.com *.googletagmanager.com *.intercom.io *.intercomcdn.com maxcdn.bootstrapcdn.com *.rollbar.com *.segment.com *.facebook.net *.facebook.com *.usercentrics.eu *.onetrust.com widget.trustpilot.com widget.usersnap.com resources.usersnap.com *.clarity.ms assets.eg-cdn.co.uk; style-src ''self'' ''report-sample'' ''unsafe-inline'' fonts.googleapis.com *.typekit.net assets.eg-cdn.co.uk; object-src ''self'' assets.eg-cdn.co.uk; base-uri ''self''; connect-src ''self'' *.amazonaws.com api.addressy.com *.doubleclick.net *.intercom.io *.intercomcdn.com *.rollbar.com *.google-analytics.com *.analytics.google.com *.segment.com *.pndsn.com api.segment.io *.usercentrics.eu *.onetrust.com *.clarity.ms wss: *.host.com; font-src ''self'' *.amazonaws.com fonts.googleapis.com fonts.gstatic.com *.typekit.net *.intercomcdn.com; frame-src ''self'' *.amazonaws.com smartpension.typeform.com intercom-sheets.com *.usercentrics.eu *.onetrust.com widget.trustpilot.com data:; img-src ''self'' *.amazonaws.com *.google-analytics.com *.googletagmanager.com *.intercomcdn.com lh3.googleusercontent.com *.stats.g.doubleclick.net static.intercomassets.com *.facebook.net *.facebook.com *.mzstatic.com *.google.com *.google.de *.google.bj *.google.com.np *.google.ba *.google.jo *.google.sh *.google.by *.google.com.lb *.google.com.jm *.google.co.nz *.google.co.zm *.google.co.cr *.google.ps *.google.co.th *.google.cn *.google.com.et *.google.cv *.google.no *.google.co.ug *.google.ge *.google.co.tz *.google.lv *.google.com.qa *.google.com.co *.google.com.kw *.google.hr *.google.dz *.google.co.ke *.google.fi *.google.co.kr *.google.kz *.google.dk *.google.com.ar *.google.ch *.google.gg *.google.lt *.google.com.br *.google.com.ua *.google.com.tr *.google.md *.google.lu *.google.ae *.google.be *.google.se *.google.hu *.google.rs *.google.com.sa *.google.com.eg *.google.com.bd *.google.com.hk *.google.com.my *.google.com.gt *.google.com.gh *.google.mk *.google.co.zw *.google.sk *.google.co.za *.google.it *.google.az *.google.cz *.google.co.uk *.google.mu *.google.at *.google.com.mt *.google.al *.google.pt *.google.co.jp *.google.com.au *.google.ro *.google.lk *.google.com.mx *.google.gr *.google.ru *.google.com.ph *.google.nl *.google.com.cy *.google.co.il *.google.co.in *.google.ca *.google.com.ng *.google.com.ag *.google.es *.google.fr *.google.pl *.google.bg *.google.im *.google.com.pk *.google.ie *.gstatic.com *.usercentrics.eu *.onetrust.com data: *.autoenrolment.co.uk *.clarity.ms assets.eg-cdn.co.uk; manifest-src ''self'' assets.eg-cdn.co.uk; media-src ''self'' *.intercomcdn.com; worker-src ''none''; report-uri https://api.host.com/csp_reports'
+                  body:
+                    id: 15
+                    name: name
+                    slug: name
+                    registration_number: number
+                    tax_office_number: null
+                    tax_office_employer_reference: null
+                    legal_structure: Limited Company
+                    welcome_letters_reminder_sent_at: null
+                    pension_regulator_letter_code: null
+                    trading_address1: null
+                    trading_address2: null
+                    trading_address3: null
+                    trading_address_postcode: null
+                    trading_address_country: null
+                    reg_address1: null
+                    reg_address2: null
+                    reg_address3: null
+                    reg_address4: null
+                    reg_address_postcode: null
+                    reg_address_country: null
+                    pensionable_earning_type: unbanded
+                    default_percentage: 3
+                    created_at: '2026-08-05T12:57:53.000+01:00'
+                    updated_at: '2026-08-05T12:57:53.000+01:00'
+                    state: active
+                    employee_can_change_contribution: true
+                    uuid: 6b6e7882-953e-46ba-9ad4-d0e4caa21b10
+                    external_id: null
+                    incorporated_on: null
+                    layout_configuration_id: null
+                    relief_at_source_active: false
+                    only_employer_manages_membership: false
+                    national_insurance_saving_share: 0
+                    tax_relief_basis_type: net_pay_arrangement
+                    tax_relief_fallback_type: null
+                    direct_debit_optional: false
+                  path: companies/15
+                  http_method: null
+                  data: null
+                - status: 200
+                  headers:
+                    X-Frame-Options: SAMEORIGIN
+                    X-XSS-Protection: '0'
+                    X-Content-Type-Options: nosniff
+                    X-Permitted-Cross-Domain-Policies: none
+                    Referrer-Policy: strict-origin-when-cross-origin
+                    Content-Type: application/json; charset=utf-8
+                    Cache-Control: no-store; max-age=0
+                    Pragma: no-cache
+                    ETag: W/"970df745d26471477f588a948922c381"
+                    Content-Security-Policy: font-src 'self' *.amazonaws.com fonts.googleapis.com fonts.gstatic.com *.typekit.net *.intercomcdn.com
+                    Content-Security-Policy-Report-Only: 'script-src ''self'' ''report-sample'' ''unsafe-inline'' ''unsafe-eval'' *.amazonaws.com cdnjs.cloudflare.com code.jquery.com *.google-analytics.com *.analytics.google.com *.googleapis.com *.googletagmanager.com *.intercom.io *.intercomcdn.com maxcdn.bootstrapcdn.com *.rollbar.com *.segment.com *.facebook.net *.facebook.com *.usercentrics.eu *.onetrust.com widget.trustpilot.com widget.usersnap.com resources.usersnap.com *.clarity.ms assets.eg-cdn.co.uk; style-src ''self'' ''report-sample'' ''unsafe-inline'' fonts.googleapis.com *.typekit.net assets.eg-cdn.co.uk; object-src ''self'' assets.eg-cdn.co.uk; base-uri ''self''; connect-src ''self'' *.amazonaws.com api.addressy.com *.doubleclick.net *.intercom.io *.intercomcdn.com *.rollbar.com *.google-analytics.com *.analytics.google.com *.segment.com *.pndsn.com api.segment.io *.usercentrics.eu *.onetrust.com *.clarity.ms wss: *.host.com; font-src ''self'' *.amazonaws.com fonts.googleapis.com fonts.gstatic.com *.typekit.net *.intercomcdn.com; frame-src ''self'' *.amazonaws.com smartpension.typeform.com intercom-sheets.com *.usercentrics.eu *.onetrust.com widget.trustpilot.com data:; img-src ''self'' *.amazonaws.com *.google-analytics.com *.googletagmanager.com *.intercomcdn.com lh3.googleusercontent.com *.stats.g.doubleclick.net static.intercomassets.com *.facebook.net *.facebook.com *.mzstatic.com *.google.com *.google.de *.google.bj *.google.com.np *.google.ba *.google.jo *.google.sh *.google.by *.google.com.lb *.google.com.jm *.google.co.nz *.google.co.zm *.google.co.cr *.google.ps *.google.co.th *.google.cn *.google.com.et *.google.cv *.google.no *.google.co.ug *.google.ge *.google.co.tz *.google.lv *.google.com.qa *.google.com.co *.google.com.kw *.google.hr *.google.dz *.google.co.ke *.google.fi *.google.co.kr *.google.kz *.google.dk *.google.com.ar *.google.ch *.google.gg *.google.lt *.google.com.br *.google.com.ua *.google.com.tr *.google.md *.google.lu *.google.ae *.google.be *.google.se *.google.hu *.google.rs *.google.com.sa *.google.com.eg *.google.com.bd *.google.com.hk *.google.com.my *.google.com.gt *.google.com.gh *.google.mk *.google.co.zw *.google.sk *.google.co.za *.google.it *.google.az *.google.cz *.google.co.uk *.google.mu *.google.at *.google.com.mt *.google.al *.google.pt *.google.co.jp *.google.com.au *.google.ro *.google.lk *.google.com.mx *.google.gr *.google.ru *.google.com.ph *.google.nl *.google.com.cy *.google.co.il *.google.co.in *.google.ca *.google.com.ng *.google.com.ag *.google.es *.google.fr *.google.pl *.google.bg *.google.im *.google.com.pk *.google.ie *.gstatic.com *.usercentrics.eu *.onetrust.com data: *.autoenrolment.co.uk *.clarity.ms assets.eg-cdn.co.uk; manifest-src ''self'' assets.eg-cdn.co.uk; media-src ''self'' *.intercomcdn.com; worker-src ''none''; report-uri https://api.host.com/csp_reports'
+                  body:
+                    id: 15
+                    name: name
+                    slug: name
+                    registration_number: number
+                    tax_office_number: null
+                    tax_office_employer_reference: null
+                    legal_structure: Limited Company
+                    welcome_letters_reminder_sent_at: null
+                    pension_regulator_letter_code: null
+                    trading_address1: null
+                    trading_address2: null
+                    trading_address3: null
+                    trading_address_postcode: null
+                    trading_address_country: null
+                    reg_address1: null
+                    reg_address2: null
+                    reg_address3: null
+                    reg_address4: null
+                    reg_address_postcode: null
+                    reg_address_country: null
+                    pensionable_earning_type: unbanded
+                    default_percentage: 3
+                    created_at: '2026-08-05T12:57:53.000+01:00'
+                    updated_at: '2026-08-05T12:57:53.000+01:00'
+                    state: active
+                    employee_can_change_contribution: true
+                    uuid: 6b6e7882-953e-46ba-9ad4-d0e4caa21b10
+                    external_id: null
+                    incorporated_on: null
+                    layout_configuration_id: null
+                    relief_at_source_active: false
+                    only_employer_manages_membership: false
+                    national_insurance_saving_share: 0
+                    tax_relief_basis_type: net_pay_arrangement
+                    tax_relief_fallback_type: null
+                    direct_debit_optional: false
+                  path: companies/15
+                  http_method: null
+                  data: null
+              schema:
+                type: object
+                properties:
+                  operations:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: number
+                        headers:
+                          type: object
+                        body:
+                          type: object
+                        path:
+                          type: string
+                        http_method:
+                          type:
+                          - string
+                          - 'null'
+                        data:
+                          type:
+                          - object
+                          - 'null'
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

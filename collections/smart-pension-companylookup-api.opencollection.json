@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Company Lookup API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CompanyLookup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CompanyLookups/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/company_lookups/:country_code/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "456495",
+                "type": "path"
+              },
+              {
+                "name": "country_code",
+                "value": "ie",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "CompanyLookups/Get"
+        },
+        {
+          "info": {
+            "name": "CompanyLookups/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/company_lookups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "0010J000021hx1jQAA",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "CompanyLookups/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

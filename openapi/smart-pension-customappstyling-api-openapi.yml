@@ -1,0 +1,287 @@
+openapi: 3.2.0
+info:
+  title: Keystone Custom App Styling API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CustomAppStyling
+paths:
+  /companies/{company_id}/style:
+    get:
+      summary: CustomAppStyling/Get
+      tags:
+      - CustomAppStyling
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 206
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    highlight:
+                      baseOne:
+                        core: '#00819D'
+                        hover: '#0A7793'
+                        active: '#005975'
+                        accentPrimary: '#FFFFFF'
+                        contentPrimary: '#FFFFFF'
+                      baseTwo:
+                        core: '#00819D'
+                        hover: '#0A7793'
+                        active: '#005975'
+                        accentPrimary: '#FFFFFF'
+                        contentPrimary: '#FFFFFF'
+                      baseThree:
+                        core: '#00819D'
+                        hover: '#0A7793'
+                        active: '#005975'
+                        accentPrimary: '#FFFFFF'
+                        contentPrimary: '#FFFFFF'
+                      baseFour:
+                        core: '#264C73'
+                        hover: '#12385F'
+                        active: '#00244B'
+                        accentPrimary: '#FFFFFF'
+                        contentPrimary: '#FFFFFF'
+                    highlightOutline:
+                      baseOne:
+                        hover: '#F0F0F0'
+                        active: '#E6E6E6'
+                        contentPrimary: '#007793'
+                        borderPrimary: '#007793'
+                      baseTwo:
+                        hover: '#F0F0F0'
+                        active: '#E6E6E6'
+                        contentPrimary: '#007793'
+                        borderPrimary: '#007793'
+                      baseThree:
+                        hover: '#3A6087'
+                        active: '#264C73'
+                        contentPrimary: '#FFFFFF'
+                        borderPrimary: '#FFFFFF'
+                      baseFour:
+                        hover: '#67CCAE'
+                        active: '#49AE90'
+                        contentPrimary: '#103354'
+                        borderPrimary: '#103354'
+                    baseOne:
+                      baseOne:
+                        core: '#F5F7FB'
+                        contrast: '#FFFFFF'
+                        active: '#EBEDF1'
+                        borderPrimary: '#999999'
+                        borderSecondary: '#D6D6D6'
+                        borderTertiary: '#E8E8E8'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#666666'
+                        link: '#007793'
+                        linkHover: '#003357'
+                        accentPrimary: '#00819D'
+                        accentSecondary: '#F07C91'
+                        focus: '#588DF3'
+                      baseTwo:
+                        core: '#F5F7FB'
+                        contrast: '#FFFFFF'
+                        active: '#EBEDF1'
+                        borderPrimary: '#999999'
+                        borderSecondary: '#D6D6D6'
+                        borderTertiary: '#E8E8E8'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#666666'
+                        link: '#007793'
+                        linkHover: '#003357'
+                        accentPrimary: '#00819D'
+                        accentSecondary: '#F07C91'
+                        focus: '#588DF3'
+                    baseTwo:
+                      baseOne:
+                        contrast: '#F5F7FB'
+                        active: '#F8F8F8'
+                        borderPrimary: '#999999'
+                        borderSecondary: '#E0E0E0'
+                        borderTertiary: '#EFEFEF'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#666666'
+                        link: '#007793'
+                        linkHover: '#003357'
+                        accentPrimary: '#00819D'
+                        accentSecondary: '#F07C91'
+                        focus: '#588DF3'
+                      baseTwo:
+                        contrast: '#F5F7FB'
+                        active: '#F8F8F8'
+                        borderPrimary: '#999999'
+                        borderSecondary: '#E0E0E0'
+                        borderTertiary: '#EFEFEF'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#666666'
+                        link: '#007793'
+                        linkHover: '#003357'
+                        accentPrimary: '#00819D'
+                        accentSecondary: '#F07C91'
+                        focus: '#588DF3'
+                    baseThree:
+                      baseThree:
+                        core: '#103354'
+                        contrast: '#0C2943'
+                        active: '#1E3F5E'
+                        borderPrimary: '#587EA5'
+                        borderSecondary: '#294F75'
+                        borderTertiary: '#183E64'
+                        contentPrimary: '#7BE0C2'
+                        contentSecondary: '#FFFFFF'
+                        contentTertiary: '#CCCCCC'
+                        link: '#7BE0C2'
+                        linkHover: '#FFFFFF'
+                        accentPrimary: '#FFFFFF'
+                        accentSecondary: '#F07C91'
+                        focus: '#7FB3F6'
+                      baseFour:
+                        core: '#103354'
+                        contrast: '#0C2943'
+                        active: '#1E3F5E'
+                        borderPrimary: '#587EA5'
+                        borderSecondary: '#294F75'
+                        borderTertiary: '#183E64'
+                        contentPrimary: '#7BE0C2'
+                        contentSecondary: '#FFFFFF'
+                        contentTertiary: '#CCCCCC'
+                        link: '#7BE0C2'
+                        linkHover: '#FFFFFF'
+                        accentPrimary: '#FFFFFF'
+                        accentSecondary: '#F07C91'
+                        focus: '#7FB3F6'
+                    baseFour:
+                      baseThree:
+                        core: '#7BE0C2'
+                        contrast: '#67CCAE'
+                        active: '#74D3B6'
+                        borderPrimary: '#49AE90'
+                        borderSecondary: '#67CCAE'
+                        borderTertiary: '#73D8BA'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#525252'
+                        link: '#222222'
+                        linkHover: '#005975'
+                        accentPrimary: '#FFFFFF'
+                        accentSecondary: '#0C2943'
+                        focus: '#003D85'
+                      baseFour:
+                        core: '#7BE0C2'
+                        contrast: '#67CCAE'
+                        active: '#74D3B6'
+                        borderPrimary: '#49AE90'
+                        borderSecondary: '#67CCAE'
+                        borderTertiary: '#73D8BA'
+                        contentPrimary: '#003357'
+                        contentSecondary: '#222222'
+                        contentTertiary: '#525252'
+                        link: '#222222'
+                        linkHover: '#005975'
+                        accentPrimary: '#FFFFFF'
+                        accentSecondary: '#0C2943'
+                        focus: '#003D85'
+                    logoUrl: sample1.png
+                    lightMobileLogoUrl: sample4.svg
+                    darkMobileLogoUrl: sample5.svg
+                    mastheadImageUrl: sample2.png
+              schema:
+                $ref: '#/components/schemas/response_custom_app_styling'
+        '204':
+          description: No Content
+components:
+  schemas:
+    response_custom_app_styling:
+      type: object
+      properties:
+        highlight:
+          type:
+          - object
+          - 'null'
+        highlightOutline:
+          type:
+          - object
+          - 'null'
+        baseOne:
+          type:
+          - object
+          - 'null'
+        baseTwo:
+          type:
+          - object
+          - 'null'
+        baseThree:
+          type:
+          - object
+          - 'null'
+        baseFour:
+          type:
+          - object
+          - 'null'
+        logoUrl:
+          type:
+          - string
+          - 'null'
+        lightMobileLogoUrl:
+          type:
+          - string
+          - 'null'
+        darkMobileLogoUrl:
+          type:
+          - string
+          - 'null'
+        mastheadImageUrl:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

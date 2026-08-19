@@ -1,0 +1,2188 @@
+{
+  "item": [
+    {
+      "id": "c3aeb0c8-369c-4b88-bb38-256927896333",
+      "name": "Customer",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9f01754a-3a7a-49a1-bf21-7627beb58416",
+          "name": "Customers/Create",
+          "request": {
+            "name": "Customers/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"forename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"email\": \"<string>\",\n  \"date_of_birth\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"title\": \"<string>\",\n  \"middlename\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"alternative_telephone\": \"<string>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"county\": \"<string>\",\n  \"building_name\": \"<string>\",\n  \"building_number\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"preferred_locale\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "156aeb1b-ad25-4dba-a9f2-ff92ca08cf76",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"Elsa\",\n  \"surname\": \"Frozen\",\n  \"postcode\": \"CH1 LLY\",\n  \"email\": \"snow@gmail.com\",\n  \"date_of_birth\": \"1995-01-01\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"cus95\",\n  \"intercom_user_id_hash\": \"94c52306a2ced55c529ce19233813bf762bdaf45b4a6570db01cd730447b7782\",\n  \"id\": 95,\n  \"email\": \"snow@gmail.com\",\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"2aa7dcd24068a5ce\",\n  \"created_at\": \"2026-08-05T12:58:50.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:58:50.000+01:00\",\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"forename\": \"Elsa\",\n  \"surname\": \"Frozen\",\n  \"title\": null,\n  \"authentication_token\": \"wNSTquRTAFz_z9fLPGWh\",\n  \"date_of_birth\": \"1995-01-01\",\n  \"line2\": null,\n  \"city\": null,\n  \"county\": null,\n  \"building_name\": null,\n  \"postcode\": \"CH1 LLY\",\n  \"line1\": null,\n  \"building_number\": null,\n  \"telephone\": null,\n  \"alternative_telephone\": null,\n  \"referee_id\": null,\n  \"referee_type\": null,\n  \"referral_state\": \"ignition\",\n  \"referral_clicks\": 0,\n  \"referral_reward_name\": null,\n  \"authentication_token_generated_at\": \"2026-08-05T12:58:50.000+01:00\",\n  \"gender\": \"Male\",\n  \"role\": \"admin\",\n  \"middlename\": null,\n  \"envelope_state\": \"ignition\",\n  \"enforce_password\": true,\n  \"company_id\": 207,\n  \"country_code\": null,\n  \"uuid\": \"962f1bcc-27cb-4227-b04e-98f590c080e9\",\n  \"preferred_locale\": null,\n  \"smart_analytics_access_permitted\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/207\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3153eb2-9360-4773-91a1-e5a0c3b08904",
+              "name": "Forbidden number of customers (max 50)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"Elsa\",\n  \"surname\": \"Frozen\",\n  \"postcode\": \"CH1 LLY\",\n  \"email\": \"snow@gmail.com\",\n  \"date_of_birth\": \"1995-01-01\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "69f92041-4ab4-4813-854c-5704aeb113d4",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"forename\": \"Elsa\",\n  \"surname\": \"Frozen\",\n  \"postcode\": \"CH1 LLY\",\n  \"email\": \"snow@gmail.com\",\n  \"date_of_birth\": \"1995-01-01\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9d41c95-946a-491b-af02-83ea0fd05396",
+          "name": "Customers/List",
+          "request": {
+            "name": "Customers/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[referee_id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[referee_id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[role][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[role][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[envelope_state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[envelope_state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "39620963-0223-40eb-a90c-8314d6bb883d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[referee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[referee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[role][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[role][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[envelope_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[envelope_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 3,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/216/customers\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/216/customers?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/216/customers?offset=0&limit=50\"\n    }\n  ],\n  \"customers\": [\n    {\n      \"intercom_user_id\": \"cus109\",\n      \"intercom_user_id_hash\": \"10c7b96956fe0fed49998515eb80e450379c6335cdb9099ad3c8ca94a528dbb9\",\n      \"id\": 109,\n      \"email\": \"email_1@example.com\",\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"f388b782dfa282c7\",\n      \"created_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"forename\": \"forename\",\n      \"surname\": \"surname\",\n      \"title\": null,\n      \"authentication_token\": \"bEHwZzHdLWxwV3TgsLps\",\n      \"date_of_birth\": \"2011-08-05\",\n      \"line2\": null,\n      \"city\": null,\n      \"county\": null,\n      \"building_name\": null,\n      \"postcode\": \"postcode\",\n      \"line1\": null,\n      \"building_number\": null,\n      \"telephone\": \"+447890123223\",\n      \"alternative_telephone\": null,\n      \"referee_id\": null,\n      \"referee_type\": null,\n      \"referral_state\": \"ignition\",\n      \"referral_clicks\": 0,\n      \"referral_reward_name\": null,\n      \"authentication_token_generated_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"gender\": \"Male\",\n      \"role\": \"admin\",\n      \"middlename\": null,\n      \"envelope_state\": \"ignition\",\n      \"enforce_password\": true,\n      \"company_id\": 216,\n      \"country_code\": null,\n      \"uuid\": \"b721340c-6241-45f4-860f-04a5b671d341\",\n      \"preferred_locale\": null,\n      \"smart_analytics_access_permitted\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/216\"\n        }\n      ]\n    },\n    {\n      \"intercom_user_id\": \"cus110\",\n      \"intercom_user_id_hash\": \"8d44ed306704db3d993822eb27b8877bd2ededfda8f2dd668e7f935a7c0a8e1f\",\n      \"id\": 110,\n      \"email\": \"email_2@example.com\",\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"5021da6ed9f33aa5\",\n      \"created_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"forename\": \"forename\",\n      \"surname\": \"surname\",\n      \"title\": null,\n      \"authentication_token\": \"VnkUTVJzYdsSy38P59vo\",\n      \"date_of_birth\": \"2011-08-05\",\n      \"line2\": null,\n      \"city\": null,\n      \"county\": null,\n      \"building_name\": null,\n      \"postcode\": \"postcode\",\n      \"line1\": null,\n      \"building_number\": null,\n      \"telephone\": \"+447890123223\",\n      \"alternative_telephone\": null,\n      \"referee_id\": null,\n      \"referee_type\": null,\n      \"referral_state\": \"ignition\",\n      \"referral_clicks\": 0,\n      \"referral_reward_name\": null,\n      \"authentication_token_generated_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"gender\": \"Male\",\n      \"role\": \"admin\",\n      \"middlename\": null,\n      \"envelope_state\": \"ignition\",\n      \"enforce_password\": true,\n      \"company_id\": 216,\n      \"country_code\": null,\n      \"uuid\": \"1e26eafa-b892-46af-9e36-cdcdd268d5d1\",\n      \"preferred_locale\": null,\n      \"smart_analytics_access_permitted\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/216\"\n        }\n      ]\n    },\n    {\n      \"intercom_user_id\": \"cus111\",\n      \"intercom_user_id_hash\": \"56cf950cfadb13d808c9421b2ed928504c18ac688425b47be8041494c1bb36bc\",\n      \"id\": 111,\n      \"email\": \"wroberts@jabbersphere.mil\",\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"68LwEshE\",\n      \"created_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:54.000+01:00\",\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"forename\": \"Willie\",\n      \"surname\": \"Wilson\",\n      \"title\": \"Sir\",\n      \"authentication_token\": null,\n      \"date_of_birth\": \"2001-08-05\",\n      \"line2\": \"86108 Arkansas Point\",\n      \"city\": \"Brisbane\",\n      \"county\": \"Nevada\",\n      \"building_name\": \"Merry\",\n      \"postcode\": \"96642\",\n      \"line1\": \"719 Armistice Road\",\n      \"building_number\": \"978\",\n      \"telephone\": null,\n      \"alternative_telephone\": null,\n      \"referee_id\": null,\n      \"referee_type\": null,\n      \"referral_state\": \"ignition\",\n      \"referral_clicks\": 0,\n      \"referral_reward_name\": null,\n      \"authentication_token_generated_at\": null,\n      \"gender\": \"Male\",\n      \"role\": \"admin\",\n      \"middlename\": null,\n      \"envelope_state\": \"ignition\",\n      \"enforce_password\": true,\n      \"company_id\": 216,\n      \"country_code\": \"gb\",\n      \"uuid\": \"d5acb7fa-b66d-4f5d-8a3b-cdc5b33675ea\",\n      \"preferred_locale\": null,\n      \"smart_analytics_access_permitted\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/216\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79141928-f223-400e-aad3-628c395f0817",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[referee_id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[referee_id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[role][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[role][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[envelope_state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[envelope_state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba223c3b-7f29-4e19-aa86-59a08955722f",
+          "name": "Customers/Destroy",
+          "request": {
+            "name": "Customers/Destroy",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "731ed115-fa10-4a8c-a20c-e6626274a5d7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b98ac7d-9c1f-478e-9146-3c94aa1d783d",
+              "name": "Forbidden when customer is a signatory",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 279,\n      \"title\": \"You need to have at least one signatory.\",\n      \"detail\": \"You need to have at least one signatory.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"need_to_have_at_least_one_signatory\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e5c12b1-336e-440a-b766-57772df8d270",
+          "name": "Customers/Get",
+          "request": {
+            "name": "Customers/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1e3eaa9-2f54-46b5-bb4b-9501466705ed",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"cus105\",\n  \"intercom_user_id_hash\": \"386198d1aac26dc9aedcdb5886562bc4b707eb5de85e910f51088677ded0c756\",\n  \"id\": 105,\n  \"email\": \"jhall@gigazoom.edu\",\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"qE9Qvc\",\n  \"created_at\": \"2026-08-05T12:58:51.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:58:51.000+01:00\",\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"forename\": \"Helen\",\n  \"surname\": \"Hill\",\n  \"title\": \"Dr\",\n  \"authentication_token\": null,\n  \"date_of_birth\": \"2001-08-05\",\n  \"line2\": \"134 Delladonna Plaza\",\n  \"city\": \"Calimesa\",\n  \"county\": \"Oklahoma\",\n  \"building_name\": \"Veith\",\n  \"postcode\": \"60673\",\n  \"line1\": \"2470 Manufacturers Center\",\n  \"building_number\": \"37\",\n  \"telephone\": null,\n  \"alternative_telephone\": null,\n  \"referee_id\": null,\n  \"referee_type\": null,\n  \"referral_state\": \"ignition\",\n  \"referral_clicks\": 0,\n  \"referral_reward_name\": null,\n  \"authentication_token_generated_at\": null,\n  \"gender\": \"Male\",\n  \"role\": \"admin\",\n  \"middlename\": null,\n  \"envelope_state\": \"ignition\",\n  \"enforce_password\": true,\n  \"company_id\": 212,\n  \"country_code\": \"gb\",\n  \"uuid\": \"97c01042-618d-4dc2-8214-1f119ba867d7\",\n  \"preferred_locale\": null,\n  \"smart_analytics_access_permitted\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/212\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52bb64d6-3fd7-4aa9-aaf3-e7c4574a45fe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e052889a-2501-400e-8018-5ae38d5f2a68",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffbb3310-f783-4173-ad8e-9be3b5376606",
+          "name": "Customers/Update",
+          "request": {
+            "name": "Customers/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<string>\",\n  \"title\": \"<string>\",\n  \"forename\": \"<string>\",\n  \"middlename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"alternative_telephone\": \"<string>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"county\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"email\": \"<string>\",\n  \"building_name\": \"<string>\",\n  \"building_number\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"preferred_locale\": \"<string>\",\n  \"password\": \"<string>\",\n  \"current_password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6883aab7-c1fd-4262-909d-c59015231e67",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 230,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"vduncan@vimbo.edu\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a5494bc-8cc3-48c5-a200-e86fa72ea31b",
+              "name": "Forbidden email update for signatory with unsigned envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 230,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"vduncan@vimbo.edu\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 34,\n      \"title\": \"Company without envelope.\",\n      \"detail\": \"The Participation Agreement cannot be generated because we are currently generating another one for the same company.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"company_without_envelope\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c40d3558-7f2e-4341-82ea-466f996110e7",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 230,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"vduncan@vimbo.edu\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 936,\n      \"title\": \"Email is too short.\",\n      \"detail\": \"You need to enter an email with at least 6 characters.\",\n      \"meta\": {\n        \"count\": 6\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 906,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to include the email address.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 907,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7509390d-d446-4388-bbbc-3766958fe1cd",
+          "name": "Customers/Update",
+          "request": {
+            "name": "Customers/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "customers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_birth\": \"<string>\",\n  \"title\": \"<string>\",\n  \"forename\": \"<string>\",\n  \"middlename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"alternative_telephone\": \"<string>\",\n  \"line1\": \"<string>\",\n  \"line2\": \"<string>\",\n  \"city\": \"<string>\",\n  \"county\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"email\": \"<string>\",\n  \"building_name\": \"<string>\",\n  \"building_number\": \"<string>\",\n  \"gender\": \"<string>\",\n  \"country_code\": \"<string>\",\n  \"preferred_locale\": \"<string>\",\n  \"password\": \"<string>\",\n  \"current_password\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "692cf3d1-791d-4059-a84f-78269d784adf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 233,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"cromero@photojam.name\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b1cce5e-3061-459f-bcd5-f9876257627c",
+              "name": "Forbidden email update for signatory with unsigned envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 233,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"cromero@photojam.name\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 34,\n      \"title\": \"Company without envelope.\",\n      \"detail\": \"The Participation Agreement cannot be generated because we are currently generating another one for the same company.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"company_without_envelope\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e083531f-5c71-42a9-84bb-710978db219a",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "customers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"alternative_telephone\": \"+44 123 4567 890\",\n  \"building_name\": \"\",\n  \"building_number\": \"123\",\n  \"city\": \"London\",\n  \"company_id\": 233,\n  \"country_code\": \"GB\",\n  \"county\": \"Sussex\",\n  \"date_of_birth\": \"1986-11-12\",\n  \"line1\": \"Wellington Square\",\n  \"line2\": \"The Palace\",\n  \"middlename\": \"\",\n  \"postcode\": \"ZE0 0ZZ\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"title\": \"Mr\",\n  \"email\": \"cromero@photojam.name\",\n  \"forename\": \"James\",\n  \"surname\": \"Bond\",\n  \"password\": \"!1234Qwertyuiop\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 936,\n      \"title\": \"Email is too short.\",\n      \"detail\": \"You need to enter an email with at least 6 characters.\",\n      \"meta\": {\n        \"count\": 6\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 906,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to include the email address.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 907,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d9d047a-5dff-4839-bb6e-5c7ae186142d",
+          "name": "Companies/Envelope/Reminds/Create",
+          "request": {
+            "name": "Companies/Envelope/Reminds/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "envelope",
+                "remind"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa4a9b69-11df-4947-baf1-da52cc78016d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "envelope",
+                    "remind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f38b0c4b-2a2e-42c6-b8ad-9fbdcce4db67",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "envelope",
+                    "remind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "36463dea-091c-4e10-8ec5-8fb83565f8ba",
+              "name": "Not Found - when no active envelope is found for the company with the ID in the request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "envelope",
+                    "remind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b670906-9753-4fb9-ba80-2eaf5ec1c592",
+              "name": "Unprocessable",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "envelope",
+                    "remind"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68994837-c116-42e3-9ed5-0bd6c2da510d",
+          "name": "Customers/Session",
+          "request": {
+            "name": "Customers/Session",
+            "description": {},
+            "url": {
+              "path": [
+                "customers",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "fc2f399a-8fba-49ec-b86a-0e0ab3d69d2d",
+              "name": "Success (jwt token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"cus531\",\n  \"intercom_user_id_hash\": \"08ee7452bcedf2d90c494f38cc9734857d6bd74e1d9f05beb3b2422675ba6965\",\n  \"id\": 531,\n  \"email\": \"signatory@example.com\",\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"ef1cc0c1f98ae10b\",\n  \"created_at\": \"2026-08-05T13:05:26.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:05:26.000+01:00\",\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"title\": null,\n  \"authentication_token\": \"Cm_yiPgAaaRyGzWKsayj\",\n  \"date_of_birth\": null,\n  \"line2\": null,\n  \"city\": null,\n  \"county\": null,\n  \"building_name\": null,\n  \"postcode\": null,\n  \"line1\": null,\n  \"building_number\": null,\n  \"telephone\": null,\n  \"alternative_telephone\": null,\n  \"referee_id\": null,\n  \"referee_type\": null,\n  \"referral_state\": \"ignition\",\n  \"referral_clicks\": 0,\n  \"referral_reward_name\": null,\n  \"authentication_token_generated_at\": \"2026-08-05T13:05:26.000+01:00\",\n  \"gender\": \"Male\",\n  \"role\": \"signatory\",\n  \"middlename\": null,\n  \"envelope_state\": \"ignition\",\n  \"enforce_password\": true,\n  \"company_id\": 1423,\n  \"country_code\": null,\n  \"uuid\": \"c4251f38-c512-4706-bc24-3cc11b5bc3bb\",\n  \"preferred_locale\": null,\n  \"smart_analytics_access_permitted\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1423\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afeecf6a-082c-452a-9523-d713e1615989",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customers",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6c337204-0c60-49e6-b052-2340d973abd4",
+    "name": "Keystone Customer API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

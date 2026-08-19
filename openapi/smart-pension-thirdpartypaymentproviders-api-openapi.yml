@@ -1,0 +1,538 @@
+openapi: 3.2.0
+info:
+  title: Keystone Third Party Payment Providers API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: ThirdPartyPaymentProviders
+paths:
+  /companies/{company_id}/third_party_payment_providers/{id}:
+    get:
+      summary: Companies/ThirdPartyPaymentProviders/Get
+      tags:
+      - ThirdPartyPaymentProviders
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1390
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 5
+        schema:
+          type: string
+      - name: include[]
+        in: query
+        schema:
+          type: array
+          items:
+            enum:
+            - directors
+            - documents
+        required: false
+        example: include%5B%5D=directors&include%5B%5D=documents
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 5
+                relation_to_company: parent_company
+                provider_name: Provider name
+                incorporation_number: '1234567'
+                source_of_wealth: Investment
+                reason_for_using: No access to bank account
+                same_directors_as_company: true
+                state: submitted
+                line1: line1
+                line2: line2
+                city: Dubai
+                country_of_incorporation: AE
+                uuid: 6f3219cb-578c-4e90-beee-5d6a57db30bc
+                tax_registration_number: '100123456789003'
+                created_at: '2026-08-05T13:05:05.935+01:00'
+                updated_at: '2026-08-05T13:05:05.935+01:00'
+                bank_account_detail:
+                  id: 69
+                  account_name: Account Name
+                  country_code: GB
+                  created_at: '2026-08-05T13:05:05.000+01:00'
+                  updated_at: '2026-08-05T13:05:05.000+01:00'
+                  account_number_format: iban
+                  cancelled_at: null
+                  expires_on: null
+                directors:
+                  limit: 10
+                  offset: 0
+                  total: 1
+                  links:
+                  - rel: self
+                    title: self
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents
+                  - rel: first
+                    title: first
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10
+                  - rel: last
+                    title: last
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10
+                  data:
+                  - id: 1
+                    city: Dubai
+                    country: AE
+                    date_of_birth: '1991-08-05'
+                    forename: Bonnie
+                    surname: Taylor
+                    nationality: British
+                    title: Dr
+                    line1: line1
+                    line2: line2
+                    created_at: '2026-08-05T13:05:05.949+01:00'
+                documents:
+                  limit: 10
+                  offset: 0
+                  total: 2
+                  links:
+                  - rel: self
+                    title: self
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents
+                  - rel: first
+                    title: first
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10
+                  - rel: last
+                    title: last
+                    href: http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10
+                  data:
+                  - id: 1
+                    topic: investment_guide
+                    url: /__w/api/api/spec/test_files/0/documents/000/000/001/original/file.pdf
+                    file_file_name: file.pdf
+                    file_content_type: application/pdf
+                    created_at: '2026-08-05T13:05:06.000+01:00'
+                  - id: 2
+                    topic: investment_guide
+                    url: /__w/api/api/spec/test_files/0/documents/000/000/002/original/file.pdf
+                    file_file_name: file.pdf
+                    file_content_type: application/pdf
+                    created_at: '2026-08-05T13:05:06.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_third_party_payment_provider'
+        '404':
+          description: Not Found
+  /companies/{company_id}/third_party_payment_providers:
+    get:
+      summary: Companies/ThirdPartyPaymentProviders/List
+      tags:
+      - ThirdPartyPaymentProviders
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1392
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1392/third_party_payment_providers
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1392/third_party_payment_providers?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1392/third_party_payment_providers?offset=0&limit=50
+                data:
+                - id: 7
+                  relation_to_company: parent_company
+                  provider_name: Provider name
+                  incorporation_number: '1234567'
+                  source_of_wealth: Investment
+                  reason_for_using: No access to bank account
+                  same_directors_as_company: true
+                  state: submitted
+                  line1: line1
+                  line2: line2
+                  city: Dubai
+                  country_of_incorporation: AE
+                  uuid: 1e8d07e3-9636-44b2-8353-1cf425378246
+                  created_at: '2026-08-05T13:05:07.816+01:00'
+                  updated_at: '2026-08-05T13:05:07.816+01:00'
+                  bank_account_detail:
+                    id: 71
+                    account_name: Account Name
+                    country_code: GB
+                    created_at: '2026-08-05T13:05:07.000+01:00'
+                    updated_at: '2026-08-05T13:05:07.000+01:00'
+                    account_number_format: iban
+                    cancelled_at: null
+                    expires_on: null
+                - id: 8
+                  relation_to_company: parent_company
+                  provider_name: Provider name
+                  incorporation_number: '1234567'
+                  source_of_wealth: Investment
+                  reason_for_using: No access to bank account
+                  same_directors_as_company: true
+                  state: submitted
+                  line1: line1
+                  line2: line2
+                  city: Dubai
+                  country_of_incorporation: AE
+                  uuid: 85289b1e-5711-4e0f-9127-1cdc314c4799
+                  created_at: '2026-08-05T13:05:07.822+01:00'
+                  updated_at: '2026-08-05T13:05:07.822+01:00'
+                  bank_account_detail:
+                    id: 72
+                    account_name: Account Name
+                    country_code: GB
+                    created_at: '2026-08-05T13:05:07.000+01:00'
+                    updated_at: '2026-08-05T13:05:07.000+01:00'
+                    account_number_format: iban
+                    cancelled_at: null
+                    expires_on: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  data:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_third_party_payment_provider'
+  /companies/{company_id}/third_party_payment_providers/{id}/sensitive_data:
+    get:
+      summary: Companies/ThirdPartyPaymentProviders/Get
+      tags:
+      - ThirdPartyPaymentProviders
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1393
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 9
+        schema:
+          type: string
+      - name: bank_account_detail_id
+        in: query
+        required: false
+        example: bank_account_detail_id=73
+        schema:
+          type: string
+      - name: field_names[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        required: true
+        example: field_names%5B%5D=account_number
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                sensitive_data:
+                - field_name: account_number
+                  value: AL47 2121 1009 0000 0002 3569 87411
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_third_party_payment_provider_document:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        topic:
+          type:
+          - string
+          - 'null'
+        url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        file_content_type:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+    response_third_party_payment_provider_director:
+      type: object
+      properties:
+        id:
+          type: integer
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+        forename:
+          type: string
+        surname:
+          type: string
+        nationality:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+    response_third_party_payment_provider:
+      type: object
+      properties:
+        id:
+          type: integer
+        relation_to_company:
+          type: string
+        provider_name:
+          type: string
+        incorporation_number:
+          type:
+          - string
+          - 'null'
+        source_of_wealth:
+          type:
+          - string
+          - 'null'
+        reason_for_using:
+          type:
+          - string
+          - 'null'
+          format: text
+        same_directors_as_company:
+          type: boolean
+        state:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country_of_incorporation:
+          type:
+          - string
+          - 'null'
+        uuid:
+          type: string
+        tax_registration_number:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        bank_account_detail:
+          $ref: '#/components/schemas/response_bank_account_detail'
+        directors:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_third_party_payment_provider_director'
+        documents:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_third_party_payment_provider_document'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

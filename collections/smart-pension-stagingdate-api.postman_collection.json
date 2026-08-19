@@ -1,0 +1,160 @@
+{
+  "item": [
+    {
+      "id": "b6f6a4d4-30a2-4d70-92ef-60d5d8b83cd1",
+      "name": "StagingDate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "137d63fd-1b81-4794-af73-af8118452e84",
+          "name": "StagingDate/Get",
+          "request": {
+            "name": "StagingDate/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "tpr",
+                "staging_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "num",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ref",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e30c0538-aac5-4779-8129-44bbdc871f06",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tpr",
+                    "staging_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "num",
+                      "value": "num=846"
+                    },
+                    {
+                      "key": "ref",
+                      "value": "ref=MA24739"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"scheme_starts_on\": \"2016-01-01\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0ed1d9d-bb66-4313-9957-a5b185f3ad5b",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tpr",
+                    "staging_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "num",
+                      "value": "num=846"
+                    },
+                    {
+                      "key": "ref",
+                      "value": "ref=MA24739"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d05c4e4b-b906-482c-a45b-56a2e1521914",
+    "name": "Keystone Staging Date API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

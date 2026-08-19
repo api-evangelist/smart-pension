@@ -1,0 +1,221 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payroll configurations API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Payroll configurations
+paths:
+  /companies/{company_id}/payroll_configurations:
+    post:
+      summary: payroll_configurations
+      tags:
+      - Payroll configurations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1264
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  frequency: weekly
+                  name: payroll name
+                  salary_rate: pay_period
+                  description: test description
+              invalid_parameters:
+                value:
+                  frequency: INVALID_FREQUENCY
+                  name: payroll name
+                  salary_rate: annual
+                  description: test description
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                salary_rate:
+                  type: string
+                description:
+                  type: string
+                frequency:
+                  type: string
+              required:
+              - salary_rate
+              - frequency
+              - name
+      responses:
+        '201':
+          description: Success - you created payroll configuration.
+          content:
+            application/json:
+              example:
+                id: 37
+                company_id: 1264
+                description: test description
+                frequency: weekly
+                name: payroll name
+                salary_rate: pay_period
+                created_at: '2026-08-05T13:04:24.000+01:00'
+                updated_at: '2026-08-05T13:04:24.000+01:00'
+                uuid: bbcb80ee-4a87-45b8-a1c9-beca5ac27717
+                links:
+                - rel: company
+                  title: company
+                  href: https://api.host.com/companies/1264
+                frequency_editable: true
+                destroyable: true
+        '403':
+          description: Forbidden
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 7706
+                  title: Salary rate is not valid.
+                  detail: Salary rate value can only be .
+                  meta:
+                    values:
+                    - pay_period
+                    allowed_values: []
+                    value: annual
+                  source:
+                    pointer: /data/attributes/salary_rate
+                - code: 7702
+                  title: Frequency is not valid.
+                  detail: Frequency value can only be .
+                  meta:
+                    values:
+                    - monthly
+                    - weekly
+                    allowed_values: []
+                    value: INVALID_FREQUENCY
+                  source:
+                    pointer: /data/attributes/frequency
+  /companies/{company_id}/payroll_configurations/{payroll_configuration_id}:
+    put:
+      summary: payroll_configurations
+      tags:
+      - Payroll configurations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success - you updated payroll configuration.
+        '403':
+          description: Forbidden action for user
+        '422':
+          description: Invalid parameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                frequency:
+                  type: string
+                name:
+                  type: string
+                salary_rate:
+                  type: string
+                description:
+                  type: string
+        required: true
+    patch:
+      summary: payroll_configurations
+      tags:
+      - Payroll configurations
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success - you updated payroll configuration.
+        '403':
+          description: Forbidden action for user
+        '422':
+          description: Invalid parameters
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                frequency:
+                  type: string
+                name:
+                  type: string
+                salary_rate:
+                  type: string
+                description:
+                  type: string
+        required: true
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

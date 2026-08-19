@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Legal Bank Location API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LegalBankLocation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Countries/LegalBankLocation/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/countries/legal_bank_location"
+          },
+          "docs": "Countries/LegalBankLocation/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

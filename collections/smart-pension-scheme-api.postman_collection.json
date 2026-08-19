@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "08deede5-35fe-491e-8894-5e6146d87997",
+      "name": "Scheme",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b54ab7d-b3ec-4969-a468-ba9b702256c8",
+          "name": "Schemes/Available",
+          "request": {
+            "name": "Schemes/Available",
+            "description": {},
+            "url": {
+              "path": [
+                "schemes",
+                "available"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3146b6b8-0edf-44ad-bc21-5f47ea986bf6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schemes",
+                    "available"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/schemes/available\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/schemes/available?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/schemes/available?offset=0&limit=50\"\n    }\n  ],\n  \"schemes\": [\n    {\n      \"id\": 1932,\n      \"uuid\": \"2ab52bc8-6639-40b0-9e61-9a1f139d820e\",\n      \"external_id\": \"S1\",\n      \"default\": true,\n      \"name\": \"Scheme 1\"\n    },\n    {\n      \"id\": 1933,\n      \"uuid\": \"320cd867-02d6-4012-938e-1f89c95035ec\",\n      \"external_id\": \"S2\",\n      \"default\": false,\n      \"name\": \"Scheme 2\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ad0c489-4ce6-4d39-9019-ff111e433c20",
+          "name": "Schemes/Default",
+          "request": {
+            "name": "Schemes/Default",
+            "description": {},
+            "url": {
+              "path": [
+                "schemes",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "include",
+                  "value": ""
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cdf7f5f9-77af-443b-84e5-02d06d8280e1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "schemes",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": ""
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4541,\n  \"uuid\": \"string\",\n  \"name\": null,\n  \"type\": \"string\",\n  \"currency\": \"string\",\n  \"federal\": true,\n  \"category\": \"string\",\n  \"external_id\": \"string\",\n  \"bank_detail\": {\n    \"account_number\": \"string\",\n    \"bank_name\": \"string\",\n    \"swift_code\": \"string\",\n    \"in_favor_of\": \"string\",\n    \"currency\": null,\n    \"exchange_rate\": null\n  },\n  \"contribution_limit\": {\n    \"minimum_one_off_contribution_amount\": 9811.437042115755,\n    \"minimum_one_off_contribution_amount_currency\": \"string\",\n    \"maximum_one_off_contribution_amount\": 635.7111605976851,\n    \"maximum_one_off_contribution_amount_currency\": \"string\",\n    \"minimum_recurring_contribution_amount\": 3217.9608633713297,\n    \"minimum_recurring_contribution_amount_currency\": \"string\"\n  },\n  \"scheme_tax_reliefs\": {\n    \"data\": [\n      \"\",\n      \"\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0aee3b40-9101-4080-920e-add0fafe181b",
+    "name": "Keystone Scheme API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,489 @@
+openapi: 3.2.0
+info:
+  title: Keystone Import API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Import
+paths:
+  /companies/{company_id}/imports:
+    post:
+      summary: Import/Create
+      tags:
+      - Import
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1127
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            example:
+              type: PapdisImport
+              file: '#<Rack::Test::UploadedFile:0x00007ba2305dc818>'
+              metadata.contributions.starts_on: '2026-08-01'
+              metadata.contributions.ends_on: '2026-10-30'
+            schema:
+              type: object
+              properties:
+                metadata:
+                  type: object
+                file:
+                  type: string
+                  format: binary
+                type:
+                  type: string
+              required:
+              - type
+              - file
+      responses:
+        '201':
+          description: Success - Import a Papdis file (xml format)
+          content:
+            application/json:
+              example:
+                id: 2
+                status_code: null
+                state: ignition
+                response_errors: []
+                file_url: null
+                file_file_name: valid.xml
+                created_at: '2026-08-05T13:03:32.000+01:00'
+                updated_at: '2026-08-05T13:03:32.000+01:00'
+                type: PapdisImport
+                metadata:
+                  contributions:
+                    starts_on: '2026-08-01'
+                    ends_on: '2026-10-30'
+                success_row_count: null
+                fail_row_count: null
+                company_id: 1127
+                links:
+                - rel: company
+                  title: company
+                  href: https://api.host.com/companies/1127
+        '422':
+          description: Failing when parameters are invalid.
+    get:
+      summary: Import/List
+      tags:
+      - Import
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1134
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success - Import successfully processed
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 3
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1134/imports
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1134/imports?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1134/imports?offset=0&limit=50
+                data:
+                - id: 7
+                  status_code: null
+                  state: ignition
+                  response_errors: []
+                  file_url: null
+                  file_file_name: valid.csv
+                  created_at: '2026-08-05T13:03:35.000+01:00'
+                  updated_at: '2026-08-05T13:03:35.000+01:00'
+                  type: EmployeesImport
+                  metadata: {}
+                  success_row_count: null
+                  fail_row_count: null
+                  company_id: 1134
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1134
+                - id: 8
+                  status_code: null
+                  state: success
+                  response_errors: []
+                  file_url: /__w/api/api/spec/test_files/0/papdis_imports/000/000/008/original/valid.csv
+                  file_file_name: valid.csv
+                  created_at: '2026-08-05T13:03:35.000+01:00'
+                  updated_at: '2026-08-05T13:03:35.000+01:00'
+                  type: PapdisImport
+                  metadata: {}
+                  success_row_count: null
+                  fail_row_count: null
+                  company_id: 1134
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1134
+                - id: 9
+                  status_code: null
+                  state: success
+                  response_errors: []
+                  file_url: /__w/api/api/spec/test_files/0/papdis_imports/000/000/009/original/valid.csv
+                  file_file_name: valid.csv
+                  created_at: '2026-08-05T13:03:35.000+01:00'
+                  updated_at: '2026-08-05T13:03:35.000+01:00'
+                  type: PapdisImport
+                  metadata: {}
+                  success_row_count: null
+                  fail_row_count: null
+                  company_id: 1134
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1134
+              schema:
+                $ref: '#/components/schemas/response_import'
+  /companies/{company_id}/imports/{id}:
+    get:
+      summary: Import/Get
+      tags:
+      - Import
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 4
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 1131
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success - Import successfully processed
+          content:
+            application/json:
+              examples:
+                in_ignition_state:
+                  value:
+                    id: 3
+                    status_code: null
+                    state: ignition
+                    response_errors: []
+                    file_url: null
+                    file_file_name: valid.csv
+                    created_at: '2026-08-05T13:03:33.000+01:00'
+                    updated_at: '2026-08-05T13:03:33.000+01:00'
+                    type: PapdisImport
+                    metadata: {}
+                    success_row_count: null
+                    fail_row_count: null
+                    company_id: 1130
+                    links:
+                    - rel: company
+                      title: company
+                      href: https://api.host.com/companies/1130
+                import_successfully_processed:
+                  value:
+                    id: 4
+                    status_code: null
+                    state: success
+                    response_errors: []
+                    file_url: /__w/api/api/spec/test_files/0/papdis_imports/000/000/004/original/valid.csv
+                    file_file_name: valid.csv
+                    created_at: '2026-08-05T13:03:34.000+01:00'
+                    updated_at: '2026-08-05T13:03:34.000+01:00'
+                    type: PapdisImport
+                    metadata: {}
+                    success_row_count: null
+                    fail_row_count: null
+                    company_id: 1131
+                    links:
+                    - rel: company
+                      title: company
+                      href: https://api.host.com/companies/1131
+              schema:
+                $ref: '#/components/schemas/response_import'
+        '404':
+          description: Not Found
+  /companies/{company_id}/imports/{import_id}/import_results:
+    get:
+      summary: Import/ImportResults/List
+      tags:
+      - Import
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1133
+        schema:
+          type: string
+      - name: import_id
+        in: path
+        required: true
+        example: 6
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            state:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: include[]
+        in: query
+        schema:
+          type: array
+          items:
+            enum:
+            - import
+        required: false
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 1
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1133/imports/6/import_results
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1133/imports/6/import_results?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1133/imports/6/import_results?offset=0&limit=50
+                import_results:
+                - id: 2
+                  import_id: 6
+                  cached_name: null
+                  cached_external_id: null
+                  operation: manage_employee
+                  operation_errors: []
+                  resource_id: null
+                  resource_type: null
+                  state: success
+                  created_at: '2026-08-05T13:03:35.000+01:00'
+                  updated_at: '2026-08-05T13:03:35.000+01:00'
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  import_results:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_import_result'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_import_result:
+      type: object
+      properties:
+        id:
+          type: integer
+        import_id:
+          type: integer
+        cached_name:
+          type:
+          - string
+          - 'null'
+        cached_external_id:
+          type:
+          - string
+          - 'null'
+        operation:
+          type: string
+        operation_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        resource_id:
+          type:
+          - integer
+          - 'null'
+        resource_type:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    response_import:
+      type: object
+      properties:
+        id:
+          type: integer
+        status_code:
+          type:
+          - integer
+          - 'null'
+        state:
+          type: string
+        response_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        file_url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        metadata:
+          type:
+          - object
+          - 'null'
+        success_row_count:
+          type:
+          - integer
+          - 'null'
+        fail_row_count:
+          type:
+          - integer
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

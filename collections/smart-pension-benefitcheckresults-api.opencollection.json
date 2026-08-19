@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Check Results API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitCheckResults",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BenefitCheckResults/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefits/:id/benefit_check_results",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "332",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "109",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitCheckResults/Get"
+        },
+        {
+          "info": {
+            "name": "BenefitCheckResults/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefits/:benefit_id/benefit_check_results/:id",
+            "headers": [
+              {
+                "name": "signature",
+                "value": "88a43b1b8ef6d2e900797363da21fd2bb29351d3022389feb31fb1340a94dae2"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path",
+                "description": "ID of a benefit check result"
+              },
+              {
+                "name": "benefit_id",
+                "value": "3",
+                "type": "path",
+                "description": "ID of a benefit check result"
+              },
+              {
+                "name": "company_id",
+                "value": "334",
+                "type": "path",
+                "description": "ID of a company"
+              },
+              {
+                "name": "employee_id",
+                "value": "111",
+                "type": "path",
+                "description": "ID of an employee"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Should to be used when the employee / user finishes Shufti Pro (KYC) journey and gets redirected back to Smart Platform."
+        },
+        {
+          "info": {
+            "name": "BenefitCheckResults/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefits/:benefit_id/benefit_check_results/:id",
+            "headers": [
+              {
+                "name": "signature",
+                "value": "a2e59b8ed3a756ff5675bc66c8c8f43edd3917982ce19afab18e2a61b26f0bc8"
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "4",
+                "type": "path",
+                "description": "ID of a benefit check result"
+              },
+              {
+                "name": "benefit_id",
+                "value": "6",
+                "type": "path",
+                "description": "ID of a benefit check result"
+              },
+              {
+                "name": "company_id",
+                "value": "337",
+                "type": "path",
+                "description": "ID of a company"
+              },
+              {
+                "name": "employee_id",
+                "value": "114",
+                "type": "path",
+                "description": "ID of an employee"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Should to be used when the employee / user finishes Shufti Pro (KYC) journey and gets redirected back to Smart Platform."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

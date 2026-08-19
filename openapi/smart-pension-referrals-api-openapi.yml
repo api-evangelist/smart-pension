@@ -1,0 +1,87 @@
+openapi: 3.2.0
+info:
+  title: Keystone Referrals API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Referrals
+paths:
+  /customers/referrals:
+    post:
+      summary: Customers/Referrals/Create
+      tags:
+      - Referrals
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: referee_token
+        in: query
+        required: false
+        example: referee_token=u3h89TwSoRhvjsYHaqag
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 529
+                type: customer
+              schema:
+                $ref: '#/components/schemas/response_referee_person'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_referee_person:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

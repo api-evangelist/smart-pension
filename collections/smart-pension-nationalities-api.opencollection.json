@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Nationalities API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nationalities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Countries/Nationality/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/countries/nationality"
+          },
+          "docs": "Countries/Nationality/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

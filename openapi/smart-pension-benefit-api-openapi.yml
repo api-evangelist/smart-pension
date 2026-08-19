@@ -1,0 +1,3343 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Benefit
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefits:
+    post:
+      summary: Employees/Benefits/Create
+      tags:
+      - Benefit
+      security:
+      - oAuth2:
+        - user
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1443
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 666
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              benefit:
+                benefit_rule_set_id: 92
+                request_mode: unit
+                currency: USD
+                bank_account_detail:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  account_number_format: local_bank_account_number
+                  account_number: '12341234'
+                  routing_number: 12-34-56
+            schema:
+              type: object
+              properties:
+                benefit:
+                  type: object
+                  properties:
+                    requested_benefit_amount: {}
+                    benefit_evidence_uploads_attributes:
+                      type: object
+                    benefit_rule_set_id:
+                      type: integer
+                    request_mode:
+                      type: string
+                    is_mobile:
+                      type: boolean
+                    benefit_subaccount_splits:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          percentage:
+                            type: number
+                          subaccount_uuid:
+                            type: string
+                        required:
+                        - percentage
+                        - subaccount_uuid
+                    bank_account_detail:
+                      type: object
+                      properties:
+                        account_name:
+                          type: string
+                          maximum: 255
+                          x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                        bank_name:
+                          type: string
+                          maximum: 255
+                        country_code:
+                          type: string
+                        account_number:
+                          type: string
+                        account_number_format:
+                          type: string
+                          enum:
+                          - iban
+                          - local_bank_account_number
+                        account_category:
+                          type: string
+                        bank_identifier_code:
+                          type: string
+                        routing_number:
+                          type: string
+                        building_society_roll_number:
+                          type: string
+                        reviewed:
+                          type: boolean
+                      required:
+                      - account_name
+                      - country_code
+                      - account_number_format
+                    currency:
+                      type: string
+                    scheme_currency:
+                      type: string
+                  required:
+                  - benefit_rule_set_id
+                  - bank_account_detail
+                  - currency
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 26
+                admin_user_id: null
+                amount: null
+                amount_currency: USD
+                cancelled_at: null
+                category: something
+                benefit_type: full
+                withdrawal_type: benefit
+                description: null
+                employee_id: 666
+                benefit_rule_set_id: 92
+                state: created
+                created_at: '2026-08-05T13:05:34.000+01:00'
+                updated_at: '2026-08-05T13:05:34.000+01:00'
+                completed_at: null
+                receiving_contract_reference: null
+                withdrawal_application_state: pending
+                id_verification_state: not_applicable
+                payment_state: pending
+                request_mode: unit
+                benefit_check_results: []
+              schema:
+                $ref: '#/components/schemas/response_benefit'
+        '422':
+          description: Benefit rule set id does not exist
+  /companies/{company_id}/employees/{employee_id}/benefits/{id}/request_benefit_checks:
+    post:
+      summary: Employees/Benefits/RequestBenefitChecks
+      tags:
+      - Benefit
+      security:
+      - oAuth2:
+        - user
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1448
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 669
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 27
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Benefit does not exist
+  /partners/employees/{employee_id}/transfer_out:
+    post:
+      summary: TransferOuts/Create
+      tags:
+      - Benefit
+      security:
+      - oAuth2: []
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        example: 804
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              benefit:
+                full_amount: false
+                currency: GBP
+                receiving_contract_reference: '921281344'
+                bank_account_detail:
+                  account_name: my account
+                  country_code: GB
+                  account_number_format: local_bank_account_number
+                  account_number: '12341234'
+                  routing_number: 12-34-56
+                requested_benefit_amount: 60
+            schema:
+              type: object
+              properties:
+                benefit:
+                  type: object
+                  properties:
+                    description:
+                      type: string
+                    requested_benefit_amount: {}
+                    receiving_contract_reference:
+                      type: string
+                    full_amount:
+                      type: boolean
+                    is_mobile:
+                      type: boolean
+                    bank_account_detail:
+                      type: object
+                      properties:
+                        account_name:
+                          type: string
+                          maximum: 255
+                          x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                        bank_name:
+                          type: string
+                          maximum: 255
+                        country_code:
+                          type: string
+                        account_number:
+                          type: string
+                        account_number_format:
+                          type: string
+                          enum:
+                          - iban
+                          - local_bank_account_number
+                        account_category:
+                          type: string
+                        bank_identifier_code:
+                          type: string
+                        routing_number:
+                          type: string
+                        building_society_roll_number:
+                          type: string
+                        reviewed:
+                          type: boolean
+                      required:
+                      - account_name
+                      - country_code
+                      - account_number_format
+                    currency:
+                      type: string
+                    scheme_currency:
+                      type: string
+                  required:
+                  - bank_account_detail
+                  - currency
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 78
+                admin_user_id: null
+                amount: null
+                amount_currency: GBP
+                cancelled_at: null
+                category: something
+                benefit_type: partial
+                withdrawal_type: transfer_out
+                description: null
+                employee_id: 804
+                benefit_rule_set_id: 149
+                state: created
+                created_at: '2026-08-05T13:06:40.000+01:00'
+                updated_at: '2026-08-05T13:06:40.000+01:00'
+                completed_at: null
+                receiving_contract_reference: '921281344'
+                withdrawal_application_state: pending
+                id_verification_state: not_applicable
+                payment_state: pending
+                request_mode: monetary
+                bank_account_detail:
+                  id: 77
+                  routing_number: 12-34-56
+                  account_number: '12341234'
+                  building_society_roll_number: null
+                  account_name: my account
+                  country_code: GB
+                  created_at: '2026-08-05T13:06:40.000+01:00'
+                  updated_at: '2026-08-05T13:06:40.000+01:00'
+                  account_number_format: local_bank_account_number
+                  cancelled_at: null
+                  reviewed: null
+                  account_category: scheme
+                  expires_on: '2027-08-05'
+                benefit_check_results: []
+        '422':
+          description: Ineligible benefit
+components:
+  schemas:
+    response_band:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_minimum_percentage:
+          type: number
+          format: float
+        employee_maximum_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_percentage:
+          type: number
+          format: float
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type: string
+          format: date
+        range_min:
+          type:
+          - integer
+          - 'null'
+        range_max:
+          type:
+          - integer
+          - 'null'
+        default:
+          type: boolean
+    response_scheme_contribution_limit:
+      type: object
+      properties:
+        minimum_one_off_contribution_amount:
+          type: number
+          format: float
+        minimum_one_off_contribution_amount_currency:
+          type: string
+        maximum_one_off_contribution_amount:
+          type: number
+          format: float
+        maximum_one_off_contribution_amount_currency:
+          type: string
+        minimum_recurring_contribution_amount:
+          type: number
+          format: float
+        minimum_recurring_contribution_amount_currency:
+          type: string
+    response_adviser:
+      type: object
+      properties:
+        intercom_user_id:
+          type:
+          - string
+          - 'null'
+        intercom_user_id_hash:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        address:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        signup_start:
+          type:
+          - string
+          - 'null'
+          format: text
+        signup_finish:
+          type:
+          - string
+          - 'null'
+          format: text
+        agent_number:
+          type:
+          - string
+          - 'null'
+        broker_channel:
+          type:
+          - string
+          - 'null'
+        broker_role:
+          type:
+          - string
+          - 'null'
+        abilities:
+          type:
+          - array
+          - 'null'
+          items: {}
+        companies:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            companies:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_company'
+        imports:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_adviser_import'
+        company_tax_reliefs:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_company_tax_relief'
+        shortcut:
+          $ref: '#/components/schemas/response_adviser_shortcut'
+    response_salary:
+      type: object
+      properties:
+        annual_earnings_1:
+          type:
+          - number
+          - 'null'
+          format: float
+        annual_earnings_2:
+          type:
+          - number
+          - 'null'
+          format: float
+        created_at:
+          type: string
+          format: date-time
+        effective_on:
+          type: string
+          format: date
+        employee_id:
+          type: integer
+        id:
+          type: integer
+        updated_at:
+          type: string
+          format: date-time
+        employee:
+          $ref: '#/components/schemas/response_employee'
+    response_company_automation:
+      type: object
+      properties:
+        id:
+          type: integer
+        letter:
+          type: boolean
+        company_id:
+          type: integer
+        postponement_period:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_know_your_customer_data:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        reference:
+          type:
+          - string
+          - 'null'
+    response_ultimate_beneficial_owner_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        exempt:
+          type: boolean
+        exemption_reason:
+          type:
+          - string
+          - 'null'
+        natural_person_ubo:
+          type: boolean
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_adviser_company:
+      type: object
+      properties:
+        id:
+          type: integer
+        adviser_id:
+          type: integer
+        company_id:
+          type: integer
+        preferred_contact_user_id:
+          type:
+          - integer
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    response_customer:
+      type: object
+      properties:
+        intercom_user_id:
+          type:
+          - string
+          - 'null'
+        intercom_user_id_hash:
+          type:
+          - string
+          - 'null'
+        id:
+          type: integer
+        email:
+          type:
+          - string
+          - 'null'
+        reset_password_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        remember_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        last_sign_in_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        gauth_enabled:
+          type: boolean
+        gauth_tmp:
+          type:
+          - string
+          - 'null'
+        forename:
+          type:
+          - string
+          - 'null'
+        surname:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        authentication_token:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          format: date
+        line2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        county:
+          type:
+          - string
+          - 'null'
+        building_name:
+          type:
+          - string
+          - 'null'
+        postcode:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        building_number:
+          type:
+          - string
+          - 'null'
+        telephone:
+          type:
+          - string
+          - 'null'
+        alternative_telephone:
+          type:
+          - string
+          - 'null'
+        referee_id:
+          type:
+          - integer
+          - 'null'
+        referee_type:
+          type:
+          - string
+          - 'null'
+        referral_state:
+          type: string
+        referral_clicks:
+          type:
+          - integer
+          - 'null'
+        referral_reward_name:
+          type:
+          - string
+          - 'null'
+        authentication_token_generated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        gender:
+          type:
+          - string
+          - 'null'
+        role:
+          type:
+          - string
+          - 'null'
+        middlename:
+          type:
+          - string
+          - 'null'
+        envelope_state:
+          type: string
+        enforce_password:
+          type:
+          - boolean
+          - 'null'
+        company_id:
+          type:
+          - integer
+          - 'null'
+        country_code:
+          type:
+          - string
+          - 'null'
+        uuid:
+          type: string
+        preferred_locale:
+          type:
+          - string
+          - 'null'
+        smart_analytics_access_permitted:
+          type:
+          - boolean
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        company:
+          $ref: '#/components/schemas/response_company'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+        shortcut:
+          $ref: '#/components/schemas/response_customer_shortcut'
+        marketing_preference:
+          $ref: '#/components/schemas/response_marketing_preference'
+    response_payment:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        description:
+          type:
+          - string
+          - 'null'
+        invoice_name:
+          type:
+          - string
+          - 'null'
+        paid_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        charge_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        invoice_url:
+          type:
+          - string
+          - 'null'
+        invoice_details_url:
+          type:
+          - string
+          - 'null'
+        invoice_details_file_name:
+          type:
+          - string
+          - 'null'
+        source_of_funds:
+          type:
+          - string
+          - 'null'
+    response_employee_plan_participation:
+      type: object
+      properties:
+        id:
+          type: integer
+        in_waiting_period:
+          type:
+          - boolean
+          - 'null'
+        next_state:
+          type:
+          - string
+          - 'null'
+        updated_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+    response_letter:
+      type: object
+      properties:
+        id:
+          type: integer
+        subject:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        employee_id:
+          type:
+          - integer
+          - 'null'
+        read:
+          type:
+          - boolean
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_by_id:
+          type:
+          - integer
+          - 'null'
+        created_by_type:
+          type:
+          - string
+          - 'null'
+        send_employee_temporary_password_notification:
+          type:
+          - boolean
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+    response_base_payroll_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type: string
+        name:
+          type: string
+        salary_rate:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_company_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
+    response_beneficiary:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        name:
+          type: string
+        email:
+          type:
+          - string
+          - 'null'
+        address:
+          type: string
+        postcode:
+          type:
+          - string
+          - 'null'
+        relation:
+          type: string
+        percentage:
+          type: number
+          format: float
+        born_on:
+          type: string
+          format: date
+        type:
+          type: string
+    response_adviser_import:
+      type: object
+      properties:
+        id:
+          type: integer
+        status_code:
+          type:
+          - integer
+          - 'null'
+        state:
+          type: string
+        response_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        file_url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        metadata:
+          type:
+          - object
+          - 'null'
+        success_row_count:
+          type:
+          - integer
+          - 'null'
+        fail_row_count:
+          type:
+          - integer
+          - 'null'
+        adviser_id:
+          type: integer
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        adviser:
+          $ref: '#/components/schemas/response_adviser'
+    response_provider_scheme_migration:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+    response_valuation:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    response_benefit_check_result:
+      type: object
+      properties:
+        id:
+          type: integer
+        benefit_id:
+          type: integer
+        state:
+          type: string
+        redirect_url:
+          type:
+          - string
+          - 'null'
+        has_redirect_url:
+          type:
+          - boolean
+          - 'null'
+        returned_back_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        comment:
+          type:
+          - string
+          - 'null'
+          format: text
+        automated_checks_available:
+          type: boolean
+    response_benefit_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        employee_contribution_holiday_permitted:
+          type: boolean
+        company_contribution_holiday_permitted:
+          type: boolean
+        band_range_type:
+          type:
+          - string
+          - 'null'
+        employer_earnings_type:
+          type: string
+        employee_earnings_type:
+          type: string
+        employer_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        voluntary_enrolment:
+          type: boolean
+        profit_share_allowed:
+          type: boolean
+        contribution_match_type:
+          type:
+          - string
+          - 'null'
+        stop_contributions_permitted:
+          type: boolean
+        national_insurance_saving_share:
+          type:
+          - number
+          - 'null'
+          format: float
+        enrolment_type:
+          type:
+          - string
+          - 'null'
+        bands:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_band'
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
+    response_scheme_bank_detail:
+      type: object
+      properties:
+        account_number:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type: string
+        swift_code:
+          type: string
+        in_favor_of:
+          type: string
+        currency:
+          type:
+          - string
+          - 'null'
+        exchange_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_adviser_shortcut:
+      type: object
+      properties:
+        id:
+          type: integer
+        token:
+          type:
+          - string
+          - 'null'
+        destination_url:
+          type:
+          - string
+          - 'null'
+        short_url:
+          type:
+          - string
+          - 'null'
+    response_employee_configuration:
+      type: object
+      properties:
+        benefits_out_suspended:
+          type: boolean
+        disabled_switching:
+          type:
+          - boolean
+          - 'null'
+        enable_auto_increase_percentage:
+          type: boolean
+        gone_away:
+          type: boolean
+        id:
+          type: integer
+        investments_locked:
+          type: boolean
+        valuation_under_review:
+          type:
+          - boolean
+          - 'null'
+        preferred_currency:
+          type:
+          - string
+          - 'null'
+        preferred_locale:
+          type:
+          - string
+          - 'null'
+        blocked_rejoin:
+          type: boolean
+    response_employee:
+      type: object
+      properties:
+        updatable:
+          type:
+          - boolean
+          - 'null'
+        id:
+          type: integer
+        email:
+          type:
+          - string
+          - 'null'
+        forename:
+          type:
+          - string
+          - 'null'
+        surname:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          format: date
+        national_insurance_number:
+          type:
+          - string
+          - 'null'
+        gender:
+          type: string
+        telephone:
+          type:
+          - string
+          - 'null'
+        identity_person_id:
+          type:
+          - string
+          - 'null'
+        reset_password_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        remember_created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        last_sign_in_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        slug:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        confirmation_token:
+          type:
+          - string
+          - 'null'
+        gauth_enabled:
+          type:
+          - boolean
+          - 'null'
+        gauth_tmp:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        authentication_token:
+          type:
+          - string
+          - 'null'
+        group_id:
+          type:
+          - integer
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        region:
+          type:
+          - string
+          - 'null'
+        postcode:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        works_in_uk:
+          type: boolean
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        authentication_token_generated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        company_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_percentage_matched:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_match:
+          type: boolean
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        avc_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_contribution_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        contribute_if_entitled:
+          type: boolean
+        enforce_password:
+          type:
+          - boolean
+          - 'null'
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        exit_reason:
+          type:
+          - string
+          - 'null'
+        onboarded_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        opt_out_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        opt_state:
+          type: string
+        opt_in_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        opt_out_window_starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        opt_out_window_ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        subject_to_money_purchase_annual_allowance:
+          type:
+          - boolean
+          - 'null'
+        money_purchase_annual_allowance_effective_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        company_id:
+          type: integer
+        automatically_enrolled:
+          type: boolean
+        contractually_enrolled:
+          type:
+          - boolean
+          - 'null'
+        external_id:
+          type:
+          - string
+          - 'null'
+        customer_id:
+          type:
+          - integer
+          - 'null'
+        referral_clicks:
+          type:
+          - integer
+          - 'null'
+        retirement_age:
+          type:
+          - integer
+          - 'null'
+        target_retirement_age:
+          type:
+          - integer
+          - 'null'
+        retirement_date:
+          type: string
+          format: date
+        target_retirement_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        secondary_email:
+          type:
+          - string
+          - 'null'
+        middle_name:
+          type:
+          - string
+          - 'null'
+        civil_status:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type:
+          - string
+          - 'null'
+        online_login_disabled:
+          type: boolean
+        line3:
+          type:
+          - string
+          - 'null'
+        uuid:
+          type: string
+        eligible_for_modeller_projection:
+          type:
+          - boolean
+          - 'null'
+        can_manage_contribution_rates:
+          type:
+          - boolean
+          - 'null'
+        active_payroll_configuration:
+          type:
+          - object
+          - 'null'
+        tax_relief_type:
+          type:
+          - string
+          - 'null'
+        employment_type:
+          type:
+          - string
+          - 'null'
+        tax_residency_status_name:
+          type:
+          - string
+          - 'null'
+        salary_sacrifice_signed:
+          type:
+          - boolean
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        banned_params:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        intercom_user_id:
+          type:
+          - string
+          - 'null'
+        intercom_user_id_hash:
+          type:
+          - string
+          - 'null'
+        is_not_editable:
+          type:
+          - boolean
+          - 'null'
+        active_special_cases:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_employee_special_case'
+        contributions:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            contributions:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_contribution'
+        letters:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            letters:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_letter'
+        postponements:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            postponements:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_postponement'
+        fund_splits:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            fund_splits:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_fund_split'
+        valuations:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            valuations:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_valuation'
+        portfolios:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            portfolios:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_portfolio'
+        benefits:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            benefits:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_benefit'
+        employment_statuses:
+          $ref: '#/components/schemas/response_employment_statuses'
+        salaries:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            salaries:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_salary'
+        customer:
+          $ref: '#/components/schemas/response_customer'
+        group:
+          $ref: '#/components/schemas/response_group'
+        company:
+          $ref: '#/components/schemas/response_company'
+        shortcut:
+          $ref: '#/components/schemas/response_employee_shortcut'
+        marketing_preference:
+          $ref: '#/components/schemas/response_marketing_preference'
+        expression_of_wish:
+          $ref: '#/components/schemas/response_expression_of_wish'
+        employee_configuration:
+          $ref: '#/components/schemas/response_employee_configuration'
+        employee_plan_participation:
+          $ref: '#/components/schemas/response_employee_plan_participation'
+    response_expression_of_wish:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type:
+          - integer
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        follow_local_law:
+          type: boolean
+        beneficiaries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_beneficiary'
+        contingent_beneficiaries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_beneficiary'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+    response_contribution:
+      type: object
+      properties:
+        is_not_editable:
+          type:
+          - boolean
+          - 'null'
+        id:
+          type: integer
+        category:
+          type:
+          - string
+          - 'null'
+        employee_id:
+          type: integer
+        period_type:
+          type:
+          - string
+          - 'null'
+        gross_qualifying_earnings:
+          type:
+          - number
+          - 'null'
+          format: float
+        second_gross_qualifying_earnings_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        pensionable_earnings:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_pensionable_earnings_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_pensionable_earnings_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        avc_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        contribute_if_entitled:
+          type: boolean
+        company_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_sal_sac_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        life_cover_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        voluntary_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        ni_rebate_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        currency:
+          type:
+          - string
+          - 'null'
+        works_in_uk:
+          type: boolean
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        lower_level:
+          type:
+          - number
+          - 'null'
+          format: float
+        upper_level:
+          type:
+          - number
+          - 'null'
+          format: float
+        trigger_level:
+          type:
+          - number
+          - 'null'
+          format: float
+        pensionable_earning_type:
+          type:
+          - string
+          - 'null'
+        contribution_type:
+          type: string
+        uuid:
+          type: string
+        company_name:
+          type:
+          - string
+          - 'null'
+        tax_relief_type:
+          type:
+          - string
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        contribution_amounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_contribution_amount'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+        scheme:
+          $ref: '#/components/schemas/response_scheme'
+    response_employee_shortcut:
+      type: object
+      properties:
+        id:
+          type: integer
+        token:
+          type:
+          - string
+          - 'null'
+        destination_url:
+          type:
+          - string
+          - 'null'
+        short_url:
+          type:
+          - string
+          - 'null'
+    response_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_provider:
+          type:
+          - string
+          - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
+    response_company:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type:
+          - string
+          - 'null'
+        slug:
+          type:
+          - string
+          - 'null'
+        registration_number:
+          type:
+          - string
+          - 'null'
+        tax_office_number:
+          type:
+          - string
+          - 'null'
+        tax_office_employer_reference:
+          type:
+          - string
+          - 'null'
+        legal_structure:
+          type:
+          - string
+          - 'null'
+        welcome_letters_reminder_sent_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        pension_regulator_letter_code:
+          type:
+          - string
+          - 'null'
+        trading_address1:
+          type:
+          - string
+          - 'null'
+        trading_address2:
+          type:
+          - string
+          - 'null'
+        trading_address3:
+          type:
+          - string
+          - 'null'
+        trading_address_postcode:
+          type:
+          - string
+          - 'null'
+        trading_address_country:
+          type:
+          - string
+          - 'null'
+        reg_address1:
+          type:
+          - string
+          - 'null'
+        reg_address2:
+          type:
+          - string
+          - 'null'
+        reg_address3:
+          type:
+          - string
+          - 'null'
+        reg_address4:
+          type:
+          - string
+          - 'null'
+        reg_address_postcode:
+          type:
+          - string
+          - 'null'
+        reg_address_country:
+          type:
+          - string
+          - 'null'
+        pensionable_earning_type:
+          type: string
+        default_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        state:
+          type: string
+        employee_can_change_contribution:
+          type: boolean
+        uuid:
+          type: string
+        layout_configuration_id:
+          type:
+          - integer
+          - 'null'
+        relief_at_source_active:
+          type:
+          - boolean
+          - 'null'
+        only_employer_manages_membership:
+          type: boolean
+        national_insurance_saving_share:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_relief_basis_type:
+          type:
+          - string
+          - 'null'
+        tax_relief_fallback_type:
+          type:
+          - string
+          - 'null'
+        direct_debit_optional:
+          type: boolean
+        skip_contribution_validations:
+          type: boolean
+        self_certification_started_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        customers:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            customers:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_customer'
+        payments:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            payments:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_payment'
+        employees:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            employees:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_employee'
+        enrolments:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            enrolments:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_enrolment'
+        imports:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_company_import'
+        advisers:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            advisers:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_adviser'
+        mandates:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            mandates:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_mandate'
+        ultimate_beneficial_owners:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            ultimate_beneficial_owners:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_ultimate_beneficial_owner'
+        benefit_groups:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            benefit_groups:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_benefit_group'
+        payroll_configurations:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            payroll_configurations:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_base_payroll_configuration'
+        bank_account_details:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_bank_account_detail'
+        adviser_companies:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            adviser_companies:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_adviser_company'
+        scheme_details:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_scheme_detail'
+        envelope:
+          $ref: '#/components/schemas/response_envelope'
+        company_automation:
+          $ref: '#/components/schemas/response_company_automation'
+        know_your_customer_data:
+          $ref: '#/components/schemas/response_know_your_customer_data'
+        scheme_detail:
+          $ref: '#/components/schemas/response_scheme_detail'
+        ultimate_beneficial_owner_configuration:
+          $ref: '#/components/schemas/response_ultimate_beneficial_owner_configuration'
+        scheme:
+          $ref: '#/components/schemas/response_scheme'
+        provider_scheme_migration:
+          $ref: '#/components/schemas/response_provider_scheme_migration'
+        default_investment_instrument:
+          $ref: '#/components/schemas/response_default_investment_instrument'
+        economic_zone:
+          $ref: '#/components/schemas/response_economic_zone'
+    response_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_customer_shortcut:
+      type: object
+      properties:
+        id:
+          type: integer
+        token:
+          type:
+          - string
+          - 'null'
+        destination_url:
+          type:
+          - string
+          - 'null'
+        short_url:
+          type:
+          - string
+          - 'null'
+    response_fund_split:
+      type: object
+      properties:
+        id:
+          type: integer
+        fund_id:
+          type: integer
+        investment_account_uuid:
+          type: string
+        percentage:
+          type: number
+        fund:
+          $ref: '#/components/schemas/response_fund'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+    response_mandate:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type:
+          - integer
+          - 'null'
+        state:
+          type: string
+        selected:
+          type:
+          - boolean
+          - 'null'
+        bank_account_number_ending:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        uuid:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        redirect_url:
+          type:
+          - string
+          - 'null'
+        next_possible_charge_date:
+          type:
+          - string
+          - 'null'
+          format: date
+        company:
+          $ref: '#/components/schemas/response_company'
+    response_scheme_tax_reliefs:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_scheme_tax_relief'
+    response_scheme_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        regulator_reference:
+          type:
+          - string
+          - 'null'
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        state:
+          type: string
+        uuid:
+          type: string
+        ae_qualifying:
+          type: boolean
+        scheme_external_id:
+          type:
+          - string
+          - 'null'
+        current_company_tax_relief:
+          $ref: '#/components/schemas/response_company_tax_relief'
+        company_tax_reliefs:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            data:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_company_tax_relief'
+    response_economic_zone:
+      type: object
+      properties:
+        id:
+          type: integer
+        country:
+          type: string
+        display_name:
+          type: string
+        name:
+          type: string
+        scheme_id:
+          type:
+          - integer
+          - 'null'
+        uuid:
+          type: string
+    response_postponement:
+      type: object
+      properties:
+        is_not_editable:
+          type:
+          - boolean
+          - 'null'
+        id:
+          type: integer
+        employee_id:
+          type:
+          - integer
+          - 'null'
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        deferral_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+        letter:
+          $ref: '#/components/schemas/response_letter'
+    response_portfolio:
+      type: object
+      properties:
+        id:
+          type: integer
+        custom:
+          type: boolean
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        money_in:
+          type:
+          - boolean
+          - 'null'
+        portfolio_composed_by_a_tdf:
+          type:
+          - boolean
+          - 'null'
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        subaccount_name:
+          type:
+          - string
+          - 'null'
+        subaccount_group:
+          type:
+          - string
+          - 'null'
+        fund_splits:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            fund_splits:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_fund_split'
+    response_employee_special_case:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        code:
+          type:
+          - string
+          - 'null'
+        benefit_restricted:
+          type:
+          - boolean
+          - 'null'
+        details:
+          type:
+          - object
+          - 'null'
+        effective_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    response_contribution_amount:
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        currency:
+          type:
+          - string
+          - 'null'
+        source_type:
+          type: string
+        state:
+          type: string
+    response_envelope:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type:
+          - integer
+          - 'null'
+        document_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        signature_service:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        signed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_default_investment_instrument:
+      type: object
+      properties:
+        instrument_id:
+          type: integer
+        instrument_type:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+    response_enrolment:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        event_on:
+          type: string
+          format: date
+        next_re_declaration_of_compliance_deadline_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        next_re_enrolment_window_starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        next_re_enrolment_window_ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        company:
+          $ref: '#/components/schemas/response_company'
+    response_employment_statuses:
+      type: object
+      properties:
+        employment_statuses:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_employment_status'
+    response_ultimate_beneficial_owner:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        country_of_jurisdiction:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          format: date
+        entity_name:
+          type:
+          - string
+          - 'null'
+        forename:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        gender:
+          type:
+          - string
+          - 'null'
+        nationality:
+          type:
+          - string
+          - 'null'
+        registered_address:
+          type:
+          - string
+          - 'null'
+          format: text
+        surname:
+          type:
+          - string
+          - 'null'
+        exempt:
+          type: boolean
+        exemption_reason:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_complete_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        routing_number:
+          type:
+          - string
+          - 'null'
+        account_number:
+          type:
+          - string
+          - 'null'
+        building_society_roll_number:
+          type:
+          - string
+          - 'null'
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        reviewed:
+          type:
+          - boolean
+          - 'null'
+        account_category:
+          type:
+          - string
+          - 'null'
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+    response_marketing_preference:
+      type: object
+      properties:
+        id:
+          type: integer
+        resource_id:
+          type: integer
+        resource_type:
+          type: string
+        gdpr_consent:
+          type: boolean
+        source:
+          type: string
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+    response_scheme:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        currency:
+          type: string
+        federal:
+          type: boolean
+        category:
+          type:
+          - string
+          - 'null'
+        external_id:
+          type:
+          - string
+          - 'null'
+        bank_detail:
+          $ref: '#/components/schemas/response_scheme_bank_detail'
+        contribution_limit:
+          $ref: '#/components/schemas/response_scheme_contribution_limit'
+        scheme_tax_reliefs:
+          $ref: '#/components/schemas/response_scheme_tax_reliefs'
+    response_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type:
+          - string
+          - 'null'
+        company_id:
+          type:
+          - integer
+          - 'null'
+        employee_ids:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        payment_frequency:
+          type:
+          - string
+          - 'null'
+        employee_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        include_in_payment_schedule:
+          type: boolean
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        company:
+          $ref: '#/components/schemas/response_company'
+    response_company_import:
+      type: object
+      properties:
+        id:
+          type: integer
+        status_code:
+          type:
+          - integer
+          - 'null'
+        state:
+          type: string
+        response_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        file_url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        type:
+          type:
+          - string
+          - 'null'
+        metadata:
+          type:
+          - object
+          - 'null'
+        success_row_count:
+          type:
+          - integer
+          - 'null'
+        fail_row_count:
+          type:
+          - integer
+          - 'null'
+        company_id:
+          type: integer
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        company:
+          $ref: '#/components/schemas/response_company'
+    response_benefit:
+      type: object
+      properties:
+        id:
+          type: integer
+        admin_user_id:
+          type:
+          - integer
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        amount_currency:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_type:
+          type:
+          - string
+          - 'null'
+        withdrawal_type:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        employee_id:
+          type: integer
+        benefit_rule_set_id:
+          type:
+          - integer
+          - 'null'
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        completed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        receiving_contract_reference:
+          type:
+          - string
+          - 'null'
+        withdrawal_application_state:
+          type:
+          - string
+          - 'null'
+        id_verification_state:
+          type:
+          - string
+          - 'null'
+        payment_state:
+          type:
+          - string
+          - 'null'
+        request_mode:
+          type: string
+        bank_account_detail:
+          $ref: '#/components/schemas/response_complete_bank_account_detail'
+        benefit_check_results:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_check_result'
+        employee:
+          $ref: '#/components/schemas/response_employee'
+    response_employment_status:
+      type: object
+      properties:
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        employee_id:
+          type: integer
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        part_time_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        starts_on:
+          type: string
+          format: date
+        type:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

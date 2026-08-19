@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "5bd9506c-5ce5-4f79-b863-a729e1c4511b",
+      "name": "CompanyLookups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ad1b225-d6ea-4264-9d13-ef5e380b32f9",
+          "name": "CompanyLookups/List",
+          "request": {
+            "name": "CompanyLookups/List",
+            "description": {},
+            "url": {
+              "path": [
+                "company_lookups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47deb922-c7f4-4570-b25a-c9d718f7414a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company_lookups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "name=dubai"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"SD (North) Limited\",\n    \"id\": \"07162052\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD (Bristol) Limited\",\n    \"id\": 6032999,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD (Harrogate) Limited\",\n    \"id\": 8990758,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD System Solutions LTD.\",\n    \"id\": 5798383,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD & D (UK) Limited\",\n    \"id\": \"10328653\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Worx UK Limited\",\n    \"id\": \"03100021\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Consulting (NW) Ltd\",\n    \"id\": \"10968753\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Consulting (Yorkshire) Ltd\",\n    \"id\": 8978403,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Consulting (Donnelly) Ltd\",\n    \"id\": 8789239,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Services (Yorkshire) Ltd\",\n    \"id\": 8071736,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Exteriors (Leeds) Ltd\",\n    \"id\": \"10612663\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Structures (London) Ltd\",\n    \"id\": \"10705382\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Interiors (Leeds) Ltd\",\n    \"id\": \"10612527\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Engineering (Ni) Ltd\",\n    \"id\": \"NI605639\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Marine Services Limited\",\n    \"id\": \"06251034\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Helicopters LLP\",\n    \"id\": \"OC387747\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Event Management Limited\",\n    \"id\": \"NI619722\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Software Developers Limited\",\n    \"id\": 6271482,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"Sd Brickwork (Staffs) Ltd\",\n    \"id\": \"11127938\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Couriers (Dundee) Ltd\",\n    \"id\": \"SC530839\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Commercial (UK) Ltd\",\n    \"id\": 9342234,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"D & SD Limited\",\n    \"id\": \"10218839\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Marine Services (Holdings) Limited\",\n    \"id\": \"06251300\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Services (West Midlands) Ltd\",\n    \"id\": \"10925964\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Consultancy (North East) Ltd\",\n    \"id\": \"10587401\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Carpentry (Leighton Buzzard) Ltd\",\n    \"id\": \"10034510\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Plumbing (Engineering) Limited\",\n    \"id\": \"10353188\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Investments (NW) Limited\",\n    \"id\": \"10864544\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Construction (IW) Limited\",\n    \"id\": 5956158,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Services (Midlands) Limited\",\n    \"id\": 6952168,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Roofing (Oxford) Limited\",\n    \"id\": \"10582536\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Builders (Forfar) Limited\",\n    \"id\": \"SC472901\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Consultancy (Ni) Limited\",\n    \"id\": \"NI055882\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Properties (UK) Limited\",\n    \"id\": 8715936,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Catering (Scotland) Limited\",\n    \"id\": \"SC495992\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Carpentry (Wboro) Limited\",\n    \"id\": 5645784,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Catering (AYR) Limited\",\n    \"id\": \"SC502931\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Skelton Consultancy LTD.\",\n    \"id\": 9436623,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Accountancy Services LTD.\",\n    \"id\": 7639616,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Venture Advisors LTD.\",\n    \"id\": \"10625784\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"EQT SD (UK) Limited\",\n    \"id\": 7734296,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Trading (London) Limited\",\n    \"id\": 7059953,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Restaurant Consultants Limited\",\n    \"id\": \"482645\",\n    \"country_code\": \"ie\"\n  },\n  {\n    \"name\": \"SD Worx Ireland Limited\",\n    \"id\": \"107507\",\n    \"country_code\": \"ie\"\n  },\n  {\n    \"name\": \"SD Shopfitting Contracts Limited\",\n    \"id\": 4723980,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Yacht Service LTD.\",\n    \"id\": 9046650,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Precision Group Limited\",\n    \"id\": 4256129,\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Productions Belfast Limited\",\n    \"id\": \"NI619724\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"MJ & SD Ltd\",\n    \"id\": \"NI634403\",\n    \"country_code\": \"gb\"\n  },\n  {\n    \"name\": \"SD Maintenance Services Limited\",\n    \"id\": 5538188,\n    \"country_code\": \"gb\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8eeed009-6ab4-47b0-974b-1f31ac97318c",
+    "name": "Keystone Company Lookups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

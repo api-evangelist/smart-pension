@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Third Party Payment Provider API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ThirdPartyPaymentProvider",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/ThirdPartyPaymentProvider/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/third_party_payment_providers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "2",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "1385",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/ThirdPartyPaymentProvider/Destroy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Later Life Projection API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LaterLifeProjection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "LaterLifeProjection/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/later_life_projection",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "710",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "351",
+                "type": "path"
+              },
+              {
+                "name": "total_amount",
+                "value": "total_amount=100",
+                "type": "query"
+              },
+              {
+                "name": "start_age",
+                "value": "start_age=80",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "LaterLifeProjection/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

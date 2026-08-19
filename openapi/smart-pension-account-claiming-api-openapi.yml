@@ -1,0 +1,900 @@
+openapi: 3.2.0
+info:
+  title: Keystone Account Claiming API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Account-Claiming
+paths:
+  /account-claiming/confirm-personal-data:
+    post:
+      summary: Account-Claiming/confirm-personal-data
+      tags:
+      - Account-Claiming
+      security:
+      - oAuth2: []
+      servers:
+      - url: https://account-claiming.sandbox.autoenrolment.co.uk
+        description: Account claiming API
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              title: Mr
+              first_name: Kendall
+              middle_name: null
+              last_name: Roy
+              phone_number: '+442071234567'
+              address_line_1: 10 Downing Street
+              address_line_2: Flat 12
+              address_line_3: SW1A 2AA
+              city: London
+              country: GB
+              postcode: SW1A 2AA
+            schema:
+              type: object
+              properties:
+                title:
+                  type:
+                  - string
+                  - 'null'
+                first_name:
+                  type:
+                  - string
+                  - 'null'
+                middle_name:
+                  type:
+                  - string
+                  - 'null'
+                last_name:
+                  type:
+                  - string
+                  - 'null'
+                phone_number:
+                  type:
+                  - string
+                  - 'null'
+                address_line_1:
+                  type:
+                  - string
+                  - 'null'
+                address_line_2:
+                  type:
+                  - string
+                  - 'null'
+                address_line_3:
+                  type:
+                  - string
+                  - 'null'
+                city:
+                  type:
+                  - string
+                  - 'null'
+                country:
+                  type:
+                  - string
+                  - 'null'
+                postcode:
+                  type:
+                  - string
+                  - 'null'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 019fd1c8-fa96-745f-8734-ec645fd157ed
+                state: succeeded
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  state:
+                    type: string
+        '401':
+          description: Unauthorized - incorrect auth header
+        '404':
+          description: No attempt found
+          content:
+            application/json:
+              example:
+                error: Not Found
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '409':
+          description: Invalid attempt state
+          content:
+            application/json:
+              example:
+                error: Attempt KYC must be completed
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '422':
+          description: Personal data validation error
+          content:
+            application/json:
+              examples:
+                cannot_link_accounts:
+                  value:
+                    id: 019fd1c9-0096-76fd-a1b9-9df2561d3f06
+                    state: failed_cannot_link
+                    errors: []
+                validation_error:
+                  value:
+                    id: 019fd1c9-0234-7df0-b2e6-9a0f65442f5a
+                    state: kyc_completed
+                    errors:
+                    - code: 400114
+                      title: Phone number format is invalid.
+                      detail: Phone number is in invalid format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/phone_number
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  state:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                        title:
+                          type: string
+                        detail:
+                          type: string
+                        meta:
+                          type: object
+                          properties: {}
+                        source:
+                          type: object
+                          properties:
+                            pointer:
+                              type: string
+  /account-claiming/current-attempt:
+    get:
+      summary: Account-Claiming/current-attempt
+      tags:
+      - Account-Claiming
+      security:
+      - oAuth2: []
+      servers:
+      - url: https://account-claiming.sandbox.autoenrolment.co.uk
+        description: Account claiming API
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                current_attempt:
+                  id: 019fd1c9-0868-71b0-81a0-e12e7e2bba04
+                  state: kyc_completed
+                  person_identifier: a572a005-90b5-474e-a7d3-b623a64f9478
+                  assumed_personal_data:
+                    title: Mr
+                    first_name: Kendall
+                    middle_name: null
+                    last_name: Roy
+                    date_of_birth: '1978-09-22'
+                    national_insurance_number: AA123456B
+                    email: kendall.roy@example.com
+                    phone_number: '+442071234567'
+                    address_line_1: 10 Downing Street
+                    address_line_2: Flat 12
+                    address_line_3: null
+                    region: England
+                    city: London
+                    country: GB
+                    postcode: SW1A 2AA
+              schema:
+                type: object
+                properties:
+                  current_attempt:
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      id:
+                        type: string
+                      state:
+                        type: string
+                      person_identifier:
+                        type: string
+                      assumed_personal_data:
+                        type:
+                        - object
+                        - 'null'
+                        properties:
+                          title:
+                            type:
+                            - string
+                            - 'null'
+                          first_name:
+                            type:
+                            - string
+                            - 'null'
+                          middle_name:
+                            type:
+                            - string
+                            - 'null'
+                          last_name:
+                            type:
+                            - string
+                            - 'null'
+                          email:
+                            type:
+                            - string
+                            - 'null'
+                          date_of_birth:
+                            type:
+                            - string
+                            - 'null'
+                          national_insurance_number:
+                            type:
+                            - string
+                            - 'null'
+                          phone_number:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_1:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_2:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_3:
+                            type:
+                            - string
+                            - 'null'
+                          region:
+                            type:
+                            - string
+                            - 'null'
+                          city:
+                            type:
+                            - string
+                            - 'null'
+                          country:
+                            type:
+                            - string
+                            - 'null'
+                          postcode:
+                            type:
+                            - string
+                            - 'null'
+        '401':
+          description: Unauthorized - incorrect auth header
+  /account-claiming/attempts/{uuid}/:
+    get:
+      summary: Account-Claiming/Attempt
+      tags:
+      - Account-Claiming
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        example: 019fd1c9-0b84-7c51-98f2-41840fe294d9
+        schema:
+          type: string
+      servers:
+      - url: https://account-claiming.sandbox.autoenrolment.co.uk
+        description: Account claiming API
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                attempt:
+                  id: 019fd1c9-0b84-7c51-98f2-41840fe294d9
+                  state: kyc_completed
+                  person_identifier: 9c367203-d7c9-45df-82d8-3d90bc350500
+                  assumed_personal_data:
+                    title: Mr
+                    first_name: Kendall
+                    middle_name: null
+                    last_name: Roy
+                    date_of_birth: '1978-09-22'
+                    national_insurance_number: AA123456B
+                    email: kendall.roy@example.com
+                    phone_number: '+442071234567'
+                    address_line_1: 10 Downing Street
+                    address_line_2: Flat 12
+                    address_line_3: null
+                    region: England
+                    city: London
+                    country: GB
+                    postcode: SW1A 2AA
+              schema:
+                type: object
+                properties:
+                  attempt:
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      id:
+                        type: string
+                      state:
+                        type: string
+                      person_identifier:
+                        type:
+                        - string
+                        - 'null'
+                      assumed_personal_data:
+                        type:
+                        - object
+                        - 'null'
+                        properties:
+                          title:
+                            type:
+                            - string
+                            - 'null'
+                          first_name:
+                            type:
+                            - string
+                            - 'null'
+                          middle_name:
+                            type:
+                            - string
+                            - 'null'
+                          last_name:
+                            type:
+                            - string
+                            - 'null'
+                          email:
+                            type:
+                            - string
+                            - 'null'
+                          date_of_birth:
+                            type:
+                            - string
+                            - 'null'
+                          national_insurance_number:
+                            type:
+                            - string
+                            - 'null'
+                          phone_number:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_1:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_2:
+                            type:
+                            - string
+                            - 'null'
+                          address_line_3:
+                            type:
+                            - string
+                            - 'null'
+                          region:
+                            type:
+                            - string
+                            - 'null'
+                          city:
+                            type:
+                            - string
+                            - 'null'
+                          country:
+                            type:
+                            - string
+                            - 'null'
+                          postcode:
+                            type:
+                            - string
+                            - 'null'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example:
+                error: Not Found
+  /account-claiming/password-validations:
+    get:
+      summary: Account-Claiming/Password-Validations
+      tags:
+      - Account-Claiming
+      servers:
+      - url: https://account-claiming.sandbox.autoenrolment.co.uk
+        description: Account claiming API
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                format:
+                - regexp: .{10,}
+                  description: Password must be at least 10 characters long
+                - regexp: ^.{0, 65}$
+                  description: Password must be at most 65 characters long
+                - regexp: (?=.*[a-z])(?=.*[A-Z])
+                  description: Password must include at least one lowercase and one uppercase letter
+                - regexp: (?=.*[0-9])
+                  description: Password must include at least one number
+                - regexp: (?=.*[^A-Za-z0-9])
+                  description: Password must include at least one symbol
+                length:
+                  min: 10
+                  max: 65
+              schema:
+                type: object
+                properties:
+                  length:
+                    type: object
+                    properties:
+                      min:
+                        type: integer
+                      max:
+                        type: integer
+                  format:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        regexp:
+                          type: string
+                        description:
+                          type: string
+  /account-claiming/attempts/{uuid}/additional-data:
+    patch:
+      summary: Account-Claiming/Attempt/AdditionalData
+      tags:
+      - Account-Claiming
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        example: 019fd1c9-0fea-7926-ba74-a84471811663
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid:
+                value:
+                  previous_email: luke@skywalker.com
+                  phone_number: '+442071234567'
+                  address_line_1: Lars Homestead
+                  address_line_2: '4'
+                  address_line_3: ''
+                  city: Tatooine
+                  country: GB
+                  postcode: SW1A 2AA
+              invalid_parameters:
+                value:
+                  previous_email: invalid_email
+                  phone_number: ABC-123
+                  address_line_1: ''
+                  address_line_2: ''
+                  address_line_3: ''
+                  city: ''
+                  country: ''
+                  postcode: ''
+            schema:
+              type: object
+              properties:
+                previous_email:
+                  type: string
+                phone_number:
+                  type: string
+                address_line_1:
+                  type: string
+                address_line_2:
+                  type:
+                  - string
+                  - 'null'
+                address_line_3:
+                  type:
+                  - string
+                  - 'null'
+                city:
+                  type: string
+                country:
+                  type: string
+                postcode:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: {}
+              schema:
+                type: object
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    error: Cannot provide additional data in current state
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 400015
+                      title: Address line 1 is a required field.
+                      detail: Enter an address line 1.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/address_line_1
+                    - code: 400019
+                      title: City is a required field.
+                      detail: Enter a city.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/city
+                    - code: 400022
+                      title: Country is a required field.
+                      detail: Enter a Country.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country
+                    - code: 400024
+                      title: Postcode is a required field.
+                      detail: Enter a Postcode.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/postcode
+                    - code: 400027
+                      title: Previous email address is not valid.
+                      detail: 'The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/previous_email
+                    - code: 400014
+                      title: Phone number format is invalid.
+                      detail: Phone number is in invalid format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/phone_number
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                        title:
+                          type: string
+                        detail:
+                          type: string
+                        meta:
+                          type: object
+                          properties: {}
+                        source:
+                          type: object
+                          properties:
+                            pointer:
+                              type: string
+  /account-claiming/attempts/{uuid}/email:
+    patch:
+      summary: Account-Claiming/Attempt/Email
+      tags:
+      - Account-Claiming
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        example: 019fd1c9-1478-7ac6-adf2-d982c764a62a
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid:
+                value:
+                  current_email: luke@skywalker.com
+              invalid_parameters:
+                value:
+                  current_email: invalid_email
+            schema:
+              type: object
+              properties:
+                current_email:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: {}
+              schema:
+                type: object
+        '409':
+          description: Conflict
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    error: Cannot provide email in current state
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 403002
+                      title: Email address is not valid.
+                      detail: 'The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.'
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/current_email
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                        title:
+                          type: string
+                        detail:
+                          type: string
+                        meta:
+                          type: object
+                          properties: {}
+                        source:
+                          type: object
+                          properties:
+                            pointer:
+                              type: string
+  /account-claiming/attempts/{uuid}/password:
+    patch:
+      summary: Account-Claiming/Attempt/Password
+      tags:
+      - Account-Claiming
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        example: 019fd1c9-18f2-7d37-9aa4-f014ac22b68b
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid:
+                value:
+                  password: 1234Qwertyuiop!
+                  password_confirmation: 1234Qwertyuiop!
+              invalid_parameters:
+                value:
+                  password: too_short_invalid
+                  password_confirmation: 1234Qwertyuiop!
+            schema:
+              type: object
+              properties:
+                password:
+                  type: string
+                password_confirmation:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example: {}
+              schema:
+                type: object
+        '409':
+          description: Invalid state
+          content:
+            application/json:
+              examples:
+                invalid_state:
+                  value:
+                    error: Cannot provide password in current state
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 404001
+                      title: Password is too short.
+                      detail: Password is too short.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/password
+                    - code: 404002
+                      title: Password is invalid.
+                      detail: Password is invalid.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/password
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                        title:
+                          type: string
+                        detail:
+                          type: string
+                        meta:
+                          type: object
+                          properties: {}
+                        source:
+                          type: object
+                          properties:
+                            pointer:
+                              type: string
+  /account-claiming/attempts:
+    post:
+      summary: Account-Claiming/Attempt
+      tags:
+      - Account-Claiming
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid:
+                value:
+                  first_name: Anthony
+                  last_name: Davis
+                  date_of_birth: '1986-01-22'
+                  national_insurance_number: AA123456B
+              invalid_parameters:
+                value:
+                  first_name: ''
+                  last_name: Davis
+                  date_of_birth: not a data
+                  national_insurance_number: AA12_invalid
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                date_of_birth:
+                  type: string
+                national_insurance_number:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                uuid: 019fd1c9-1f5a-7e76-bd1f-21b766ec0f32
+                requires_additional_info: false
+              schema:
+                type: object
+                properties:
+                  uuid:
+                    type: string
+                  requires_additional_info:
+                    type: boolean
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 400003
+                      title: First name is required.
+                      detail: Enter a first name.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/first_name
+                    - code: 400009
+                      title: Date of birth is required.
+                      detail: Enter a date of birth.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/date_of_birth
+                    - code: 400012
+                      title: National insurance number is invalid.
+                      detail: Enter national insurance number in a proper format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/national_insurance_number
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                        title:
+                          type: string
+                        detail:
+                          type: string
+                        meta:
+                          type: object
+                          properties: {}
+                        source:
+                          type: object
+                          properties:
+                            pointer:
+                              type: string
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

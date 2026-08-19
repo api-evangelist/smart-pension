@@ -1,0 +1,109 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Ultimate Beneficial Owners API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "UltimateBeneficialOwners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/UltimateBeneficialOwners/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ultimate_beneficial_owners/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1405",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "32",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/UltimateBeneficialOwners/Get"
+        },
+        {
+          "info": {
+            "name": "Companies/UltimateBeneficialOwners/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/ultimate_beneficial_owners",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1411",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/UltimateBeneficialOwners/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

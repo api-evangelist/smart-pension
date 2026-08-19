@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Benefit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Employees/Benefits/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefits",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1443",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "666",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Employees/Benefits/Create"
+        },
+        {
+          "info": {
+            "name": "Employees/Benefits/RequestBenefitChecks",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefits/:id/request_benefit_checks",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1448",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "669",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "27",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Employees/Benefits/RequestBenefitChecks"
+        },
+        {
+          "info": {
+            "name": "TransferOuts/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/partners/employees/:employee_id/transfer_out",
+            "params": [
+              {
+                "name": "employee_id",
+                "value": "804",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "TransferOuts/Create"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

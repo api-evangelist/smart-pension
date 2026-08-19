@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Scheme Details API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanySchemeDetails
+paths:
+  /companies/{company_id}/scheme_details/{id}:
+    put:
+      summary: Companies/SchemeDetails/Update
+      tags:
+      - CompanySchemeDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 829
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 1305
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              starts_on: '2026-08-05T13:04:38+01:00'
+            schema:
+              type: object
+              properties:
+                starts_on:
+                  type: string
+                renewal_on:
+                  type: string
+                regulator_reference:
+                  type: string
+                revenue_reference:
+                  type: string
+                scheme_id:
+                  type: integer
+                display_name:
+                  type: string
+                tax_relief_basis_type:
+                  type: string
+                tax_relief_fallback_type:
+                  type: string
+                salary_sacrifice_consent_type:
+                  type: string
+                  enum:
+                  - implied
+                  - express
+                fund_set_id:
+                  type: integer
+                fund_set_name:
+                  type: string
+                instrument_name:
+                  type: string
+                instrument_type:
+                  type: string
+                assessment_required:
+                  type: string
+                  enum:
+                  - not_applicable
+                  - 'yes'
+                  - 'no'
+                metadata:
+                  type: object
+                ae_qualifying:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Forbidden when the staging date is locked
+        '404':
+          description: Not Found
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

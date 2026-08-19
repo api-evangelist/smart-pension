@@ -1,0 +1,181 @@
+openapi: 3.2.0
+info:
+  title: Keystone Adviser Companies API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: AdviserCompanies
+paths:
+  /adviser_companies:
+    post:
+      summary: AdviserCompany/Create
+      tags:
+      - AdviserCompanies
+      security:
+      - oAuth2:
+        - user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              adviser_company:
+                token: Q_4L1eUexpfCxxDPsKDJ
+            schema:
+              type: object
+              properties:
+                adviser_company:
+                  type: object
+                  properties:
+                    token:
+                      type: string
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                adviser_id: 1
+                company_id: 5
+                preferred_contact_user_id: null
+                created_at: '2026-08-05T12:57:32.000+01:00'
+                updated_at: '2026-08-05T12:57:32.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_adviser_company'
+        '403':
+          description: Forbidden when invitation does not exist
+  /adviser_companies/adviser/{adviser_id}/company/{company_id}:
+    patch:
+      summary: AdviserCompanies/Update
+      tags:
+      - AdviserCompanies
+      security:
+      - oAuth2:
+        - user
+      parameters:
+      - name: adviser_id
+        in: path
+        required: true
+        example: 3
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 6
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  adviser_company:
+                    preferred_contact_user_id: 5
+              empty_user_id:
+                value:
+                  adviser_company:
+                    preferred_contact_user_id: ''
+            schema:
+              type: object
+              properties:
+                adviser_company:
+                  type: object
+                  properties:
+                    preferred_contact_user_id:
+                      type: integer
+                  required:
+                  - preferred_contact_user_id
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                not_adviser_user:
+                  value:
+                    errors:
+                    - code: 150002
+                      title: User does not belong to adviser.
+                      detail: This action cannot be performed because the user does not belong to the adviser.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/preferred_contact_user_id
+                user_not_found:
+                  value:
+                    errors:
+                    - code: 150001
+                      title: User not found.
+                      detail: Provided contact user does not exist.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/preferred_contact_user_id
+                empty_user_id:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Preferred contact user id is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/preferred_contact_user_id
+components:
+  schemas:
+    response_adviser_company:
+      type: object
+      properties:
+        id:
+          type: integer
+        adviser_id:
+          type: integer
+        company_id:
+          type: integer
+        preferred_contact_user_id:
+          type:
+          - integer
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

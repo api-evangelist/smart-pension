@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Customer Lead API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CustomerLead",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CustomerLeads/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/customer_leads/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "CustomerLeads/Create"
+        },
+        {
+          "info": {
+            "name": "CustomerLeads/EarliestPlanEffectiveDate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/customer_leads/earliest_plan_effective_date"
+          },
+          "docs": "CustomerLeads/EarliestPlanEffectiveDate"
+        },
+        {
+          "info": {
+            "name": "Companies/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/customer_leads/:customer_lead_id",
+            "headers": [
+              {
+                "name": "Token",
+                "value": "eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMiIsImV4cCI6IjIwMjYtMDktMDVUMTI6MDU6MjMuNzA2WiIsInB1ciI6ImRlZmF1bHQifX0=--ccaee34f29ddd4d783311272ccdd74df25b8ea22"
+              }
+            ],
+            "params": [
+              {
+                "name": "customer_lead_id",
+                "value": "2",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Companies/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

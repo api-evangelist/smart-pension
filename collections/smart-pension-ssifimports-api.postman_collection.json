@@ -1,0 +1,2258 @@
+{
+  "item": [
+    {
+      "id": "e875c9ee-c1cd-4e6c-969c-f17f21c5ede7",
+      "name": "SSIFImports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcd00792-1877-4920-85c2-2f6e6cadb0e9",
+          "name": "SSIFImports/AssignSSIFHeadersMapping",
+          "request": {
+            "name": "SSIFImports/AssignSSIFHeadersMapping",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                ":ssif_import_id",
+                "assign_ssif_headers_mapping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssif_import_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssif_headers_mapping_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a6ac4199-196b-4c65-aa1e-d681ced24fc6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "assign_ssif_headers_mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssif_headers_mapping_id\": 23\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2,\n  \"created_at\": \"2026-08-05T13:04:47.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:04:48.000+01:00\",\n  \"file_content_type\": \"text/csv\",\n  \"file_errors\": [],\n  \"header_errors\": [],\n  \"file_file_name\": \"valid_employees_import.csv\",\n  \"file_file_size\": 1259,\n  \"file_updated_at\": \"2026-08-05T13:04:47.000+01:00\",\n  \"state\": \"ignition\",\n  \"ssif_headers_mapping_id\": 23,\n  \"response_errors\": [],\n  \"file_url\": \"/__w/api/api/spec/test_files/0/ssif_imports/000/000/002/original/valid_employees_import.csv\",\n  \"type\": \"text/csv\",\n  \"metadata\": null,\n  \"success_row_count\": 0,\n  \"failure_row_count\": 0,\n  \"partial_success_row_count\": 0,\n  \"unchanged_row_count\": 0,\n  \"errors_count\": 0,\n  \"failed_row_actions_count\": 0,\n  \"unrecognized_headers\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b556f37-31db-4d50-bad6-2066926f647e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "assign_ssif_headers_mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssif_headers_mapping_id\": 23\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 374,\n      \"title\": \"You don't have the neccessary rights to perform this action.\",\n      \"detail\": \"You don't have the necessary rights to perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"generic_forbidden\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "820caf42-a9cd-497f-8fab-2402bb200378",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "assign_ssif_headers_mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssif_headers_mapping_id\": 23\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66c76978-0628-4df2-b76a-fdd4b179474d",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "assign_ssif_headers_mapping"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssif_headers_mapping_id\": 23\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 102005,\n      \"title\": \"Value must be numerical.\",\n      \"detail\": \"SSIF headers mapping id should be a numerical value.\",\n      \"meta\": {\n        \"value\": \"abc\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/ssif_headers_mapping_id\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9723da88-cc6f-47b9-bdda-8253cfd7e850",
+          "name": "SSIFImports/Create",
+          "request": {
+            "name": "SSIFImports/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "66337888-e886-4fdd-87d2-48baa94f41a1",
+              "name": "Success - Import a file (csv/xml format)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 7,\n  \"created_at\": \"2026-08-05T13:04:50.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:04:50.000+01:00\",\n  \"file_content_type\": \"text/csv\",\n  \"file_errors\": [],\n  \"header_errors\": [],\n  \"file_file_name\": \"valid.csv\",\n  \"file_file_size\": 792,\n  \"file_updated_at\": \"2026-08-05T13:04:50.000+01:00\",\n  \"state\": \"ignition\",\n  \"ssif_headers_mapping_id\": null,\n  \"response_errors\": [],\n  \"file_url\": \"/__w/api/api/spec/test_files/0/ssif_imports/000/000/007/original/valid.csv\",\n  \"type\": \"text/csv\",\n  \"metadata\": null,\n  \"success_row_count\": 0,\n  \"failure_row_count\": 0,\n  \"partial_success_row_count\": 0,\n  \"unchanged_row_count\": 0,\n  \"errors_count\": 0,\n  \"failed_row_actions_count\": 0,\n  \"unrecognized_headers\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51c7a20c-bc73-40b9-9d8e-cb897743c847",
+              "name": "Failing when parameters are invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "type": "file"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e430f8-fb2c-46ad-8f3f-25f718e31840",
+          "name": "SSIFImports/List",
+          "request": {
+            "name": "SSIFImports/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0a8024df-6d31-4dac-8ced-1dea5edd616e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 0,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1365/ssif_imports\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1365/ssif_imports?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1365/ssif_imports?offset=0&limit=50\"\n    }\n  ],\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7d358c89-0271-4242-b6dd-d8d6ab323c9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c0b2a20-3fe6-4026-bea9-940a26c566a2",
+          "name": "SSIFImports/FileHeaders",
+          "request": {
+            "name": "SSIFImports/FileHeaders",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                ":ssif_import_id",
+                "file_headers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssif_import_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0c8c68f9-ff9f-4390-bf54-13e1564f89ba",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "file_headers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8,\n  \"file_headers\": [\n    \"BirthDate\",\n    \"Surname\",\n    \"EmployerID\",\n    \"PostalCode\",\n    \"Forename1\",\n    \"EmploymentStartDate\",\n    \"BenefitGroupID\",\n    \"PlatformID\",\n    \"Gender\",\n    \"EmailAddress\",\n    \"Title\",\n    \"NationalIDNumber\",\n    \"Address1\",\n    \"Address2\",\n    \"City\",\n    \"County\",\n    \"EmployeeID\",\n    \"ExitDate\",\n    \"ExitReasonCode\",\n    \"EmployerContributionAmount\",\n    \"ContributionDueDate\",\n    \"AdditionalVoluntaryContributionPercent\",\n    \"PayrollName\",\n    \"EmployeeContributionAmount\",\n    \"EmployerContributionPercent\",\n    \"EmployeeContributionPercent\",\n    \"AdditionalVoluntaryContributionAmount\",\n    \"Earnings1\",\n    \"Earnings2\",\n    \"Forename2\",\n    \"Country\",\n    \"SecondaryEmailAddress\",\n    \"CivilStatus\",\n    \"EventCode\",\n    \"EventDate\",\n    \"EffectiveDate\",\n    \"SchemeID\",\n    \"EmploymentStatus\",\n    \"PartTimePercentage\",\n    \"EmploymentCategory\",\n    \"SalarySacrifice\",\n    \"RiskSalary1\",\n    \"RiskSalary2\",\n    \"EmployerContributionAmountSingle\",\n    \"EmployeeContributionAmountSingle\",\n    \"AdditionalVoluntaryContributionAmountSingle\",\n    \"AnnualEarnings1\",\n    \"AnnualEarnings2\"\n  ],\n  \"platform_headers\": [\n    {\n      \"attribute_name\": \"papdis_version\",\n      \"humanized_name\": \"PAPDISVersion\",\n      \"group\": \"File details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"platform_id\",\n      \"humanized_name\": \"PensionProviderId\",\n      \"group\": \"File details\",\n      \"order\": 2,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"title\",\n      \"humanized_name\": \"Title\",\n      \"group\": \"Personal details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"forename\",\n      \"humanized_name\": \"Forename1\",\n      \"group\": \"Personal details\",\n      \"order\": 2,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"middle_name\",\n      \"humanized_name\": \"Forename2\",\n      \"group\": \"Personal details\",\n      \"order\": 3,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"surname\",\n      \"humanized_name\": \"Surname\",\n      \"group\": \"Personal details\",\n      \"order\": 4,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"date_of_birth\",\n      \"humanized_name\": \"BirthDate\",\n      \"group\": \"Personal details\",\n      \"order\": 5,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"gender\",\n      \"humanized_name\": \"Gender\",\n      \"group\": \"Personal details\",\n      \"order\": 6,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"external_id\",\n      \"humanized_name\": \"EmployeeId\",\n      \"group\": \"Employment details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"employer_id\",\n      \"humanized_name\": \"EmployerId\",\n      \"group\": \"Employment details\",\n      \"order\": 2,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"starts_on\",\n      \"humanized_name\": \"EmploymentStartDate\",\n      \"group\": \"Employment details\",\n      \"order\": 3,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"ends_on\",\n      \"humanized_name\": \"ExitDate\",\n      \"group\": \"Employment details\",\n      \"order\": 4,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"exit_reason\",\n      \"humanized_name\": \"ExitReasonCode\",\n      \"group\": \"Employment details\",\n      \"order\": 5,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"event_code\",\n      \"humanized_name\": \"EventCode\",\n      \"group\": \"Employment details\",\n      \"order\": 6,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"event_date\",\n      \"humanized_name\": \"EventDate\",\n      \"group\": \"Employment details\",\n      \"order\": 7,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"group_name\",\n      \"humanized_name\": \"Group\",\n      \"group\": \"Employment details\",\n      \"order\": 8,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"sub_group\",\n      \"humanized_name\": \"SubGroup\",\n      \"group\": \"Employment details\",\n      \"order\": 9,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"assessment_code\",\n      \"humanized_name\": \"AssessmentCode\",\n      \"group\": \"Employment details\",\n      \"order\": 10,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"deferral_on\",\n      \"humanized_name\": \"DeferralDate\",\n      \"group\": \"Employment details\",\n      \"order\": 11,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"aeo_opt_out_date\",\n      \"humanized_name\": \"AEOptOutDate\",\n      \"group\": \"Employment details\",\n      \"order\": 12,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"aeo_opt_out_reference\",\n      \"humanized_name\": \"AEOptOutReference\",\n      \"group\": \"Employment details\",\n      \"order\": 13,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"communications_issued_date\",\n      \"humanized_name\": \"EnrolmentCommunicationsIssuedDate\",\n      \"group\": \"Employment details\",\n      \"order\": 14,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"national_insurance_number\",\n      \"humanized_name\": \"NationalInsuranceNumber\",\n      \"group\": \"Identification details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"line1\",\n      \"humanized_name\": \"Address1\",\n      \"group\": \"Residential address\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"line2\",\n      \"humanized_name\": \"Address2\",\n      \"group\": \"Residential address\",\n      \"order\": 2,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"line4\",\n      \"humanized_name\": \"Address4\",\n      \"group\": \"Residential address\",\n      \"order\": 3,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"city\",\n      \"humanized_name\": \"Address3\",\n      \"group\": \"Residential address\",\n      \"order\": 4,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"postcode\",\n      \"humanized_name\": \"Postcode\",\n      \"group\": \"Residential address\",\n      \"order\": 5,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"country\",\n      \"humanized_name\": \"Country\",\n      \"group\": \"Residential address\",\n      \"order\": 6,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"email\",\n      \"humanized_name\": \"EmailAddress\",\n      \"group\": \"Contact details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"secondary_email\",\n      \"humanized_name\": \"SecondaryEmailAddress\",\n      \"group\": \"Contact details\",\n      \"order\": 2,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"contribution_deduction_date\",\n      \"humanized_name\": \"ContributionDeductionDate\",\n      \"group\": \"Contribution details\",\n      \"order\": 1,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"contribution_starts_on\",\n      \"humanized_name\": \"PayPeriodStartDate\",\n      \"group\": \"Contribution details\",\n      \"order\": 2,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"contribution_ends_on\",\n      \"humanized_name\": \"PayPeriodEndDate\",\n      \"group\": \"Contribution details\",\n      \"order\": 3,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"period_type\",\n      \"humanized_name\": \"FrequencyCode\",\n      \"group\": \"Contribution details\",\n      \"order\": 4,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"pensionable_earnings\",\n      \"humanized_name\": \"PensionableEarningsAmount\",\n      \"group\": \"Contribution details\",\n      \"order\": 5,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"company_amount\",\n      \"humanized_name\": \"EmployerContributionsAmount\",\n      \"group\": \"Contribution details\",\n      \"order\": 6,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"employee_amount\",\n      \"humanized_name\": \"EmployeeContributionsAmount\",\n      \"group\": \"Contribution details\",\n      \"order\": 7,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"company_percentage\",\n      \"humanized_name\": \"EmployerContributionsPercent\",\n      \"group\": \"Contribution details\",\n      \"order\": 8,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"employee_percentage\",\n      \"humanized_name\": \"EmployeeContributionsPercent\",\n      \"group\": \"Contribution details\",\n      \"order\": 9,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"voluntary_amount\",\n      \"humanized_name\": \"AdditionalVoluntaryContributionsAmount\",\n      \"group\": \"Contribution details\",\n      \"order\": 10,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"tax_period\",\n      \"humanized_name\": \"TaxPeriod\",\n      \"group\": \"Contribution details\",\n      \"order\": 11,\n      \"required\": true\n    },\n    {\n      \"attribute_name\": \"additional_voluntary_contribution_percent\",\n      \"humanized_name\": \"AdditionalVoluntaryContributionsPercent\",\n      \"group\": \"Contribution details\",\n      \"order\": 12,\n      \"required\": false\n    },\n    {\n      \"attribute_name\": \"salary_sacrifice_signed\",\n      \"humanized_name\": \"SalarySacrificeIndicator\",\n      \"group\": \"Salary sacrifice details\",\n      \"order\": 1,\n      \"required\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0535a763-d6a4-4f4d-8f48-bccbd61d8a6a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "file_headers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "25218168-3a67-472d-8b5a-959a9d0b5c54",
+              "name": "Failing when ssif import does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "file_headers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "474422cb-75f8-4348-b4f6-0fa94aed0f19",
+          "name": "SSIFImports/Template",
+          "request": {
+            "name": "SSIFImports/Template",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                "template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2c691642-7cba-49a2-9ddb-2733b9214c51",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    "template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "PAPDISVersion,PensionProviderId,EmployerId,Group,PayPeriodStartDate,PayPeriodEndDate,ContributionDeductionDate,FrequencyCode,TaxPeriod,Title,Forename1,Surname,EmployeeId,BirthDate,Gender,NationalInsuranceNumber,Address1,Address2,Address3,Address4,Postcode,EmailAddress,EmploymentStartDate,AssessmentCode,EventCode,PensionableEarningsAmount,SalarySacrificeIndicator\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "14192256-a021-4fbf-b65e-18adafc71fb7",
+          "name": "SSIFImports/Get",
+          "request": {
+            "name": "SSIFImports/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                ":ssif_import_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssif_import_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b035c9a-8240-4359-98e5-2251c0844915",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 11,\n  \"created_at\": \"2026-08-05T13:04:53.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:04:53.000+01:00\",\n  \"file_content_type\": \"text/csv\",\n  \"file_errors\": [],\n  \"header_errors\": [],\n  \"file_file_name\": \"valid_employees_import.csv\",\n  \"file_file_size\": 1259,\n  \"file_updated_at\": \"2026-08-05T13:04:53.000+01:00\",\n  \"state\": \"ignition\",\n  \"ssif_headers_mapping_id\": null,\n  \"response_errors\": [],\n  \"file_url\": \"/__w/api/api/spec/test_files/0/ssif_imports/000/000/011/original/valid_employees_import.csv\",\n  \"type\": \"text/csv\",\n  \"metadata\": null,\n  \"success_row_count\": 0,\n  \"failure_row_count\": 0,\n  \"partial_success_row_count\": 0,\n  \"unchanged_row_count\": 0,\n  \"errors_count\": 0,\n  \"failed_row_actions_count\": 0,\n  \"unrecognized_headers\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2701edfd-a777-474c-87f3-9bf38ffc958a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b5c5552-363e-4a5b-8961-3e00e53bbf6a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 374,\n      \"title\": \"You don't have the neccessary rights to perform this action.\",\n      \"detail\": \"You don't have the necessary rights to perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"generic_forbidden\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "20b164fe-d07a-4a91-9699-1cdde5ac193f",
+              "name": "Failing when ssif import does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "161c9808-626f-4d40-8dd4-7faf1139e9ab",
+          "name": "SSIFImports/SSIFImportMissingEmployees/List",
+          "request": {
+            "name": "SSIFImports/SSIFImportMissingEmployees/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                ":ssif_import_id",
+                "ssif_import_missing_employees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssif_import_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cbf8829d-98e3-4243-ab56-dba8c824ebc9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_missing_employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1368/ssif_imports/16/ssif_import_missing_employees\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1368/ssif_imports/16/ssif_import_missing_employees?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1368/ssif_imports/16/ssif_import_missing_employees?offset=0&limit=50\"\n    }\n  ],\n  \"employees\": [\n    {\n      \"updatable\": true,\n      \"id\": 640,\n      \"email\": \"employee_736@example.com\",\n      \"forename\": \"Sara\",\n      \"surname\": \"Chavez\",\n      \"date_of_birth\": \"2001-08-05\",\n      \"national_insurance_number\": null,\n      \"gender\": \"Male\",\n      \"telephone\": null,\n      \"identity_person_id\": null,\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"ZXUz1CR\",\n      \"created_at\": \"2026-08-05T13:04:57.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:04:57.000+01:00\",\n      \"confirmation_token\": null,\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"title\": \"Lady\",\n      \"authentication_token\": null,\n      \"group_id\": null,\n      \"line2\": null,\n      \"city\": \"Pasadena\",\n      \"region\": null,\n      \"country\": \"United Kingdom of Great Britain and Northern Ireland\",\n      \"postcode\": \"47561-6075\",\n      \"line1\": \"91056 East Street\",\n      \"works_in_uk\": true,\n      \"starts_on\": \"2016-08-05\",\n      \"authentication_token_generated_at\": null,\n      \"company_percentage\": null,\n      \"company_percentage_matched\": 0,\n      \"company_match\": false,\n      \"percentage\": null,\n      \"avc_percentage\": null,\n      \"total_employee_percentage\": 0,\n      \"total_contribution_percentage\": 0,\n      \"contribute_if_entitled\": true,\n      \"enforce_password\": true,\n      \"ends_on\": null,\n      \"exit_reason\": null,\n      \"onboarded_at\": null,\n      \"opt_out_on\": null,\n      \"opt_state\": \"ignition\",\n      \"opt_in_on\": null,\n      \"opt_out_window_starts_on\": null,\n      \"opt_out_window_ends_on\": null,\n      \"subject_to_money_purchase_annual_allowance\": null,\n      \"money_purchase_annual_allowance_effective_on\": null,\n      \"active_special_cases\": [],\n      \"company_id\": 1368,\n      \"automatically_enrolled\": false,\n      \"contractually_enrolled\": false,\n      \"external_id\": null,\n      \"customer_id\": null,\n      \"referral_clicks\": 0,\n      \"retirement_age\": 65,\n      \"target_retirement_age\": null,\n      \"retirement_date\": \"2066-08-05\",\n      \"target_retirement_date\": null,\n      \"secondary_email\": null,\n      \"middle_name\": null,\n      \"civil_status\": null,\n      \"country_code\": \"GB\",\n      \"benefit_group_id\": null,\n      \"online_login_disabled\": false,\n      \"line3\": null,\n      \"uuid\": \"5adb93cb-6db7-40da-b116-fd179e27585e\",\n      \"eligible_for_modeller_projection\": false,\n      \"can_manage_contribution_rates\": true,\n      \"active_payroll_configuration\": null,\n      \"employment_type\": null,\n      \"tax_residency_status_name\": null,\n      \"salary_sacrifice_signed\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1368\"\n        }\n      ],\n      \"banned_params\": [],\n      \"intercom_user_id\": \"emp640\",\n      \"intercom_user_id_hash\": \"f6f240d5307e02251ccddfdb0cbef7d591ee3f189ddd950ee1dd145eb09125f0\",\n      \"scheme_external_id\": \"PRODUCT-53562d53\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae942c27-44ee-498c-a9da-b16a3bca0f65",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_missing_employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eab636d1-ef92-4e90-8564-9fd25797bdd9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_missing_employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "96769336-8a87-46dd-ad7a-33153749ae43",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_missing_employees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "676d218c-99cf-4d29-8ecc-81f9b49a8a97",
+          "name": "SSIFImports/SSIFImportResults/List",
+          "request": {
+            "name": "SSIFImports/SSIFImportResults/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ssif_imports",
+                ":ssif_import_id",
+                "ssif_import_results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssif_import_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "09fb8887-b160-45d9-8e62-21aecd45dd60",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1372/ssif_imports/20/ssif_import_results\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1372/ssif_imports/20/ssif_import_results?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1372/ssif_imports/20/ssif_import_results?offset=0&limit=50\"\n    }\n  ],\n  \"data\": [\n    {\n      \"id\": 1,\n      \"row_number\": null,\n      \"ssif_import_id\": 20,\n      \"result\": null,\n      \"data_state\": \"valid\",\n      \"cached_external_id\": \"cached_external_id\",\n      \"cached_name\": \"cached_name\",\n      \"cached_national_insurance_number\": null,\n      \"cached_scheme_external_id\": null,\n      \"created_at\": \"2026-08-05T13:04:59.000+01:00\",\n      \"updated_at\": \"2026-08-05T13:04:59.000+01:00\",\n      \"operation\": \"create_employee\",\n      \"ssif_import_row_actions\": [\n        {\n          \"id\": 1,\n          \"name\": \"create_employee\",\n          \"result\": \"success\",\n          \"resource_id\": null,\n          \"resource_type\": null,\n          \"created_at\": \"2026-08-05T13:04:59.000+01:00\",\n          \"updated_at\": \"2026-08-05T13:04:59.000+01:00\"\n        }\n      ],\n      \"ssif_import_issues\": [\n        {\n          \"id\": 1,\n          \"entries\": [\n            {\n              \"code\": 8821,\n              \"meta\": {\n                \"regexp\": \"[A-Za-z0-9.,()\\\\/=!\\\"%&*;<>\\\\s'+:?\\\\-_]+\",\n                \"column_name\": \"City\",\n                \"import_type\": \"create_employee\"\n              },\n              \"title\": \"City format is wrong.\",\n              \"detail\": \"Enter only letters, numbers or these symbols: space, hyphen or forward slash.\",\n              \"source\": {\n                \"pointer\": \"/data/attributes/city\"\n              }\n            }\n          ],\n          \"severity\": \"error\",\n          \"type\": \"validation\",\n          \"ssif_import_row_action_id\": 1,\n          \"created_at\": \"2026-08-05T13:04:59.300+01:00\",\n          \"updated_at\": \"2026-08-05T13:04:59.300+01:00\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86a54468-8ca5-452a-af98-dd4d129042a8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c210547c-0998-4e73-a319-0076c26ddcdc",
+              "name": "Failing when ssif import results belongs to another company",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 374,\n      \"title\": \"You don't have the neccessary rights to perform this action.\",\n      \"detail\": \"You don't have the necessary rights to perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"generic_forbidden\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97076bcc-f1de-4005-b838-c42f7a4ee60e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5b75dcf-d0a7-479b-a3a4-5a6c67b0cd8a",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ssif_imports",
+                    ":ssif_import_id",
+                    "ssif_import_results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssif_import_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f852b322-31de-448c-ba9e-1418404491a9",
+    "name": "Keystone SSIF Imports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

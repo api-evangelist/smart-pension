@@ -1,0 +1,1696 @@
+{
+  "item": [
+    {
+      "id": "ac136a01-271b-45a2-b446-b938f5bd9f94",
+      "name": "User",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2d94da2f-109f-4b97-a07d-e69a130a3c62",
+          "name": "Users/Create",
+          "request": {
+            "name": "Users/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"password\": \"<string>\",\n  \"forename\": \"<string>\",\n  \"surname\": \"<string>\",\n  \"logo\": \"<binary>\",\n  \"signup_start\": \"<string>\",\n  \"signup_finish\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"agent_number\": \"<string>\",\n  \"broker_role\": \"<string>\",\n  \"broker_channel\": \"<string>\",\n  \"annuity_option_enabled\": \"<boolean>\",\n  \"marketing_included\": \"<boolean>\",\n  \"title\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1dfb1b46-516e-4489-b485-5568e0b18c1a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@email.com\",\n  \"password\": \"!1234Qwertyuiop\",\n  \"forename\": \"forename\",\n  \"surname\": \"surename\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"name\": \"forename surename\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"usr34\",\n  \"intercom_user_id_hash\": \"4196187291a96b371b60ec347eacc9eccc25c4252dfbc31ff54b2f940dadc8f3\",\n  \"id\": 34,\n  \"email\": \"email@email.com\",\n  \"title\": null,\n  \"forename\": \"forename\",\n  \"surname\": \"surename\",\n  \"api_key\": \"XuxErut3CcbNmptG_O0f8Q\",\n  \"telephone\": \"+441234567890\",\n  \"adviser_id\": 35,\n  \"smart_analytics_access_permitted\": false,\n  \"roles\": [],\n  \"created_at\": \"2026-08-05T12:57:47.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:57:47.000+01:00\",\n  \"links\": [\n    {\n      \"rel\": \"adviser\",\n      \"title\": \"adviser\",\n      \"href\": \"https://api.host.com/advisers/35\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8bef7d5e-2bf6-4a8e-94e8-43ddb19bb204",
+              "name": "Forbidden - number of users exceeds allowed limit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@email.com\",\n  \"password\": \"!1234Qwertyuiop\",\n  \"forename\": \"forename\",\n  \"surname\": \"surename\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"name\": \"forename surename\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 35,\n      \"title\": \"Maximum number of users reached!\",\n      \"detail\": \"You cannot have more than 5 users.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"out_of_limit\",\n      \"meta\": {\n        \"limit\": 5,\n        \"entity\": \"users\"\n      },\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7d2073e-336d-445a-8572-f990a6abea66",
+              "name": "Parameters invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"email@email.com\",\n  \"password\": \"!1234Qwertyuiop\",\n  \"forename\": \"forename\",\n  \"surname\": \"surename\",\n  \"telephone\": \"+44 123 4567 890\",\n  \"name\": \"forename surename\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1812,\n      \"title\": \"Not Enough Characters for forename.\",\n      \"detail\": \"You need to enter a forename with a minimum of 2 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/forename\"\n      }\n    },\n    {\n      \"code\": 1806,\n      \"title\": \"Forename is a required field.\",\n      \"detail\": \"You need to include the forename for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/forename\"\n      }\n    },\n    {\n      \"code\": 1813,\n      \"title\": \"Not Enough Characters for surname.\",\n      \"detail\": \"You need to enter a surname with a minimum of 2 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/surname\"\n      }\n    },\n    {\n      \"code\": 1807,\n      \"title\": \"Surname is a required field.\",\n      \"detail\": \"You need to include the surname for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/surname\"\n      }\n    },\n    {\n      \"code\": 1818,\n      \"title\": \"Not Enough Characters for email.\",\n      \"detail\": \"You need to enter an email with a minimum of 6 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1804,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to enter an email address for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1805,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1801,\n      \"title\": \"Password is a required field.\",\n      \"detail\": \"You need to enter a password for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/password\"\n      }\n    },\n    {\n      \"code\": 1808,\n      \"title\": \"Telephone number is a required field.\",\n      \"detail\": \"You need to include a telephone number for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/telephone\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69f50250-53e4-49a8-84a5-e1922fc91c10",
+          "name": "Users/List",
+          "request": {
+            "name": "Users/List",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[email][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[forename][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[surname][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "06fcab85-0161-4723-b699-a897ba26d632",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[email][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[forename][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[surname][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 3,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/advisers/44/users\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/advisers/44/users?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/advisers/44/users?offset=0&limit=50\"\n    }\n  ],\n  \"users\": [\n    {\n      \"intercom_user_id\": \"usr48\",\n      \"intercom_user_id_hash\": \"f27752495b99afc62e3d13f394e1483cedb5df7c86426da85b7bcda6da214156\",\n      \"id\": 48,\n      \"email\": \"email@example.com\",\n      \"title\": null,\n      \"forename\": \"forename\",\n      \"surname\": \"surname\",\n      \"api_key\": \"XPmRmfeBMmvOf9wO1U5vaA\",\n      \"telephone\": \"+441234567890\",\n      \"adviser_id\": 44,\n      \"smart_analytics_access_permitted\": false,\n      \"roles\": [],\n      \"created_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"links\": [\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/44\"\n        }\n      ]\n    },\n    {\n      \"intercom_user_id\": \"usr49\",\n      \"intercom_user_id_hash\": \"82f541aeae29a676cf8146881630baae7e106c058c2a095caf22d146a5ae6850\",\n      \"id\": 49,\n      \"email\": \"user_1@example.com\",\n      \"title\": null,\n      \"forename\": \"abcd\",\n      \"surname\": \"surname\",\n      \"api_key\": \"\",\n      \"telephone\": 7854938738,\n      \"adviser_id\": 44,\n      \"smart_analytics_access_permitted\": false,\n      \"roles\": [],\n      \"created_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"links\": [\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/44\"\n        }\n      ]\n    },\n    {\n      \"intercom_user_id\": \"usr50\",\n      \"intercom_user_id_hash\": \"e9d952b71f4087b777729758b602e159e60a776480c99fbeddff565991a6a2af\",\n      \"id\": 50,\n      \"email\": \"user_2@example.com\",\n      \"title\": null,\n      \"forename\": \"wxyz\",\n      \"surname\": \"surname\",\n      \"api_key\": \"\",\n      \"telephone\": 7854938738,\n      \"adviser_id\": 44,\n      \"smart_analytics_access_permitted\": false,\n      \"roles\": [],\n      \"created_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:57:50.000+01:00\",\n      \"links\": [\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/44\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f9aa9d6-2485-4625-859f-db4e47dba978",
+          "name": "Users/Destroy",
+          "request": {
+            "name": "Users/Destroy",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "807ef96e-2fee-4f62-8b85-154407a5ab3f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "71d60055-aea2-41f7-aff9-45109ebf8545",
+              "name": "Forbidden when trying to delete last user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc595651-a854-4c91-b084-953d7fac4dee",
+          "name": "Users/Get",
+          "request": {
+            "name": "Users/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5c6fc02b-753d-4b11-9a00-82d722e8004d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"usr44\",\n  \"intercom_user_id_hash\": \"6867c1b7078dcf40b048a2c6bb248b11ceb2c44164a70fea6601b9ea99435a42\",\n  \"id\": 44,\n  \"email\": \"email@example.com\",\n  \"title\": null,\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"api_key\": \"saZjqVZ42gqN5nS3TV4Mfg\",\n  \"telephone\": \"+441234567890\",\n  \"adviser_id\": 40,\n  \"smart_analytics_access_permitted\": false,\n  \"roles\": [],\n  \"created_at\": \"2026-08-05T12:57:49.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:57:49.000+01:00\",\n  \"links\": [\n    {\n      \"rel\": \"adviser\",\n      \"title\": \"adviser\",\n      \"href\": \"https://api.host.com/advisers/40\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3951487a-1cb9-4cb4-9a74-0f9eb44a1c3e",
+              "name": "Failing when user belongs to another adviser.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 374,\n      \"title\": \"You don't have the neccessary rights to perform this action.\",\n      \"detail\": \"You don't have the necessary rights to perform this action.\",\n      \"form\": null,\n      \"attribute\": \"base\",\n      \"error\": \"generic_forbidden\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/base\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6330f9b5-7d51-4035-9e45-b246800488ff",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "501f63d4-3e21-42c8-91ff-10d5459fc30c",
+          "name": "Users/Update",
+          "request": {
+            "name": "Users/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"logo\": \"<binary>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"signup_start\": \"<string>\",\n  \"signup_finish\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"agent_number\": \"<string>\",\n  \"broker_role\": \"<string>\",\n  \"broker_channel\": \"<string>\",\n  \"email\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"annuity_option_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "05d85bb6-b486-4cba-bee4-680f25f50d07",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2d9c0f0-d5fd-4886-9078-555a93b6a102",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80353915-4bd8-480b-81fc-141c21ae58ed",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1818,\n      \"title\": \"Not Enough Characters for email.\",\n      \"detail\": \"You need to enter an email with a minimum of 6 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1804,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to enter an email address for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1805,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4768d95-f56c-4042-be50-fb6fd249c037",
+          "name": "Users/Update",
+          "request": {
+            "name": "Users/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"logo\": \"<binary>\",\n  \"name\": \"<string>\",\n  \"address\": \"<string>\",\n  \"signup_start\": \"<string>\",\n  \"signup_finish\": \"<string>\",\n  \"channel\": \"<string>\",\n  \"agent_number\": \"<string>\",\n  \"broker_role\": \"<string>\",\n  \"broker_channel\": \"<string>\",\n  \"email\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"annuity_option_enabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "862cda47-983f-4c63-93b5-f34d38284f5d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10fef344-f15d-42e0-86b3-c53d9f49587f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1530a74-e97a-47c9-b10a-caaeba62528c",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"john@doe.fr\",\n  \"name\": \"John Doe\",\n  \"address\": \"Burj Khalifa\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1818,\n      \"title\": \"Not Enough Characters for email.\",\n      \"detail\": \"You need to enter an email with a minimum of 6 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1804,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to enter an email address for this user.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1805,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "662e4257-683a-4558-a298-95266d8da2ea",
+          "name": "Users/Session",
+          "request": {
+            "name": "Users/Session",
+            "description": {},
+            "url": {
+              "path": [
+                "users",
+                "session"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8de67c2c-ba40-4250-8747-557eadb9e63a",
+              "name": "Success (jwt token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIyMywiaWF0IjoxNzg1OTMxNjIzLCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJoMXFNRGNhQzFFaElGM0szMWFWRGFueEJFemI5SEgxM1JBR0k2Y0lFQ1lBIiwic2NvcGUiOiI6dXNlciIsInN1YiI6NzIyLCJyb2xlIjoidXNlciJ9.XQBfKvaI-HHcmHkiGHAErxqjM9-vl9pD12YEYhRIOKs23f7rSt_E2Dk-3IVCcoUvxbGS15PV91LncLZSm5RdyrvT_9CfyidY7gSKPQfKJpVqdVqh1vaYh6OTNrje_I4FmbdWR_Z5DtqWGYCneglw5t-yZXWS4GwgoG5drUq0HIM"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"intercom_user_id\": \"usr721\",\n  \"intercom_user_id_hash\": \"9eef459b3dd943735b86976e5187fec252bfb32fe486c188218a514f5fae5dd5\",\n  \"id\": 721,\n  \"email\": \"email@example.com\",\n  \"title\": null,\n  \"forename\": \"forename\",\n  \"surname\": \"surname\",\n  \"api_key\": \"VTzbn7uGmBulRq3TK4kS-g\",\n  \"telephone\": \"+441234567890\",\n  \"adviser_id\": 709,\n  \"smart_analytics_access_permitted\": false,\n  \"roles\": [],\n  \"created_at\": \"2026-08-05T13:07:03.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:07:03.000+01:00\",\n  \"links\": [\n    {\n      \"rel\": \"adviser\",\n      \"title\": \"adviser\",\n      \"href\": \"https://api.host.com/advisers/709\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96fdde18-3ab4-45d1-9814-0292f03eaaee",
+              "name": "Fail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "session"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIyMywiaWF0IjoxNzg1OTMxNjIzLCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJoMXFNRGNhQzFFaElGM0szMWFWRGFueEJFemI5SEgxM1JBR0k2Y0lFQ1lBIiwic2NvcGUiOiI6dXNlciIsInN1YiI6NzIyLCJyb2xlIjoidXNlciJ9.XQBfKvaI-HHcmHkiGHAErxqjM9-vl9pD12YEYhRIOKs23f7rSt_E2Dk-3IVCcoUvxbGS15PV91LncLZSm5RdyrvT_9CfyidY7gSKPQfKJpVqdVqh1vaYh6OTNrje_I4FmbdWR_Z5DtqWGYCneglw5t-yZXWS4GwgoG5drUq0HIM"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c91c47fb-e1b3-4eb5-a75a-1c03a66ee896",
+    "name": "Keystone User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

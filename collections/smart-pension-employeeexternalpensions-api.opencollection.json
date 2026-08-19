@@ -1,0 +1,88 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Employee External Pensions API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmployeeExternalPensions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeExternalPensions/BulkUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/employee_external_pensions/bulk_update",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "585",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "266",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeExternalPensions/BulkUpdate"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeExternalPensions/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/employee_external_pensions",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "589",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "268",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeExternalPensions/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

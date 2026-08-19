@@ -1,0 +1,100 @@
+openapi: 3.2.0
+info:
+  title: Keystone Later Life Projection API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: LaterLifeProjection
+paths:
+  /companies/{company_id}/employees/{employee_id}/later_life_projection:
+    get:
+      summary: LaterLifeProjection/Get
+      tags:
+      - LaterLifeProjection
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 710
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 351
+        schema:
+          type: string
+      - name: total_amount
+        in: query
+        required: false
+        example: total_amount=100
+        schema:
+          type: number
+      - name: start_age
+        in: query
+        required: false
+        example: start_age=80
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                start_age: 80
+                amount: 0.33
+              schema:
+                $ref: '#/components/schemas/response_later_life_projection'
+components:
+  schemas:
+    response_later_life_projection:
+      type: object
+      properties:
+        start_age:
+          type:
+          - integer
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

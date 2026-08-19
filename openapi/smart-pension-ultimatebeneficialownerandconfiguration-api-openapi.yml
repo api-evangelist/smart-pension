@@ -1,0 +1,763 @@
+openapi: 3.2.0
+info:
+  title: Keystone Ultimate Beneficial Owner And Configuration API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: UltimateBeneficialOwnerAndConfiguration
+paths:
+  /companies/{company_id}/ultimate_beneficial_owner_and_configuration:
+    post:
+      summary: UltimateBeneficialOwnerAndConfigurations/Create
+      tags:
+      - UltimateBeneficialOwnerAndConfiguration
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1397
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request:
+                value:
+                  publicly_listed: true
+                  public_entity_name: Arkham Asylum
+                  stock_exchange: Abu Dhabi Securities Exchange (ADX)
+                  government_entity: false
+                  government_entity_name: Batman Origins
+                  government_entity_country: Gotham
+                  non_significant_control_individuals_registered: true
+                  ultimate_beneficial_owners:
+                  - line1: Forever road
+                    line2: Still going road
+                    city: Nothing
+                    country: Beyond
+                    forename: Stark
+                    surname: Tony
+                    nationality: British
+                    date_of_birth: 03/03/1992
+                    title: Mr
+                    gender: Male
+              unauthorized:
+                value:
+                  publicly_listed: true
+                  public_entity_name: Arkham Asylum
+                  stock_exchange: Abu Dhabi Securities Exchange (ADX)
+                  government_entity: false
+                  government_entity_name: Batman Origins
+                  government_entity_country: Gotham
+                  non_significant_control_individuals_registered: true
+                  ultimate_beneficial_owners:
+                  - line1: Forever road
+                    line2: Still going road
+                    city: Nothing
+                    country: Beyond
+                    forename: Stark
+                    surname: Tony
+                    nationality: British
+                    date_of_birth: 03/03/1992
+                    title: Mr
+                    gender: Male
+              invalid_parameters:
+                value:
+                  exemption_reason: Regulated by a Recognised Financial Services Provider
+                  publicly_listed: true
+                  non_significant_control_individuals_registered: true
+                  ultimate_beneficial_owners:
+                  - line1: Forever road
+                    line2: Still going road
+                    city: Nothing
+                    country: Beyond
+                    forename: Bill
+                    surname: Gates
+                    gender: Male
+                    nationality: American
+                    date_of_birth: '1955-10-22'
+                    title: Mr
+            schema:
+              type: object
+              properties:
+                exempt:
+                  type: boolean
+                exemption_reason:
+                  type: string
+                natural_person_ubo:
+                  type: boolean
+                publicly_listed:
+                  type: boolean
+                public_entity_name:
+                  type: string
+                stock_exchange:
+                  type: string
+                government_entity:
+                  type: boolean
+                government_entity_name:
+                  type: string
+                government_entity_country:
+                  type: string
+                non_significant_control_individuals_registered:
+                  type: boolean
+                ultimate_beneficial_owners:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      exempt:
+                        type: boolean
+                      title:
+                        type: string
+                      forename:
+                        type: string
+                      surname:
+                        type: string
+                      gender:
+                        type: string
+                      date_of_birth:
+                        type: string
+                      nationality:
+                        type: string
+                      type:
+                        type: string
+                      entity_name:
+                        type: string
+                      country_of_jurisdiction:
+                        type: string
+                      registered_address:
+                        type: string
+                      exemption_reason:
+                        type: string
+                      line1:
+                        type: string
+                      line2:
+                        type: string
+                      city:
+                        type: string
+                      country:
+                        type: string
+                    required:
+                    - line1
+                    - city
+                    - country
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 28
+                company_id: 1397
+                exempt: false
+                exemption_reason: null
+                natural_person_ubo: true
+                publicly_listed: true
+                public_entity_name: Arkham Asylum
+                stock_exchange: Abu Dhabi Securities Exchange (ADX)
+                government_entity: false
+                government_entity_name: Batman Origins
+                government_entity_country: Gotham
+                non_significant_control_individuals_registered: true
+                ultimate_beneficial_owners:
+                - id: 28
+                  company_id: 1397
+                  country_of_jurisdiction: null
+                  date_of_birth: '1992-03-03'
+                  entity_name: null
+                  forename: Stark
+                  title: Mr
+                  gender: Male
+                  nationality: British
+                  registered_address: null
+                  surname: Tony
+                  exempt: false
+                  exemption_reason: null
+                  type: null
+                  line1: Forever road
+                  line2: Still going road
+                  city: Nothing
+                  country: Beyond
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1397
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Public entity name is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/public_entity_name
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Stock exchange is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/stock_exchange
+                - code: 11307
+                  title: Stock exchange is invalid.
+                  detail: Stock exchange is invalid. It must be one of Abu Dhabi Securities Exchange (ADX), Amman Stock Exchange (ASE), Australian Securities Exchange (ASX), Bahrain Bourse (Bahrain Stock Exchange), Beirut Stock Exchange, Bombay Stock Exchange (BSE), Borse Dubai, Boursa Kuwait (KSE), Dubai Financial Market (DFM), Dubai Mercantile Exchange (DEM), European New Exchange Technology (EURONEXT), Frankfurt Stock Exchange (Deutsche Börse), Hong Kong Stock Exchange (HKEX), Iraq Stock Exchange (ISX), Japan Exchange Group (JPX), Johannesburg Stock Exchange (JSE), Korea Exchange (KRX), London Stock Exchange (LSE), Muscat Securities Market (MSM), NASDAQ Dubai (DIFX), Nasdaq Nordic Exchanges, Nasdaq Stock Market USA (NASDAQ), National Stock Exchange of India (NSE), New York Stock Exchange (NYSE), Qatar Stock Exchange (QSE), Saudi Arabia Stock Exchange (Tadawul), Shanghai Stock Exchange (SSE), Shenzhen Stock Exchange (SZSE), SIX Swiss Exchange (SWX), Taiwan Stock Exchange (TWSE), Tel Aviv Stock Exchange (TASE), Tokyo Stock Exchange (TSE), Toronto Stock Exchange (TSX), and Other.
+                  meta:
+                    values:
+                    - Abu Dhabi Securities Exchange (ADX)
+                    - Amman Stock Exchange (ASE)
+                    - Australian Securities Exchange (ASX)
+                    - Bahrain Bourse (Bahrain Stock Exchange)
+                    - Beirut Stock Exchange
+                    - Bombay Stock Exchange (BSE)
+                    - Borse Dubai
+                    - Boursa Kuwait (KSE)
+                    - Dubai Financial Market (DFM)
+                    - Dubai Mercantile Exchange (DEM)
+                    - European New Exchange Technology (EURONEXT)
+                    - Frankfurt Stock Exchange (Deutsche Börse)
+                    - Hong Kong Stock Exchange (HKEX)
+                    - Iraq Stock Exchange (ISX)
+                    - Japan Exchange Group (JPX)
+                    - Johannesburg Stock Exchange (JSE)
+                    - Korea Exchange (KRX)
+                    - London Stock Exchange (LSE)
+                    - Muscat Securities Market (MSM)
+                    - NASDAQ Dubai (DIFX)
+                    - Nasdaq Nordic Exchanges
+                    - Nasdaq Stock Market USA (NASDAQ)
+                    - National Stock Exchange of India (NSE)
+                    - New York Stock Exchange (NYSE)
+                    - Qatar Stock Exchange (QSE)
+                    - Saudi Arabia Stock Exchange (Tadawul)
+                    - Shanghai Stock Exchange (SSE)
+                    - Shenzhen Stock Exchange (SZSE)
+                    - SIX Swiss Exchange (SWX)
+                    - Taiwan Stock Exchange (TWSE)
+                    - Tel Aviv Stock Exchange (TASE)
+                    - Tokyo Stock Exchange (TSE)
+                    - Toronto Stock Exchange (TSX)
+                    - Other
+                    allowed_values:
+                    - Abu Dhabi Securities Exchange (ADX)
+                    - Amman Stock Exchange (ASE)
+                    - Australian Securities Exchange (ASX)
+                    - Bahrain Bourse (Bahrain Stock Exchange)
+                    - Beirut Stock Exchange
+                    - Bombay Stock Exchange (BSE)
+                    - Borse Dubai
+                    - Boursa Kuwait (KSE)
+                    - Dubai Financial Market (DFM)
+                    - Dubai Mercantile Exchange (DEM)
+                    - European New Exchange Technology (EURONEXT)
+                    - Frankfurt Stock Exchange (Deutsche Börse)
+                    - Hong Kong Stock Exchange (HKEX)
+                    - Iraq Stock Exchange (ISX)
+                    - Japan Exchange Group (JPX)
+                    - Johannesburg Stock Exchange (JSE)
+                    - Korea Exchange (KRX)
+                    - London Stock Exchange (LSE)
+                    - Muscat Securities Market (MSM)
+                    - NASDAQ Dubai (DIFX)
+                    - Nasdaq Nordic Exchanges
+                    - Nasdaq Stock Market USA (NASDAQ)
+                    - National Stock Exchange of India (NSE)
+                    - New York Stock Exchange (NYSE)
+                    - Qatar Stock Exchange (QSE)
+                    - Saudi Arabia Stock Exchange (Tadawul)
+                    - Shanghai Stock Exchange (SSE)
+                    - Shenzhen Stock Exchange (SZSE)
+                    - SIX Swiss Exchange (SWX)
+                    - Taiwan Stock Exchange (TWSE)
+                    - Tel Aviv Stock Exchange (TASE)
+                    - Tokyo Stock Exchange (TSE)
+                    - Toronto Stock Exchange (TSX)
+                    - Other
+                    value: null
+                  source:
+                    pointer: /data/attributes/stock_exchange
+    get:
+      summary: Companies/UltimateBeneficialOwnerAndConfigurations/Get
+      tags:
+      - UltimateBeneficialOwnerAndConfiguration
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: include[]
+        in: query
+        schema:
+          type: array
+          items:
+            enum:
+            - ultimate_beneficial_owners
+        required: false
+      - name: company_id
+        in: path
+        required: true
+        example: 1401
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success_with_owner_and_config:
+                  value:
+                    id: 29
+                    company_id: 1400
+                    exempt: false
+                    exemption_reason: null
+                    natural_person_ubo: true
+                    publicly_listed: true
+                    public_entity_name: null
+                    stock_exchange: null
+                    government_entity: false
+                    government_entity_name: null
+                    government_entity_country: null
+                    non_significant_control_individuals_registered: false
+                    ultimate_beneficial_owners:
+                    - id: 29
+                      company_id: 1400
+                      country_of_jurisdiction: UK
+                      date_of_birth: '1980-01-02'
+                      entity_name: Umbrella Corporation
+                      forename: Tammy
+                      title: Ms
+                      gender: Other
+                      nationality: United Kingdom
+                      registered_address: 97 Hagan Park
+                      surname: Hicks
+                      exempt: false
+                      exemption_reason: Government body established under UAE Law
+                      type: The individual has significant control or influence over the company
+                      line1: null
+                      line2: null
+                      city: London
+                      country: null
+                      links:
+                      - rel: company
+                        title: company
+                        href: https://api.host.com/companies/1400
+                success_with_config:
+                  value:
+                    id: 30
+                    company_id: 1401
+                    exempt: false
+                    exemption_reason: null
+                    natural_person_ubo: true
+                    publicly_listed: true
+                    public_entity_name: null
+                    stock_exchange: null
+                    government_entity: false
+                    government_entity_name: null
+                    government_entity_country: null
+                    non_significant_control_individuals_registered: false
+                    ultimate_beneficial_owners: []
+              schema:
+                $ref: '#/components/schemas/response_ultimate_beneficial_owner_and_configuration'
+        '404':
+          description: Not Found
+    put:
+      summary: UltimateBeneficialOwnerAndConfigurations/Update
+      tags:
+      - UltimateBeneficialOwnerAndConfiguration
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1403
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  id: 31
+                  publicly_listed: true
+                  public_entity_name: Arkham Asylum
+                  stock_exchange: Abu Dhabi Securities Exchange (ADX)
+                  government_entity: false
+                  government_entity_name: Batman Origins
+                  government_entity_country: Gotham
+                  non_significant_control_individuals_registered: true
+                  ultimate_beneficial_owners:
+                  - id: '30'
+                    line1: Forever road
+                    line2: Still going road
+                    city: Nothing
+                    country: Beyond
+            schema:
+              type: object
+              properties:
+                exempt:
+                  type: boolean
+                exemption_reason:
+                  type: string
+                natural_person_ubo:
+                  type: boolean
+                publicly_listed:
+                  type: boolean
+                public_entity_name:
+                  type: string
+                stock_exchange:
+                  type: string
+                government_entity:
+                  type: boolean
+                government_entity_name:
+                  type: string
+                government_entity_country:
+                  type: string
+                non_significant_control_individuals_registered:
+                  type: boolean
+                ultimate_beneficial_owners:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      exempt:
+                        type: boolean
+                      title:
+                        type: string
+                      forename:
+                        type: string
+                        minimum: 2
+                        maximum: 100
+                      surname:
+                        type: string
+                        minimum: 2
+                        maximum: 80
+                      gender:
+                        type: string
+                        enum:
+                        - Male
+                        - Female
+                        - Other
+                        - Undeclared
+                      date_of_birth:
+                        type: string
+                      nationality:
+                        type: string
+                      type:
+                        type: string
+                      entity_name:
+                        type: string
+                      country_of_jurisdiction:
+                        type: string
+                      registered_address:
+                        type: string
+                      exemption_reason:
+                        type: string
+                      line1:
+                        type: string
+                      line2:
+                        type: string
+                      city:
+                        type: string
+                      country:
+                        type: string
+                      id:
+                        type: string
+      responses:
+        '204':
+          description: Success
+    patch:
+      summary: UltimateBeneficialOwnerAndConfigurations/Update
+      tags:
+      - UltimateBeneficialOwnerAndConfiguration
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1404
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  id: 32
+                  publicly_listed: true
+                  public_entity_name: Arkham Asylum
+                  stock_exchange: Abu Dhabi Securities Exchange (ADX)
+                  government_entity: false
+                  government_entity_name: Batman Origins
+                  government_entity_country: Gotham
+                  non_significant_control_individuals_registered: true
+                  ultimate_beneficial_owners:
+                  - id: '31'
+                    line1: Forever road
+                    line2: Still going road
+                    city: Nothing
+                    country: Beyond
+            schema:
+              type: object
+              properties:
+                exempt:
+                  type: boolean
+                exemption_reason:
+                  type: string
+                natural_person_ubo:
+                  type: boolean
+                publicly_listed:
+                  type: boolean
+                public_entity_name:
+                  type: string
+                stock_exchange:
+                  type: string
+                government_entity:
+                  type: boolean
+                government_entity_name:
+                  type: string
+                government_entity_country:
+                  type: string
+                non_significant_control_individuals_registered:
+                  type: boolean
+                ultimate_beneficial_owners:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      exempt:
+                        type: boolean
+                      title:
+                        type: string
+                      forename:
+                        type: string
+                        minimum: 2
+                        maximum: 100
+                      surname:
+                        type: string
+                        minimum: 2
+                        maximum: 80
+                      gender:
+                        type: string
+                        enum:
+                        - Male
+                        - Female
+                        - Other
+                        - Undeclared
+                      date_of_birth:
+                        type: string
+                      nationality:
+                        type: string
+                      type:
+                        type: string
+                      entity_name:
+                        type: string
+                      country_of_jurisdiction:
+                        type: string
+                      registered_address:
+                        type: string
+                      exemption_reason:
+                        type: string
+                      line1:
+                        type: string
+                      line2:
+                        type: string
+                      city:
+                        type: string
+                      country:
+                        type: string
+                      id:
+                        type: string
+      responses:
+        '204':
+          description: Success
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_ultimate_beneficial_owner:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        country_of_jurisdiction:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          format: date
+        entity_name:
+          type:
+          - string
+          - 'null'
+        forename:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        gender:
+          type:
+          - string
+          - 'null'
+        nationality:
+          type:
+          - string
+          - 'null'
+        registered_address:
+          type:
+          - string
+          - 'null'
+          format: text
+        surname:
+          type:
+          - string
+          - 'null'
+        exempt:
+          type: boolean
+        exemption_reason:
+          type:
+          - string
+          - 'null'
+        type:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+    response_ultimate_beneficial_owner_and_configuration:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        company_id:
+          type:
+          - integer
+          - 'null'
+        exempt:
+          type:
+          - boolean
+          - 'null'
+        exemption_reason:
+          type:
+          - string
+          - 'null'
+        natural_person_ubo:
+          type:
+          - boolean
+          - 'null'
+        publicly_listed:
+          type:
+          - boolean
+          - 'null'
+        public_entity_name:
+          type:
+          - string
+          - 'null'
+        stock_exchange:
+          type:
+          - string
+          - 'null'
+        government_entity:
+          type:
+          - boolean
+          - 'null'
+        government_entity_name:
+          type:
+          - string
+          - 'null'
+        government_entity_country:
+          type:
+          - string
+          - 'null'
+        non_significant_control_individuals_registered:
+          type:
+          - boolean
+          - 'null'
+        ultimate_beneficial_owners:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_ultimate_beneficial_owner'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

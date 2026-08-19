@@ -1,0 +1,218 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Mandates API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mandates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Mandates/Complete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates/:mandate_uuid/complete",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "6cb630ad-d1bf-4661-bc1f-9815fcf25178",
+                "type": "path"
+              },
+              {
+                "name": "mandate_uuid",
+                "value": "mandate-uuid",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/Complete"
+        },
+        {
+          "info": {
+            "name": "Companies/Mandates/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "540810ea-d91e-4c20-94bd-71abd4286c25",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/List"
+        },
+        {
+          "info": {
+            "name": "Companies/Mandates/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "2774b160-b8d0-4d48-82c3-c7d9bee09590",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/Create"
+        },
+        {
+          "info": {
+            "name": "Companies/Mandates/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates/:mandate_uuid",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "b7655560-b125-460a-a2af-e9cc4c98a7bd",
+                "type": "path"
+              },
+              {
+                "name": "mandate_uuid",
+                "value": "mandate-uuid",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/Get"
+        },
+        {
+          "info": {
+            "name": "Companies/Mandates/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates/:mandate_uuid",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "40f49e5e-9efe-4529-8868-03a1d66e551d",
+                "type": "path"
+              },
+              {
+                "name": "mandate_uuid",
+                "value": "mandate-uuid",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/Destroy"
+        },
+        {
+          "info": {
+            "name": "Companies/Mandates/Select",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/payments_service/companies/:company_uuid/mandates/:mandate_uuid/select",
+            "params": [
+              {
+                "name": "company_uuid",
+                "value": "ca9531f0-92d3-4054-8742-a21c6fe66a03",
+                "type": "path"
+              },
+              {
+                "name": "mandate_uuid",
+                "value": "mandate-uuid",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Mandates/Select"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

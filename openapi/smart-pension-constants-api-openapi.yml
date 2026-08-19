@@ -1,0 +1,443 @@
+openapi: 3.2.0
+info:
+  title: Keystone Constants API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Constants
+paths:
+  /constants:
+    get:
+      summary: Constants/Get
+      tags:
+      - Constants
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                add_money_form:
+                  types:
+                  - single
+                  - recurring
+                  statuses:
+                  - outstanding
+                  - done
+                add_money_form_task:
+                - - not_required
+                  - data_missing
+                  - outstanding
+                  - done
+                contribution:
+                  categories:
+                  - No duties
+                  - Entitled workers
+                  - Non-eligible jobholders
+                  - Eligible jobholders
+                  mutable_states:
+                  - created
+                  - payment_cancelled
+                  - payment_failed
+                  states:
+                  - created
+                  - released
+                  - payable
+                  - payment_pending
+                  - payment_failed
+                  - payment_cancelled
+                  - paid
+                  - investing
+                  - invested
+                  - refunding
+                  - refunded
+                  - payment_charged_back
+                  - payment_conflict
+                  - refund_failed
+                  - opted_out
+                  - rejected
+                customer:
+                  envelope_states:
+                  - ignition
+                  - sent
+                  - signed
+                  - verified
+                employment_period:
+                  member_types:
+                  - Mandatory
+                  - Discretionary
+                  - Accrued Pot Without Consent
+                  - Mandatory - visa optional
+                  - Sanctioned exempt
+                  opt_states:
+                  - ignition
+                  - opted_in
+                  - opted_out
+                  - rejoined
+                  - ceased_membership
+                  exit_reasons:
+                  - Employee left employment
+                  - Death
+                employment_type:
+                  names:
+                  - employed
+                  - self_employed
+                  - pensioner
+                  - child_under_16
+                  - caring_for_children
+                  - caring_for_someone_over_16
+                  - full_time_education
+                  - unemployed
+                  - other
+                import:
+                  states:
+                  - ignition
+                  - processing
+                  - success
+                  - partial_success
+                  - fail
+                ssif_import:
+                  states:
+                  - ignition
+                  - processing
+                  - success
+                  - partial_success
+                  - failure
+                  - mapping_in_creation
+                transfer_in:
+                  states:
+                  - draft
+                  - created
+                  - processable
+                  - processing
+                  - partially_processed
+                  - processed
+                  - rejected
+                  forms_enabled: true
+                  ceding_scheme_types:
+                  - approved
+                  default_ceding_scheme_type: approved
+                  transfer_in_category_enabled: true
+                  categories:
+                    transfer_in: transfer_in
+                    overseas_transfer_in: overseas_transfer_in
+                    pension_sharing_in: pension_sharing_in
+                    asset_transfer_in: asset_transfer_in
+                    migration_transfer_in: migration_transfer_in
+                    internal_transfer_in: internal_transfer_in
+                  selectable_categories:
+                    transfer_in: transfer_in
+                    overseas_transfer_in: overseas_transfer_in
+                    pension_sharing_in: pension_sharing_in
+                    migration_transfer_in: migration_transfer_in
+                    internal_transfer_in: internal_transfer_in
+                  notifiable_categories:
+                    transfer_in: transfer_in
+                    overseas_transfer_in: overseas_transfer_in
+                    pension_sharing_in: pension_sharing_in
+                    asset_transfer_in: asset_transfer_in
+                    migration_transfer_in: migration_transfer_in
+                    internal_transfer_in: internal_transfer_in
+                  chargeable_categories: {}
+                  authorize_admin_users_for_transfer_processing: true
+                pensionable_earning_types:
+                - banded
+                - unbanded
+                - tier1
+                - tier2
+                - tier3
+                periods:
+                - Weekly
+                - Fortnightly
+                - FourWeekly
+                - Monthly
+                - Quarterly
+                - BiAnnually
+                - Annually
+                genders:
+                - Male
+                - Female
+                - Other
+                - Undeclared
+                benefit:
+                  pending_states:
+                  - created
+                  - processable
+                  - processing
+                company:
+                  state_of_incorporation:
+                  - alabama
+                  - alaska
+                  - arizona
+                  - arkansas
+                  - california
+                  - colorado
+                  - connecticut
+                  - delaware
+                  - district_of_columbia
+                  - florida
+                  - georgia
+                  - hawaii
+                  - idaho
+                  - illinois
+                  - indiana
+                  - iowa
+                  - kansas
+                  - kentucky
+                  - louisiana
+                  - maine
+                  - maryland
+                  - massachusetts
+                  - michigan
+                  - minnesota
+                  - mississippi
+                  - missouri
+                  - montana
+                  - nebraska
+                  - nevada
+                  - new_hampshire
+                  - new_jersey
+                  - new_mexico
+                  - new_york
+                  - north_carolina
+                  - north_dakota
+                  - ohio
+                  - oklahoma
+                  - oregon
+                  - pennsylvania
+                  - rhode_island
+                  - south_carolina
+                  - south_dakota
+                  - tennessee
+                  - texas
+                  - utah
+                  - vermont
+                  - virginia
+                  - washington
+                  - west_virginia
+                  - wisconsin
+                  - wyoming
+                  taxed_as:
+                  - c_corporation
+                  - s_corporation
+                  - partnership
+                  can_self_sign_up: true
+                  extended_company_editing_crm: true
+                  legal_structures:
+                  - Limited Company
+                  - Limited Partnership
+                  - Limited Liability Partnership
+                  - Unincorporated Association
+                  - Ordinary Business Partnership
+                  - Sole Trader
+                  - Charity
+                  - Other
+                  forms_enabled: true
+                  ultimate_beneficial_owner_configuration_required: false
+                  enhanced_compliance_data_collection: false
+                  send_overdue_contribution_notifications: false
+                  company_lookup_source: default
+                  hide_signatories: false
+                  show_configuration_checklist_on_crm: false
+                  company_payin_iban_required: false
+                  send_notifications_for_new_contributions: true
+                  send_re_assessment_notifications: true
+                  show_company_history: true
+                  show_state_effective_on: true
+                  restrict_create_to_user: false
+                  registration_number_format: EmptyFormat
+                  disable_validation: false
+                  selectable_states:
+                  - active
+                  - changed_provider
+                  - closed_with_errors
+                  - dissolved
+                  - duplicate_or_opened_in_error
+                  - in_build
+                  - liquidated
+                  - no_further_duties
+                  - pending_dissolution
+                  - pending_liquidation
+                  - tuped_out
+                  state_effective_selectable_states:
+                  - active
+                  - changed_provider
+                  - closed_with_errors
+                  - dissolved
+                  - duplicate_or_opened_in_error
+                  - in_build
+                  - liquidated
+                  - no_further_duties
+                  - pending_dissolution
+                  - pending_liquidation
+                  - tuped_out
+                  default_automatic_payroll_schedules: false
+                  default_for_employee_can_change_contribution: true
+                  only_employer_manages_membership: true
+                  only_employer_manages_personal_details: true
+                  rewards_section_management_enabled: true
+                company_automation:
+                  postponement_periods:
+                  - 1 week
+                  - 2 weeks
+                  - 3 weeks
+                  - 4 weeks
+                  - 1 month
+                  - 2 months
+                  - 3 months
+                company_rule:
+                  enrolment_types:
+                  - Automatic enrolment
+                  - Contractual joining
+                  - Active joining
+                plan_template:
+                  names:
+                  - qaca_match_plan
+                  - safe_harbor_match_plan
+                customer_lead:
+                  roles:
+                  - hr
+                  - finance_accounting
+                  - owner_principal_ceo
+                  - other
+                  max_number_of_signatories: 2
+                  enrolment_states:
+                  - started
+                  - cancelled
+                  - finished
+                  - finished_with_errors
+                tax_allowances:
+                  annual_pension_contribution_allowance_amount: 60000
+                  mpaa_amount: 10000
+                  lifetime_allowance_amount: 1073100
+                  max_lump_sum_amount: 268275
+                tax_relief:
+                  basis_type:
+                  - net_pay_arrangement
+                  - relief_at_source_unfunded
+                  - salary_sacrifice
+                  salary_sacrifice_consent_type:
+                  - implied
+                  - express
+                tax_residency_status:
+                  names:
+                  - scot
+                  - welsh
+                  - other_uk
+                  - unavailable
+                salary_threshold:
+                  period_type:
+                  - annually
+                  - weekly
+                  - fortnightly
+                  - four_weekly
+                  - monthly
+                  - quarterly
+                  - bi_annually
+                payment:
+                  source_of_funds:
+                  - Income or Salary
+                  - UK savings
+                  - Proceeds from the sale of an asset/business
+                  - Inheritance or gifts
+                  - Lottery winnings
+                  invoice_prefix: SP
+                  simplified_benefit_flow: true
+                  sensitive_bank_details_enabled: false
+                  allowed_purposes:
+                  - contributions
+                  - company_fees
+                  - benefits
+                  year_to_date_filter: true
+                  payments_service_enabled: false
+                charge_configurations:
+                  company_fee_payment_delay_business_days: 1
+                employee:
+                  max_retirement_age: 75
+                  min_retirement_age: 55
+                  target_retirement_age_min_offset: null
+                  target_retirement_age_max_offset: null
+                  min_working_age: 16
+                  validate_age_to_opt_in: true
+                  min_password_length: 10
+                payroll_configurations:
+                  payroll_configurations_enabled: false
+                  allowed_mappings: []
+                  allowed_salary_rates: []
+                  default_salary_rate: null
+                  forms_enabled: true
+                  default_payroll_schedule_name: null
+                  default_description: null
+                  default_cutoff_day: null
+                  default_payday_day: null
+                  years_to_prolong: 1
+                person:
+                  titles:
+                  - Mr
+                  - Mrs
+                  - Ms
+                  - Miss
+                  - Mx
+                  - Dr
+                  - Lord
+                  - Lady
+                  - Sir
+                  - Prof
+                  - Rev
+                  - Captain
+                  - Bursar
+                employee_configurations:
+                  redirection_strategies:
+                  - switch_and_redirect
+                  - redirect
+                investment_account_configurations:
+                  redirection_strategies:
+                  - switch_and_redirect
+                  - redirect
+                api_keys:
+                  intercom_id: jxdk1p2v
+                  one_trust_id: ec22cde9-7bf5-41a2-903b-eaedee7ce7e5
+                  user_centrics_id: Yg5HSMeEBX3OZQ
+                  gtm_tracking: GTM-TZL9LDP&gtm_auth=P6wVWYPj2kWKQLGlFyH_lA&gtm_preview=env-3&gtm_cookies_win=x
+                  postcode_loqate:
+                    address_key: ak46-nh91-tp24-tx31
+                    address_url_find: https://api.addressy.com/CapturePlus/Interactive/Find/v2.10/json3.ws?Key=
+                    address_url_retrieve: https://api.addressy.com/CapturePlus/Interactive/Retrieve/v2.10/json3.ws?Key=
+              schema:
+                type: object
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

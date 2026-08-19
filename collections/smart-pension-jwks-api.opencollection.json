@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Jwks API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jwks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Jwks/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/.well-known/jwks"
+          },
+          "docs": "Jwks/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

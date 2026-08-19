@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Keystone Envelopes API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Envelopes
+paths:
+  /companies/{company_id}/envelope:
+    get:
+      summary: Companies/Envelopes/Get
+      tags:
+      - Envelopes
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1038
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 34
+                company_id: 1038
+                document_url: https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf
+                title: tortor eu 34
+                signature_service: signable
+                created_at: '2026-08-05T13:02:54.000+01:00'
+                updated_at: '2026-08-05T13:02:54.000+01:00'
+                signed_at: null
+                links:
+                - rel: company
+                  title: company
+                  href: https://api.host.com/companies/1038
+              schema:
+                $ref: '#/components/schemas/response_envelope'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_envelope:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type:
+          - integer
+          - 'null'
+        document_url:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        signature_service:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        signed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

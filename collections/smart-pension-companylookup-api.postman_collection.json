@@ -1,0 +1,218 @@
+{
+  "item": [
+    {
+      "id": "71e57b55-2c73-4d88-ac67-f0c3ba4c238d",
+      "name": "CompanyLookup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e46e50fb-9f52-4e14-9b30-bbff2874c1e2",
+          "name": "CompanyLookups/Get",
+          "request": {
+            "name": "CompanyLookups/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "company_lookups",
+                ":country_code",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "country_code",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fff3fd8a-c60c-42ab-bae9-1e01b51d5852",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company_lookups",
+                    ":country_code",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "country_code",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"country_code\": \"IE\",\n  \"company_id\": \"456495\",\n  \"name\": \"Sam Mclernon Holdings Limited\",\n  \"legal_entity_identifier\": null,\n  \"type\": \"Private limited with share capital\",\n  \"incorporation_country\": \"Ireland\",\n  \"incorporation_date\": \"2008-04-23\",\n  \"official_status\": \"Active\",\n  \"simplified_status\": \"Active\",\n  \"number_of_employees\": null,\n  \"primary_website\": \"http://www.sammclernon.ie\",\n  \"registered_address\": {\n    \"full_address\": \"Fox and Geese House, Naas Road, Dublin 12\",\n    \"structured_address\": null,\n    \"geolocation\": null\n  },\n  \"charitable_identities_count\": 0,\n  \"accounts\": {\n    \"filing_type\": \"Small company\",\n    \"currency\": \"EUR\",\n    \"latest_accounts_date\": \"2017-12-31\",\n    \"consolidated_accounts\": false,\n    \"next_accounts_due_date\": null\n  },\n  \"financial_summary\": {\n    \"turnover\": null,\n    \"ebitda\": null,\n    \"post_tax_profit\": null,\n    \"total_assets\": 3030953,\n    \"net_assets\": 1295773\n  },\n  \"id\": \"456495\",\n  \"directors\": [\n    {\n      \"id\": \"700656603\",\n      \"forename\": \"IVAN\",\n      \"surname\": \"POWELL\",\n      \"date_of_birth\": \"1967-03-01\"\n    },\n    {\n      \"id\": \"701201577\",\n      \"forename\": \"KEITH\",\n      \"surname\": \"MCLERNON\",\n      \"date_of_birth\": \"1960-11-01\"\n    },\n    {\n      \"id\": \"701170023\",\n      \"forename\": \"RONALD\",\n      \"surname\": \"MCLERNON\",\n      \"date_of_birth\": \"1951-08-01\"\n    },\n    {\n      \"id\": \"701175199\",\n      \"forename\": \"TORREN\",\n      \"surname\": \"GALE\",\n      \"date_of_birth\": null\n    }\n  ],\n  \"reg_address1\": \"Fox and Geese House, Naas Road, Dublin 12\",\n  \"reg_address2\": null,\n  \"reg_address3\": null,\n  \"reg_address4\": null,\n  \"reg_address_postcode\": null,\n  \"trading_address1\": \"Fox and Geese House, Naas Road, Dublin 12\",\n  \"trading_address2\": null,\n  \"trading_address3\": null,\n  \"trading_address_postcode\": null,\n  \"signatories_available\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0af92f9f-c3f4-4b96-a39e-8e8e3146bc6d",
+          "name": "CompanyLookups/Get",
+          "request": {
+            "name": "CompanyLookups/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "company_lookups",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "998a7000-5a3a-4ead-97ae-b95e7cd5904b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "company_lookups",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"0010J000021hx1jQAA\",\n  \"name\": \"Conciliant Technologies Limited\",\n  \"registration_number\": \"3126\",\n  \"legal_structure\": \"LTD\",\n  \"incorporated_on\": \"2019-01-13\",\n  \"external_id\": \"0010J000021hx1jQAA\",\n  \"reg_address1\": \"Unit  Office-8 , Office-9 , Level 4\",\n  \"reg_address2\": \"Gate Precinct Building 5\",\n  \"reg_address3\": \"Dubai, Dubai\",\n  \"reg_address4\": \"507211, United Arab Emirates\",\n  \"state\": \"active\",\n  \"signatories\": [],\n  \"signatories_available\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ee3d43d-86a6-41e3-adb1-7e3afaacd440",
+    "name": "Keystone Company Lookup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

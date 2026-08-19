@@ -1,0 +1,213 @@
+openapi: 3.2.0
+info:
+  title: Keystone Tax Preview API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Tax Preview
+paths:
+  /companies/{id}/employees/{employee_id}/benefit_categories/{benefit_rule_set_id}/tax_preview:
+    get:
+      summary: TaxPreview/Get
+      tags:
+      - Tax Preview
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 426
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 176
+      - name: benefit_rule_set_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 67
+      - name: amount
+        in: query
+        required: false
+        schema:
+          type: integer
+        example: amount=20000
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    summary:
+                      benefit_amount: 39900
+                      taxable_amount: 29925
+                      tax_free_cash: 9975
+                      total_tax_to_pay: 13200.93
+                      total_after_tax: 26699.07
+                      currency: GBP
+                      taxable_amount_percentage: 75
+                      tax_free_cash_percentage: 25
+                    details:
+                    - band: tax_free_cash
+                      amount: 9975
+                      tax_rate: null
+                      tax_to_pay: 0
+                    - band: basic_rate
+                      amount: 37700
+                      tax_rate: 20
+                      tax_to_pay: 145
+                    - band: higher_rate
+                      amount: 87440
+                      tax_rate: 40
+                      tax_to_pay: 672.62
+                    - band: additional_rate
+                      amount: 1430960
+                      tax_rate: 45
+                      tax_to_pay: 12383.31
+              schema:
+                $ref: '#/components/schemas/response_employee_tax_previews'
+        '401':
+          description: Unauthorised
+          content:
+            text/plain:
+              examples:
+                unauthorised:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                unprocessable_entity:
+                  value:
+                    errors:
+                    - code: 102001
+                      title: Value is too small.
+                      detail: Amount should be greater than 0.
+                      meta:
+                        value: '0.0'
+                        count: 0
+                      source:
+                        pointer: /data/attributes/amount
+components:
+  schemas:
+    response_employee_tax_previews_bands:
+      type: object
+      properties:
+        band:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_rate:
+          type:
+          - integer
+          - 'null'
+        tax_to_pay:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_summary:
+      type: object
+      properties:
+        benefit_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        taxable_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_free_cash:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_tax_to_pay:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_after_tax:
+          type:
+          - number
+          - 'null'
+          format: float
+        currency:
+          type:
+          - string
+          - 'null'
+        taxable_amount_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_free_cash_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_employee_tax_previews:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/response_summary'
+        details:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_employee_tax_previews_bands'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

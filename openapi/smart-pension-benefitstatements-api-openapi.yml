@@ -1,0 +1,281 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Statements API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitStatements
+paths:
+  /companies/{company_id}/benefit_statements/:
+    post:
+      summary: Companies/BenefitStatements/Create
+      tags:
+      - BenefitStatements
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 90
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              unauthorized:
+                value:
+                  employee_ids:
+                  - 26
+                  - 27
+                  - 28
+                  starts_on: '2025-08-05'
+                  ends_on: '2026-07-31'
+            schema:
+              type: object
+              properties:
+                resolved_starts_on:
+                  type: boolean
+                starts_on:
+                  type: string
+                ends_on:
+                  type: string
+                employee_ids:
+                  type: array
+                  items: {}
+              required:
+              - starts_on
+              - ends_on
+              - employee_ids
+      responses:
+        '202':
+          description: Accepted
+          content:
+            application/json:
+              example: {}
+        '401':
+          description: Unauthorized
+  /companies/{company_id}/employees/{employee_id}/benefit_statements:
+    post:
+      summary: BenefitStatements/Create
+      tags:
+      - BenefitStatements
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 440
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 188
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request:
+                value:
+                  benefit_statement:
+                    starts_on: '2025-08-10'
+                    ends_on: '2026-08-04'
+              empty_parameters:
+                value:
+                  benefit_statement:
+                    starts_on: ''
+                    ends_on: ''
+              invalid_parameters:
+                value:
+                  benefit_statement:
+                    starts_on: 32/15/1900
+                    ends_on: 24/18/1900
+            schema:
+              type: object
+              properties:
+                benefit_statement:
+                  type: object
+                  properties:
+                    starts_on:
+                      type: string
+                    ends_on:
+                      type: string
+                  required:
+                  - starts_on
+                  - ends_on
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              example:
+                id: 1
+                employee_id: 188
+                starts_on: '2025-08-10'
+                ends_on: '2026-08-04'
+                links:
+                - rel: letter
+                  title: letter
+                  href: https://api.host.com/companies/440/employees/188/letters/1
+              schema:
+                $ref: '#/components/schemas/response_benefit_statement'
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                empty_parameters:
+                  value:
+                    errors:
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Starts on is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/starts_on
+                    - code: 100001
+                      title: Value can not be blank.
+                      detail: Ends on is a required field.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/ends_on
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 100017
+                      title: Date for starts on is not in valid format.
+                      detail: Please provide date in starts on in correct format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/starts_on
+                    - code: 100017
+                      title: Date for ends on is not in valid format.
+                      detail: Please provide date in ends on in correct format.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/ends_on
+  /companies/{company_id}/employees/{employee_id}/benefit_statements/{id}:
+    get:
+      summary: Companies/Employees/BenefitStatements/Get
+      tags:
+      - BenefitStatements
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 443
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 191
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 2
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 2
+                employee_id: 191
+                starts_on: '2018-07-01'
+                ends_on: '2019-06-30'
+                links:
+                - rel: letter
+                  title: letter
+                  href: https://api.host.com/companies/443/employees/191/letters/2
+              schema:
+                $ref: '#/components/schemas/response_benefit_statement'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_statement:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        employee_id:
+          type:
+          - integer
+          - 'null'
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

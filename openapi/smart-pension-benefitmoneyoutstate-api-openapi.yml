@@ -1,0 +1,208 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Money Out State API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitMoneyOutState
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_money_out_state:
+    get:
+      summary: BenefitMoneyOutState/Get
+      tags:
+      - BenefitMoneyOutState
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 414
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 170
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                state: processing_request
+                request_origin: employee_app
+                frontend_tag: frontend_tag
+                benefit_type: full
+                requested_benefit_amount: null
+                requested_benefit_amount_currency: null
+                benefit_rule_set_id: 63
+                transaction_id: 13
+                outstanding_ras_contribution: null
+                benefit_check_results:
+                - id: 7
+                  benefit_check_type: know_your_customer
+                  benefit_check_name: engine_name1
+                  state: pending
+                source_subaccounts:
+                - id: 132
+                  uuid: 2bc57621-6784-417c-8db6-3447999ee6b8
+                  name: tssmikaoau
+                  scheme_id: 510
+                  subaccount_group: Uncrystallised
+                  frontend_tag: null
+                  active_from: '2026-08-05T12:59:58.039+01:00'
+                  active_until: null
+                  investments_locked: false
+                  created_at: '2026-08-05T12:59:58.044+01:00'
+                  updated_at: '2026-08-05T12:59:58.044+01:00'
+              schema:
+                $ref: '#/components/schemas/response_benefit_money_out_state'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_benefit_money_out_state:
+      type: object
+      properties:
+        state:
+          type:
+          - string
+          - 'null'
+        request_origin:
+          type:
+          - string
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        benefit_type:
+          type:
+          - string
+          - 'null'
+        requested_benefit_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        requested_benefit_amount_currency:
+          type:
+          - string
+          - 'null'
+        benefit_rule_set_id:
+          type:
+          - integer
+          - 'null'
+        transaction_id:
+          type:
+          - integer
+          - 'null'
+        outstanding_ras_contribution:
+          type:
+          - boolean
+          - 'null'
+        benefit_check_results:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              id:
+                type:
+                - integer
+                - 'null'
+              benefit_check_type:
+                type:
+                - string
+                - 'null'
+              benefit_check_name:
+                type:
+                - string
+                - 'null'
+              state:
+                type:
+                - string
+                - 'null'
+        source_subaccounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_subaccount'
+    response_subaccount:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        name:
+          type: string
+        scheme_id:
+          type: integer
+        subaccount_group:
+          type:
+          - string
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        active_from:
+          type: string
+          format: date-time
+        active_until:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        investments_locked:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

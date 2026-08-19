@@ -1,0 +1,687 @@
+{
+  "item": [
+    {
+      "id": "233a7960-0c28-4730-85dc-c486d18053ab",
+      "name": "Benefit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf0be1dd-95fd-4d85-9fdf-001b50475460",
+          "name": "Employees/Benefits/Create",
+          "request": {
+            "name": "Employees/Benefits/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "benefits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"benefit\": {\n    \"benefit_rule_set_id\": \"<integer>\",\n    \"bank_account_detail\": {\n      \"account_name\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"account_number_format\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"account_number\": \"<string>\",\n      \"account_category\": \"<string>\",\n      \"bank_identifier_code\": \"<string>\",\n      \"routing_number\": \"<string>\",\n      \"building_society_roll_number\": \"<string>\",\n      \"reviewed\": \"<boolean>\"\n    },\n    \"currency\": \"<string>\",\n    \"requested_benefit_amount\": \"\",\n    \"benefit_evidence_uploads_attributes\": \"<object>\",\n    \"request_mode\": \"<string>\",\n    \"is_mobile\": \"<boolean>\",\n    \"benefit_subaccount_splits\": [\n      {\n        \"percentage\": \"<number>\",\n        \"subaccount_uuid\": \"<string>\"\n      },\n      {\n        \"percentage\": \"<number>\",\n        \"subaccount_uuid\": \"<string>\"\n      }\n    ],\n    \"scheme_currency\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "26d828d2-fe9c-4998-8a99-48076cca4135",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"benefit\": {\n    \"benefit_rule_set_id\": 92,\n    \"request_mode\": \"unit\",\n    \"currency\": \"USD\",\n    \"bank_account_detail\": {\n      \"account_name\": \"my account\",\n      \"bank_name\": \"some bank\",\n      \"country_code\": \"GB\",\n      \"account_number_format\": \"local_bank_account_number\",\n      \"account_number\": \"12341234\",\n      \"routing_number\": \"12-34-56\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 26,\n  \"admin_user_id\": null,\n  \"amount\": null,\n  \"amount_currency\": \"USD\",\n  \"cancelled_at\": null,\n  \"category\": \"something\",\n  \"benefit_type\": \"full\",\n  \"withdrawal_type\": \"benefit\",\n  \"description\": null,\n  \"employee_id\": 666,\n  \"benefit_rule_set_id\": 92,\n  \"state\": \"created\",\n  \"created_at\": \"2026-08-05T13:05:34.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:05:34.000+01:00\",\n  \"completed_at\": null,\n  \"receiving_contract_reference\": null,\n  \"withdrawal_application_state\": \"pending\",\n  \"id_verification_state\": \"not_applicable\",\n  \"payment_state\": \"pending\",\n  \"request_mode\": \"unit\",\n  \"benefit_check_results\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f62658ff-d351-4037-a6cf-c3767c885a54",
+              "name": "Benefit rule set id does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"benefit\": {\n    \"benefit_rule_set_id\": 92,\n    \"request_mode\": \"unit\",\n    \"currency\": \"USD\",\n    \"bank_account_detail\": {\n      \"account_name\": \"my account\",\n      \"bank_name\": \"some bank\",\n      \"country_code\": \"GB\",\n      \"account_number_format\": \"local_bank_account_number\",\n      \"account_number\": \"12341234\",\n      \"routing_number\": \"12-34-56\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b25aea1e-03ba-411d-9955-e91ab468ec14",
+          "name": "Employees/Benefits/RequestBenefitChecks",
+          "request": {
+            "name": "Employees/Benefits/RequestBenefitChecks",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "benefits",
+                ":id",
+                "request_benefit_checks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b4dc3e1a-8078-41b3-9a40-2539bbbe37b4",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefits",
+                    ":id",
+                    "request_benefit_checks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "041f02d0-e676-4a15-994f-18aaa4046aca",
+              "name": "Benefit does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefits",
+                    ":id",
+                    "request_benefit_checks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6ebb1a74-cb6a-4aa7-bb54-4257f8ff805d",
+          "name": "TransferOuts/Create",
+          "request": {
+            "name": "TransferOuts/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "partners",
+                "employees",
+                ":employee_id",
+                "transfer_out"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"benefit\": {\n    \"bank_account_detail\": {\n      \"account_name\": \"<string>\",\n      \"country_code\": \"<string>\",\n      \"account_number_format\": \"<string>\",\n      \"bank_name\": \"<string>\",\n      \"account_number\": \"<string>\",\n      \"account_category\": \"<string>\",\n      \"bank_identifier_code\": \"<string>\",\n      \"routing_number\": \"<string>\",\n      \"building_society_roll_number\": \"<string>\",\n      \"reviewed\": \"<boolean>\"\n    },\n    \"currency\": \"<string>\",\n    \"description\": \"<string>\",\n    \"requested_benefit_amount\": \"\",\n    \"receiving_contract_reference\": \"<string>\",\n    \"full_amount\": \"<boolean>\",\n    \"is_mobile\": \"<boolean>\",\n    \"scheme_currency\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f6fec962-cbe6-4bf6-af51-38ac3ff2775d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "employees",
+                    ":employee_id",
+                    "transfer_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"benefit\": {\n    \"full_amount\": false,\n    \"currency\": \"GBP\",\n    \"receiving_contract_reference\": \"921281344\",\n    \"bank_account_detail\": {\n      \"account_name\": \"my account\",\n      \"country_code\": \"GB\",\n      \"account_number_format\": \"local_bank_account_number\",\n      \"account_number\": \"12341234\",\n      \"routing_number\": \"12-34-56\"\n    },\n    \"requested_benefit_amount\": 60\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 78,\n  \"admin_user_id\": null,\n  \"amount\": null,\n  \"amount_currency\": \"GBP\",\n  \"cancelled_at\": null,\n  \"category\": \"something\",\n  \"benefit_type\": \"partial\",\n  \"withdrawal_type\": \"transfer_out\",\n  \"description\": null,\n  \"employee_id\": 804,\n  \"benefit_rule_set_id\": 149,\n  \"state\": \"created\",\n  \"created_at\": \"2026-08-05T13:06:40.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:06:40.000+01:00\",\n  \"completed_at\": null,\n  \"receiving_contract_reference\": \"921281344\",\n  \"withdrawal_application_state\": \"pending\",\n  \"id_verification_state\": \"not_applicable\",\n  \"payment_state\": \"pending\",\n  \"request_mode\": \"monetary\",\n  \"bank_account_detail\": {\n    \"id\": 77,\n    \"routing_number\": \"12-34-56\",\n    \"account_number\": \"12341234\",\n    \"building_society_roll_number\": null,\n    \"account_name\": \"my account\",\n    \"country_code\": \"GB\",\n    \"created_at\": \"2026-08-05T13:06:40.000+01:00\",\n    \"updated_at\": \"2026-08-05T13:06:40.000+01:00\",\n    \"account_number_format\": \"local_bank_account_number\",\n    \"cancelled_at\": null,\n    \"reviewed\": null,\n    \"account_category\": \"scheme\",\n    \"expires_on\": \"2027-08-05\"\n  },\n  \"benefit_check_results\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebf36b9f-71bb-4ff7-8847-98661bb778f3",
+              "name": "Ineligible benefit",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "partners",
+                    "employees",
+                    ":employee_id",
+                    "transfer_out"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"benefit\": {\n    \"full_amount\": false,\n    \"currency\": \"GBP\",\n    \"receiving_contract_reference\": \"921281344\",\n    \"bank_account_detail\": {\n      \"account_name\": \"my account\",\n      \"country_code\": \"GB\",\n      \"account_number_format\": \"local_bank_account_number\",\n      \"account_number\": \"12341234\",\n      \"routing_number\": \"12-34-56\"\n    },\n    \"requested_benefit_amount\": 60\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7c25f91c-acfd-4b3f-81b1-672e79190461",
+    "name": "Keystone Benefit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

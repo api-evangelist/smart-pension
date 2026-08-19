@@ -1,0 +1,481 @@
+openapi: 3.2.0
+info:
+  title: Keystone Pension Forecast Inputs API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PensionForecastInputs
+paths:
+  /companies/{company_id}/employees/{id}/pension_forecast_inputs:
+    get:
+      summary: Companies/Employees/PensionForecastInputs/Get
+      tags:
+      - PensionForecastInputs
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 387
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 768
+        schema:
+          type: string
+      - name: date_of_retirement
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: employee_amount_contribution
+        in: query
+        schema:
+          type: number
+        required: false
+      - name: membership_period_type
+        in: query
+        schema:
+          type: string
+          enum:
+          - active
+          - deferred
+          - pensioner
+          - cancelled
+          - no_liability
+          - died
+        required: false
+      - name: apply_vesting
+        in: query
+        schema:
+          type: boolean
+        required: false
+      - name: zero_out_contribution_percentages
+        in: query
+        schema:
+          type: boolean
+        required: false
+      - name: employee_annual_contribution_amount
+        in: query
+        schema:
+          type: number
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                date_of_calculation: '2019-08-20'
+                date_of_retirement: '2049-03-27'
+                date_of_birth: '1994-10-24'
+                gender: Female
+                inflation_rate: 2.5
+                employee_amount_contribution: 0
+                employee_contribution_salary: 0
+                employer_contribution_salary: 0
+                employee_contribution_salary_cap: null
+                employer_contribution_salary_cap: null
+                fees: 0
+                contribution_charges:
+                  employee: 0
+                  employer: 0
+                  other_avc: 0
+                increase_factors:
+                  employee_contribution_salary:
+                    month: 2
+                    rate: 2.5
+                  employer_contribution_salary:
+                    month: 2
+                    rate: 2.5
+                  employee_contribution_salary_cap:
+                    month: 1
+                    rate: 0
+                  employer_contribution_salary_cap:
+                    month: 1
+                    rate: 0
+                  employee_amount_contribution:
+                    month: 1
+                    rate: 2.5
+                  fees:
+                    month: 2
+                    rate: 0
+                thresholds_and_limits:
+                  retirement_age:
+                    min: 55
+                    max: 75
+                  employee_contribution_percentage:
+                    min: 0
+                    max: 75
+                age_of_retirement: 65
+                state_pension_age: 68
+                include_state_pension: false
+                employee_monthly_contribution_amount: null
+                employee_amount_contribution_minimum: null
+                employer_rate_changes:
+                - min_employee_rate: 0
+                  employer_rate: 5
+                fund_values:
+                - value: 630
+                  contribution_allocation_percentage: 0
+                  annual_management_charges:
+                  - from: '2019-08-20'
+                    rate: 0
+                  investment_returns:
+                    long_term:
+                      '0': 2.5
+                    market_rates: null
+                - value: 840
+                  contribution_allocation_percentage: 0
+                  annual_management_charges:
+                  - from: '2019-08-20'
+                    rate: 0
+                  investment_returns:
+                    long_term:
+                      '0': 3
+                    market_rates: null
+                - value: 0
+                  contribution_allocation_percentage: 50
+                  annual_management_charges:
+                  - from: '2019-08-20'
+                    rate: 0
+                  investment_returns:
+                    long_term:
+                      '0': 2.5
+                    market_rates: null
+                - value: 0
+                  contribution_allocation_percentage: 50
+                  annual_management_charges:
+                  - from: '2019-08-20'
+                    rate: 0
+                  investment_returns:
+                    long_term:
+                      '0': 3
+                    market_rates: null
+                contribution_percentages:
+                - from: '2019-08-20'
+                  employee_rate: 4
+                  employer_rate: 5
+                  avc_rate: 0.5
+                mode: active
+                grades:
+                  minimum: 13900
+                  moderate: 32700
+                  comfortable: 45400
+              schema:
+                $ref: '#/components/schemas/response_pension_forecast_calculation_inputs'
+        '403':
+          description: Forbidden - when employee has no portfolio
+        '422':
+          description: Invalid parameters
+        '531':
+          description: Error - when missing platform configuration
+components:
+  schemas:
+    response_pension_forecast_calculation_inputs_thresholds_and_limits:
+      type: object
+      properties:
+        retirement_age:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
+        employee_contribution_percentage:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
+    response_pension_forecast_calculation_inputs_increase_factors:
+      type: object
+      properties:
+        employee_contribution_salary:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employer_contribution_salary:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employee_contribution_salary_cap:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employer_contribution_salary_cap:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employee_amount_contribution:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        fees:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+    response_pension_forecast_calculation_inputs_increase_factor:
+      type: object
+      properties:
+        month:
+          type:
+          - integer
+          - 'null'
+        rate:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs:
+      type: object
+      properties:
+        date_of_calculation:
+          type:
+          - string
+          - 'null'
+          format: date
+        date_of_retirement:
+          type:
+          - string
+          - 'null'
+          format: date
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+          format: date
+        gender:
+          type:
+          - string
+          - 'null'
+        inflation_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_amount_contribution:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_contribution_salary:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_contribution_salary:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_contribution_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_contribution_salary_cap:
+          type:
+          - number
+          - 'null'
+          format: float
+        fees:
+          type:
+          - number
+          - 'null'
+          format: float
+        age_of_retirement:
+          type:
+          - integer
+          - 'null'
+        state_pension_age:
+          type:
+          - integer
+          - 'null'
+        include_state_pension:
+          type:
+          - boolean
+          - 'null'
+        employee_monthly_contribution_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        employee_amount_contribution_minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        mode:
+          type:
+          - string
+          - 'null'
+        contribution_charges:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_contribution_charges'
+        increase_factors:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factors'
+        thresholds_and_limits:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_thresholds_and_limits'
+        employer_rate_changes:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_employer_rate_changes'
+        fund_values:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              value:
+                type:
+                - number
+                - 'null'
+                format: float
+              contribution_allocation_percentage:
+                type:
+                - number
+                - 'null'
+                format: float
+              annual_management_charges:
+                type:
+                - array
+                - 'null'
+                items:
+                  type: object
+                  properties:
+                    from:
+                      type:
+                      - string
+                      - 'null'
+                      format: date
+                    rate:
+                      type:
+                      - number
+                      - 'null'
+                      format: float
+              investment_returns:
+                $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_investment_returns'
+        contribution_percentages:
+          type:
+          - array
+          - 'null'
+          items:
+            type: object
+            properties:
+              from:
+                type:
+                - string
+                - 'null'
+                format: date
+              employee_rate:
+                type:
+                - number
+                - 'null'
+                format: float
+              employer_rate:
+                type:
+                - number
+                - 'null'
+                format: float
+              avc_rate:
+                type:
+                - number
+                - 'null'
+                format: float
+        grades:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_income_grades'
+    response_pension_forecast_calculation_inputs_investment_returns:
+      type: object
+      properties:
+        long_term:
+          type:
+          - object
+          - 'null'
+        market_rates:
+          type:
+          - object
+          - 'null'
+    response_pension_forecast_calculation_inputs_employer_rate_changes:
+      type: object
+      properties:
+        min_employee_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_limit_structure:
+      type: object
+      properties:
+        min:
+          type:
+          - number
+          - 'null'
+          format: float
+        max:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_income_grades:
+      type: object
+      properties:
+        minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        moderate:
+          type:
+          - number
+          - 'null'
+          format: float
+        comfortable:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_contribution_charges:
+      type: object
+      properties:
+        employee:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer:
+          type:
+          - number
+          - 'null'
+          format: float
+        other_avc:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

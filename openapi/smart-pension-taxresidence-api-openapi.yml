@@ -1,0 +1,285 @@
+openapi: 3.2.0
+info:
+  title: Keystone Tax Residence API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: TaxResidence
+paths:
+  /companies/{company_id}/employees/{employee_id}/tax_residence:
+    post:
+      summary: Companies/Employees/TaxResidence/Create
+      tags:
+      - TaxResidence
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 893
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 482
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country_of_birth: GB
+                  city_of_birth: London
+                  us_tax_status: us_tax_resident
+                  us_taxpayer_identification_number: '6789'
+              invalid_parameters:
+                value:
+                  country_of_birth: null
+                  city_of_birth: London
+                  us_tax_status: us_tax_resident
+                  us_taxpayer_identification_number: '6789'
+            schema:
+              type: object
+              properties:
+                country_of_birth:
+                  type: string
+                us_tax_status:
+                  type: string
+                  enum:
+                  - non_us_citizen_or_tax_resident
+                  - voluntarily_surrendered_citizenship
+                  - us_tax_resident
+                us_taxpayer_identification_number:
+                  type: string
+                city_of_birth:
+                  type: string
+              required:
+              - country_of_birth
+              - us_tax_status
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                country_of_birth: GB
+                city_of_birth: London
+                employee_id: 482
+                us_tax_status: us_tax_resident
+                us_taxpayer_identification_number: '6789'
+              schema:
+                $ref: '#/components/schemas/response_tax_residence'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid parameters
+    get:
+      summary: Companies/Employees/TaxResidence/Get
+      tags:
+      - TaxResidence
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 897
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 486
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 2
+                country_of_birth: GB
+                city_of_birth: null
+                employee_id: 486
+                us_tax_status: us_tax_resident
+                us_taxpayer_identification_number: '8642'
+              schema:
+                $ref: '#/components/schemas/response_tax_residence'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+    put:
+      summary: Companies/Employees/TaxResidence/Update
+      tags:
+      - TaxResidence
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 900
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 489
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country_of_birth: US
+              invalid_parameters:
+                value:
+                  country_of_birth: null
+            schema:
+              type: object
+              properties:
+                country_of_birth:
+                  type: string
+                us_tax_status:
+                  type: string
+                  enum:
+                  - non_us_citizen_or_tax_resident
+                  - voluntarily_surrendered_citizenship
+                  - us_tax_resident
+                us_taxpayer_identification_number:
+                  type: string
+                city_of_birth:
+                  type: string
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid parameters
+    patch:
+      summary: Companies/Employees/TaxResidence/Update
+      tags:
+      - TaxResidence
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 904
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 493
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country_of_birth: US
+              invalid_parameters:
+                value:
+                  country_of_birth: null
+            schema:
+              type: object
+              properties:
+                country_of_birth:
+                  type: string
+                us_tax_status:
+                  type: string
+                  enum:
+                  - non_us_citizen_or_tax_resident
+                  - voluntarily_surrendered_citizenship
+                  - us_tax_resident
+                us_taxpayer_identification_number:
+                  type: string
+                city_of_birth:
+                  type: string
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid parameters
+components:
+  schemas:
+    response_tax_residence:
+      type: object
+      properties:
+        id:
+          type: integer
+        country_of_birth:
+          type: string
+        city_of_birth:
+          type:
+          - string
+          - 'null'
+        employee_id:
+          type: integer
+        us_tax_status:
+          type: string
+        us_taxpayer_identification_number:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

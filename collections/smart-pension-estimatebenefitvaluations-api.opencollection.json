@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Estimate Benefit Valuations API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EstimateBenefitValuations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "EstimateBenefitValuations/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories/:benefit_category_id/estimate_benefit_valuations",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1051",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "567",
+                "type": "path"
+              },
+              {
+                "name": "benefit_category_id",
+                "value": "90",
+                "type": "path"
+              },
+              {
+                "name": "subaccount_uuid",
+                "value": "subaccount_uuid=8700b2c3-9fa7-4774-8f4e-49681833386a",
+                "type": "query"
+              },
+              {
+                "name": "requested_benefit_amount",
+                "value": "requested_benefit_amount=123",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "EstimateBenefitValuations/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

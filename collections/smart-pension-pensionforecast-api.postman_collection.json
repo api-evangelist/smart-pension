@@ -1,0 +1,772 @@
+{
+  "item": [
+    {
+      "id": "32147b35-dd25-4e0b-91ca-4c550985630e",
+      "name": "PensionForecast",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ab45a8e-d962-4da0-a642-a56f15e7684d",
+          "name": "Companies/Employees/PensionForecastInputs/Create",
+          "request": {
+            "name": "Companies/Employees/PensionForecastInputs/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "pension_forecast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date_of_retirement\": \"<string>\",\n  \"employee_amount_contribution\": \"<number>\",\n  \"membership_period_type\": \"<string>\",\n  \"apply_vesting\": \"<boolean>\",\n  \"zero_out_contribution_percentages\": \"<boolean>\",\n  \"employee_annual_contribution_amount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbdf221d-dcb2-44c1-9a48-9d521c82b1b3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_calculation\": \"9-10-2019\",\n  \"date_of_birth\": \"1990-10-10\",\n  \"fund_values\": [\n    {\n      \"value\": 1000,\n      \"investment_returns\": {\n        \"0\": 3\n      },\n      \"contribution_allocation_percentage\": 100,\n      \"annual_management_charge\": 1.5\n    }\n  ],\n  \"date_of_retirement\": \"16-01-2030\",\n  \"inflation_rate\": 2,\n  \"contribution_percentages\": [\n    {\n      \"from\": \"2000-03-03\",\n      \"employee_rate\": 1,\n      \"employer_rate\": 3,\n      \"avc_rate\": 4\n    }\n  ],\n  \"employee_contribution_salary\": 120000,\n  \"employer_contribution_salary\": 120000,\n  \"employee_contribution_salary_cap\": 121000,\n  \"employer_contribution_salary_cap\": 121000,\n  \"employee_amount_contribution\": 1200,\n  \"annuity_rate\": 10,\n  \"fees\": 2,\n  \"contribution_charges\": {\n    \"employee\": 1,\n    \"employer\": 1,\n    \"other_avc\": 1\n  },\n  \"increase_factors\": {\n    \"employee_contribution_salary\": {\n      \"month\": 12,\n      \"rate\": 1.5\n    },\n    \"employer_contribution_salary\": {\n      \"month\": 12,\n      \"rate\": \"1.5\"\n    },\n    \"employee_amount_contribution\": {\n      \"month\": 12,\n      \"rate\": 2\n    }\n  },\n  \"flat_fees_applicable_min_holdings\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annuity_rate\": 10,\n  \"date_of_calculation\": \"2019-10-09\",\n  \"date_of_retirement\": \"2030-01-16\",\n  \"fund_value_without_charges\": 133401.39,\n  \"fund_value_with_charges\": 121610.18,\n  \"fund_value_in_real_terms\": 99225.98,\n  \"fund_values_per_age\": [\n    {\n      \"age\": 29,\n      \"value_in_real_terms\": 1889.01\n    },\n    {\n      \"age\": 30,\n      \"value_in_real_terms\": 12487.49\n    },\n    {\n      \"age\": 31,\n      \"value_in_real_terms\": 22853.7\n    },\n    {\n      \"age\": 32,\n      \"value_in_real_terms\": 32985.8\n    },\n    {\n      \"age\": 33,\n      \"value_in_real_terms\": 42888.54\n    },\n    {\n      \"age\": 34,\n      \"value_in_real_terms\": 52563.71\n    },\n    {\n      \"age\": 35,\n      \"value_in_real_terms\": 62021.07\n    },\n    {\n      \"age\": 36,\n      \"value_in_real_terms\": 71262.75\n    },\n    {\n      \"age\": 37,\n      \"value_in_real_terms\": 80293.15\n    },\n    {\n      \"age\": 38,\n      \"value_in_real_terms\": 89111.73\n    },\n    {\n      \"age\": 39,\n      \"value_in_real_terms\": 97731.89\n    }\n  ],\n  \"total_employee_contributions\": 75971.25,\n  \"total_employer_contributions\": 37272.07,\n  \"salary_at_retirement\": 141353.87,\n  \"employee_salary_cap_at_retirement\": 121000,\n  \"employer_salary_cap_at_retirement\": 121000,\n  \"annual_pension_at_retirement\": 12161.02,\n  \"annual_pension_at_retirement_in_real_terms\": 9922.6,\n  \"total_charges\": 10571.46,\n  \"average_return_percentage\": 1.2,\n  \"average_return_without_charges_percentage\": 2.95,\n  \"effect_of_charges_percentage\": 1.75,\n  \"employee_forecast_inputs\": null,\n  \"number_of_iterations\": 124\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "881a548f-2a5b-4011-843e-2d48d464bc93",
+              "name": "when passing invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date_of_calculation\": \"9-10-2019\",\n  \"date_of_birth\": \"1990-10-10\",\n  \"fund_values\": [\n    {\n      \"value\": 1000,\n      \"investment_returns\": {\n        \"0\": 3\n      },\n      \"contribution_allocation_percentage\": 100,\n      \"annual_management_charge\": 1.5\n    }\n  ],\n  \"date_of_retirement\": \"16-01-2030\",\n  \"inflation_rate\": 2,\n  \"contribution_percentages\": [\n    {\n      \"from\": \"2000-03-03\",\n      \"employee_rate\": 1,\n      \"employer_rate\": 3,\n      \"avc_rate\": 4\n    }\n  ],\n  \"employee_contribution_salary\": 120000,\n  \"employer_contribution_salary\": 120000,\n  \"employee_contribution_salary_cap\": 121000,\n  \"employer_contribution_salary_cap\": 121000,\n  \"employee_amount_contribution\": 1200,\n  \"annuity_rate\": 10,\n  \"fees\": 2,\n  \"contribution_charges\": {\n    \"employee\": 1,\n    \"employer\": 1,\n    \"other_avc\": 1\n  },\n  \"increase_factors\": {\n    \"employee_contribution_salary\": {\n      \"month\": 12,\n      \"rate\": 1.5\n    },\n    \"employer_contribution_salary\": {\n      \"month\": 12,\n      \"rate\": \"1.5\"\n    },\n    \"employee_amount_contribution\": {\n      \"month\": 12,\n      \"rate\": 2\n    }\n  },\n  \"flat_fees_applicable_min_holdings\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b017f6cd-ca4c-46c4-9f60-8e75d8d4e974",
+          "name": "Companies/Employees/PensionForecastInputs/Create",
+          "request": {
+            "name": "Companies/Employees/PensionForecastInputs/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "pension_forecast"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date_of_retirement",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_amount_contribution",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "membership_period_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "apply_vesting",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "zero_out_contribution_percentages",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "employee_annual_contribution_amount",
+                  "value": "<number>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "da52cbf2-fb43-4f20-8aee-7454ea473c3f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_of_retirement",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_amount_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "membership_period_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apply_vesting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "zero_out_contribution_percentages",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "employee_annual_contribution_amount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annuity_rate\": 26.19676143,\n  \"date_of_calculation\": \"2019-08-20\",\n  \"date_of_retirement\": \"2049-03-27\",\n  \"fund_value_without_charges\": 293961.87,\n  \"fund_value_with_charges\": 293961.87,\n  \"fund_value_in_real_terms\": 141529.5,\n  \"fund_values_per_age\": [\n    {\n      \"age\": 25,\n      \"value_in_real_terms\": 2611.21\n    },\n    {\n      \"age\": 26,\n      \"value_in_real_terms\": 7186.36\n    },\n    {\n      \"age\": 27,\n      \"value_in_real_terms\": 11773.04\n    },\n    {\n      \"age\": 28,\n      \"value_in_real_terms\": 16371.1\n    },\n    {\n      \"age\": 29,\n      \"value_in_real_terms\": 20980.63\n    },\n    {\n      \"age\": 30,\n      \"value_in_real_terms\": 25599.93\n    },\n    {\n      \"age\": 31,\n      \"value_in_real_terms\": 30232.21\n    },\n    {\n      \"age\": 32,\n      \"value_in_real_terms\": 34876.12\n    },\n    {\n      \"age\": 33,\n      \"value_in_real_terms\": 39531.7\n    },\n    {\n      \"age\": 34,\n      \"value_in_real_terms\": 44196.03\n    },\n    {\n      \"age\": 35,\n      \"value_in_real_terms\": 48874.83\n    },\n    {\n      \"age\": 36,\n      \"value_in_real_terms\": 53565.47\n    },\n    {\n      \"age\": 37,\n      \"value_in_real_terms\": 58268.01\n    },\n    {\n      \"age\": 38,\n      \"value_in_real_terms\": 62978.27\n    },\n    {\n      \"age\": 39,\n      \"value_in_real_terms\": 67704.48\n    },\n    {\n      \"age\": 40,\n      \"value_in_real_terms\": 72442.77\n    },\n    {\n      \"age\": 41,\n      \"value_in_real_terms\": 77193.2\n    },\n    {\n      \"age\": 42,\n      \"value_in_real_terms\": 81950.28\n    },\n    {\n      \"age\": 43,\n      \"value_in_real_terms\": 86724.84\n    },\n    {\n      \"age\": 44,\n      \"value_in_real_terms\": 91511.72\n    },\n    {\n      \"age\": 45,\n      \"value_in_real_terms\": 96310.97\n    },\n    {\n      \"age\": 46,\n      \"value_in_real_terms\": 101115.81\n    },\n    {\n      \"age\": 47,\n      \"value_in_real_terms\": 105939.67\n    },\n    {\n      \"age\": 48,\n      \"value_in_real_terms\": 110776.08\n    },\n    {\n      \"age\": 49,\n      \"value_in_real_terms\": 115625.11\n    },\n    {\n      \"age\": 50,\n      \"value_in_real_terms\": 120478.67\n    },\n    {\n      \"age\": 51,\n      \"value_in_real_terms\": 125352.78\n    },\n    {\n      \"age\": 52,\n      \"value_in_real_terms\": 130239.7\n    },\n    {\n      \"age\": 53,\n      \"value_in_real_terms\": 135139.48\n    },\n    {\n      \"age\": 54,\n      \"value_in_real_terms\": 140042.72\n    }\n  ],\n  \"total_employee_contributions\": 94214.23,\n  \"total_employer_contributions\": 104682.48,\n  \"salary_at_retirement\": 100683.24,\n  \"employee_salary_cap_at_retirement\": null,\n  \"employer_salary_cap_at_retirement\": null,\n  \"annual_pension_at_retirement\": 11221.31,\n  \"annual_pension_at_retirement_in_real_terms\": 5402.56,\n  \"total_charges\": 0,\n  \"average_return_percentage\": 2.74,\n  \"average_return_without_charges_percentage\": 2.74,\n  \"effect_of_charges_percentage\": 0,\n  \"employee_forecast_inputs\": {\n    \"date_of_calculation\": \"2019-08-20\",\n    \"date_of_birth\": \"1994-10-24\",\n    \"employee_amount_contribution\": 0,\n    \"increase_factors\": {\n      \"employee_contribution_salary\": {\n        \"rate\": 2.5,\n        \"month\": 2\n      },\n      \"employer_contribution_salary\": {\n        \"rate\": 2.5,\n        \"month\": 2\n      },\n      \"employee_contribution_salary_cap\": {\n        \"rate\": 0,\n        \"month\": 1\n      },\n      \"employer_contribution_salary_cap\": {\n        \"rate\": 0,\n        \"month\": 1\n      },\n      \"employee_amount_contribution\": {\n        \"rate\": 2.5,\n        \"month\": 12\n      },\n      \"fees\": {\n        \"rate\": 2.5,\n        \"month\": 2\n      }\n    },\n    \"fund_values\": [\n      {\n        \"contribution_allocation_percentage\": 50,\n        \"value\": 630,\n        \"investment_returns\": {\n          \"0\": 2.5\n        },\n        \"annual_management_charges\": [\n          {\n            \"from\": \"2019-08-20\",\n            \"rate\": 0\n          }\n        ],\n        \"apply_bonuses\": false\n      },\n      {\n        \"contribution_allocation_percentage\": 50,\n        \"value\": 840,\n        \"investment_returns\": {\n          \"0\": 3\n        },\n        \"annual_management_charges\": [\n          {\n            \"from\": \"2019-08-20\",\n            \"rate\": 0\n          }\n        ],\n        \"apply_bonuses\": false\n      }\n    ],\n    \"employee_contribution_salary\": 48000,\n    \"employer_contribution_salary\": 48000,\n    \"date_of_retirement\": \"2049-03-27\",\n    \"inflation_rate\": 2.5,\n    \"contribution_percentages\": [\n      {\n        \"from\": \"2019-08-20\",\n        \"employee_rate\": 4,\n        \"avc_rate\": 0.5,\n        \"employer_rate\": 5\n      }\n    ],\n    \"flat_fees_applicable_min_holdings\": 100,\n    \"fees\": 0,\n    \"contribution_charges\": {\n      \"employee\": 0,\n      \"employer\": 0,\n      \"other_avc\": 0\n    }\n  },\n  \"number_of_iterations\": 356\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51247129-4104-43d3-bb76-34ad7914a49b",
+              "name": "when employee has no portfolio",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_of_retirement",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_amount_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "membership_period_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apply_vesting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "zero_out_contribution_percentages",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "employee_annual_contribution_amount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8be3f94f-2906-4b32-bbe7-96cf60d08316",
+              "name": "when employee does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_of_retirement",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_amount_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "membership_period_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apply_vesting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "zero_out_contribution_percentages",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "employee_annual_contribution_amount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "87fa5b08-853a-4da1-8578-245e9719440d",
+              "name": "when passing invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_of_retirement",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_amount_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "membership_period_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apply_vesting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "zero_out_contribution_percentages",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "employee_annual_contribution_amount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a99a16e-ff4f-40a0-9f8a-615088fcb405",
+              "name": "with missing investment_returns_long_term",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "pension_forecast"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date_of_retirement",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "employee_amount_contribution",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "membership_period_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "apply_vesting",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "zero_out_contribution_percentages",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "employee_annual_contribution_amount",
+                      "value": "<number>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "code": 531,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eaea19e0-9736-48f8-b603-5b79a18bfc0a",
+    "name": "Keystone Pension Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

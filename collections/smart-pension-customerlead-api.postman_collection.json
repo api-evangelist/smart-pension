@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "5e24e7d8-d3c1-4086-b260-7f9850d9e05f",
+      "name": "CustomerLead",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09f1251c-1d0a-4979-bda5-f174ac1772f7",
+          "name": "CustomerLeads/Create",
+          "request": {
+            "name": "CustomerLeads/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "customer_leads",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"role\": \"<string>\",\n  \"telephone\": \"<string>\",\n  \"company_name\": \"<string>\",\n  \"other_role\": \"<string>\",\n  \"privacy_policy_accepted\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "694e9d6a-1ec1-4177-a6e2-ba3c4fc70cc1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_leads",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last_name\": \"Riviera\",\n  \"first_name\": \"Fernando\",\n  \"email\": \"name@email.com\",\n  \"role\": \"finance_accounting\",\n  \"other_role\": \"\",\n  \"telephone\": \"+18183991234\",\n  \"company_name\": \"Stark Enterprise\",\n  \"privacy_policy_accepted\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"last_name\": \"Riviera\",\n  \"first_name\": \"Fernando\",\n  \"email\": \"name@email.com\",\n  \"role\": \"finance_accounting\",\n  \"other_role\": null,\n  \"telephone\": \"+18183991234\",\n  \"company_name\": \"Stark Enterprise\",\n  \"enrolment_details\": {\n    \"company_details\": {\n      \"company_name\": \"Stark Enterprise\"\n    }\n  },\n  \"enrolment_state\": \"started\",\n  \"sgid\": \"eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMT9leHBpcmVzX2luPTg2NDAwIiwiZXhwIjoiMjAyNi0wOC0wNlQxMjowNToyMi45NzVaIiwicHVyIjoiZGVmYXVsdCJ9fQ==--709d3e987a963a46ca026ce0b414a051aecd198c\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce10672c-0f5a-470b-8a59-1b697739e5b6",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_leads",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"last_name\": \"Riviera\",\n  \"first_name\": \"Fernando\",\n  \"email\": \"name@email.com\",\n  \"role\": \"finance_accounting\",\n  \"other_role\": \"\",\n  \"telephone\": \"+18183991234\",\n  \"company_name\": \"Stark Enterprise\",\n  \"privacy_policy_accepted\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 190008,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Enter a first name.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/first_name\"\n      }\n    },\n    {\n      \"code\": 190011,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Enter a last name.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/last_name\"\n      }\n    },\n    {\n      \"code\": 190013,\n      \"title\": \"Value is too short.\",\n      \"detail\": \"Enter a last name with two to 80 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/last_name\"\n      }\n    },\n    {\n      \"code\": 190003,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Enter an email address.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 190004,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"Enter an email address in the format: name@example.com.\",\n      \"meta\": {\n        \"mx_with_fallback\": true,\n        \"ban_disposable_email\": true\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 190005,\n      \"title\": \"Email is too short.\",\n      \"detail\": \"Enter an email address with six to 70 characters.\",\n      \"meta\": {\n        \"count\": 6\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/email\"\n      }\n    },\n    {\n      \"code\": 190017,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Enter a phone number.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/telephone\"\n      }\n    },\n    {\n      \"code\": 100002,\n      \"title\": \"Value is not valid for the field.\",\n      \"detail\": \"Role should be one of the following values: hr, finance_accounting, owner_principal_ceo, and other.\",\n      \"meta\": {\n        \"values\": [\n          \"hr\",\n          \"finance_accounting\",\n          \"owner_principal_ceo\",\n          \"other\"\n        ],\n        \"value\": \"test\"\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/role\"\n      }\n    },\n    {\n      \"code\": 190019,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Enter a company name.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/company_name\"\n      }\n    },\n    {\n      \"code\": 190021,\n      \"title\": \"Value is too short.\",\n      \"detail\": \"Enter a company name with two to 115 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/company_name\"\n      }\n    },\n    {\n      \"code\": 190024,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Confirm you have read and agree to the privacy policy.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/privacy_policy_accepted\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b33a1e27-fe42-4ed7-a3f5-8ed180389bb6",
+          "name": "CustomerLeads/EarliestPlanEffectiveDate",
+          "request": {
+            "name": "CustomerLeads/EarliestPlanEffectiveDate",
+            "description": {},
+            "url": {
+              "path": [
+                "customer_leads",
+                "earliest_plan_effective_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "514975a5-23d9-40d4-ab77-bcb7575214ee",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_leads",
+                    "earliest_plan_effective_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"earliest_plan_effective_on\": \"2026-09-19\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ec12809-3950-463d-93ab-da62f4a82226",
+          "name": "Companies/Get",
+          "request": {
+            "name": "Companies/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "customer_leads",
+                ":customer_lead_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "customer_lead_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "key": "Token",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "765c9a33-1b78-43df-a147-871a9395e049",
+              "name": "Success - Getting a customer lead. You can fetch a customer lead with the company ID or the slug",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_leads",
+                    ":customer_lead_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_lead_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Token",
+                    "value": "eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMiIsImV4cCI6IjIwMjYtMDktMDVUMTI6MDU6MjMuNzA2WiIsInB1ciI6ImRlZmF1bHQifX0=--ccaee34f29ddd4d783311272ccdd74df25b8ea22",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2,\n  \"last_name\": \"Mills\",\n  \"first_name\": \"Benjamin\",\n  \"email\": \"7847b2bb-e464-4425-b764-a764f77af3fb@example.com\",\n  \"role\": \"finance_accounting\",\n  \"other_role\": null,\n  \"telephone\": \"+18183999507\",\n  \"company_name\": \"Dennis Hunter\",\n  \"enrolment_details\": {\n    \"company_details\": {\n      \"taxed_as\": null,\n      \"telephone\": \"+18183992631\",\n      \"entity_type\": \"Limited Company\",\n      \"company_name\": \"Dennis Hunter\",\n      \"mailing_address\": {\n        \"city\": \"Signal Hill\",\n        \"state\": \"New Jersey\",\n        \"address1\": \"0169 Village Green Center\",\n        \"address2\": null,\n        \"address_postcode\": \"82101\"\n      },\n      \"physical_address\": {\n        \"city\": \"Dinuba\",\n        \"state\": \"Massachusetts\",\n        \"address1\": \"10163 Little Fleur Pass\",\n        \"address2\": null,\n        \"address_postcode\": 3149\n      },\n      \"tax_year_end_day\": 30,\n      \"tax_year_end_month\": 10,\n      \"number_of_employees\": 6,\n      \"registration_number\": \"31-6790289\",\n      \"state_of_incorporation\": \"vermont\",\n      \"use_mailing_address_as_physical_address\": false\n    }\n  },\n  \"enrolment_state\": \"started\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e75343b-e727-4386-bd50-e121744eab72",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "customer_leads",
+                    ":customer_lead_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "customer_lead_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "key": "Token",
+                    "value": "eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2FwaS9DdXN0b21lckxlYWQvMiIsImV4cCI6IjIwMjYtMDktMDVUMTI6MDU6MjMuNzA2WiIsInB1ciI6ImRlZmF1bHQifX0=--ccaee34f29ddd4d783311272ccdd74df25b8ea22",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "91f10f2a-df5e-4511-b901-ccc7ca0000bd",
+    "name": "Keystone Customer Lead API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,498 @@
+{
+  "item": [
+    {
+      "id": "40bcb4db-b3fd-48e2-9eec-553cd9d7b6a3",
+      "name": "Exports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "866c8cf8-2208-49bb-8d83-50d1d8acc1ec",
+          "name": "Exports/Create",
+          "request": {
+            "name": "Exports/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "exports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"content_type\": \"<string>\",\n  \"file_format\": \"<string>\",\n  \"metadata\": \"<object>\",\n  \"resource_type\": \"<string>\",\n  \"resource_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "485fe118-36ee-4920-9da4-0ec175e04d5e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"CompaniesExport\",\n  \"content_type\": \"data\",\n  \"file_format\": \"csv\",\n  \"resource_type\": \"Adviser\",\n  \"resource_id\": 9\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"state\": \"ignition\",\n  \"file_url\": null,\n  \"file_file_name\": null,\n  \"created_at\": \"2026-08-05T12:57:37.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:57:37.000+01:00\",\n  \"type\": \"CompaniesExport\",\n  \"content_type\": \"data\",\n  \"file_format\": \"csv\",\n  \"resource_type\": \"Adviser\",\n  \"resource_id\": 9,\n  \"metadata\": {},\n  \"adviser_id\": 9,\n  \"links\": [\n    {\n      \"rel\": \"adviser\",\n      \"title\": \"adviser\",\n      \"href\": \"https://api.host.com/advisers/9\"\n    },\n    {\n      \"rel\": \"adviser\",\n      \"title\": \"adviser\",\n      \"href\": \"https://api.host.com/advisers/9\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6545eb14-9fec-42ba-992a-bd76573e8fb9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"CompaniesExport\",\n  \"content_type\": \"data\",\n  \"file_format\": \"csv\",\n  \"resource_type\": \"Adviser\",\n  \"resource_id\": 9\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13d41e72-6aa6-4b24-b9c1-f52ad12174fe",
+              "name": "Parameters invalid.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"CompaniesExport\",\n  \"content_type\": \"data\",\n  \"file_format\": \"csv\",\n  \"resource_type\": \"Adviser\",\n  \"resource_id\": 9\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "359835f1-a903-49e6-ae75-41e8233b4697",
+          "name": "Exports/List",
+          "request": {
+            "name": "Exports/List",
+            "description": {},
+            "url": {
+              "path": [
+                "advisers",
+                ":adviser_id",
+                "exports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[created_at][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[created_at][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[type][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "adviser_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1946b72f-550f-4dfd-be64-b676e12b60bf",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "advisers",
+                    ":adviser_id",
+                    "exports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[created_at][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "adviser_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/advisers/15/exports\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/advisers/15/exports?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/advisers/15/exports?offset=0&limit=50\"\n    }\n  ],\n  \"exports\": [\n    {\n      \"id\": 4,\n      \"state\": \"ignition\",\n      \"file_url\": null,\n      \"file_file_name\": null,\n      \"created_at\": \"2026-08-05T12:57:39.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:57:39.000+01:00\",\n      \"type\": \"CompaniesExport\",\n      \"content_type\": \"template\",\n      \"file_format\": \"csv\",\n      \"resource_type\": \"Adviser\",\n      \"resource_id\": 15,\n      \"metadata\": {},\n      \"adviser_id\": 15,\n      \"links\": [\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/15\"\n        },\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/15\"\n        }\n      ]\n    },\n    {\n      \"id\": 5,\n      \"state\": \"ignition\",\n      \"file_url\": null,\n      \"file_file_name\": null,\n      \"created_at\": \"2026-08-05T12:57:39.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:57:39.000+01:00\",\n      \"type\": \"CompaniesExport\",\n      \"content_type\": \"template\",\n      \"file_format\": \"xls\",\n      \"resource_type\": \"Adviser\",\n      \"resource_id\": 15,\n      \"metadata\": {},\n      \"adviser_id\": 15,\n      \"links\": [\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/15\"\n        },\n        {\n          \"rel\": \"adviser\",\n          \"title\": \"adviser\",\n          \"href\": \"https://api.host.com/advisers/15\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9fb71e09-30f9-4ab4-8860-569a4b9e5426",
+    "name": "Keystone Exports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

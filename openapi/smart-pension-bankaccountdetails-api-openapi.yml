@@ -1,0 +1,544 @@
+openapi: 3.2.0
+info:
+  title: Keystone Bank Account Details API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BankAccountDetails
+paths:
+  /companies/{company_id}/bank_account_details:
+    post:
+      summary: Companies/BankAccountDetails/Create
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 33
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  bank_account_detail:
+                    account_name: my account
+                    account_number: '123456789'
+                    bank_name: some banks
+                    country_code: GB
+                    account_number_format: iban
+              unauthorized:
+                value:
+                  bank_account_detail:
+                    account_name: my account
+                    account_number: '123456789'
+                    bank_name: some banks
+                    country_code: GB
+                    account_number_format: iban
+              invalid_parameters:
+                value:
+                  account_name: null
+            schema:
+              type: object
+              properties:
+                bank_account_detail:
+                  type: object
+                  properties:
+                    account_name:
+                      type: string
+                      maximum: 255
+                    bank_name:
+                      type: string
+                      maximum: 255
+                    country_code:
+                      type: string
+                    account_number:
+                      type: string
+                    account_number_format:
+                      type: string
+                      enum:
+                      - iban
+                      - local_bank_account_number
+                  required:
+                  - country_code
+                  - account_number_format
+                  - account_number
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 1
+                account_name: my account
+                country_code: GB
+                created_at: '2026-08-05T12:58:04.000+01:00'
+                updated_at: '2026-08-05T12:58:04.000+01:00'
+                account_number_format: iban
+                cancelled_at: null
+                expires_on: '2027-08-05'
+              schema:
+                $ref: '#/components/schemas/response_bank_account_detail'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+    get:
+      summary: Companies/BankAccountDetails/List
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 42
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/42/bank_account_details
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/42/bank_account_details?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/42/bank_account_details?offset=0&limit=50
+                data:
+                - id: 7
+                  account_name: Account Name
+                  country_code: GB
+                  created_at: '2026-08-05T12:58:07.000+01:00'
+                  updated_at: '2026-08-05T12:58:07.000+01:00'
+                  account_number_format: iban
+                  cancelled_at: null
+                  expires_on: null
+                - id: 8
+                  account_name: Account Name
+                  country_code: GB
+                  created_at: '2026-08-05T12:58:07.000+01:00'
+                  updated_at: '2026-08-05T12:58:07.000+01:00'
+                  account_number_format: iban
+                  cancelled_at: null
+                  expires_on: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  data:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_bank_account_detail'
+  /companies/{company_id}/bank_account_details/{id}:
+    delete:
+      summary: Companies/BankAccountDetails/Destroy
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 36
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 2
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                different_company:
+                  value: ''
+                account_cancelled:
+                  value: ''
+    get:
+      summary: Companies/BankAccountDetails/List
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 41
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 6
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 6
+                account_name: Account Name
+                country_code: GB
+                created_at: '2026-08-05T12:58:07.000+01:00'
+                updated_at: '2026-08-05T12:58:07.000+01:00'
+                account_number_format: iban
+                cancelled_at: null
+                expires_on: null
+              schema:
+                $ref: '#/components/schemas/response_bank_account_detail'
+    put:
+      summary: Companies/BankAccountDetails/Update
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 53
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 16
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+              unauthorized:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+              invalid_parameters:
+                value:
+                  account_name: null
+            schema:
+              type: object
+              properties:
+                account_name:
+                  type: string
+                  maximum: 255
+                  x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                bank_name:
+                  type: string
+                  maximum: 255
+                country_code:
+                  type: string
+                account_number:
+                  type: string
+                account_number_format:
+                  type: string
+                  enum:
+                  - iban
+                  - local_bank_account_number
+                reviewed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+    patch:
+      summary: Companies/BankAccountDetails/Update
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 56
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 19
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+              unauthorized:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+              invalid_parameters:
+                value:
+                  account_name: null
+            schema:
+              type: object
+              properties:
+                account_name:
+                  type: string
+                  maximum: 255
+                  x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                bank_name:
+                  type: string
+                  maximum: 255
+                country_code:
+                  type: string
+                account_number:
+                  type: string
+                account_number_format:
+                  type: string
+                  enum:
+                  - iban
+                  - local_bank_account_number
+                reviewed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+  /companies/{company_id}/bank_account_details/managable:
+    get:
+      summary: Companies/BankAccountDetails/Managable
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 43
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                bank_account_managable: true
+              schema:
+                type: object
+                properties:
+                  bank_account_managable:
+                    type: boolean
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+  /companies/{company_id}/bank_account_details/{bank_account_detail_id}/sensitive_data:
+    get:
+      summary: Companies/BankAccountDetails/SensitiveData
+      tags:
+      - BankAccountDetails
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: field_names[]
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        required: true
+        example: field_names%5B%5D=account_number
+      - name: company_id
+        in: path
+        required: true
+        example: 47
+        schema:
+          type: string
+      - name: bank_account_detail_id
+        in: path
+        required: true
+        example: 12
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                sensitive_data:
+                - field_name: account_number
+                  value: '12345678'
+              schema:
+                type: object
+                properties:
+                  sensitive_data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field_name:
+                          type: string
+                        value:
+                          type: string
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+          content:
+            application/json:
+              examples:
+                wrong_account_id:
+                  value: ''
+                company_of_other_customer:
+                  value: ''
+components:
+  schemas:
+    response_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

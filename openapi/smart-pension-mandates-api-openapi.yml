@@ -1,0 +1,397 @@
+openapi: 3.2.0
+info:
+  title: Keystone Mandates API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Mandates
+paths:
+  /payments_service/companies/{company_uuid}/mandates/{mandate_uuid}/complete:
+    post:
+      summary: Companies/Mandates/Complete
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: 6cb630ad-d1bf-4661-bc1f-9815fcf25178
+        schema:
+          type: string
+      - name: mandate_uuid
+        in: path
+        required: true
+        example: mandate-uuid
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                company_uuid: 6cb630ad-d1bf-4661-bc1f-9815fcf25178
+                scheme_uuid: e11d7a00-bbe1-4efd-9a9c-7e66abfa2426
+                state: active
+                selected: true
+                bank_account_number_ending: '1234'
+                bank_name: Test Bank
+                uuid: mandate-uuid
+                created_at: '2026-08-05T13:06:41.959+01:00'
+                redirect_url: http://example.com
+              schema:
+                $ref: '#/components/schemas/response_payments_service_mandate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /payments_service/companies/{company_uuid}/mandates:
+    post:
+      summary: Companies/Mandates/Create
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: 2774b160-b8d0-4d48-82c3-c7d9bee09590
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              mandate:
+                success_url: http://example.com
+                scheme_uuid: 8000e5b9-f7b9-4106-8be8-35563373b6d2
+            schema:
+              type: object
+              properties:
+                mandate:
+                  type: object
+                  required:
+                  - success_url
+                  - scheme_uuid
+                  properties:
+                    success_url:
+                      type: string
+                    scheme_uuid:
+                      type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                company_uuid: 2774b160-b8d0-4d48-82c3-c7d9bee09590
+                scheme_uuid: 8000e5b9-f7b9-4106-8be8-35563373b6d2
+                state: active
+                selected: true
+                bank_account_number_ending: '1234'
+                bank_name: Test Bank
+                uuid: mandate-uuid
+                created_at: '2026-08-05T13:06:43.441+01:00'
+                redirect_url: http://example.com
+              schema:
+                $ref: '#/components/schemas/response_payments_service_mandate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+    get:
+      summary: Companies/Mandates/List
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: 540810ea-d91e-4c20-94bd-71abd4286c25
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/payments_service/companies/540810ea-d91e-4c20-94bd-71abd4286c25/mandates
+                - rel: first
+                  title: first
+                  href: http://api.host.com/payments_service/companies/540810ea-d91e-4c20-94bd-71abd4286c25/mandates?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/payments_service/companies/540810ea-d91e-4c20-94bd-71abd4286c25/mandates?offset=0&limit=50
+                mandates:
+                - company_uuid: 540810ea-d91e-4c20-94bd-71abd4286c25
+                  scheme_uuid: null
+                  state: active
+                  selected: false
+                  bank_account_number_ending: null
+                  bank_name: null
+                  uuid: 09aa0bd6-173a-4e73-9c7b-c40b29b7b237
+                  created_at: '2026-08-05T13:06:47.000+01:00'
+                  redirect_url: null
+                - company_uuid: 540810ea-d91e-4c20-94bd-71abd4286c25
+                  scheme_uuid: null
+                  state: active
+                  selected: false
+                  bank_account_number_ending: null
+                  bank_name: null
+                  uuid: 75ea5dd1-fbaf-49ff-9df9-8878b091052d
+                  created_at: '2026-08-05T13:06:47.000+01:00'
+                  redirect_url: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  mandates:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_payments_service_mandate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /payments_service/companies/{company_uuid}/mandates/{mandate_uuid}:
+    delete:
+      summary: Companies/Mandates/Destroy
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: 40f49e5e-9efe-4529-8868-03a1d66e551d
+        schema:
+          type: string
+      - name: mandate_uuid
+        in: path
+        required: true
+        example: mandate-uuid
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+    get:
+      summary: Companies/Mandates/Get
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: b7655560-b125-460a-a2af-e9cc4c98a7bd
+        schema:
+          type: string
+      - name: mandate_uuid
+        in: path
+        required: true
+        example: mandate-uuid
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                company_uuid: b7655560-b125-460a-a2af-e9cc4c98a7bd
+                scheme_uuid: f053a566-9358-473a-8f29-7b8e70818a7e
+                state: active
+                selected: true
+                bank_account_number_ending: '1234'
+                bank_name: Test Bank
+                uuid: mandate-uuid
+                created_at: '2026-08-05T13:06:46.410+01:00'
+                redirect_url: http://example.com
+              schema:
+                $ref: '#/components/schemas/response_payments_service_mandate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+  /payments_service/companies/{company_uuid}/mandates/{mandate_uuid}/select:
+    post:
+      summary: Companies/Mandates/Select
+      tags:
+      - Mandates
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_uuid
+        in: path
+        required: true
+        example: ca9531f0-92d3-4054-8742-a21c6fe66a03
+        schema:
+          type: string
+      - name: mandate_uuid
+        in: path
+        required: true
+        example: mandate-uuid
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                company_uuid: ca9531f0-92d3-4054-8742-a21c6fe66a03
+                scheme_uuid: eec34d5e-7818-4d94-b8a9-1e313de2fd85
+                state: active
+                selected: true
+                bank_account_number_ending: '1234'
+                bank_name: Test Bank
+                uuid: mandate-uuid
+                created_at: '2026-08-05T13:06:49.333+01:00'
+                redirect_url: http://example.com
+              schema:
+                $ref: '#/components/schemas/response_payments_service_mandate'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_payments_service_mandate:
+      type: object
+      properties:
+        company_uuid:
+          type:
+          - string
+          - 'null'
+        scheme_uuid:
+          type:
+          - string
+          - 'null'
+        state:
+          type:
+          - string
+          - 'null'
+        selected:
+          type:
+          - boolean
+          - 'null'
+        bank_account_number_ending:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        uuid:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        redirect_url:
+          type:
+          - string
+          - 'null'
+        next_possible_charge_date:
+          type:
+          - string
+          - 'null'
+          format: date
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

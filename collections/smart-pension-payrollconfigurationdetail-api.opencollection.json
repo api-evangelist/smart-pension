@@ -1,0 +1,250 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Payroll Configuration Detail API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PayrollConfigurationDetail",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PayrollConfigurationDetails/BatchCreate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payroll_configurations/:payroll_configuration_id/payroll_configuration_details/batch_create",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1227",
+                "type": "path"
+              },
+              {
+                "name": "payroll_configuration_id",
+                "value": "4",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PayrollConfigurationDetails/BatchCreate"
+        },
+        {
+          "info": {
+            "name": "PayrollConfigurationDetails/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payroll_configurations/:payroll_configuration_id/payroll_configuration_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1233",
+                "type": "path"
+              },
+              {
+                "name": "payroll_configuration_id",
+                "value": "9",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "13",
+                "type": "path"
+              },
+              {
+                "name": "include",
+                "value": "include=payroll_configuration",
+                "type": "query"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PayrollConfigurationDetails/Get"
+        },
+        {
+          "info": {
+            "name": "PayrollConfigurationDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payroll_configurations/:payroll_configuration_id/payroll_configuration_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1246",
+                "type": "path"
+              },
+              {
+                "name": "payroll_configuration_id",
+                "value": "21",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "29",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PayrollConfigurationDetails"
+        },
+        {
+          "info": {
+            "name": "PayrollConfigurationDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payroll_configurations/:payroll_configuration_id/payroll_configuration_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1255",
+                "type": "path"
+              },
+              {
+                "name": "payroll_configuration_id",
+                "value": "29",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "37",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PayrollConfigurationDetails"
+        },
+        {
+          "info": {
+            "name": "PayrollConfigurationDetails/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payroll_configurations/:payroll_configuration_id/payroll_configuration_details",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1242",
+                "type": "path"
+              },
+              {
+                "name": "payroll_configuration_id",
+                "value": "18",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "limit=1",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "offset=1",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "filter%5Bpay_period_starts_on%5D=2026-08-05+between+2026-08-06",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PayrollConfigurationDetails/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Payment Approvals API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PaymentApprovals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "PaymentApprovals/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payment_approvals",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "219",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PaymentApprovals/Create"
+        },
+        {
+          "info": {
+            "name": "PaymentApprovals/Permitted/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/payment_approvals/permitted",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "221",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "PaymentApprovals/Permitted/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

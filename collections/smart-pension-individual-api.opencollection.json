@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Individual API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Individual",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Individuals/RetirementAge",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/individuals/retirement_age",
+            "headers": [
+              {
+                "name": "X-Account-Id",
+                "value": "799"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Individuals/RetirementAge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

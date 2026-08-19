@@ -1,0 +1,466 @@
+openapi: 3.2.0
+info:
+  title: Keystone Valuations API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Valuations
+paths:
+  /companies/{company_id}/employees/{employee_id}/valuations:
+    post:
+      summary: Valuations/Create
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        example: 539
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 969
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  valuation:
+                    calculated_on: '2026-08-05'
+              without_parameters:
+                value: {}
+            schema:
+              type: object
+              properties:
+                valuation:
+                  type: object
+                  properties:
+                    calculated_on:
+                      type: string
+                      format: date
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+    get:
+      summary: Valuations/List
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 974
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 543
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            amount:
+              type: array
+              items:
+                type: number
+            calculated_on:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/974/employees/543/valuations
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/974/employees/543/valuations?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/974/employees/543/valuations?offset=0&limit=50
+                    valuations:
+                    - id: 12
+                      amount: 100223
+                      calculated_on: '2026-08-05'
+                      created_at: '2026-08-05T13:02:35.000+01:00'
+                      updated_at: '2026-08-05T13:02:35.000+01:00'
+                    - id: 13
+                      amount: 200
+                      calculated_on: '2026-08-04'
+                      created_at: '2026-08-05T13:02:35.000+01:00'
+                      updated_at: '2026-08-05T13:02:35.000+01:00'
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  valuations:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_valuation'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+  /companies/{company_id}/employees/{employee_id}/valuations/{id}:
+    get:
+      summary: Valuations/Get
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 10
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 971
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 541
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 10
+                amount: 7.81
+                calculated_on: '2026-08-05'
+                created_at: '2026-08-05T13:02:34.000+01:00'
+                updated_at: '2026-08-05T13:02:34.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_valuation'
+        '404':
+          description: Not Found
+  /employees/valuations:
+    post:
+      summary: Valuations/Create
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  valuation:
+                    calculated_on: '2026-08-05'
+              without_parameters:
+                value: {}
+            schema:
+              type: object
+              properties:
+                valuation:
+                  type: object
+                  properties:
+                    calculated_on:
+                      type: string
+                      format: date
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+    get:
+      summary: Valuations/List
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            amount:
+              type: array
+              items:
+                type: number
+            calculated_on:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/employees/valuations
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/employees/valuations?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/employees/valuations?offset=0&limit=50
+                    valuations:
+                    - id: 26
+                      amount: 100223
+                      calculated_on: '2026-08-05'
+                      created_at: '2026-08-05T13:06:17.000+01:00'
+                      updated_at: '2026-08-05T13:06:17.000+01:00'
+                    - id: 27
+                      amount: 200
+                      calculated_on: '2026-08-04'
+                      created_at: '2026-08-05T13:06:17.000+01:00'
+                      updated_at: '2026-08-05T13:06:17.000+01:00'
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  valuations:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_valuation'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+  /employees/valuations/{id}:
+    get:
+      summary: Valuations/Get
+      tags:
+      - Valuations
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 22
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 22
+                amount: 90.45
+                calculated_on: '2026-08-05'
+                created_at: '2026-08-05T13:06:16.000+01:00'
+                updated_at: '2026-08-05T13:06:16.000+01:00'
+              schema:
+                $ref: '#/components/schemas/response_valuation'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_valuation:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

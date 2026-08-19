@@ -1,0 +1,237 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Evidence Types API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitEvidenceTypes
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidences:
+    get:
+      summary: BenefitEvidenceTypes/Get
+      tags:
+      - BenefitEvidenceTypes
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 344
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 120
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/341/employees/117/benefit_form/benefit_evidences
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/341/employees/117/benefit_form/benefit_evidences?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/341/employees/117/benefit_form/benefit_evidences?offset=0&limit=50
+                    benefit_evidences:
+                    - id: 7
+                      name: Passport1
+                      description: Some description
+                      frontend_tag: IdentityProof
+                      category: IdentityProof
+                      benefit_evidence_upload: null
+                    - id: 8
+                      name: Passport2
+                      description: Some description
+                      frontend_tag: OtherProof
+                      category: OtherProof
+                      benefit_evidence_upload:
+                        id: 2
+                        state: pending
+                        file_name: file.pdf
+                        file_url: https://api.host.com/benefit_evidence_uploads/2/file?signature=eyJpZCI6MiwidXVpZCI6IjI3NTEyOTRhLWFjMDUtNDM4ZC1iZWMzLWE0YTY4NGU1NjJkNyJ9--74f1ba2f5680d3ad289ca6343e5e8e8a0ba057f1
+                        comment: null
+                        owner_id: 117
+                        owner_type: Employee
+                        benefit_evidence_type_id: 8
+                success_document_rejected_via_verification_check_service:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/344/employees/120/benefit_form/benefit_evidences
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/344/employees/120/benefit_form/benefit_evidences?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/344/employees/120/benefit_form/benefit_evidences?offset=0&limit=50
+                    benefit_evidences:
+                    - id: 9
+                      name: Passport3
+                      description: Some description
+                      frontend_tag: IdentityProof
+                      category: IdentityProof
+                      benefit_evidence_upload: null
+                    - id: 10
+                      name: Passport4
+                      description: Some description
+                      frontend_tag: OtherProof
+                      category: OtherProof
+                      benefit_evidence_upload:
+                        id: 4
+                        state: request_replacement
+                        file_name: file.pdf
+                        file_url: https://api.host.com/benefit_evidence_uploads/4/file?signature=eyJpZCI6NCwidXVpZCI6IjE1ZmJjYWEwLWVmZGEtNDVhNi04YTUxLWUyNDdhOWEwMGNkNiJ9--a63b113f920bbc2056416294a4f07226f4974df0
+                        owner_id: 120
+                        owner_type: Employee
+                        benefit_evidence_type_id: 10
+                        rejection_reasons:
+                        - Issue date on the document doesn't match.
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_evidences:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_evidence_type'
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
+    response_benefit_evidence_type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_upload:
+          $ref: '#/components/schemas/response_benefit_evidence_upload'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

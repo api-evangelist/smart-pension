@@ -1,0 +1,250 @@
+openapi: 3.2.0
+info:
+  title: Keystone Historical Contributions API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: HistoricalContributions
+paths:
+  /companies/{company_id}/employees/{employee_id}/historical_contributions:
+    get:
+      summary: HistoricalContribution/List
+      tags:
+      - HistoricalContributions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 643
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 313
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            id:
+              type: array
+              items:
+                type: integer
+            starts_on:
+              type: array
+              items:
+                type: string
+            ends_on:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/643/employees/313/historical_contributions
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/643/employees/313/historical_contributions?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/643/employees/313/historical_contributions?offset=0&limit=50
+                historical_contributions:
+                - id: 4
+                  employee_id: 313
+                  ends_on: '2026-08-04'
+                  starts_on: '2025-08-05'
+                  created_at: '2026-08-05T13:01:06.920+01:00'
+                  updated_at: '2026-08-05T13:01:06.920+01:00'
+                  total_regular_avc_amount: 10
+                  total_regular_employee_amount: 10
+                  total_regular_employer_amount: 10
+                  total_single_avc_amount: 0
+                  total_single_employee_amount: 0
+                  total_single_employer_amount: 0
+                  total_amount: 30
+                - id: 5
+                  employee_id: 313
+                  ends_on: '2026-08-04'
+                  starts_on: '2025-08-05'
+                  created_at: '2026-08-05T13:01:06.936+01:00'
+                  updated_at: '2026-08-05T13:01:06.936+01:00'
+                  total_regular_avc_amount: 10
+                  total_regular_employee_amount: 10
+                  total_regular_employer_amount: 10
+                  total_single_avc_amount: 0
+                  total_single_employee_amount: 0
+                  total_single_employer_amount: 0
+                  total_amount: 30
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  historical_contributions:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_historical_contribution'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_historical_contribution:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        ends_on:
+          type: string
+          format: date
+        starts_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        total_regular_avc_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_regular_employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_regular_employer_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_single_avc_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_single_employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_single_employer_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

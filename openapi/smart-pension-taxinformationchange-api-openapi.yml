@@ -1,0 +1,142 @@
+openapi: 3.2.0
+info:
+  title: Keystone Tax Information Change API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: TaxInformationChange
+paths:
+  /companies/{company_id}/employees/{employee_id}/tax_information_change:
+    get:
+      summary: Companies/Employees/TaxInformationChange/List
+      tags:
+      - TaxInformationChange
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 890
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 479
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/890/employees/479/tax_information_change
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/890/employees/479/tax_information_change?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/890/employees/479/tax_information_change?offset=0&limit=50
+                tax_information_changes:
+                - id: 1
+                  employee_id: 479
+                  confirmed_at: null
+                - id: 2
+                  employee_id: 479
+                  confirmed_at: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  tax_information_changes:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_tax_information_change'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_tax_information_change:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        confirmed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

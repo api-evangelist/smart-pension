@@ -1,0 +1,284 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Bank Account Details API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BankAccountDetails",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "42",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/List"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "33",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/Create"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "41",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "6",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/List"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "53",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "16",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "56",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "19",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "36",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "2",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/Destroy"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/Managable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/managable",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "43",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/Managable"
+        },
+        {
+          "info": {
+            "name": "Companies/BankAccountDetails/SensitiveData",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/bank_account_details/:bank_account_detail_id/sensitive_data",
+            "params": [
+              {
+                "name": "field_names[]",
+                "value": "field_names%5B%5D=account_number",
+                "type": "query"
+              },
+              {
+                "name": "company_id",
+                "value": "47",
+                "type": "path"
+              },
+              {
+                "name": "bank_account_detail_id",
+                "value": "12",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/BankAccountDetails/SensitiveData"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

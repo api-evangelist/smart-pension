@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Available Withdrawal Options API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AvailableWithdrawalOptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AvailableWithdrawalOptions/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/available_withdrawal_options",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "274",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "79",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "target_retirement_year",
+                "value": "target_retirement_year=2040",
+                "type": "query",
+                "description": "Target retirement year to filter funds"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AvailableWithdrawalOptions/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

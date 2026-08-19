@@ -1,0 +1,1173 @@
+{
+  "item": [
+    {
+      "id": "303b81a3-1f38-47ca-9880-790617472827",
+      "name": "Summaries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "95e70f6e-f731-4793-87ca-4fe644877c9d",
+          "name": "SummariesPayable/Get",
+          "request": {
+            "name": "SummariesPayable/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "contributions",
+                "summary",
+                "payable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c5fa2bb3-a94a-4acc-a12b-1c7c08f60c49",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary",
+                    "payable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"employer_within_opt_out_window\": 1221,\n  \"employee_within_opt_out_window\": 2442,\n  \"voluntary_within_opt_out_window\": 3663,\n  \"total_within_opt_out_window\": 7326,\n  \"employer_after_opt_out_window\": 111,\n  \"employee_after_opt_out_window\": 222,\n  \"voluntary_after_opt_out_window\": 333,\n  \"total_after_opt_out_window\": 666\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73b5b32a-e330-4279-a660-d64779902102",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary",
+                    "payable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4038607a-6850-4bcc-9ad7-3e8800ee8a56",
+          "name": "Summaries/Get",
+          "request": {
+            "name": "Summaries/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "contributions",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "26dec39a-8988-44f7-872d-d605cd1feca2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"company_amount\": 8,\n  \"employee_amount\": 12,\n  \"voluntary_amount\": 0,\n  \"total_amount\": 20,\n  \"contribution_amounts_totals\": {\n    \"employer\": 8,\n    \"employee\": 12,\n    \"other_avc\": 0,\n    \"life_cover\": 0\n  },\n  \"payable_company_amount\": 8,\n  \"payable_employee_amount\": 12,\n  \"payable_voluntary_amount\": 0,\n  \"payable_total_amount\": 20,\n  \"non_payable_company_amount\": 0,\n  \"non_payable_employee_amount\": 0,\n  \"non_payable_voluntary_amount\": 0,\n  \"non_payable_total_amount\": 0,\n  \"non_payable_within_opt_out_window_total_amount\": 0,\n  \"non_payable_ends_on_after_cut_off_total_amount\": 0,\n  \"non_payable_company_within_opt_out_window_amount\": 0,\n  \"non_payable_company_ends_on_after_cut_off_amount\": 0,\n  \"non_payable_employee_within_opt_out_window_amount\": 0,\n  \"non_payable_employee_ends_on_after_cut_off_amount\": 0,\n  \"non_payable_voluntary_within_opt_out_window_amount\": 0,\n  \"non_payable_voluntary_ends_on_after_cut_off_amount\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bb90f67-5e32-46dd-97b8-ebe56e5454bf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7837ecb-24d6-47be-a523-d9fa4db9d6a3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f22240e-d0ca-4cd6-bcd7-410d5a2eee82",
+          "name": "SummariesTotals/Get",
+          "request": {
+            "name": "SummariesTotals/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "contributions",
+                "summary",
+                "totals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d80e3f36-8222-41be-b9f4-eb1807c59dd0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"company_amount\": 8,\n  \"employee_amount\": 12,\n  \"voluntary_amount\": 0,\n  \"total_amount\": 20,\n  \"contribution_amounts_totals\": {\n    \"employer\": 8,\n    \"employee\": 12,\n    \"other_avc\": 0,\n    \"life_cover\": 0\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "16b56643-9082-4d89-8173-0c6dd16ca664",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d41c7f1c-6d96-4ae9-bf89-c5344ac3faa5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "contributions",
+                    "summary",
+                    "totals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1d755ae-8fad-4830-8a2f-6a0f5d0e934b",
+          "name": "Summaries/Get",
+          "request": {
+            "name": "Summaries/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "contributions",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[assessment][category]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[period_type][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[period_type][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[starts_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[ends_on][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f1b9ddd2-8e0e-4957-ae36-767b985a43a6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"company_amount\": 200,\n  \"employee_amount\": 200,\n  \"voluntary_amount\": 0,\n  \"total_amount\": 400,\n  \"contribution_amounts_totals\": {\n    \"employer\": 200,\n    \"employee\": 200,\n    \"other_avc\": 0,\n    \"life_cover\": 0\n  },\n  \"payable_company_amount\": 200,\n  \"payable_employee_amount\": 200,\n  \"payable_voluntary_amount\": 0,\n  \"payable_total_amount\": 400,\n  \"non_payable_company_amount\": 0,\n  \"non_payable_employee_amount\": 0,\n  \"non_payable_voluntary_amount\": 0,\n  \"non_payable_total_amount\": 0,\n  \"non_payable_within_opt_out_window_total_amount\": 0,\n  \"non_payable_ends_on_after_cut_off_total_amount\": 0,\n  \"non_payable_company_within_opt_out_window_amount\": 0,\n  \"non_payable_company_ends_on_after_cut_off_amount\": 0,\n  \"non_payable_employee_within_opt_out_window_amount\": 0,\n  \"non_payable_employee_ends_on_after_cut_off_amount\": 0,\n  \"non_payable_voluntary_within_opt_out_window_amount\": 0,\n  \"non_payable_voluntary_ends_on_after_cut_off_amount\": 0\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7d82155-c7d6-41eb-b4fb-8a39722b2f58",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d273b22b-f804-4f02-ba2d-39547d451aff",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "contributions",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[assessment][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[period_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[starts_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[ends_on][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"is_not_editable\": false,\n  \"id\": 4091,\n  \"category\": \"string\",\n  \"employee_id\": 6746,\n  \"period_type\": \"string\",\n  \"gross_qualifying_earnings\": 2487.0027820821992,\n  \"second_gross_qualifying_earnings_amount\": null,\n  \"pensionable_earnings\": null,\n  \"employee_pensionable_earnings_amount\": 5380.410318860743,\n  \"employer_pensionable_earnings_amount\": 5868.559417056558,\n  \"company_percentage\": 8225.887348585922,\n  \"employee_percentage\": null,\n  \"avc_percentage\": 2748.5874760810193,\n  \"state\": \"string\",\n  \"created_at\": \"1960-12-26T16:20:06.092Z\",\n  \"updated_at\": \"2014-11-03T10:32:47.816Z\",\n  \"contribute_if_entitled\": true,\n  \"company_amount\": null,\n  \"employee_amount\": 5255.916850041627,\n  \"employee_sal_sac_amount\": null,\n  \"total_employee_amount\": null,\n  \"life_cover_amount\": 5090.461116412494,\n  \"voluntary_amount\": null,\n  \"ni_rebate_amount\": 7468.483726586338,\n  \"total_amount\": null,\n  \"currency\": null,\n  \"works_in_uk\": false,\n  \"starts_on\": \"1959-06-28\",\n  \"ends_on\": \"1947-03-07\",\n  \"lower_level\": 9719.890999932717,\n  \"upper_level\": 2992.574464746586,\n  \"trigger_level\": null,\n  \"pensionable_earning_type\": \"string\",\n  \"contribution_type\": \"string\",\n  \"uuid\": \"string\",\n  \"company_name\": null,\n  \"tax_relief_type\": null,\n  \"links\": [\n    {\n      \"rel\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"rel\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    }\n  ],\n  \"contribution_amounts\": [\n    \"\",\n    \"\"\n  ],\n  \"employee\": {\n    \"updatable\": null,\n    \"id\": 2600,\n    \"email\": \"string\",\n    \"forename\": null,\n    \"surname\": null,\n    \"date_of_birth\": \"1948-10-24\",\n    \"national_insurance_number\": \"string\",\n    \"gender\": \"string\",\n    \"telephone\": null,\n    \"identity_person_id\": \"string\",\n    \"reset_password_sent_at\": \"1957-11-02T13:50:01.131Z\",\n    \"remember_created_at\": \"1995-05-05T12:49:47.071Z\",\n    \"last_sign_in_at\": \"2000-11-24T16:18:03.169Z\",\n    \"slug\": \"string\",\n    \"created_at\": \"2021-11-23T00:52:38.687Z\",\n    \"updated_at\": \"2016-03-05T21:55:08.025Z\",\n    \"confirmation_token\": null,\n    \"gauth_enabled\": null,\n    \"gauth_tmp\": \"string\",\n    \"title\": null,\n    \"authentication_token\": \"string\",\n    \"group_id\": null,\n    \"line2\": \"string\",\n    \"city\": null,\n    \"region\": null,\n    \"postcode\": null,\n    \"line1\": null,\n    \"works_in_uk\": false,\n    \"starts_on\": null,\n    \"authentication_token_generated_at\": null,\n    \"company_percentage\": null,\n    \"company_percentage_matched\": null,\n    \"company_match\": false,\n    \"percentage\": null,\n    \"avc_percentage\": 1661.690376429561,\n    \"total_contribution_percentage\": 3393.275049897183,\n    \"contribute_if_entitled\": false,\n    \"enforce_password\": null,\n    \"ends_on\": \"1974-04-26\",\n    \"exit_reason\": null,\n    \"onboarded_at\": null,\n    \"opt_out_on\": null,\n    \"opt_state\": \"string\",\n    \"opt_in_on\": null,\n    \"opt_out_window_starts_on\": \"1977-09-15\",\n    \"opt_out_window_ends_on\": null,\n    \"subject_to_money_purchase_annual_allowance\": true,\n    \"money_purchase_annual_allowance_effective_on\": null,\n    \"company_id\": 3633,\n    \"automatically_enrolled\": true,\n    \"contractually_enrolled\": null,\n    \"external_id\": \"string\",\n    \"customer_id\": null,\n    \"referral_clicks\": 3126,\n    \"retirement_age\": null,\n    \"target_retirement_age\": null,\n    \"retirement_date\": \"1994-10-05\",\n    \"target_retirement_date\": null,\n    \"secondary_email\": \"string\",\n    \"middle_name\": null,\n    \"civil_status\": \"string\",\n    \"country_code\": null,\n    \"online_login_disabled\": false,\n    \"line3\": \"string\",\n    \"uuid\": \"string\",\n    \"eligible_for_modeller_projection\": false,\n    \"can_manage_contribution_rates\": true,\n    \"active_payroll_configuration\": {},\n    \"tax_relief_type\": null,\n    \"employment_type\": \"string\",\n    \"tax_residency_status_name\": null,\n    \"salary_sacrifice_signed\": false,\n    \"links\": [\n      {\n        \"rel\": \"string\",\n        \"title\": \"string\",\n        \"href\": \"string\"\n      },\n      {\n        \"rel\": \"string\",\n        \"title\": \"string\",\n        \"href\": \"string\"\n      }\n    ],\n    \"banned_params\": null,\n    \"intercom_user_id\": \"string\",\n    \"intercom_user_id_hash\": null,\n    \"is_not_editable\": false,\n    \"active_special_cases\": null,\n    \"contributions\": {\n      \"limit\": null,\n      \"offset\": null,\n      \"total\": 676,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"contributions\": null\n    },\n    \"letters\": {\n      \"limit\": 3164,\n      \"offset\": null,\n      \"total\": null,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"letters\": null\n    },\n    \"postponements\": {\n      \"limit\": null,\n      \"offset\": null,\n      \"total\": null,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"postponements\": [\n        \"\",\n        \"\"\n      ]\n    },\n    \"fund_splits\": {\n      \"limit\": null,\n      \"offset\": 4245,\n      \"total\": 5934,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"fund_splits\": null\n    },\n    \"valuations\": {\n      \"limit\": null,\n      \"offset\": 3347,\n      \"total\": null,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"valuations\": [\n        \"\",\n        \"\"\n      ]\n    },\n    \"portfolios\": {\n      \"limit\": null,\n      \"offset\": 4337,\n      \"total\": 9651,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"portfolios\": null\n    },\n    \"benefits\": {\n      \"limit\": null,\n      \"offset\": null,\n      \"total\": 9187,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"benefits\": null\n    },\n    \"employment_statuses\": {\n      \"employment_statuses\": [\n        \"\",\n        \"\"\n      ]\n    },\n    \"salaries\": {\n      \"limit\": null,\n      \"offset\": 740,\n      \"total\": null,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"salaries\": [\n        \"\",\n        \"\"\n      ]\n    },\n    \"customer\": {\n      \"intercom_user_id\": \"string\",\n      \"intercom_user_id_hash\": null,\n      \"id\": 4044,\n      \"email\": null,\n      \"reset_password_sent_at\": \"1975-02-09T02:09:26.338Z\",\n      \"remember_created_at\": \"1976-01-10T07:52:44.563Z\",\n      \"last_sign_in_at\": \"2017-03-15T22:00:26.061Z\",\n      \"slug\": null,\n      \"created_at\": \"1988-03-15T10:30:47.534Z\",\n      \"updated_at\": \"1972-08-15T04:17:57.213Z\",\n      \"gauth_enabled\": true,\n      \"gauth_tmp\": null,\n      \"forename\": null,\n      \"surname\": \"string\",\n      \"title\": null,\n      \"authentication_token\": null,\n      \"date_of_birth\": null,\n      \"line2\": \"string\",\n      \"city\": \"string\",\n      \"county\": \"string\",\n      \"building_name\": \"string\",\n      \"postcode\": \"string\",\n      \"line1\": \"string\",\n      \"building_number\": \"string\",\n      \"telephone\": null,\n      \"alternative_telephone\": null,\n      \"referee_id\": null,\n      \"referee_type\": null,\n      \"referral_state\": \"string\",\n      \"referral_clicks\": null,\n      \"referral_reward_name\": \"string\",\n      \"authentication_token_generated_at\": \"1988-07-28T22:49:42.192Z\",\n      \"gender\": \"string\",\n      \"role\": null,\n      \"middlename\": \"string\",\n      \"envelope_state\": \"string\",\n      \"enforce_password\": null,\n      \"company_id\": 4954,\n      \"country_code\": null,\n      \"uuid\": \"string\",\n      \"preferred_locale\": null,\n      \"smart_analytics_access_permitted\": null,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"company\": {\n        \"id\": 4659,\n        \"name\": null,\n        \"slug\": null,\n        \"registration_number\": \"string\",\n        \"tax_office_number\": \"string\",\n        \"tax_office_employer_reference\": null,\n        \"legal_structure\": \"string\",\n        \"welcome_letters_reminder_sent_at\": \"1973-04-05T13:45:09.074Z\",\n        \"pension_regulator_letter_code\": \"string\",\n        \"trading_address1\": null,\n        \"trading_address2\": null,\n        \"trading_address3\": \"string\",\n        \"trading_address_postcode\": null,\n        \"trading_address_country\": \"string\",\n        \"reg_address1\": null,\n        \"reg_address2\": null,\n        \"reg_address3\": \"string\",\n        \"reg_address4\": null,\n        \"reg_address_postcode\": \"string\",\n        \"reg_address_country\": \"string\",\n        \"pensionable_earning_type\": \"string\",\n        \"default_percentage\": 1187.3928286427993,\n        \"created_at\": \"2001-03-22T17:59:59.074Z\",\n        \"updated_at\": \"1994-05-29T11:29:25.458Z\",\n        \"state\": \"string\",\n        \"employee_can_change_contribution\": true,\n        \"uuid\": \"string\",\n        \"layout_configuration_id\": 8837,\n        \"relief_at_source_active\": null,\n        \"only_employer_manages_membership\": false,\n        \"national_insurance_saving_share\": 486.1187409460599,\n        \"tax_relief_basis_type\": \"string\",\n        \"tax_relief_fallback_type\": \"string\",\n        \"direct_debit_optional\": false,\n        \"skip_contribution_validations\": true,\n        \"self_certification_started_at\": null,\n        \"customers\": {\n          \"limit\": 2245,\n          \"offset\": 9712,\n          \"total\": 2586,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"customers\": null\n        },\n        \"payments\": {\n          \"limit\": null,\n          \"offset\": null,\n          \"total\": 5657,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payments\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"employees\": {\n          \"limit\": null,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"employees\": null\n        },\n        \"enrolments\": {\n          \"limit\": 2867,\n          \"offset\": 1200,\n          \"total\": 3945,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"enrolments\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"imports\": {\n          \"limit\": 6645,\n          \"offset\": 2345,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": null\n        },\n        \"advisers\": {\n          \"limit\": null,\n          \"offset\": 5323,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"advisers\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"mandates\": {\n          \"limit\": 9096,\n          \"offset\": 4769,\n          \"total\": 4416,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mandates\": null\n        },\n        \"ultimate_beneficial_owners\": {\n          \"limit\": 6083,\n          \"offset\": 8708,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ultimate_beneficial_owners\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"benefit_groups\": {\n          \"limit\": null,\n          \"offset\": 255,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"benefit_groups\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"payroll_configurations\": {\n          \"limit\": 6904,\n          \"offset\": 3321,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payroll_configurations\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"bank_account_details\": {\n          \"limit\": 2656,\n          \"offset\": 3147,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"adviser_companies\": {\n          \"limit\": 2346,\n          \"offset\": 3176,\n          \"total\": 5579,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"adviser_companies\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"scheme_details\": {\n          \"limit\": null,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": null\n        },\n        \"envelope\": {\n          \"id\": 1257,\n          \"company_id\": 2252,\n          \"document_url\": null,\n          \"title\": \"string\",\n          \"signature_service\": \"string\",\n          \"created_at\": \"1954-05-15T02:06:56.858Z\",\n          \"updated_at\": \"1986-06-20T13:37:12.069Z\",\n          \"signed_at\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"company_automation\": {\n          \"id\": 2387,\n          \"letter\": false,\n          \"company_id\": 7342,\n          \"postponement_period\": \"string\",\n          \"created_at\": \"1953-09-18T23:50:39.744Z\",\n          \"updated_at\": \"1954-07-20T20:30:18.399Z\",\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"know_your_customer_data\": {\n          \"id\": 1276,\n          \"state\": \"string\",\n          \"reference\": null\n        },\n        \"scheme_detail\": {\n          \"id\": 9639,\n          \"regulator_reference\": null,\n          \"starts_on\": null,\n          \"state\": \"string\",\n          \"uuid\": \"string\",\n          \"ae_qualifying\": false,\n          \"scheme_external_id\": null,\n          \"current_company_tax_relief\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_tax_reliefs\": {\n            \"limit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"links\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"ultimate_beneficial_owner_configuration\": {\n          \"id\": 1210,\n          \"company_id\": 2368,\n          \"exempt\": false,\n          \"exemption_reason\": null,\n          \"natural_person_ubo\": true,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"scheme\": {\n          \"id\": 764,\n          \"uuid\": \"string\",\n          \"name\": null,\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"federal\": true,\n          \"category\": \"string\",\n          \"external_id\": null,\n          \"bank_detail\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contribution_limit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"scheme_tax_reliefs\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"provider_scheme_migration\": {\n          \"id\": 4801,\n          \"state\": \"string\"\n        },\n        \"default_investment_instrument\": {\n          \"instrument_id\": 4856,\n          \"instrument_type\": \"string\",\n          \"goal\": \"string\",\n          \"investment_strategy\": \"string\"\n        },\n        \"economic_zone\": {\n          \"id\": 1971,\n          \"country\": \"string\",\n          \"display_name\": \"string\",\n          \"name\": \"string\",\n          \"scheme_id\": 9056,\n          \"uuid\": \"string\"\n        }\n      },\n      \"employee\": {\n        \"value\": \"<Circular reference to #/components/schemas/response_employee detected>\"\n      },\n      \"shortcut\": {\n        \"id\": 4324,\n        \"token\": null,\n        \"destination_url\": null,\n        \"short_url\": null\n      },\n      \"marketing_preference\": {\n        \"id\": 3173,\n        \"resource_id\": 5267,\n        \"resource_type\": \"string\",\n        \"gdpr_consent\": false,\n        \"source\": \"string\"\n      }\n    },\n    \"group\": {\n      \"id\": 9769,\n      \"name\": \"string\",\n      \"company_id\": null,\n      \"employee_ids\": null,\n      \"created_at\": \"1968-06-10T18:19:56.637Z\",\n      \"updated_at\": \"1975-06-28T17:01:27.714Z\",\n      \"payment_frequency\": null,\n      \"employee_percentage\": 7281.494195346961,\n      \"company_percentage\": null,\n      \"include_in_payment_schedule\": false,\n      \"links\": [\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        },\n        {\n          \"rel\": \"string\",\n          \"title\": \"string\",\n          \"href\": \"string\"\n        }\n      ],\n      \"company\": {\n        \"id\": 3757,\n        \"name\": null,\n        \"slug\": \"string\",\n        \"registration_number\": \"string\",\n        \"tax_office_number\": null,\n        \"tax_office_employer_reference\": null,\n        \"legal_structure\": null,\n        \"welcome_letters_reminder_sent_at\": \"2002-06-22T17:36:27.520Z\",\n        \"pension_regulator_letter_code\": \"string\",\n        \"trading_address1\": \"string\",\n        \"trading_address2\": null,\n        \"trading_address3\": \"string\",\n        \"trading_address_postcode\": null,\n        \"trading_address_country\": \"string\",\n        \"reg_address1\": \"string\",\n        \"reg_address2\": null,\n        \"reg_address3\": null,\n        \"reg_address4\": null,\n        \"reg_address_postcode\": null,\n        \"reg_address_country\": \"string\",\n        \"pensionable_earning_type\": \"string\",\n        \"default_percentage\": null,\n        \"created_at\": \"2004-06-28T05:35:47.075Z\",\n        \"updated_at\": \"2007-02-02T06:40:37.514Z\",\n        \"state\": \"string\",\n        \"employee_can_change_contribution\": true,\n        \"uuid\": \"string\",\n        \"layout_configuration_id\": 454,\n        \"relief_at_source_active\": null,\n        \"only_employer_manages_membership\": true,\n        \"national_insurance_saving_share\": 1017.7201656733381,\n        \"tax_relief_basis_type\": null,\n        \"tax_relief_fallback_type\": null,\n        \"direct_debit_optional\": false,\n        \"skip_contribution_validations\": true,\n        \"self_certification_started_at\": null,\n        \"customers\": {\n          \"limit\": 3318,\n          \"offset\": null,\n          \"total\": 9719,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"customers\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"payments\": {\n          \"limit\": 5761,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payments\": null\n        },\n        \"employees\": {\n          \"limit\": 4256,\n          \"offset\": null,\n          \"total\": 9244,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"employees\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"enrolments\": {\n          \"limit\": 1846,\n          \"offset\": null,\n          \"total\": 2483,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"enrolments\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"imports\": {\n          \"limit\": null,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": null\n        },\n        \"advisers\": {\n          \"limit\": null,\n          \"offset\": 9268,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"advisers\": null\n        },\n        \"mandates\": {\n          \"limit\": null,\n          \"offset\": 4775,\n          \"total\": 3869,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"mandates\": null\n        },\n        \"ultimate_beneficial_owners\": {\n          \"limit\": null,\n          \"offset\": null,\n          \"total\": 439,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ultimate_beneficial_owners\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"benefit_groups\": {\n          \"limit\": 6385,\n          \"offset\": null,\n          \"total\": 7610,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"benefit_groups\": null\n        },\n        \"payroll_configurations\": {\n          \"limit\": null,\n          \"offset\": 5367,\n          \"total\": 9555,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"payroll_configurations\": null\n        },\n        \"bank_account_details\": {\n          \"limit\": 1328,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"adviser_companies\": {\n          \"limit\": 3237,\n          \"offset\": null,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"adviser_companies\": [\n            \"\",\n            \"\"\n          ]\n        },\n        \"scheme_details\": {\n          \"limit\": null,\n          \"offset\": 7560,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": null\n        },\n        \"envelope\": {\n          \"id\": 561,\n          \"company_id\": null,\n          \"document_url\": \"string\",\n          \"title\": \"string\",\n          \"signature_service\": \"string\",\n          \"created_at\": \"1973-08-28T18:48:21.073Z\",\n          \"updated_at\": \"1948-05-22T12:22:40.458Z\",\n          \"signed_at\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"company_automation\": {\n          \"id\": 7179,\n          \"letter\": true,\n          \"company_id\": 3384,\n          \"postponement_period\": \"string\",\n          \"created_at\": \"2025-02-17T23:37:25.096Z\",\n          \"updated_at\": \"2004-05-15T17:11:36.531Z\",\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"know_your_customer_data\": {\n          \"id\": 2818,\n          \"state\": \"string\",\n          \"reference\": \"string\"\n        },\n        \"scheme_detail\": {\n          \"id\": 3941,\n          \"regulator_reference\": null,\n          \"starts_on\": null,\n          \"state\": \"string\",\n          \"uuid\": \"string\",\n          \"ae_qualifying\": true,\n          \"scheme_external_id\": \"string\",\n          \"current_company_tax_relief\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"company_tax_reliefs\": {\n            \"limit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"offset\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"total\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"links\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"data\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"ultimate_beneficial_owner_configuration\": {\n          \"id\": 6957,\n          \"company_id\": 8430,\n          \"exempt\": false,\n          \"exemption_reason\": null,\n          \"natural_person_ubo\": false,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"scheme\": {\n          \"id\": 1751,\n          \"uuid\": \"string\",\n          \"name\": null,\n          \"type\": \"string\",\n          \"currency\": \"string\",\n          \"federal\": false,\n          \"category\": null,\n          \"external_id\": null,\n          \"bank_detail\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"contribution_limit\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"scheme_tax_reliefs\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"provider_scheme_migration\": {\n          \"id\": 6266,\n          \"state\": \"string\"\n        },\n        \"default_investment_instrument\": {\n          \"instrument_id\": 851,\n          \"instrument_type\": \"string\",\n          \"goal\": null,\n          \"investment_strategy\": null\n        },\n        \"economic_zone\": {\n          \"id\": 8662,\n          \"country\": \"string\",\n          \"display_name\": \"string\",\n          \"name\": \"string\",\n          \"scheme_id\": null,\n          \"uuid\": \"string\"\n        }\n      }\n    },\n    \"company\": {\n      \"id\": 9996,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"registration_number\": \"string\",\n      \"tax_office_number\": \"string\",\n      \"tax_office_employer_reference\": null,\n      \"legal_structure\": null,\n      \"welcome_letters_reminder_sent_at\": null,\n      \"pension_regulator_letter_code\": null,\n      \"trading_address1\": null,\n      \"trading_address2\": null,\n      \"trading_address3\": null,\n      \"trading_address_postcode\": null,\n      \"trading_address_country\": \"string\",\n      \"reg_address1\": \"string\",\n      \"reg_address2\": \"string\",\n      \"reg_address3\": \"string\",\n      \"reg_address4\": null,\n      \"reg_address_postcode\": \"string\",\n      \"reg_address_country\": null,\n      \"pensionable_earning_type\": \"string\",\n      \"default_percentage\": 1950.358545488704,\n      \"created_at\": \"1997-02-02T16:01:12.157Z\",\n      \"updated_at\": \"1951-05-22T12:29:22.279Z\",\n      \"state\": \"string\",\n      \"employee_can_change_contribution\": true,\n      \"uuid\": \"string\",\n      \"layout_configuration_id\": 3907,\n      \"relief_at_source_active\": null,\n      \"only_employer_manages_membership\": false,\n      \"national_insurance_saving_share\": 5117.993245444121,\n      \"tax_relief_basis_type\": \"string\",\n      \"tax_relief_fallback_type\": null,\n      \"direct_debit_optional\": true,\n      \"skip_contribution_validations\": false,\n      \"self_certification_started_at\": null,\n      \"customers\": {\n        \"limit\": null,\n        \"offset\": 8081,\n        \"total\": 4562,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"customers\": null\n      },\n      \"payments\": {\n        \"limit\": null,\n        \"offset\": 8752,\n        \"total\": 908,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"payments\": null\n      },\n      \"employees\": {\n        \"limit\": null,\n        \"offset\": 5613,\n        \"total\": 3975,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"employees\": null\n      },\n      \"enrolments\": {\n        \"limit\": null,\n        \"offset\": null,\n        \"total\": 5470,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"enrolments\": null\n      },\n      \"imports\": {\n        \"limit\": null,\n        \"offset\": 5602,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"data\": null\n      },\n      \"advisers\": {\n        \"limit\": null,\n        \"offset\": null,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"advisers\": [\n          \"\",\n          \"\"\n        ]\n      },\n      \"mandates\": {\n        \"limit\": 3122,\n        \"offset\": 5990,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"mandates\": null\n      },\n      \"ultimate_beneficial_owners\": {\n        \"limit\": 927,\n        \"offset\": 8166,\n        \"total\": 4215,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"ultimate_beneficial_owners\": null\n      },\n      \"benefit_groups\": {\n        \"limit\": null,\n        \"offset\": null,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"benefit_groups\": [\n          \"\",\n          \"\"\n        ]\n      },\n      \"payroll_configurations\": {\n        \"limit\": null,\n        \"offset\": 2788,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"payroll_configurations\": null\n      },\n      \"bank_account_details\": {\n        \"limit\": 1246,\n        \"offset\": null,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"data\": null\n      },\n      \"adviser_companies\": {\n        \"limit\": null,\n        \"offset\": 5715,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"adviser_companies\": null\n      },\n      \"scheme_details\": {\n        \"limit\": null,\n        \"offset\": 9236,\n        \"total\": null,\n        \"links\": [\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          },\n          {\n            \"rel\": \"string\",\n            \"title\": \"string\",\n            \"href\": \"string\"\n          }\n        ],\n        \"data\": null\n      },\n      \"envelope\": {\n        \"id\": 5357,\n        \"company_id\": null,\n        \"document_url\": \"string\",\n        \"title\": \"string\",\n        \"signature_service\": \"string\",\n        \"created_at\": \"1952-03-17T23:09:33.322Z\",\n        \"updated_at\": \"2009-04-11T05:32:04.693Z\",\n        \"signed_at\": null,\n        \"links\": [\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"company_automation\": {\n        \"id\": 2403,\n        \"letter\": false,\n        \"company_id\": 7368,\n        \"postponement_period\": null,\n        \"created_at\": \"1948-06-02T15:09:03.066Z\",\n        \"updated_at\": \"1997-12-25T05:33:47.620Z\",\n        \"links\": [\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"know_your_customer_data\": {\n        \"id\": 3266,\n        \"state\": \"string\",\n        \"reference\": null\n      },\n      \"scheme_detail\": {\n        \"id\": 5311,\n        \"regulator_reference\": null,\n        \"starts_on\": \"1986-05-24\",\n        \"state\": \"string\",\n        \"uuid\": \"string\",\n        \"ae_qualifying\": false,\n        \"scheme_external_id\": null,\n        \"current_company_tax_relief\": {\n          \"id\": 2513,\n          \"basis_type\": \"string\"\n        },\n        \"company_tax_reliefs\": {\n          \"limit\": null,\n          \"offset\": 7436,\n          \"total\": null,\n          \"links\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"data\": [\n            \"\",\n            \"\"\n          ]\n        }\n      },\n      \"ultimate_beneficial_owner_configuration\": {\n        \"id\": 760,\n        \"company_id\": 1873,\n        \"exempt\": false,\n        \"exemption_reason\": \"string\",\n        \"natural_person_ubo\": false,\n        \"links\": [\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"rel\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"href\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      },\n      \"scheme\": {\n        \"id\": 9402,\n        \"uuid\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"string\",\n        \"currency\": \"string\",\n        \"federal\": true,\n        \"category\": \"string\",\n        \"external_id\": null,\n        \"bank_detail\": {\n          \"account_number\": null,\n          \"bank_name\": \"string\",\n          \"swift_code\": \"string\",\n          \"in_favor_of\": \"string\",\n          \"currency\": null,\n          \"exchange_rate\": null\n        },\n        \"contribution_limit\": {\n          \"minimum_one_off_contribution_amount\": 355.90181477094694,\n          \"minimum_one_off_contribution_amount_currency\": \"string\",\n          \"maximum_one_off_contribution_amount\": 3505.3675267498797,\n          \"maximum_one_off_contribution_amount_currency\": \"string\",\n          \"minimum_recurring_contribution_amount\": 3676.012728791288,\n          \"minimum_recurring_contribution_amount_currency\": \"string\"\n        },\n        \"scheme_tax_reliefs\": {\n          \"data\": null\n        }\n      },\n      \"provider_scheme_migration\": {\n        \"id\": 4490,\n        \"state\": \"string\"\n      },\n      \"default_investment_instrument\": {\n        \"instrument_id\": 9463,\n        \"instrument_type\": \"string\",\n        \"goal\": \"string\",\n        \"investment_strategy\": null\n      },\n      \"economic_zone\": {\n        \"id\": 2256,\n        \"country\": \"string\",\n        \"display_name\": \"string\",\n        \"name\": \"string\",\n        \"scheme_id\": null,\n        \"uuid\": \"string\"\n      }\n    },\n    \"shortcut\": {\n      \"id\": 6972,\n      \"token\": \"string\",\n      \"destination_url\": \"string\",\n      \"short_url\": \"string\"\n    },\n    \"marketing_preference\": {\n      \"id\": 4926,\n      \"resource_id\": 3566,\n      \"resource_type\": \"string\",\n      \"gdpr_consent\": false,\n      \"source\": \"string\"\n    },\n    \"expression_of_wish\": {\n      \"id\": 767,\n      \"employee_id\": 8178,\n      \"created_at\": \"2012-04-30T01:48:32.757Z\",\n      \"updated_at\": \"2019-08-16T20:48:38.932Z\",\n      \"follow_local_law\": true,\n      \"beneficiaries\": [\n        \"\",\n        \"\"\n      ],\n      \"contingent_beneficiaries\": [\n        \"\",\n        \"\"\n      ],\n      \"employee\": {\n        \"value\": \"<Circular reference to #/components/schemas/response_employee detected>\"\n      }\n    },\n    \"employee_configuration\": {\n      \"benefits_out_suspended\": false,\n      \"disabled_switching\": true,\n      \"enable_auto_increase_percentage\": true,\n      \"gone_away\": true,\n      \"id\": 1855,\n      \"investments_locked\": true,\n      \"valuation_under_review\": null,\n      \"preferred_currency\": \"string\",\n      \"preferred_locale\": \"string\",\n      \"blocked_rejoin\": true\n    },\n    \"employee_plan_participation\": {\n      \"id\": 8312,\n      \"in_waiting_period\": false,\n      \"next_state\": \"string\",\n      \"updated_at\": \"2005-01-12T23:55:47.537Z\",\n      \"state\": \"string\"\n    }\n  },\n  \"scheme\": {\n    \"id\": 4711,\n    \"uuid\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"currency\": \"string\",\n    \"federal\": true,\n    \"category\": \"string\",\n    \"external_id\": null,\n    \"bank_detail\": {\n      \"account_number\": null,\n      \"bank_name\": \"string\",\n      \"swift_code\": \"string\",\n      \"in_favor_of\": \"string\",\n      \"currency\": \"string\",\n      \"exchange_rate\": null\n    },\n    \"contribution_limit\": {\n      \"minimum_one_off_contribution_amount\": 9456.706378551557,\n      \"minimum_one_off_contribution_amount_currency\": \"string\",\n      \"maximum_one_off_contribution_amount\": 4272.165610496065,\n      \"maximum_one_off_contribution_amount_currency\": \"string\",\n      \"minimum_recurring_contribution_amount\": 842.7861293615624,\n      \"minimum_recurring_contribution_amount_currency\": \"string\"\n    },\n    \"scheme_tax_reliefs\": {\n      \"data\": null\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0ddce0cd-5ebc-40ab-9c4e-fba01a7f192c",
+    "name": "Keystone Summaries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

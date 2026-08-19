@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Keystone Documents API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Documents
+paths:
+  /companies/{company_id}/documents:
+    get:
+      summary: Documents/List
+      tags:
+      - Documents
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 238
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 1
+                offset: 0
+                total: 1
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/238/documents
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/238/documents?offset=0&limit=1
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/238/documents?offset=0&limit=1
+                documents:
+                - type: master_trust
+                  detail: https://s3-eu-west-1.amazonaws.com/mediasp/esign/smart-pension-master-trust.pdf
+                  signed_at: null
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  documents:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_document'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_document:
+      type: object
+      properties:
+        type:
+          type:
+          - string
+          - 'null'
+        detail:
+          type:
+          - string
+          - 'null'
+        signed_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

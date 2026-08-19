@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Scheme API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scheme",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Schemes/Available",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/schemes/available"
+          },
+          "docs": "Schemes/Available"
+        },
+        {
+          "info": {
+            "name": "Schemes/Default",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/schemes/default",
+            "params": [
+              {
+                "name": "include",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Schemes/Default"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

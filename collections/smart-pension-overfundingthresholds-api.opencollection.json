@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Overfunding Thresholds API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OverfundingThresholds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OverfundingThresholds/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/overfunding_threshold",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "735",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "368",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "OverfundingThresholds/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

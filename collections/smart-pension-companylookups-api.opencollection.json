@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Company Lookups API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CompanyLookups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CompanyLookups/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/company_lookups",
+            "params": [
+              {
+                "name": "name",
+                "value": "name=dubai",
+                "type": "query"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "CompanyLookups/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

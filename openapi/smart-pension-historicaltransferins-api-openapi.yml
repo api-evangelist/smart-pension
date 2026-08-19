@@ -1,0 +1,267 @@
+openapi: 3.2.0
+info:
+  title: Keystone Historical Transfer Ins API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: HistoricalTransferIns
+paths:
+  /companies/{company_id}/employees/{employee_id}/historical_transfer_ins:
+    get:
+      summary: HistoricalTransferIns/List
+      tags:
+      - HistoricalTransferIns
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 647
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 317
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            id:
+              type: array
+              items:
+                type: integer
+            category:
+              type: array
+              items:
+                type: string
+            payment_received_on:
+              type: array
+              items:
+                type: string
+            payment_invested_on:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/647/employees/317/historical_transfer_ins
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/647/employees/317/historical_transfer_ins?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/647/employees/317/historical_transfer_ins?offset=0&limit=50
+                historical_transfer_ins:
+                - id: 4
+                  employee_id: 317
+                  bank_reference: ABC-123
+                  category: transfer_in
+                  ceding_scheme_name: schema_name
+                  ceding_scheme_reference: ceding_scheme_reference
+                  ceding_scheme_type: approved
+                  payment_invested_on: '2026-08-05'
+                  payment_received_on: '2026-08-05'
+                  pensionable_service_months: 1
+                  pensionable_service_years: 1
+                  pot_values:
+                  - pot: pot_1
+                    amount: 150
+                  created_at: '2026-08-05T13:01:08.557+01:00'
+                  updated_at: '2026-08-05T13:01:08.557+01:00'
+                  total_amount: 150
+                - id: 5
+                  employee_id: 317
+                  bank_reference: ABC-123
+                  category: transfer_in
+                  ceding_scheme_name: schema_name
+                  ceding_scheme_reference: ceding_scheme_reference
+                  ceding_scheme_type: approved
+                  payment_invested_on: '2026-08-05'
+                  payment_received_on: '2026-08-05'
+                  pensionable_service_months: 1
+                  pensionable_service_years: 1
+                  pot_values:
+                  - pot: pot_1
+                    amount: 150
+                  created_at: '2026-08-05T13:01:08.562+01:00'
+                  updated_at: '2026-08-05T13:01:08.562+01:00'
+                  total_amount: 150
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  historical_transfer_ins:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_historical_transfer_in'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_historical_transfer_in:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        bank_reference:
+          type: string
+        category:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_name:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_reference:
+          type:
+          - string
+          - 'null'
+        ceding_scheme_type:
+          type:
+          - string
+          - 'null'
+        payment_invested_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        payment_received_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        pensionable_service_months:
+          type:
+          - integer
+          - 'null'
+        pensionable_service_years:
+          type:
+          - integer
+          - 'null'
+        pot_values:
+          type: array
+          items: {}
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

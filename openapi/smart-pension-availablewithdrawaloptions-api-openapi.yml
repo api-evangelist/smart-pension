@@ -1,0 +1,376 @@
+openapi: 3.2.0
+info:
+  title: Keystone Available Withdrawal Options API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: AvailableWithdrawalOptions
+paths:
+  /companies/{company_id}/employees/{employee_id}/available_withdrawal_options:
+    get:
+      summary: AvailableWithdrawalOptions/List
+      tags:
+      - AvailableWithdrawalOptions
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 274
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: integer
+        example: 79
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: target_retirement_year
+        in: query
+        required: false
+        description: Target retirement year to filter funds
+        schema:
+          type: integer
+        example: target_retirement_year=2040
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                When custom target retirement year is provided:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/266/employees/71/available_withdrawal_options?target_retirement_year=2040
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/266/employees/71/available_withdrawal_options?target_retirement_year=2040&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/266/employees/71/available_withdrawal_options?target_retirement_year=2040&offset=0&limit=50
+                    data:
+                    - id: 3
+                      name: TDFGroup 3
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 11
+                        name: Fund-11
+                    - id: 4
+                      name: TDFGroup 4
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 12
+                        name: Fund-12
+                When company does not have available_target_date_fund_groups:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/267/employees/72/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/267/employees/72/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/267/employees/72/available_withdrawal_options?offset=0&limit=50
+                    data: []
+                When fund_set does not belongs to available_target_date_fund_groups:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/268/employees/73/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/268/employees/73/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/268/employees/73/available_withdrawal_options?offset=0&limit=50
+                    data: []
+                When fund_set belongs to available_target_date_fund_groups:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/269/employees/74/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/269/employees/74/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/269/employees/74/available_withdrawal_options?offset=0&limit=50
+                    data: []
+                When target_date_fund_group does not have associated funds:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/270/employees/75/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/270/employees/75/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/270/employees/75/available_withdrawal_options?offset=0&limit=50
+                    data: []
+                When fund is not with retirement_year and no long_dated:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/271/employees/76/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/271/employees/76/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/271/employees/76/available_withdrawal_options?offset=0&limit=50
+                    data: []
+                When fund is long_dated_fund:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/272/employees/77/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/272/employees/77/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/272/employees/77/available_withdrawal_options?offset=0&limit=50
+                    data:
+                    - id: 15
+                      name: TDFGroup 15
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 22
+                        name: Fund-22
+                    - id: 16
+                      name: TDFGroup 16
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 21
+                        name: Fund-21
+                When fund is long dated and year of retirement_date match with year_of_retirement:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/273/employees/78/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/273/employees/78/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/273/employees/78/available_withdrawal_options?offset=0&limit=50
+                    data:
+                    - id: 17
+                      name: TDFGroup 17
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 28
+                        name: Fund-28
+                    - id: 18
+                      name: TDFGroup 18
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 26
+                        name: Fund-26
+                When fund is long dated and year of retirement_date does not match with year_of_retirement:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/274/employees/79/available_withdrawal_options
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/274/employees/79/available_withdrawal_options?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/274/employees/79/available_withdrawal_options?offset=0&limit=50
+                    data:
+                    - id: 19
+                      name: TDFGroup 19
+                      goal: annuity
+                      investment_strategy: passive
+                      target_fund:
+                        id: 32
+                        name: Fund-32
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  data:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_available_withdrawal_option'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '404':
+          description: Not Found
+          content:
+            text/html:
+              examples:
+                not_found:
+                  value: ''
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_offset:
+                  value:
+                    errors:
+                    - code: 1503
+                      title: Offset must be numerical.
+                      detail: You need to enter an offset which must be a numerical value greater or equal than 0.
+                      meta:
+                        value: invalid-offset
+                      source:
+                        pointer: /data/attributes/offset
+                invalid_limit:
+                  value:
+                    errors:
+                    - code: 1502
+                      title: Limit must be numerical.
+                      detail: You need to enter a limit which must be a numerical value greater than 0.
+                      meta:
+                        value: invalid-limit
+                      source:
+                        pointer: /data/attributes/limit
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_available_withdrawal_option:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+        target_fund:
+          type:
+          - object
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

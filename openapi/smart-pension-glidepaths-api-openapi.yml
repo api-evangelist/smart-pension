@@ -1,0 +1,283 @@
+openapi: 3.2.0
+info:
+  title: Keystone Glidepaths API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Glidepaths
+paths:
+  /companies/{company_id}/employees/{employee_id}/glidepaths:
+    post:
+      summary: Glidepaths/Create
+      tags:
+      - Glidepaths
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 637
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 307
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  glidepath:
+                    id: 4
+                  subaccount_uuid: f5905acb-d383-4622-8543-417ad30cbdd8
+              invalid_parameters:
+                value:
+                  glidepath:
+                    id: null
+              invalid_managing_permissions:
+                value:
+                  glidepath:
+                    id: 7
+                  subaccount_uuid: 33ea96f9-6b96-49b6-a880-f9cc58ec1f93
+            schema:
+              type: object
+              properties:
+                glidepath:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                subaccount_uuid:
+                  type: string
+        required: true
+      responses:
+        '201':
+          description: Creates a glidepath
+          content:
+            application/json:
+              example:
+                id: 4
+                name: glidepath a
+                sustainability: moderate
+                goal: drawdown
+              schema:
+                $ref: '#/components/schemas/response_glidepath'
+        '403':
+          description: fails with Forbidden Error
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 178
+                  title: Investments cannot be updated.
+                  detail: Investments cannot be updated.
+                  form: null
+                  attribute: base
+                  error: forbidden_update_investments
+                  meta: {}
+                  source:
+                    pointer: /base
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Glidepath id is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/glidepath_id
+components:
+  schemas:
+    response_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_provider:
+          type:
+          - string
+          - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
+    response_glidepath_step:
+      type: object
+      properties:
+        id:
+          type: integer
+        years_before_retirement:
+          type:
+          - integer
+          - 'null'
+        months_to_retirement:
+          type: integer
+        starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        active?:
+          type:
+          - boolean
+          - 'null'
+        glidepath:
+          $ref: '#/components/schemas/response_glidepath'
+        glidepath_step_fund_splits:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            glidepath_step_fund_splits:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_glidepath_step_fund_split'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_glidepath:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        sustainability:
+          type:
+          - string
+          - 'null'
+        goal:
+          type:
+          - string
+          - 'null'
+        glidepath_steps:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            glidepath_steps:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_glidepath_step'
+    response_glidepath_step_fund_split:
+      type: object
+      properties:
+        id:
+          type: integer
+        percentage:
+          type: number
+        glidepath_step:
+          $ref: '#/components/schemas/response_glidepath_step'
+        fund:
+          $ref: '#/components/schemas/response_fund'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

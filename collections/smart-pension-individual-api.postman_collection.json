@@ -1,0 +1,216 @@
+{
+  "item": [
+    {
+      "id": "b770a9d7-328b-427b-9bfd-462f1576ee68",
+      "name": "Individual",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78eda407-0919-47f4-9fac-125f598b17f6",
+          "name": "Individuals/RetirementAge",
+          "request": {
+            "name": "Individuals/RetirementAge",
+            "description": {},
+            "url": {
+              "path": [
+                "individuals",
+                "retirement_age"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Account ID",
+                "key": "X-Account-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"retirement_age\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b9f81153-b85d-4b7d-b459-dfab1221ea8e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individuals",
+                    "retirement_age"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Account ID",
+                    "key": "X-Account-Id",
+                    "value": "799"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"retirement_age\": 67\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"updatable\": true,\n  \"id\": 799,\n  \"email\": \"john-doe8@mail.com\",\n  \"forename\": \"Dorothy\",\n  \"surname\": \"Little\",\n  \"date_of_birth\": \"1980-01-01\",\n  \"national_insurance_number\": \"AB123456C\",\n  \"gender\": \"Female\",\n  \"telephone\": \"4-346-661-4571\",\n  \"identity_person_id\": \"e425929a-ca69-4cc6-bda0-52fe14397172\",\n  \"reset_password_sent_at\": null,\n  \"remember_created_at\": null,\n  \"last_sign_in_at\": null,\n  \"slug\": \"h9YzxxDh\",\n  \"created_at\": \"2026-08-05T13:06:29.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:06:29.000+01:00\",\n  \"confirmation_token\": null,\n  \"gauth_enabled\": false,\n  \"gauth_tmp\": null,\n  \"title\": \"Miss\",\n  \"authentication_token\": null,\n  \"group_id\": null,\n  \"line2\": null,\n  \"city\": \"Calistoga\",\n  \"region\": null,\n  \"country\": null,\n  \"postcode\": \"38903-1523\",\n  \"line1\": \"3490 Jenna Road\",\n  \"works_in_uk\": true,\n  \"starts_on\": \"2016-08-05\",\n  \"authentication_token_generated_at\": null,\n  \"company_percentage\": null,\n  \"company_percentage_matched\": 0,\n  \"company_match\": false,\n  \"percentage\": null,\n  \"avc_percentage\": null,\n  \"total_employee_percentage\": 0,\n  \"total_contribution_percentage\": 0,\n  \"contribute_if_entitled\": true,\n  \"enforce_password\": false,\n  \"ends_on\": null,\n  \"exit_reason\": null,\n  \"onboarded_at\": null,\n  \"opt_out_on\": null,\n  \"opt_state\": \"ignition\",\n  \"opt_in_on\": null,\n  \"opt_out_window_starts_on\": null,\n  \"opt_out_window_ends_on\": null,\n  \"subject_to_money_purchase_annual_allowance\": false,\n  \"money_purchase_annual_allowance_effective_on\": null,\n  \"active_special_cases\": [],\n  \"company_id\": 1600,\n  \"automatically_enrolled\": false,\n  \"contractually_enrolled\": false,\n  \"external_id\": null,\n  \"customer_id\": null,\n  \"referral_clicks\": 0,\n  \"retirement_age\": 67,\n  \"target_retirement_age\": null,\n  \"retirement_date\": \"2047-01-01\",\n  \"target_retirement_date\": null,\n  \"secondary_email\": null,\n  \"middle_name\": null,\n  \"civil_status\": null,\n  \"country_code\": \"UK\",\n  \"benefit_group_id\": null,\n  \"online_login_disabled\": false,\n  \"line3\": null,\n  \"uuid\": \"9e3be14c-4238-4ba5-8e85-510f2f0dba40\",\n  \"eligible_for_modeller_projection\": false,\n  \"can_manage_contribution_rates\": false,\n  \"active_payroll_configuration\": null,\n  \"employment_type\": \"employed\",\n  \"tax_residency_status_name\": null,\n  \"salary_sacrifice_signed\": false,\n  \"links\": [\n    {\n      \"rel\": \"company\",\n      \"title\": \"company\",\n      \"href\": \"https://api.host.com/companies/1600\"\n    }\n  ],\n  \"banned_params\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6e5b23e-cf97-4cc8-9446-0c8b10d7b2a2",
+              "name": "Non-individual account",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "individuals",
+                    "retirement_age"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Account ID",
+                    "key": "X-Account-Id",
+                    "value": "799"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"retirement_age\": 67\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "eb55d5a4-29f4-46ba-b478-c24eb22b32a6",
+    "name": "Keystone Individual API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

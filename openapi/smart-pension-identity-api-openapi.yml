@@ -1,0 +1,356 @@
+openapi: 3.2.0
+info:
+  title: Keystone Identity API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Identity
+paths:
+  /identity/api/profiles/personal-data:
+    get:
+      summary: Identity/profiles/personal-data
+      tags:
+      - Identity
+      security:
+      - oAuth2: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    title: null
+                    first_name: John
+                    middle_name: null
+                    last_name: Paul
+                    date_of_birth: '1980-01-01'
+                    national_insurance_number: AB123456C
+                    phone_number: null
+                    address:
+                      address_line_1: null
+                      address_line_2: null
+                      address_line_3: null
+                      city: null
+                      region: null
+                      country: null
+                      postcode: null
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  email:
+                    type: string
+                  title:
+                    type:
+                    - string
+                    - 'null'
+                  first_name:
+                    type:
+                    - string
+                    - 'null'
+                  middle_name:
+                    type:
+                    - string
+                    - 'null'
+                  last_name:
+                    type:
+                    - string
+                    - 'null'
+                  date_of_birth:
+                    type:
+                    - string
+                    - 'null'
+                    format: date
+                  national_insurance_number:
+                    type:
+                    - string
+                    - 'null'
+                  phone_number:
+                    type:
+                    - string
+                    - 'null'
+                  address:
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      address_line_1:
+                        type:
+                        - string
+                        - 'null'
+                      address_line_2:
+                        type:
+                        - string
+                        - 'null'
+                      address_line_3:
+                        type:
+                        - string
+                        - 'null'
+                      city:
+                        type:
+                        - string
+                        - 'null'
+                      region:
+                        type:
+                        - string
+                        - 'null'
+                      country:
+                        type:
+                        - string
+                        - 'null'
+                      postcode:
+                        type:
+                        - string
+                        - 'null'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                unauthorized:
+                  value:
+                    error: Invalid authentication token
+    patch:
+      summary: Identity/profiles/personal-data
+      tags:
+      - Identity
+      security:
+      - oAuth2: []
+      parameters:
+      - name: Authorization
+        in: header
+        required: true
+        description: Bearer token
+        example: Bearer eyJraWQiOiJjMWRlYjY4M2VlYzY5NTc2NjBmYmM1ZThkNWUwNWUxYjhkNjM1NzU0YzFkZjk2YjhjYzA1ZjE2NmM4YzNiMmUwIiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2lkZW50aXR5LXBvcnRhbC5ob3N0LmNvbSIsImlhdCI6MTc4NTkyODA4Nywic3ViIjoiODc1M2ZkMTctZjFiNC00MjE2LTg4ZTItMGJmZjliYjcxZmU0IiwiY2xpZW50X2lkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsImV4cCI6MTc4NTkzMTY4NywiYXVkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsIm93bmVyX3R5cGUiOiJwZXJzb24iLCJzY29wZSI6Im9wZW5pZCIsImp0aSI6IjUwNWQwZTIwYTMxODIwZmJkMDAzYzhlNjc3YThiMTRhNTZlZDUyY2EyZDBiMWE5M2ZiODJlMDlhNTUxZGRmY2QifQ.QdRgxz08sibABa_IdCIykjMhHL-CPQY4LySXM3vJm6nDkNeUwYH8K8SWk3yoX_h5UTiAgUyt9e8rlLmlAyNxTaXjWFQiVOCjiTm0mEoZyJkEBXXl-wm7mi1JdBBtbFi8evpw1vY7BhPdGvCPYmSM8vzw7GHiv2TraJU1jhiQ2dI
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              first_name: John
+              last_name: Doe
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                first_name:
+                  type: string
+                middle_name:
+                  type: string
+                last_name:
+                  type: string
+                phone_number:
+                  type: string
+                address_line_1:
+                  type: string
+                address_line_2:
+                  type: string
+                address_line_3:
+                  type: string
+                region:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                postcode:
+                  type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    title: null
+                    first_name: John
+                    middle_name: null
+                    last_name: Doe
+                    date_of_birth: null
+                    national_insurance_number: null
+                    phone_number: null
+                    address:
+                      address_line_1: null
+                      address_line_2: null
+                      address_line_3: null
+                      city: null
+                      region: null
+                      country: null
+                      postcode: null
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  email:
+                    type: string
+                  title:
+                    type:
+                    - string
+                    - 'null'
+                  first_name:
+                    type:
+                    - string
+                    - 'null'
+                  middle_name:
+                    type:
+                    - string
+                    - 'null'
+                  last_name:
+                    type:
+                    - string
+                    - 'null'
+                  date_of_birth:
+                    type:
+                    - string
+                    - 'null'
+                    format: date
+                  national_insurance_number:
+                    type:
+                    - string
+                    - 'null'
+                  phone_number:
+                    type:
+                    - string
+                    - 'null'
+                  address:
+                    type:
+                    - object
+                    - 'null'
+                    properties:
+                      address_line_1:
+                        type:
+                        - string
+                        - 'null'
+                      address_line_2:
+                        type:
+                        - string
+                        - 'null'
+                      address_line_3:
+                        type:
+                        - string
+                        - 'null'
+                      city:
+                        type:
+                        - string
+                        - 'null'
+                      region:
+                        type:
+                        - string
+                        - 'null'
+                      country:
+                        type:
+                        - string
+                        - 'null'
+                      postcode:
+                        type:
+                        - string
+                        - 'null'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                unauthorized:
+                  value:
+                    error: Invalid authentication token
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              examples:
+                profile_not_found:
+                  value:
+                    errors:
+                    - Profile not found
+  /identity/api/profiles/registration-data:
+    get:
+      summary: Identity/profiles/registration-data
+      tags:
+      - Identity
+      security:
+      - oAuth2: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    registration_origin: account-claiming
+                    registration_origin_process_uuid: 46ddece6-c294-4ce8-a673-cb99c44ad81a
+                success_empty_registration_origin:
+                  value:
+                    registration_origin: null
+                    registration_origin_process_uuid: null
+              schema:
+                type: object
+                properties:
+                  registration_origin:
+                    type:
+                    - string
+                    - 'null'
+                  registration_origin_process_uuid:
+                    type:
+                    - string
+                    - 'null'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              examples:
+                unauthorized:
+                  value:
+                    error: Invalid authentication token
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              examples:
+                profile_not_found:
+                  value:
+                    errors:
+                    - Profile not found
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

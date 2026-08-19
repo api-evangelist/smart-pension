@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Employee Verification Checks API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmployeeVerificationChecks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "VerificationChecks/GenerateVerificationUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/verification_checks/generate_verification_url",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "984",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "548",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/GenerateVerificationUrl"
+        },
+        {
+          "info": {
+            "name": "VerificationChecks/State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/verification_checks/state",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "992",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "552",
+                "type": "path"
+              },
+              {
+                "name": "target",
+                "value": "target=single_contributions",
+                "type": "query"
+              },
+              {
+                "name": "verification_check_types[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/State"
+        },
+        {
+          "info": {
+            "name": "VerificationChecks/GetVerificationUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/verification_checks/verification_url",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1000",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "556",
+                "type": "path"
+              },
+              {
+                "name": "target",
+                "value": "target=single_contributions",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/GetVerificationUrl"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

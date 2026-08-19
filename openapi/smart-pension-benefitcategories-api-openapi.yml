@@ -1,0 +1,658 @@
+openapi: 3.2.0
+info:
+  title: Keystone Benefit Categories API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BenefitCategories
+paths:
+  /companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_rule_set_id}:
+    get:
+      summary: BenefitCategories/Get
+      tags:
+      - BenefitCategories
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 318
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 104
+        schema:
+          type: string
+      - name: benefit_rule_set_id
+        in: path
+        required: true
+        example: 5
+        schema:
+          type: string
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success_pcls_with_default_subaccount_splits:
+                  value:
+                    id: 2
+                    name: something
+                    description: description of a benefit rule set
+                    benefit_type: full
+                    minimum_amount: 1
+                    member_input_less_than_option: true
+                    approximate_maximum_amount: 500
+                    replaced_by: null
+                    frontend_tag: pcls
+                    taxable_amount_percentage: 75
+                    tax_free_cash_percentage: 25
+                    to_subaccount: null
+                    lifetime_benefit_count: 100
+                    calendar_year_benefit_count: 10
+                    scheme_year_benefit_count: null
+                    tax_rate_percentage: 19
+                    tax_amount: 95
+                    netto_amount: 405
+                    default_subaccount_splits:
+                    - subaccount_uuid: 470fd166-9d85-467b-bf08-d0354db2794c
+                      percentage: 60
+                    - subaccount_uuid: 26224d8f-52ed-49df-b9fc-a27c81e1d950
+                      percentage: 40
+                    from_subaccounts: []
+                    benefit_evidence_types:
+                    - id: 2
+                      name: Passport2
+                      description: Some description
+                      frontend_tag: null
+                      category: null
+                    charges:
+                    - id: 18
+                      recipient: me
+                      amount: 1000
+                    benefit_checks: []
+                success:
+                  value:
+                    id: 1
+                    name: something
+                    description: description of a benefit rule set
+                    benefit_type: full
+                    minimum_amount: 10
+                    member_input_less_than_option: true
+                    approximate_maximum_amount: 2000
+                    replaced_by: null
+                    frontend_tag: null
+                    taxable_amount_percentage: 75
+                    tax_free_cash_percentage: 25
+                    to_subaccount: null
+                    lifetime_benefit_count: 100
+                    calendar_year_benefit_count: 10
+                    scheme_year_benefit_count: null
+                    tax_rate_percentage: 19
+                    tax_amount: 380
+                    netto_amount: 1620
+                    default_subaccount_splits: []
+                    from_subaccounts: []
+                    benefit_evidence_types:
+                    - id: 1
+                      name: Passport1
+                      description: Some description
+                      frontend_tag: null
+                      category: null
+                    charges:
+                    - id: 17
+                      recipient: me
+                      amount: 1000
+                    benefit_checks:
+                    - has_redirect_url: true
+                    - has_redirect_url: true
+                success_with_replaced_benefit_category:
+                  value:
+                    id: 4
+                    name: something
+                    description: description of a benefit rule set
+                    benefit_type: full
+                    minimum_amount: 10
+                    member_input_less_than_option: true
+                    approximate_maximum_amount: 2000
+                    replaced_by: 3
+                    frontend_tag: null
+                    taxable_amount_percentage: 75
+                    tax_free_cash_percentage: 25
+                    to_subaccount: null
+                    lifetime_benefit_count: 100
+                    calendar_year_benefit_count: 10
+                    scheme_year_benefit_count: null
+                    tax_rate_percentage: 19
+                    tax_amount: 380
+                    netto_amount: 1620
+                    default_subaccount_splits: []
+                    from_subaccounts: []
+                    benefit_evidence_types:
+                    - id: 3
+                      name: Passport3
+                      description: Some description
+                      frontend_tag: null
+                      category: null
+                    charges:
+                    - id: 19
+                      recipient: me
+                      amount: 1000
+                    benefit_checks:
+                    - has_redirect_url: true
+                    - has_redirect_url: true
+                success_without_evidence_type:
+                  value:
+                    id: 5
+                    name: something
+                    description: description of a benefit rule set
+                    benefit_type: full
+                    minimum_amount: 2000
+                    member_input_less_than_option: false
+                    approximate_maximum_amount: 2000
+                    replaced_by: null
+                    frontend_tag: null
+                    taxable_amount_percentage: 75
+                    tax_free_cash_percentage: 25
+                    to_subaccount: null
+                    lifetime_benefit_count: 100
+                    calendar_year_benefit_count: 10
+                    scheme_year_benefit_count: null
+                    tax_rate_percentage: 19
+                    tax_amount: 380
+                    netto_amount: 1620
+                    default_subaccount_splits: []
+                    from_subaccounts: []
+                    benefit_evidence_types: []
+                    charges: []
+                    benefit_checks: []
+              schema:
+                $ref: '#/components/schemas/response_benefit_category'
+        '403':
+          description: Forbidden - when the employee is ineligible for the benefit rule set
+        '404':
+          description: Not Found - when benefit rule set belongs to different scheme from employee
+  /companies/{company_id}/employees/{employee_id}/benefit_categories:
+    get:
+      summary: BenefitCategories/List
+      tags:
+      - BenefitCategories
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 327
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 107
+        schema:
+          type: string
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success_pcls_with_default_subaccount_splits:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/330/employees/108/benefit_categories?employee=108
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/330/employees/108/benefit_categories?employee=108&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/330/employees/108/benefit_categories?employee=108&offset=0&limit=50
+                    benefit_categories:
+                    - id: 11
+                      name: something
+                      description: description of a benefit rule set
+                      benefit_type: full
+                      minimum_amount: 1
+                      member_input_less_than_option: true
+                      approximate_maximum_amount: 500
+                      replaced_by: null
+                      frontend_tag: pcls
+                      taxable_amount_percentage: 75
+                      tax_free_cash_percentage: 25
+                      to_subaccount: null
+                      lifetime_benefit_count: 100
+                      calendar_year_benefit_count: 10
+                      scheme_year_benefit_count: null
+                      tax_rate_percentage: 19
+                      tax_amount: 95
+                      netto_amount: 405
+                      default_subaccount_splits:
+                      - subaccount_uuid: 2deb05ab-5866-4009-8970-05272ae754e1
+                        percentage: 60
+                      - subaccount_uuid: 371bf885-7beb-4ce8-bd55-b30c06d87334
+                        percentage: 40
+                      from_subaccounts: []
+                      benefit_evidence_types:
+                      - id: 6
+                        name: Passport6
+                        description: Some description
+                        frontend_tag: null
+                        category: null
+                      charges:
+                      - id: 21
+                        recipient: me
+                        amount: 1000
+                      benefit_checks: []
+                success_without_translation:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 1
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/327/employees/107/benefit_categories?employee=107
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/327/employees/107/benefit_categories?employee=107&offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/327/employees/107/benefit_categories?employee=107&offset=0&limit=50
+                    benefit_categories:
+                    - id: 8
+                      name: something
+                      description: description of a benefit rule set
+                      benefit_type: full
+                      minimum_amount: 1
+                      member_input_less_than_option: true
+                      approximate_maximum_amount: 2000
+                      replaced_by: null
+                      frontend_tag: null
+                      taxable_amount_percentage: 75
+                      tax_free_cash_percentage: 25
+                      to_subaccount: null
+                      lifetime_benefit_count: 100
+                      calendar_year_benefit_count: 10
+                      scheme_year_benefit_count: null
+                      tax_rate_percentage: 19
+                      tax_amount: 380
+                      netto_amount: 1620
+                      default_subaccount_splits: []
+                      from_subaccounts: []
+                      benefit_evidence_types:
+                      - id: 5
+                        name: Passport5
+                        description: Some description
+                        frontend_tag: null
+                        category: null
+                      charges:
+                      - id: 20
+                        recipient: me
+                        amount: 1000
+                      benefit_checks: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  benefit_categories:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_benefit_category'
+components:
+  schemas:
+    response_benefit_category:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        benefit_type:
+          type:
+          - string
+          - 'null'
+        minimum_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        member_input_less_than_option:
+          type:
+          - boolean
+          - 'null'
+        approximate_maximum_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        replaced_by:
+          type:
+          - integer
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        taxable_amount_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_free_cash_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        lifetime_benefit_count:
+          type:
+          - integer
+          - 'null'
+        calendar_year_benefit_count:
+          type:
+          - integer
+          - 'null'
+        scheme_year_benefit_count:
+          type:
+          - integer
+          - 'null'
+        tax_rate_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        netto_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        benefit_checks:
+          type:
+          - array
+          - 'null'
+          items: {}
+        to_subaccount:
+          $ref: '#/components/schemas/response_investment_account'
+        default_subaccount_splits:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_default_subaccount_split'
+        from_subaccounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_investment_account'
+        benefit_evidence_types:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_evidence_type'
+        charges:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_charge'
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
+    response_benefit_charge:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        recipient:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_default_subaccount_split:
+      type: object
+      properties:
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_investment_account:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        uuid:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        scheme_id:
+          type:
+          - integer
+          - 'null'
+        subaccount_group:
+          type:
+          - string
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        active_from:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active_until:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        investments_locked:
+          type:
+          - boolean
+          - 'null'
+        redirect_allowed:
+          type:
+          - boolean
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        valuation:
+          type:
+          - number
+          - 'null'
+          format: float
+        valuation_available_for_disinvestment:
+          type:
+          - number
+          - 'null'
+          format: float
+        active_for_employee:
+          type:
+          - boolean
+          - 'null'
+        pending_switch_to_subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        money_movement_locked:
+          type:
+          - boolean
+          - 'null'
+        projection_age:
+          type:
+          - integer
+          - 'null'
+        projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        projection_amount_currency:
+          type:
+          - string
+          - 'null'
+    response_benefit_evidence_type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_upload:
+          $ref: '#/components/schemas/response_benefit_evidence_upload'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

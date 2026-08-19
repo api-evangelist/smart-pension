@@ -1,0 +1,599 @@
+{
+  "item": [
+    {
+      "id": "a407a0cc-7a5c-48a6-af39-c4ddb815f2e8",
+      "name": "ThirdPartyPaymentProviders",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b203e55-97ba-49c2-aef5-5c34d87eb1a5",
+          "name": "Companies/ThirdPartyPaymentProviders/Get",
+          "request": {
+            "name": "Companies/ThirdPartyPaymentProviders/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "third_party_payment_providers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71196f2f-03bb-4c67-8607-5fed7a184e3b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "third_party_payment_providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5,\n  \"relation_to_company\": \"parent_company\",\n  \"provider_name\": \"Provider name\",\n  \"incorporation_number\": \"1234567\",\n  \"source_of_wealth\": \"Investment\",\n  \"reason_for_using\": \"No access to bank account\",\n  \"same_directors_as_company\": true,\n  \"state\": \"submitted\",\n  \"line1\": \"line1\",\n  \"line2\": \"line2\",\n  \"city\": \"Dubai\",\n  \"country_of_incorporation\": \"AE\",\n  \"uuid\": \"6f3219cb-578c-4e90-beee-5d6a57db30bc\",\n  \"tax_registration_number\": \"100123456789003\",\n  \"created_at\": \"2026-08-05T13:05:05.935+01:00\",\n  \"updated_at\": \"2026-08-05T13:05:05.935+01:00\",\n  \"bank_account_detail\": {\n    \"id\": 69,\n    \"account_name\": \"Account Name\",\n    \"country_code\": \"GB\",\n    \"created_at\": \"2026-08-05T13:05:05.000+01:00\",\n    \"updated_at\": \"2026-08-05T13:05:05.000+01:00\",\n    \"account_number_format\": \"iban\",\n    \"cancelled_at\": null,\n    \"expires_on\": null\n  },\n  \"directors\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"total\": 1,\n    \"links\": [\n      {\n        \"rel\": \"self\",\n        \"title\": \"self\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents\"\n      },\n      {\n        \"rel\": \"first\",\n        \"title\": \"first\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10\"\n      },\n      {\n        \"rel\": \"last\",\n        \"title\": \"last\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10\"\n      }\n    ],\n    \"data\": [\n      {\n        \"id\": 1,\n        \"city\": \"Dubai\",\n        \"country\": \"AE\",\n        \"date_of_birth\": \"1991-08-05\",\n        \"forename\": \"Bonnie\",\n        \"surname\": \"Taylor\",\n        \"nationality\": \"British\",\n        \"title\": \"Dr\",\n        \"line1\": \"line1\",\n        \"line2\": \"line2\",\n        \"created_at\": \"2026-08-05T13:05:05.949+01:00\"\n      }\n    ]\n  },\n  \"documents\": {\n    \"limit\": 10,\n    \"offset\": 0,\n    \"total\": 2,\n    \"links\": [\n      {\n        \"rel\": \"self\",\n        \"title\": \"self\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents\"\n      },\n      {\n        \"rel\": \"first\",\n        \"title\": \"first\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10\"\n      },\n      {\n        \"rel\": \"last\",\n        \"title\": \"last\",\n        \"href\": \"http://api.host.com/companies/1390/third_party_payment_providers/5?include%5B%5D=directors&include%5B%5D=documents&offset=0&limit=10\"\n      }\n    ],\n    \"data\": [\n      {\n        \"id\": 1,\n        \"topic\": \"investment_guide\",\n        \"url\": \"/__w/api/api/spec/test_files/0/documents/000/000/001/original/file.pdf\",\n        \"file_file_name\": \"file.pdf\",\n        \"file_content_type\": \"application/pdf\",\n        \"created_at\": \"2026-08-05T13:05:06.000+01:00\"\n      },\n      {\n        \"id\": 2,\n        \"topic\": \"investment_guide\",\n        \"url\": \"/__w/api/api/spec/test_files/0/documents/000/000/002/original/file.pdf\",\n        \"file_file_name\": \"file.pdf\",\n        \"file_content_type\": \"application/pdf\",\n        \"created_at\": \"2026-08-05T13:05:06.000+01:00\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6b89f445-4bcf-4444-9e29-7adfa94c6f09",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "third_party_payment_providers",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d094c23-aea5-4e2b-9023-7f64f2dc1cea",
+          "name": "Companies/ThirdPartyPaymentProviders/List",
+          "request": {
+            "name": "Companies/ThirdPartyPaymentProviders/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "third_party_payment_providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6e3d1548-8907-48bc-8262-f61ebfa89ef1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "third_party_payment_providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 2,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/1392/third_party_payment_providers\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/1392/third_party_payment_providers?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/1392/third_party_payment_providers?offset=0&limit=50\"\n    }\n  ],\n  \"data\": [\n    {\n      \"id\": 7,\n      \"relation_to_company\": \"parent_company\",\n      \"provider_name\": \"Provider name\",\n      \"incorporation_number\": \"1234567\",\n      \"source_of_wealth\": \"Investment\",\n      \"reason_for_using\": \"No access to bank account\",\n      \"same_directors_as_company\": true,\n      \"state\": \"submitted\",\n      \"line1\": \"line1\",\n      \"line2\": \"line2\",\n      \"city\": \"Dubai\",\n      \"country_of_incorporation\": \"AE\",\n      \"uuid\": \"1e8d07e3-9636-44b2-8353-1cf425378246\",\n      \"created_at\": \"2026-08-05T13:05:07.816+01:00\",\n      \"updated_at\": \"2026-08-05T13:05:07.816+01:00\",\n      \"bank_account_detail\": {\n        \"id\": 71,\n        \"account_name\": \"Account Name\",\n        \"country_code\": \"GB\",\n        \"created_at\": \"2026-08-05T13:05:07.000+01:00\",\n        \"updated_at\": \"2026-08-05T13:05:07.000+01:00\",\n        \"account_number_format\": \"iban\",\n        \"cancelled_at\": null,\n        \"expires_on\": null\n      }\n    },\n    {\n      \"id\": 8,\n      \"relation_to_company\": \"parent_company\",\n      \"provider_name\": \"Provider name\",\n      \"incorporation_number\": \"1234567\",\n      \"source_of_wealth\": \"Investment\",\n      \"reason_for_using\": \"No access to bank account\",\n      \"same_directors_as_company\": true,\n      \"state\": \"submitted\",\n      \"line1\": \"line1\",\n      \"line2\": \"line2\",\n      \"city\": \"Dubai\",\n      \"country_of_incorporation\": \"AE\",\n      \"uuid\": \"85289b1e-5711-4e0f-9127-1cdc314c4799\",\n      \"created_at\": \"2026-08-05T13:05:07.822+01:00\",\n      \"updated_at\": \"2026-08-05T13:05:07.822+01:00\",\n      \"bank_account_detail\": {\n        \"id\": 72,\n        \"account_name\": \"Account Name\",\n        \"country_code\": \"GB\",\n        \"created_at\": \"2026-08-05T13:05:07.000+01:00\",\n        \"updated_at\": \"2026-08-05T13:05:07.000+01:00\",\n        \"account_number_format\": \"iban\",\n        \"cancelled_at\": null,\n        \"expires_on\": null\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7c4b34c-66c7-474c-adb9-74bd6023b8ba",
+          "name": "Companies/ThirdPartyPaymentProviders/Get",
+          "request": {
+            "name": "Companies/ThirdPartyPaymentProviders/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "third_party_payment_providers",
+                ":id",
+                "sensitive_data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bank_account_detail_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "field_names[]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "field_names[]",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "50d9e136-a2f9-4c80-a067-4a3b98c63928",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "third_party_payment_providers",
+                    ":id",
+                    "sensitive_data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bank_account_detail_id",
+                      "value": "bank_account_detail_id=73"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sensitive_data\": [\n    {\n      \"field_name\": \"account_number\",\n      \"value\": \"AL47 2121 1009 0000 0002 3569 87411\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6889a54b-c769-4be9-8c39-295766ea54d2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "third_party_payment_providers",
+                    ":id",
+                    "sensitive_data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bank_account_detail_id",
+                      "value": "bank_account_detail_id=73"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "field_names[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0e5d1560-a692-48ef-8b62-937ed9dc6982",
+    "name": "Keystone Third Party Payment Providers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

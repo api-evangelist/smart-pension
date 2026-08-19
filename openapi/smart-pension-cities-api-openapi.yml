@@ -1,0 +1,155 @@
+openapi: 3.2.0
+info:
+  title: Keystone Cities API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Cities
+paths:
+  /cities/{country_code}/autocomplete:
+    get:
+      summary: Cities/Autocomplete
+      tags:
+      - Cities
+      description: Autocomplete cities by country code and city prefix
+      parameters:
+      - name: country_code
+        in: path
+        required: true
+        description: Country code to filter cities
+        example: US
+        schema:
+          type: string
+      - name: city_prefix
+        in: query
+        required: true
+        description: Prefix of the city name to filter cities
+        example: city_prefix=New
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Limit the number of returned cities
+        default: 50
+        example: limit=10
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        required: false
+        description: Offset the results
+        default: 0
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    cities:
+                    - name: New Albany
+                      country_code: US
+                      state_code: IN
+                    - name: New Albany
+                      country_code: US
+                      state_code: MS
+                    - name: New Albany
+                      country_code: US
+                      state_code: OH
+                    - name: New Athens
+                      country_code: US
+                      state_code: IL
+                    - name: New Augusta
+                      country_code: US
+                      state_code: MS
+                    - name: New Baden
+                      country_code: US
+                      state_code: IL
+                    - name: New Baltimore
+                      country_code: US
+                      state_code: VA
+                    - name: New Baltimore
+                      country_code: US
+                      state_code: MI
+                    - name: New Beaver
+                      country_code: US
+                      state_code: PA
+                    - name: New Bedford
+                      country_code: US
+                      state_code: MA
+              schema:
+                $ref: '#/components/schemas/response_cities'
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                empty_city_prefix:
+                  value:
+                    errors:
+                    - Prefix cannot be empty
+components:
+  schemas:
+    response_cities:
+      type: object
+      properties:
+        cities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_city'
+    response_city:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type:
+          - string
+          - 'null'
+        state_code:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

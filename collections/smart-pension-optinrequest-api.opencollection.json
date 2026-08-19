@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Opt In Request API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OptInRequest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/OptInRequests/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/opt_in_requests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "365",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "730",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/OptInRequests/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/OptInRequests/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/opt_in_requests/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "2",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "366",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "732",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/OptInRequests/Update"
+        },
+        {
+          "info": {
+            "name": "Companies/OptInRequests/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/opt_in_requests",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1223",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/OptInRequests/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone SSIF Import API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SSIF Import",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SSIFImport/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/ssif_imports/download_template",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "SSIFImport/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

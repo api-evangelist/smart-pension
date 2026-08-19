@@ -1,0 +1,573 @@
+openapi: 3.2.0
+info:
+  title: Keystone Nationalities API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Nationalities
+paths:
+  /countries/nationality:
+    get:
+      summary: Countries/Nationality/List
+      tags:
+      - Nationalities
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                nationalities:
+                - nationality: Afghan
+                  nationality_code: AF
+                - nationality: Albanian
+                  nationality_code: AL
+                - nationality: Algerian
+                  nationality_code: DZ
+                - nationality: American - Northern Mariana Islands
+                  nationality_code: MP
+                - nationality: American - United States Minor Outlying Islands
+                  nationality_code: UM
+                - nationality: American - United States of America
+                  nationality_code: US
+                - nationality: American Samoan
+                  nationality_code: AS
+                - nationality: Andorran
+                  nationality_code: AD
+                - nationality: Angolan
+                  nationality_code: AO
+                - nationality: Anguillian
+                  nationality_code: AI
+                - nationality: Antiguan, Barbudan
+                  nationality_code: AG
+                - nationality: Argentinean
+                  nationality_code: AR
+                - nationality: Armenian
+                  nationality_code: AM
+                - nationality: Aruban
+                  nationality_code: AW
+                - nationality: Australian
+                  nationality_code: AU
+                - nationality: Austrian
+                  nationality_code: AT
+                - nationality: Azerbaijani
+                  nationality_code: AZ
+                - nationality: Bahamian
+                  nationality_code: BS
+                - nationality: Bahraini
+                  nationality_code: BH
+                - nationality: Bangladeshi
+                  nationality_code: BD
+                - nationality: Barbadian
+                  nationality_code: BB
+                - nationality: Belarusian
+                  nationality_code: BY
+                - nationality: Belgian
+                  nationality_code: BE
+                - nationality: Belizean
+                  nationality_code: BZ
+                - nationality: Beninese
+                  nationality_code: BJ
+                - nationality: Bermudian
+                  nationality_code: BM
+                - nationality: Bhutanese
+                  nationality_code: BT
+                - nationality: Bolivian
+                  nationality_code: BO
+                - nationality: Bosnian, Herzegovinian
+                  nationality_code: BA
+                - nationality: Brazilian
+                  nationality_code: BR
+                - nationality: British
+                  nationality_code: GB
+                - nationality: Bruneian
+                  nationality_code: BN
+                - nationality: Bulgarian
+                  nationality_code: BG
+                - nationality: Burkinabe
+                  nationality_code: BF
+                - nationality: Burundian
+                  nationality_code: BI
+                - nationality: Cambodian
+                  nationality_code: KH
+                - nationality: Cameroonian
+                  nationality_code: CM
+                - nationality: Canadian
+                  nationality_code: CA
+                - nationality: Cape Verdian
+                  nationality_code: CV
+                - nationality: Caymanian
+                  nationality_code: KY
+                - nationality: Central African
+                  nationality_code: CF
+                - nationality: Chadian
+                  nationality_code: TD
+                - nationality: Channel Islander - Guernsey
+                  nationality_code: GG
+                - nationality: Channel Islander - Jersey
+                  nationality_code: JE
+                - nationality: Chilean
+                  nationality_code: CL
+                - nationality: Chinese - China
+                  nationality_code: CN
+                - nationality: Chinese - Macao
+                  nationality_code: MO
+                - nationality: Christmas Island
+                  nationality_code: CX
+                - nationality: Cocos Islander
+                  nationality_code: CC
+                - nationality: Colombian
+                  nationality_code: CO
+                - nationality: Comoran
+                  nationality_code: KM
+                - nationality: Congolese - Congo
+                  nationality_code: CG
+                - nationality: Congolese - Congo (Democratic Republic of the)
+                  nationality_code: CD
+                - nationality: Cook Islander
+                  nationality_code: CK
+                - nationality: Costa Rican
+                  nationality_code: CR
+                - nationality: Croatian
+                  nationality_code: HR
+                - nationality: Cuban
+                  nationality_code: CU
+                - nationality: Cypriot
+                  nationality_code: CY
+                - nationality: Czech
+                  nationality_code: CZ
+                - nationality: Danish
+                  nationality_code: DK
+                - nationality: Djibouti
+                  nationality_code: DJ
+                - nationality: Dominican - Dominica
+                  nationality_code: DM
+                - nationality: Dominican - Dominican Republic
+                  nationality_code: DO
+                - nationality: Dutch - Bonaire, Sint Eustatius and Saba
+                  nationality_code: BQ
+                - nationality: Dutch - Curaçao
+                  nationality_code: CW
+                - nationality: Dutch - Netherlands
+                  nationality_code: NL
+                - nationality: Dutch - Sint Maarten (Dutch part)
+                  nationality_code: SX
+                - nationality: East Timorese
+                  nationality_code: TL
+                - nationality: Ecuadorean
+                  nationality_code: EC
+                - nationality: Egyptian
+                  nationality_code: EG
+                - nationality: Emirati
+                  nationality_code: AE
+                - nationality: Equatorial Guinean
+                  nationality_code: GQ
+                - nationality: Eritrean
+                  nationality_code: ER
+                - nationality: Estonian
+                  nationality_code: EE
+                - nationality: Ethiopian
+                  nationality_code: ET
+                - nationality: Falkland Islander
+                  nationality_code: FK
+                - nationality: Faroese
+                  nationality_code: FO
+                - nationality: Fijian
+                  nationality_code: FJ
+                - nationality: Filipino
+                  nationality_code: PH
+                - nationality: Finnish
+                  nationality_code: FI
+                - nationality: French - France
+                  nationality_code: FR
+                - nationality: French - French Southern Territories
+                  nationality_code: TF
+                - nationality: French - Martinique
+                  nationality_code: MQ
+                - nationality: French - Mayotte
+                  nationality_code: YT
+                - nationality: French - Réunion
+                  nationality_code: RE
+                - nationality: French - Saint Pierre and Miquelon
+                  nationality_code: PM
+                - nationality: French Guianan
+                  nationality_code: GF
+                - nationality: French Polynesian
+                  nationality_code: PF
+                - nationality: Gabonese
+                  nationality_code: GA
+                - nationality: Gambian
+                  nationality_code: GM
+                - nationality: Georgian
+                  nationality_code: GE
+                - nationality: German
+                  nationality_code: DE
+                - nationality: Ghanaian
+                  nationality_code: GH
+                - nationality: Gibraltar
+                  nationality_code: GI
+                - nationality: Greek
+                  nationality_code: GR
+                - nationality: Greenlandic
+                  nationality_code: GL
+                - nationality: Grenadian
+                  nationality_code: GD
+                - nationality: Guadeloupian
+                  nationality_code: GP
+                - nationality: Guamanian
+                  nationality_code: GU
+                - nationality: Guatemalan
+                  nationality_code: GT
+                - nationality: Guinea-Bissauan
+                  nationality_code: GW
+                - nationality: Guinean
+                  nationality_code: GN
+                - nationality: Guyanese
+                  nationality_code: GY
+                - nationality: Haitian
+                  nationality_code: HT
+                - nationality: Heard and McDonald Islander
+                  nationality_code: HM
+                - nationality: Honduran
+                  nationality_code: HN
+                - nationality: Hong Kongese
+                  nationality_code: HK
+                - nationality: Hungarian
+                  nationality_code: HU
+                - nationality: I-Kiribati
+                  nationality_code: KI
+                - nationality: Icelander
+                  nationality_code: IS
+                - nationality: Indian - British Indian Ocean Territory
+                  nationality_code: IO
+                - nationality: Indian - India
+                  nationality_code: IN
+                - nationality: Indonesian
+                  nationality_code: ID
+                - nationality: Iranian
+                  nationality_code: IR
+                - nationality: Iraqi
+                  nationality_code: IQ
+                - nationality: Irish
+                  nationality_code: IE
+                - nationality: Israeli
+                  nationality_code: IL
+                - nationality: Italian - Holy See
+                  nationality_code: VA
+                - nationality: Italian - Italy
+                  nationality_code: IT
+                - nationality: Ivorian
+                  nationality_code: CI
+                - nationality: Jamaican
+                  nationality_code: JM
+                - nationality: Japanese
+                  nationality_code: JP
+                - nationality: Jordanian
+                  nationality_code: JO
+                - nationality: Kazakhstani
+                  nationality_code: KZ
+                - nationality: Kenyan
+                  nationality_code: KE
+                - nationality: Kirghiz
+                  nationality_code: KG
+                - nationality: Kittian and Nevisian
+                  nationality_code: KN
+                - nationality: Kuwaiti
+                  nationality_code: KW
+                - nationality: Laotian
+                  nationality_code: LA
+                - nationality: Latvian
+                  nationality_code: LV
+                - nationality: Lebanese
+                  nationality_code: LB
+                - nationality: Liberian
+                  nationality_code: LR
+                - nationality: Libyan
+                  nationality_code: LY
+                - nationality: Liechtensteiner
+                  nationality_code: LI
+                - nationality: Lithuanian
+                  nationality_code: LT
+                - nationality: Luxembourger
+                  nationality_code: LU
+                - nationality: Macedonian
+                  nationality_code: MK
+                - nationality: Malagasy
+                  nationality_code: MG
+                - nationality: Malawian
+                  nationality_code: MW
+                - nationality: Malaysian
+                  nationality_code: MY
+                - nationality: Maldivan
+                  nationality_code: MV
+                - nationality: Malian
+                  nationality_code: ML
+                - nationality: Maltese
+                  nationality_code: MT
+                - nationality: Manx
+                  nationality_code: IM
+                - nationality: Marshallese
+                  nationality_code: MH
+                - nationality: Mauritanian
+                  nationality_code: MR
+                - nationality: Mauritian
+                  nationality_code: MU
+                - nationality: Mexican
+                  nationality_code: MX
+                - nationality: Micronesian
+                  nationality_code: FM
+                - nationality: Moldovan
+                  nationality_code: MD
+                - nationality: Monegasque
+                  nationality_code: MC
+                - nationality: Mongolian
+                  nationality_code: MN
+                - nationality: Montenegrin
+                  nationality_code: ME
+                - nationality: Montserratian
+                  nationality_code: MS
+                - nationality: Moroccan
+                  nationality_code: MA
+                - nationality: Mosotho
+                  nationality_code: LS
+                - nationality: Motswana
+                  nationality_code: BW
+                - nationality: Mozambican
+                  nationality_code: MZ
+                - nationality: Myanmarian
+                  nationality_code: MM
+                - nationality: Namibian
+                  nationality_code: NA
+                - nationality: Nauruan
+                  nationality_code: NR
+                - nationality: Nepalese
+                  nationality_code: NP
+                - nationality: New Caledonian
+                  nationality_code: NC
+                - nationality: New Zealander
+                  nationality_code: NZ
+                - nationality: Ni-Vanuatu
+                  nationality_code: VU
+                - nationality: Nicaraguan
+                  nationality_code: NI
+                - nationality: Nigerian - Niger
+                  nationality_code: NE
+                - nationality: Nigerian - Nigeria
+                  nationality_code: NG
+                - nationality: Niuean
+                  nationality_code: NU
+                - nationality: Norfolk Islander
+                  nationality_code: NF
+                - nationality: North Korean
+                  nationality_code: KP
+                - nationality: Norwegian - Norway
+                  nationality_code: 'NO'
+                - nationality: Norwegian - Svalbard and Jan Mayen
+                  nationality_code: SJ
+                - nationality: Omani
+                  nationality_code: OM
+                - nationality: Pakistani
+                  nationality_code: PK
+                - nationality: Palauan
+                  nationality_code: PW
+                - nationality: Palestinian
+                  nationality_code: PS
+                - nationality: Panamanian
+                  nationality_code: PA
+                - nationality: Papua New Guinean
+                  nationality_code: PG
+                - nationality: Paraguayan
+                  nationality_code: PY
+                - nationality: Peruvian
+                  nationality_code: PE
+                - nationality: Pitcairn Islander
+                  nationality_code: PN
+                - nationality: Polish
+                  nationality_code: PL
+                - nationality: Portuguese
+                  nationality_code: PT
+                - nationality: Puerto Rican
+                  nationality_code: PR
+                - nationality: Qatari
+                  nationality_code: QA
+                - nationality: Romanian
+                  nationality_code: RO
+                - nationality: Russian
+                  nationality_code: RU
+                - nationality: Rwandan
+                  nationality_code: RW
+                - nationality: Sahrawi
+                  nationality_code: EH
+                - nationality: Saint Barthélemy Islander
+                  nationality_code: BL
+                - nationality: Saint Helenian
+                  nationality_code: SH
+                - nationality: Saint Lucian
+                  nationality_code: LC
+                - nationality: Saint Martin Islander
+                  nationality_code: MF
+                - nationality: Saint Vincentian
+                  nationality_code: VC
+                - nationality: Salvadoran
+                  nationality_code: SV
+                - nationality: Sammarinese
+                  nationality_code: SM
+                - nationality: Samoan
+                  nationality_code: WS
+                - nationality: Sao Tomean
+                  nationality_code: ST
+                - nationality: Saudi Arabian
+                  nationality_code: SA
+                - nationality: Senegalese
+                  nationality_code: SN
+                - nationality: Serbian
+                  nationality_code: RS
+                - nationality: Seychellois
+                  nationality_code: SC
+                - nationality: Sierra Leonean
+                  nationality_code: SL
+                - nationality: Singaporean
+                  nationality_code: SG
+                - nationality: Slovak
+                  nationality_code: SK
+                - nationality: Slovene
+                  nationality_code: SI
+                - nationality: Solomon Islander
+                  nationality_code: SB
+                - nationality: Somali
+                  nationality_code: SO
+                - nationality: South African
+                  nationality_code: ZA
+                - nationality: South Georgia and the South Sandwich Islander
+                  nationality_code: GS
+                - nationality: South Korean
+                  nationality_code: KR
+                - nationality: South Sudanese
+                  nationality_code: SS
+                - nationality: Spanish
+                  nationality_code: ES
+                - nationality: Sri Lankan
+                  nationality_code: LK
+                - nationality: Sudanese
+                  nationality_code: SD
+                - nationality: Surinamer
+                  nationality_code: SR
+                - nationality: Swazi
+                  nationality_code: SZ
+                - nationality: Swedish - Sweden
+                  nationality_code: SE
+                - nationality: Swedish - Åland Islands
+                  nationality_code: AX
+                - nationality: Swiss
+                  nationality_code: CH
+                - nationality: Syrian
+                  nationality_code: SY
+                - nationality: Tadzhik
+                  nationality_code: TJ
+                - nationality: Taiwanese
+                  nationality_code: TW
+                - nationality: Tanzanian
+                  nationality_code: TZ
+                - nationality: Thai
+                  nationality_code: TH
+                - nationality: Togolese
+                  nationality_code: TG
+                - nationality: Tokelauan
+                  nationality_code: TK
+                - nationality: Tongan
+                  nationality_code: TO
+                - nationality: Trinidadian
+                  nationality_code: TT
+                - nationality: Tunisian
+                  nationality_code: TN
+                - nationality: Turkish
+                  nationality_code: TR
+                - nationality: Turkmen
+                  nationality_code: TM
+                - nationality: Turks and Caicos Islander
+                  nationality_code: TC
+                - nationality: Tuvaluan
+                  nationality_code: TV
+                - nationality: Ugandan
+                  nationality_code: UG
+                - nationality: Ukrainian
+                  nationality_code: UA
+                - nationality: Uruguayan
+                  nationality_code: UY
+                - nationality: Uzbekistani
+                  nationality_code: UZ
+                - nationality: Venezuelan
+                  nationality_code: VE
+                - nationality: Vietnamese
+                  nationality_code: VN
+                - nationality: Virgin Islander - Virgin Islands (British)
+                  nationality_code: VG
+                - nationality: Virgin Islander - Virgin Islands (U.S.)
+                  nationality_code: VI
+                - nationality: Wallis and Futuna Islander
+                  nationality_code: WF
+                - nationality: Yemeni
+                  nationality_code: YE
+                - nationality: Zambian
+                  nationality_code: ZM
+                - nationality: Zimbabwean
+                  nationality_code: ZW
+              schema:
+                $ref: '#/components/schemas/response_nationalities'
+components:
+  schemas:
+    response_nationality:
+      type: object
+      properties:
+        nationality:
+          type:
+          - string
+          - 'null'
+        nationality_code:
+          type:
+          - string
+          - 'null'
+    response_nationalities:
+      type: object
+      properties:
+        nationalities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_nationality'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

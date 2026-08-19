@@ -1,0 +1,446 @@
+{
+  "item": [
+    {
+      "id": "b5490ebd-1da2-4afd-8e95-64ea9fbc504a",
+      "name": "BenefitCategories",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "69f75f81-986d-42ba-8015-3fc8de66ae24",
+          "name": "BenefitCategories/Get",
+          "request": {
+            "name": "BenefitCategories/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "benefit_categories",
+                ":benefit_rule_set_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "benefit_rule_set_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9cf38b1d-6855-48b0-a58a-0f08d169b502",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefit_categories",
+                    ":benefit_rule_set_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "benefit_rule_set_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2,\n  \"name\": \"something\",\n  \"description\": \"description of a benefit rule set\",\n  \"benefit_type\": \"full\",\n  \"minimum_amount\": 1,\n  \"member_input_less_than_option\": true,\n  \"approximate_maximum_amount\": 500,\n  \"replaced_by\": null,\n  \"frontend_tag\": \"pcls\",\n  \"taxable_amount_percentage\": 75,\n  \"tax_free_cash_percentage\": 25,\n  \"to_subaccount\": null,\n  \"lifetime_benefit_count\": 100,\n  \"calendar_year_benefit_count\": 10,\n  \"scheme_year_benefit_count\": null,\n  \"tax_rate_percentage\": 19,\n  \"tax_amount\": 95,\n  \"netto_amount\": 405,\n  \"default_subaccount_splits\": [\n    {\n      \"subaccount_uuid\": \"470fd166-9d85-467b-bf08-d0354db2794c\",\n      \"percentage\": 60\n    },\n    {\n      \"subaccount_uuid\": \"26224d8f-52ed-49df-b9fc-a27c81e1d950\",\n      \"percentage\": 40\n    }\n  ],\n  \"from_subaccounts\": [],\n  \"benefit_evidence_types\": [\n    {\n      \"id\": 2,\n      \"name\": \"Passport2\",\n      \"description\": \"Some description\",\n      \"frontend_tag\": null,\n      \"category\": null\n    }\n  ],\n  \"charges\": [\n    {\n      \"id\": 18,\n      \"recipient\": \"me\",\n      \"amount\": 1000\n    }\n  ],\n  \"benefit_checks\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "410646b9-b5d4-48b4-8f14-9520c2a778e9",
+              "name": "Forbidden - when the employee is ineligible for the benefit rule set",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefit_categories",
+                    ":benefit_rule_set_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "benefit_rule_set_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7c551448-6737-4b8f-b57f-233ee5404185",
+              "name": "Not Found - when benefit rule set belongs to different scheme from employee",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefit_categories",
+                    ":benefit_rule_set_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "benefit_rule_set_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88f1fb4e-8452-4837-94f4-665360e99b92",
+          "name": "BenefitCategories/List",
+          "request": {
+            "name": "BenefitCategories/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "benefit_categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f018d8d9-4efd-4d7d-8467-407276bb1f89",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "benefit_categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 1,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies/330/employees/108/benefit_categories?employee=108\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies/330/employees/108/benefit_categories?employee=108&offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies/330/employees/108/benefit_categories?employee=108&offset=0&limit=50\"\n    }\n  ],\n  \"benefit_categories\": [\n    {\n      \"id\": 11,\n      \"name\": \"something\",\n      \"description\": \"description of a benefit rule set\",\n      \"benefit_type\": \"full\",\n      \"minimum_amount\": 1,\n      \"member_input_less_than_option\": true,\n      \"approximate_maximum_amount\": 500,\n      \"replaced_by\": null,\n      \"frontend_tag\": \"pcls\",\n      \"taxable_amount_percentage\": 75,\n      \"tax_free_cash_percentage\": 25,\n      \"to_subaccount\": null,\n      \"lifetime_benefit_count\": 100,\n      \"calendar_year_benefit_count\": 10,\n      \"scheme_year_benefit_count\": null,\n      \"tax_rate_percentage\": 19,\n      \"tax_amount\": 95,\n      \"netto_amount\": 405,\n      \"default_subaccount_splits\": [\n        {\n          \"subaccount_uuid\": \"2deb05ab-5866-4009-8970-05272ae754e1\",\n          \"percentage\": 60\n        },\n        {\n          \"subaccount_uuid\": \"371bf885-7beb-4ce8-bd55-b30c06d87334\",\n          \"percentage\": 40\n        }\n      ],\n      \"from_subaccounts\": [],\n      \"benefit_evidence_types\": [\n        {\n          \"id\": 6,\n          \"name\": \"Passport6\",\n          \"description\": \"Some description\",\n          \"frontend_tag\": null,\n          \"category\": null\n        }\n      ],\n      \"charges\": [\n        {\n          \"id\": 21,\n          \"recipient\": \"me\",\n          \"amount\": 1000\n        }\n      ],\n      \"benefit_checks\": []\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "fba2b816-a2af-4bae-b0a2-ef5af7cb258a",
+    "name": "Keystone Benefit Categories API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

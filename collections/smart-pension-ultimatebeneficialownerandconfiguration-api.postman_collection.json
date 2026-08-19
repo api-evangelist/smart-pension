@@ -1,0 +1,735 @@
+{
+  "item": [
+    {
+      "id": "e3fd1f7f-64bd-4844-b172-3a55735a9c1d",
+      "name": "UltimateBeneficialOwnerAndConfiguration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f9e49680-070c-4700-be0c-5bde98519b3d",
+          "name": "UltimateBeneficialOwnerAndConfigurations/Create",
+          "request": {
+            "name": "UltimateBeneficialOwnerAndConfigurations/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owner_and_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"exempt\": \"<boolean>\",\n  \"exemption_reason\": \"<string>\",\n  \"natural_person_ubo\": \"<boolean>\",\n  \"publicly_listed\": \"<boolean>\",\n  \"public_entity_name\": \"<string>\",\n  \"stock_exchange\": \"<string>\",\n  \"government_entity\": \"<boolean>\",\n  \"government_entity_name\": \"<string>\",\n  \"government_entity_country\": \"<string>\",\n  \"non_significant_control_individuals_registered\": \"<boolean>\",\n  \"ultimate_beneficial_owners\": [\n    {\n      \"line1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line2\": \"<string>\"\n    },\n    {\n      \"line1\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line2\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3331bbec-4142-4568-aca4-91cf389d113b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\",\n      \"forename\": \"Stark\",\n      \"surname\": \"Tony\",\n      \"nationality\": \"British\",\n      \"date_of_birth\": \"03/03/1992\",\n      \"title\": \"Mr\",\n      \"gender\": \"Male\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 28,\n  \"company_id\": 1397,\n  \"exempt\": false,\n  \"exemption_reason\": null,\n  \"natural_person_ubo\": true,\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"id\": 28,\n      \"company_id\": 1397,\n      \"country_of_jurisdiction\": null,\n      \"date_of_birth\": \"1992-03-03\",\n      \"entity_name\": null,\n      \"forename\": \"Stark\",\n      \"title\": \"Mr\",\n      \"gender\": \"Male\",\n      \"nationality\": \"British\",\n      \"registered_address\": null,\n      \"surname\": \"Tony\",\n      \"exempt\": false,\n      \"exemption_reason\": null,\n      \"type\": null,\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\",\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1397\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e384cb6b-0abd-4c18-8fb1-778f850d0643",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\",\n      \"forename\": \"Stark\",\n      \"surname\": \"Tony\",\n      \"nationality\": \"British\",\n      \"date_of_birth\": \"03/03/1992\",\n      \"title\": \"Mr\",\n      \"gender\": \"Male\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b39d136d-3a17-4d50-a533-70af2fe6c22e",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\",\n      \"forename\": \"Stark\",\n      \"surname\": \"Tony\",\n      \"nationality\": \"British\",\n      \"date_of_birth\": \"03/03/1992\",\n      \"title\": \"Mr\",\n      \"gender\": \"Male\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Public entity name is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/public_entity_name\"\n      }\n    },\n    {\n      \"code\": 100001,\n      \"title\": \"Value can not be blank.\",\n      \"detail\": \"Stock exchange is a required field.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/stock_exchange\"\n      }\n    },\n    {\n      \"code\": 11307,\n      \"title\": \"Stock exchange is invalid.\",\n      \"detail\": \"Stock exchange is invalid. It must be one of Abu Dhabi Securities Exchange (ADX), Amman Stock Exchange (ASE), Australian Securities Exchange (ASX), Bahrain Bourse (Bahrain Stock Exchange), Beirut Stock Exchange, Bombay Stock Exchange (BSE), Borse Dubai, Boursa Kuwait (KSE), Dubai Financial Market (DFM), Dubai Mercantile Exchange (DEM), European New Exchange Technology (EURONEXT), Frankfurt Stock Exchange (Deutsche Börse), Hong Kong Stock Exchange (HKEX), Iraq Stock Exchange (ISX), Japan Exchange Group (JPX), Johannesburg Stock Exchange (JSE), Korea Exchange (KRX), London Stock Exchange (LSE), Muscat Securities Market (MSM), NASDAQ Dubai (DIFX), Nasdaq Nordic Exchanges, Nasdaq Stock Market USA (NASDAQ), National Stock Exchange of India (NSE), New York Stock Exchange (NYSE), Qatar Stock Exchange (QSE), Saudi Arabia Stock Exchange (Tadawul), Shanghai Stock Exchange (SSE), Shenzhen Stock Exchange (SZSE), SIX Swiss Exchange (SWX), Taiwan Stock Exchange (TWSE), Tel Aviv Stock Exchange (TASE), Tokyo Stock Exchange (TSE), Toronto Stock Exchange (TSX), and Other.\",\n      \"meta\": {\n        \"values\": [\n          \"Abu Dhabi Securities Exchange (ADX)\",\n          \"Amman Stock Exchange (ASE)\",\n          \"Australian Securities Exchange (ASX)\",\n          \"Bahrain Bourse (Bahrain Stock Exchange)\",\n          \"Beirut Stock Exchange\",\n          \"Bombay Stock Exchange (BSE)\",\n          \"Borse Dubai\",\n          \"Boursa Kuwait (KSE)\",\n          \"Dubai Financial Market (DFM)\",\n          \"Dubai Mercantile Exchange (DEM)\",\n          \"European New Exchange Technology (EURONEXT)\",\n          \"Frankfurt Stock Exchange (Deutsche Börse)\",\n          \"Hong Kong Stock Exchange (HKEX)\",\n          \"Iraq Stock Exchange (ISX)\",\n          \"Japan Exchange Group (JPX)\",\n          \"Johannesburg Stock Exchange (JSE)\",\n          \"Korea Exchange (KRX)\",\n          \"London Stock Exchange (LSE)\",\n          \"Muscat Securities Market (MSM)\",\n          \"NASDAQ Dubai (DIFX)\",\n          \"Nasdaq Nordic Exchanges\",\n          \"Nasdaq Stock Market USA (NASDAQ)\",\n          \"National Stock Exchange of India (NSE)\",\n          \"New York Stock Exchange (NYSE)\",\n          \"Qatar Stock Exchange (QSE)\",\n          \"Saudi Arabia Stock Exchange (Tadawul)\",\n          \"Shanghai Stock Exchange (SSE)\",\n          \"Shenzhen Stock Exchange (SZSE)\",\n          \"SIX Swiss Exchange (SWX)\",\n          \"Taiwan Stock Exchange (TWSE)\",\n          \"Tel Aviv Stock Exchange (TASE)\",\n          \"Tokyo Stock Exchange (TSE)\",\n          \"Toronto Stock Exchange (TSX)\",\n          \"Other\"\n        ],\n        \"allowed_values\": [\n          \"Abu Dhabi Securities Exchange (ADX)\",\n          \"Amman Stock Exchange (ASE)\",\n          \"Australian Securities Exchange (ASX)\",\n          \"Bahrain Bourse (Bahrain Stock Exchange)\",\n          \"Beirut Stock Exchange\",\n          \"Bombay Stock Exchange (BSE)\",\n          \"Borse Dubai\",\n          \"Boursa Kuwait (KSE)\",\n          \"Dubai Financial Market (DFM)\",\n          \"Dubai Mercantile Exchange (DEM)\",\n          \"European New Exchange Technology (EURONEXT)\",\n          \"Frankfurt Stock Exchange (Deutsche Börse)\",\n          \"Hong Kong Stock Exchange (HKEX)\",\n          \"Iraq Stock Exchange (ISX)\",\n          \"Japan Exchange Group (JPX)\",\n          \"Johannesburg Stock Exchange (JSE)\",\n          \"Korea Exchange (KRX)\",\n          \"London Stock Exchange (LSE)\",\n          \"Muscat Securities Market (MSM)\",\n          \"NASDAQ Dubai (DIFX)\",\n          \"Nasdaq Nordic Exchanges\",\n          \"Nasdaq Stock Market USA (NASDAQ)\",\n          \"National Stock Exchange of India (NSE)\",\n          \"New York Stock Exchange (NYSE)\",\n          \"Qatar Stock Exchange (QSE)\",\n          \"Saudi Arabia Stock Exchange (Tadawul)\",\n          \"Shanghai Stock Exchange (SSE)\",\n          \"Shenzhen Stock Exchange (SZSE)\",\n          \"SIX Swiss Exchange (SWX)\",\n          \"Taiwan Stock Exchange (TWSE)\",\n          \"Tel Aviv Stock Exchange (TASE)\",\n          \"Tokyo Stock Exchange (TSE)\",\n          \"Toronto Stock Exchange (TSX)\",\n          \"Other\"\n        ],\n        \"value\": null\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/stock_exchange\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cf4ca5b-720b-4b35-ac73-834ec2502119",
+          "name": "Companies/UltimateBeneficialOwnerAndConfigurations/Get",
+          "request": {
+            "name": "Companies/UltimateBeneficialOwnerAndConfigurations/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owner_and_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1d8ca439-2a06-46e5-83fe-77950e72f7cd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 29,\n  \"company_id\": 1400,\n  \"exempt\": false,\n  \"exemption_reason\": null,\n  \"natural_person_ubo\": true,\n  \"publicly_listed\": true,\n  \"public_entity_name\": null,\n  \"stock_exchange\": null,\n  \"government_entity\": false,\n  \"government_entity_name\": null,\n  \"government_entity_country\": null,\n  \"non_significant_control_individuals_registered\": false,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"id\": 29,\n      \"company_id\": 1400,\n      \"country_of_jurisdiction\": \"UK\",\n      \"date_of_birth\": \"1980-01-02\",\n      \"entity_name\": \"Umbrella Corporation\",\n      \"forename\": \"Tammy\",\n      \"title\": \"Ms\",\n      \"gender\": \"Other\",\n      \"nationality\": \"United Kingdom\",\n      \"registered_address\": \"97 Hagan Park\",\n      \"surname\": \"Hicks\",\n      \"exempt\": false,\n      \"exemption_reason\": \"Government body established under UAE Law\",\n      \"type\": \"The individual has significant control or influence over the company\",\n      \"line1\": null,\n      \"line2\": null,\n      \"city\": \"London\",\n      \"country\": null,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/1400\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73d76ca9-7527-439b-a8ed-d21000b3474c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d259d5c-6f64-4247-8912-d5630fab6f48",
+          "name": "UltimateBeneficialOwnerAndConfigurations/Update",
+          "request": {
+            "name": "UltimateBeneficialOwnerAndConfigurations/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owner_and_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"exempt\": \"<boolean>\",\n  \"exemption_reason\": \"<string>\",\n  \"natural_person_ubo\": \"<boolean>\",\n  \"publicly_listed\": \"<boolean>\",\n  \"public_entity_name\": \"<string>\",\n  \"stock_exchange\": \"<string>\",\n  \"government_entity\": \"<boolean>\",\n  \"government_entity_name\": \"<string>\",\n  \"government_entity_country\": \"<string>\",\n  \"non_significant_control_individuals_registered\": \"<boolean>\",\n  \"ultimate_beneficial_owners\": [\n    {\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "790ab409-cffe-4c9b-976e-77dca7bbd5ac",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 31,\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"id\": \"30\",\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16a4f235-5912-40a1-a922-7c79be0b335e",
+          "name": "UltimateBeneficialOwnerAndConfigurations/Update",
+          "request": {
+            "name": "UltimateBeneficialOwnerAndConfigurations/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "ultimate_beneficial_owner_and_configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"exempt\": \"<boolean>\",\n  \"exemption_reason\": \"<string>\",\n  \"natural_person_ubo\": \"<boolean>\",\n  \"publicly_listed\": \"<boolean>\",\n  \"public_entity_name\": \"<string>\",\n  \"stock_exchange\": \"<string>\",\n  \"government_entity\": \"<boolean>\",\n  \"government_entity_name\": \"<string>\",\n  \"government_entity_country\": \"<string>\",\n  \"non_significant_control_individuals_registered\": \"<boolean>\",\n  \"ultimate_beneficial_owners\": [\n    {\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"exempt\": \"<boolean>\",\n      \"title\": \"<string>\",\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"gender\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"nationality\": \"<string>\",\n      \"type\": \"<string>\",\n      \"entity_name\": \"<string>\",\n      \"country_of_jurisdiction\": \"<string>\",\n      \"registered_address\": \"<string>\",\n      \"exemption_reason\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ad94307-0e7e-4681-9866-2e8ba6a5b68e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "ultimate_beneficial_owner_and_configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": 32,\n  \"publicly_listed\": true,\n  \"public_entity_name\": \"Arkham Asylum\",\n  \"stock_exchange\": \"Abu Dhabi Securities Exchange (ADX)\",\n  \"government_entity\": false,\n  \"government_entity_name\": \"Batman Origins\",\n  \"government_entity_country\": \"Gotham\",\n  \"non_significant_control_individuals_registered\": true,\n  \"ultimate_beneficial_owners\": [\n    {\n      \"id\": \"31\",\n      \"line1\": \"Forever road\",\n      \"line2\": \"Still going road\",\n      \"city\": \"Nothing\",\n      \"country\": \"Beyond\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aa97c644-3090-45a6-b750-3f36d2f7d37c",
+    "name": "Keystone Ultimate Beneficial Owner And Configuration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

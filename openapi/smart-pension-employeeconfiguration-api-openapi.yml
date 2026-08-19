@@ -1,0 +1,201 @@
+openapi: 3.2.0
+info:
+  title: Keystone Employee Configuration API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: EmployeeConfiguration
+paths:
+  /companies/{company_id}/employees/{employee_id}/employee_configurations:
+    put:
+      summary: EmployeeConfiguration/Update
+      tags:
+      - EmployeeConfiguration
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 580
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 262
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  enable_auto_increase_percentage: false
+                  preferred_locale: en
+              invalid_parameters:
+                value:
+                  preferred_locale: xyz
+            schema:
+              type: object
+              properties:
+                benefits_out_suspended:
+                  type: boolean
+                valuation_under_review:
+                  type: boolean
+                disabled_switching:
+                  type: boolean
+                gone_away:
+                  type: boolean
+                blocked_rejoin:
+                  type: boolean
+                subject_to_money_purchase_annual_allowance:
+                  type: boolean
+                enable_auto_increase_percentage:
+                  type: boolean
+                investments_locked:
+                  type: boolean
+                money_purchase_annual_allowance_effective_on:
+                  type: string
+                preferred_currency:
+                  type: string
+                preferred_locale:
+                  type: string
+                requires_income_adequacy_page_visit:
+                  type: boolean
+                contribution_percentages_confirmed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100002
+                  title: Value is not valid for the field.
+                  detail: 'Preferred locale should be one of the following values: en.'
+                  meta:
+                    values:
+                    - en
+                    value: xyz
+                  source:
+                    pointer: /data/attributes/preferred_locale
+    patch:
+      summary: EmployeeConfiguration/Update
+      tags:
+      - EmployeeConfiguration
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 582
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 264
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  enable_auto_increase_percentage: false
+                  preferred_locale: en
+              invalid_parameters:
+                value:
+                  preferred_locale: xyz
+            schema:
+              type: object
+              properties:
+                benefits_out_suspended:
+                  type: boolean
+                valuation_under_review:
+                  type: boolean
+                disabled_switching:
+                  type: boolean
+                gone_away:
+                  type: boolean
+                blocked_rejoin:
+                  type: boolean
+                subject_to_money_purchase_annual_allowance:
+                  type: boolean
+                enable_auto_increase_percentage:
+                  type: boolean
+                investments_locked:
+                  type: boolean
+                money_purchase_annual_allowance_effective_on:
+                  type: string
+                preferred_currency:
+                  type: string
+                preferred_locale:
+                  type: string
+                requires_income_adequacy_page_visit:
+                  type: boolean
+                contribution_percentages_confirmed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100002
+                  title: Value is not valid for the field.
+                  detail: 'Preferred locale should be one of the following values: en.'
+                  meta:
+                    values:
+                    - en
+                    value: xyz
+                  source:
+                    pointer: /data/attributes/preferred_locale
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

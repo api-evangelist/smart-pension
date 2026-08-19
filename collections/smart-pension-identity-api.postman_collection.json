@@ -1,0 +1,620 @@
+{
+  "item": [
+    {
+      "id": "ba652041-10f0-4342-a3c9-0ec41a59cd50",
+      "name": "Identity",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d4259dcc-f6fc-4ff7-9d03-42a7452d1ddc",
+          "name": "Identity/profiles/personal-data",
+          "request": {
+            "name": "Identity/profiles/personal-data",
+            "description": {},
+            "url": {
+              "path": [
+                "identity",
+                "api",
+                "profiles",
+                "personal-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4903eca0-068c-4d93-9d92-b8317fb4f78e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": null,\n  \"first_name\": \"John\",\n  \"middle_name\": null,\n  \"last_name\": \"Paul\",\n  \"date_of_birth\": \"1980-01-01\",\n  \"national_insurance_number\": \"AB123456C\",\n  \"phone_number\": null,\n  \"address\": {\n    \"address_line_1\": null,\n    \"address_line_2\": null,\n    \"address_line_3\": null,\n    \"city\": null,\n    \"region\": null,\n    \"country\": null,\n    \"postcode\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "952c7ce5-e6c5-47a5-a156-31f020b0bf44",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid authentication token\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "909fc6bf-ef71-49a1-8534-501977c9900c",
+          "name": "Identity/profiles/personal-data",
+          "request": {
+            "name": "Identity/profiles/personal-data",
+            "description": {},
+            "url": {
+              "path": [
+                "identity",
+                "api",
+                "profiles",
+                "personal-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"middle_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"address_line_1\": \"<string>\",\n  \"address_line_2\": \"<string>\",\n  \"address_line_3\": \"<string>\",\n  \"region\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"postcode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7ad5848e-807c-487f-9caf-b2fd65a176cc",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJjMWRlYjY4M2VlYzY5NTc2NjBmYmM1ZThkNWUwNWUxYjhkNjM1NzU0YzFkZjk2YjhjYzA1ZjE2NmM4YzNiMmUwIiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2lkZW50aXR5LXBvcnRhbC5ob3N0LmNvbSIsImlhdCI6MTc4NTkyODA4Nywic3ViIjoiODc1M2ZkMTctZjFiNC00MjE2LTg4ZTItMGJmZjliYjcxZmU0IiwiY2xpZW50X2lkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsImV4cCI6MTc4NTkzMTY4NywiYXVkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsIm93bmVyX3R5cGUiOiJwZXJzb24iLCJzY29wZSI6Im9wZW5pZCIsImp0aSI6IjUwNWQwZTIwYTMxODIwZmJkMDAzYzhlNjc3YThiMTRhNTZlZDUyY2EyZDBiMWE5M2ZiODJlMDlhNTUxZGRmY2QifQ.QdRgxz08sibABa_IdCIykjMhHL-CPQY4LySXM3vJm6nDkNeUwYH8K8SWk3yoX_h5UTiAgUyt9e8rlLmlAyNxTaXjWFQiVOCjiTm0mEoZyJkEBXXl-wm7mi1JdBBtbFi8evpw1vY7BhPdGvCPYmSM8vzw7GHiv2TraJU1jhiQ2dI"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": null,\n  \"first_name\": \"John\",\n  \"middle_name\": null,\n  \"last_name\": \"Doe\",\n  \"date_of_birth\": null,\n  \"national_insurance_number\": null,\n  \"phone_number\": null,\n  \"address\": {\n    \"address_line_1\": null,\n    \"address_line_2\": null,\n    \"address_line_3\": null,\n    \"city\": null,\n    \"region\": null,\n    \"country\": null,\n    \"postcode\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cd43472-711d-44e2-a91e-ff9626f2931e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJjMWRlYjY4M2VlYzY5NTc2NjBmYmM1ZThkNWUwNWUxYjhkNjM1NzU0YzFkZjk2YjhjYzA1ZjE2NmM4YzNiMmUwIiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2lkZW50aXR5LXBvcnRhbC5ob3N0LmNvbSIsImlhdCI6MTc4NTkyODA4Nywic3ViIjoiODc1M2ZkMTctZjFiNC00MjE2LTg4ZTItMGJmZjliYjcxZmU0IiwiY2xpZW50X2lkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsImV4cCI6MTc4NTkzMTY4NywiYXVkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsIm93bmVyX3R5cGUiOiJwZXJzb24iLCJzY29wZSI6Im9wZW5pZCIsImp0aSI6IjUwNWQwZTIwYTMxODIwZmJkMDAzYzhlNjc3YThiMTRhNTZlZDUyY2EyZDBiMWE5M2ZiODJlMDlhNTUxZGRmY2QifQ.QdRgxz08sibABa_IdCIykjMhHL-CPQY4LySXM3vJm6nDkNeUwYH8K8SWk3yoX_h5UTiAgUyt9e8rlLmlAyNxTaXjWFQiVOCjiTm0mEoZyJkEBXXl-wm7mi1JdBBtbFi8evpw1vY7BhPdGvCPYmSM8vzw7GHiv2TraJU1jhiQ2dI"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid authentication token\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ebfd267b-7f04-4d8a-a6e5-078b04b8c01e",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "personal-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Bearer token",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJjMWRlYjY4M2VlYzY5NTc2NjBmYmM1ZThkNWUwNWUxYjhkNjM1NzU0YzFkZjk2YjhjYzA1ZjE2NmM4YzNiMmUwIiwidHlwIjoiYXQrand0IiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2lkZW50aXR5LXBvcnRhbC5ob3N0LmNvbSIsImlhdCI6MTc4NTkyODA4Nywic3ViIjoiODc1M2ZkMTctZjFiNC00MjE2LTg4ZTItMGJmZjliYjcxZmU0IiwiY2xpZW50X2lkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsImV4cCI6MTc4NTkzMTY4NywiYXVkIjoiMmN0eTdDRVM2UkVjY2kweDRJVkFiLTVOV1c3WlJzbGQ3Qm9RWW5sOEJPbyIsIm93bmVyX3R5cGUiOiJwZXJzb24iLCJzY29wZSI6Im9wZW5pZCIsImp0aSI6IjUwNWQwZTIwYTMxODIwZmJkMDAzYzhlNjc3YThiMTRhNTZlZDUyY2EyZDBiMWE5M2ZiODJlMDlhNTUxZGRmY2QifQ.QdRgxz08sibABa_IdCIykjMhHL-CPQY4LySXM3vJm6nDkNeUwYH8K8SWk3yoX_h5UTiAgUyt9e8rlLmlAyNxTaXjWFQiVOCjiTm0mEoZyJkEBXXl-wm7mi1JdBBtbFi8evpw1vY7BhPdGvCPYmSM8vzw7GHiv2TraJU1jhiQ2dI"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Profile not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e0afc6d-3d66-4b66-b32f-dca58a845dd6",
+          "name": "Identity/profiles/registration-data",
+          "request": {
+            "name": "Identity/profiles/registration-data",
+            "description": {},
+            "url": {
+              "path": [
+                "identity",
+                "api",
+                "profiles",
+                "registration-data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "02101f2a-f1c8-45b3-91fe-2197ca39d08f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "registration-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"registration_origin\": \"account-claiming\",\n  \"registration_origin_process_uuid\": \"46ddece6-c294-4ce8-a673-cb99c44ad81a\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fec99d01-9b72-4edf-ad1d-0b35d6851f9f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "registration-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"Invalid authentication token\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c41a8eae-fa75-4eda-a031-ff8039054e3d",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "identity",
+                    "api",
+                    "profiles",
+                    "registration-data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    \"Profile not found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a2edf8ac-c4c7-4326-b138-4bb29503258f",
+    "name": "Keystone Identity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

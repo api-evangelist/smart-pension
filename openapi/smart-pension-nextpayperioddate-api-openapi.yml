@@ -1,0 +1,214 @@
+openapi: 3.2.0
+info:
+  title: Keystone Next Pay Period Date API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: NextPayPeriodDate
+paths:
+  /companies/{company_id}/next_pay_period_dates:
+    get:
+      summary: Companies/NextPayPeriodDates/List
+      tags:
+      - NextPayPeriodDate
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1209
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+          x-ruby-regexp: (?-mix:\A(id|forename|surname|percentage|avc_percentage|company_percentage|employment_period_starts_on|next_pay_period_starts_on|national_insurance_saving_share)(\s*,\s*(id|forename|surname|percentage|avc_percentage|company_percentage|employment_period_starts_on|next_pay_period_starts_on|national_insurance_saving_share))*\Z)
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - asc
+          - DESC
+          - desc
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+        required: false
+        style: deepObject
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 10
+                    offset: 0
+                    total: 0
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/companies/1209/next_pay_period_dates
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/companies/1209/next_pay_period_dates?offset=0&limit=10
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/companies/1209/next_pay_period_dates?offset=0&limit=10
+                    next_pay_period_dates: []
+              schema:
+                $ref: '#/components/schemas/response_next_pay_period_date'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              examples:
+                forbidden:
+                  value:
+                    errors:
+                    - code: 374
+                      title: You don't have the neccessary rights to perform this action.
+                      detail: You don't have the necessary rights to perform this action.
+                      form: null
+                      attribute: base
+                      error: generic_forbidden
+                      meta: {}
+                      source:
+                        pointer: /base
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value: ''
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                unprocessable_entity:
+                  value:
+                    errors:
+                    - code: 48001
+                      title: Sort option is not valid.
+                      detail: Sort option is not valid.
+                      meta:
+                        value: INVALID_SORT_OPTION
+                      source:
+                        pointer: /data/attributes/sort
+components:
+  schemas:
+    response_next_pay_period_date:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        forename:
+          type:
+          - string
+          - 'null'
+        surname:
+          type:
+          - string
+          - 'null'
+        employment_period_starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        next_pay_period_starts_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        avc_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        national_insurance_saving_share:
+          type:
+          - number
+          - 'null'
+          format: float
+        external_id:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

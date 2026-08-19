@@ -1,0 +1,236 @@
+openapi: 3.2.0
+info:
+  title: Keystone Scheme API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Scheme
+paths:
+  /schemes/available:
+    get:
+      summary: Schemes/Available
+      tags:
+      - Scheme
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    limit: 50
+                    offset: 0
+                    total: 2
+                    links:
+                    - rel: self
+                      title: self
+                      href: http://api.host.com/schemes/available
+                    - rel: first
+                      title: first
+                      href: http://api.host.com/schemes/available?offset=0&limit=50
+                    - rel: last
+                      title: last
+                      href: http://api.host.com/schemes/available?offset=0&limit=50
+                    schemes:
+                    - id: 1932
+                      uuid: 2ab52bc8-6639-40b0-9e61-9a1f139d820e
+                      external_id: S1
+                      default: true
+                      name: Scheme 1
+                    - id: 1933
+                      uuid: 320cd867-02d6-4012-938e-1f89c95035ec
+                      external_id: S2
+                      default: false
+                      name: Scheme 2
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  schemes:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_available_scheme'
+  /schemes/default:
+    get:
+      summary: Schemes/Default
+      tags:
+      - Scheme
+      parameters:
+      - name: include
+        in: query
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/response_scheme'
+components:
+  schemas:
+    response_scheme_contribution_limit:
+      type: object
+      properties:
+        minimum_one_off_contribution_amount:
+          type: number
+          format: float
+        minimum_one_off_contribution_amount_currency:
+          type: string
+        maximum_one_off_contribution_amount:
+          type: number
+          format: float
+        maximum_one_off_contribution_amount_currency:
+          type: string
+        minimum_recurring_contribution_amount:
+          type: number
+          format: float
+        minimum_recurring_contribution_amount_currency:
+          type: string
+    response_available_scheme:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        external_id:
+          type:
+          - string
+          - 'null'
+        default:
+          type:
+          - boolean
+          - 'null'
+        name:
+          type: string
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_scheme_bank_detail:
+      type: object
+      properties:
+        account_number:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type: string
+        swift_code:
+          type: string
+        in_favor_of:
+          type: string
+        currency:
+          type:
+          - string
+          - 'null'
+        exchange_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_scheme_tax_reliefs:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_scheme_tax_relief'
+    response_scheme:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        currency:
+          type: string
+        federal:
+          type: boolean
+        category:
+          type:
+          - string
+          - 'null'
+        external_id:
+          type:
+          - string
+          - 'null'
+        bank_detail:
+          $ref: '#/components/schemas/response_scheme_bank_detail'
+        contribution_limit:
+          $ref: '#/components/schemas/response_scheme_contribution_limit'
+        scheme_tax_reliefs:
+          $ref: '#/components/schemas/response_scheme_tax_reliefs'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

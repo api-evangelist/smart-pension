@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "b30cad1b-5536-4cd7-bf1e-4f3fefee0554",
+      "name": "Constants",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "97c35ad6-1f14-42a2-89a8-e86ee948962d",
+          "name": "Constants/Get",
+          "request": {
+            "name": "Constants/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "constants"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64679024-72b1-472f-a973-008b03ef747b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "constants"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"add_money_form\": {\n    \"types\": [\n      \"single\",\n      \"recurring\"\n    ],\n    \"statuses\": [\n      \"outstanding\",\n      \"done\"\n    ]\n  },\n  \"add_money_form_task\": [\n    [\n      \"not_required\",\n      \"data_missing\",\n      \"outstanding\",\n      \"done\"\n    ]\n  ],\n  \"contribution\": {\n    \"categories\": [\n      \"No duties\",\n      \"Entitled workers\",\n      \"Non-eligible jobholders\",\n      \"Eligible jobholders\"\n    ],\n    \"mutable_states\": [\n      \"created\",\n      \"payment_cancelled\",\n      \"payment_failed\"\n    ],\n    \"states\": [\n      \"created\",\n      \"released\",\n      \"payable\",\n      \"payment_pending\",\n      \"payment_failed\",\n      \"payment_cancelled\",\n      \"paid\",\n      \"investing\",\n      \"invested\",\n      \"refunding\",\n      \"refunded\",\n      \"payment_charged_back\",\n      \"payment_conflict\",\n      \"refund_failed\",\n      \"opted_out\",\n      \"rejected\"\n    ]\n  },\n  \"customer\": {\n    \"envelope_states\": [\n      \"ignition\",\n      \"sent\",\n      \"signed\",\n      \"verified\"\n    ]\n  },\n  \"employment_period\": {\n    \"member_types\": [\n      \"Mandatory\",\n      \"Discretionary\",\n      \"Accrued Pot Without Consent\",\n      \"Mandatory - visa optional\",\n      \"Sanctioned exempt\"\n    ],\n    \"opt_states\": [\n      \"ignition\",\n      \"opted_in\",\n      \"opted_out\",\n      \"rejoined\",\n      \"ceased_membership\"\n    ],\n    \"exit_reasons\": [\n      \"Employee left employment\",\n      \"Death\"\n    ]\n  },\n  \"employment_type\": {\n    \"names\": [\n      \"employed\",\n      \"self_employed\",\n      \"pensioner\",\n      \"child_under_16\",\n      \"caring_for_children\",\n      \"caring_for_someone_over_16\",\n      \"full_time_education\",\n      \"unemployed\",\n      \"other\"\n    ]\n  },\n  \"import\": {\n    \"states\": [\n      \"ignition\",\n      \"processing\",\n      \"success\",\n      \"partial_success\",\n      \"fail\"\n    ]\n  },\n  \"ssif_import\": {\n    \"states\": [\n      \"ignition\",\n      \"processing\",\n      \"success\",\n      \"partial_success\",\n      \"failure\",\n      \"mapping_in_creation\"\n    ]\n  },\n  \"transfer_in\": {\n    \"states\": [\n      \"draft\",\n      \"created\",\n      \"processable\",\n      \"processing\",\n      \"partially_processed\",\n      \"processed\",\n      \"rejected\"\n    ],\n    \"forms_enabled\": true,\n    \"ceding_scheme_types\": [\n      \"approved\"\n    ],\n    \"default_ceding_scheme_type\": \"approved\",\n    \"transfer_in_category_enabled\": true,\n    \"categories\": {\n      \"transfer_in\": \"transfer_in\",\n      \"overseas_transfer_in\": \"overseas_transfer_in\",\n      \"pension_sharing_in\": \"pension_sharing_in\",\n      \"asset_transfer_in\": \"asset_transfer_in\",\n      \"migration_transfer_in\": \"migration_transfer_in\",\n      \"internal_transfer_in\": \"internal_transfer_in\"\n    },\n    \"selectable_categories\": {\n      \"transfer_in\": \"transfer_in\",\n      \"overseas_transfer_in\": \"overseas_transfer_in\",\n      \"pension_sharing_in\": \"pension_sharing_in\",\n      \"migration_transfer_in\": \"migration_transfer_in\",\n      \"internal_transfer_in\": \"internal_transfer_in\"\n    },\n    \"notifiable_categories\": {\n      \"transfer_in\": \"transfer_in\",\n      \"overseas_transfer_in\": \"overseas_transfer_in\",\n      \"pension_sharing_in\": \"pension_sharing_in\",\n      \"asset_transfer_in\": \"asset_transfer_in\",\n      \"migration_transfer_in\": \"migration_transfer_in\",\n      \"internal_transfer_in\": \"internal_transfer_in\"\n    },\n    \"chargeable_categories\": {},\n    \"authorize_admin_users_for_transfer_processing\": true\n  },\n  \"pensionable_earning_types\": [\n    \"banded\",\n    \"unbanded\",\n    \"tier1\",\n    \"tier2\",\n    \"tier3\"\n  ],\n  \"periods\": [\n    \"Weekly\",\n    \"Fortnightly\",\n    \"FourWeekly\",\n    \"Monthly\",\n    \"Quarterly\",\n    \"BiAnnually\",\n    \"Annually\"\n  ],\n  \"genders\": [\n    \"Male\",\n    \"Female\",\n    \"Other\",\n    \"Undeclared\"\n  ],\n  \"benefit\": {\n    \"pending_states\": [\n      \"created\",\n      \"processable\",\n      \"processing\"\n    ]\n  },\n  \"company\": {\n    \"state_of_incorporation\": [\n      \"alabama\",\n      \"alaska\",\n      \"arizona\",\n      \"arkansas\",\n      \"california\",\n      \"colorado\",\n      \"connecticut\",\n      \"delaware\",\n      \"district_of_columbia\",\n      \"florida\",\n      \"georgia\",\n      \"hawaii\",\n      \"idaho\",\n      \"illinois\",\n      \"indiana\",\n      \"iowa\",\n      \"kansas\",\n      \"kentucky\",\n      \"louisiana\",\n      \"maine\",\n      \"maryland\",\n      \"massachusetts\",\n      \"michigan\",\n      \"minnesota\",\n      \"mississippi\",\n      \"missouri\",\n      \"montana\",\n      \"nebraska\",\n      \"nevada\",\n      \"new_hampshire\",\n      \"new_jersey\",\n      \"new_mexico\",\n      \"new_york\",\n      \"north_carolina\",\n      \"north_dakota\",\n      \"ohio\",\n      \"oklahoma\",\n      \"oregon\",\n      \"pennsylvania\",\n      \"rhode_island\",\n      \"south_carolina\",\n      \"south_dakota\",\n      \"tennessee\",\n      \"texas\",\n      \"utah\",\n      \"vermont\",\n      \"virginia\",\n      \"washington\",\n      \"west_virginia\",\n      \"wisconsin\",\n      \"wyoming\"\n    ],\n    \"taxed_as\": [\n      \"c_corporation\",\n      \"s_corporation\",\n      \"partnership\"\n    ],\n    \"can_self_sign_up\": true,\n    \"extended_company_editing_crm\": true,\n    \"legal_structures\": [\n      \"Limited Company\",\n      \"Limited Partnership\",\n      \"Limited Liability Partnership\",\n      \"Unincorporated Association\",\n      \"Ordinary Business Partnership\",\n      \"Sole Trader\",\n      \"Charity\",\n      \"Other\"\n    ],\n    \"forms_enabled\": true,\n    \"ultimate_beneficial_owner_configuration_required\": false,\n    \"enhanced_compliance_data_collection\": false,\n    \"send_overdue_contribution_notifications\": false,\n    \"company_lookup_source\": \"default\",\n    \"hide_signatories\": false,\n    \"show_configuration_checklist_on_crm\": false,\n    \"company_payin_iban_required\": false,\n    \"send_notifications_for_new_contributions\": true,\n    \"send_re_assessment_notifications\": true,\n    \"show_company_history\": true,\n    \"show_state_effective_on\": true,\n    \"restrict_create_to_user\": false,\n    \"registration_number_format\": \"EmptyFormat\",\n    \"disable_validation\": false,\n    \"selectable_states\": [\n      \"active\",\n      \"changed_provider\",\n      \"closed_with_errors\",\n      \"dissolved\",\n      \"duplicate_or_opened_in_error\",\n      \"in_build\",\n      \"liquidated\",\n      \"no_further_duties\",\n      \"pending_dissolution\",\n      \"pending_liquidation\",\n      \"tuped_out\"\n    ],\n    \"state_effective_selectable_states\": [\n      \"active\",\n      \"changed_provider\",\n      \"closed_with_errors\",\n      \"dissolved\",\n      \"duplicate_or_opened_in_error\",\n      \"in_build\",\n      \"liquidated\",\n      \"no_further_duties\",\n      \"pending_dissolution\",\n      \"pending_liquidation\",\n      \"tuped_out\"\n    ],\n    \"default_automatic_payroll_schedules\": false,\n    \"default_for_employee_can_change_contribution\": true,\n    \"only_employer_manages_membership\": true,\n    \"only_employer_manages_personal_details\": true,\n    \"rewards_section_management_enabled\": true\n  },\n  \"company_automation\": {\n    \"postponement_periods\": [\n      \"1 week\",\n      \"2 weeks\",\n      \"3 weeks\",\n      \"4 weeks\",\n      \"1 month\",\n      \"2 months\",\n      \"3 months\"\n    ]\n  },\n  \"company_rule\": {\n    \"enrolment_types\": [\n      \"Automatic enrolment\",\n      \"Contractual joining\",\n      \"Active joining\"\n    ]\n  },\n  \"plan_template\": {\n    \"names\": [\n      \"qaca_match_plan\",\n      \"safe_harbor_match_plan\"\n    ]\n  },\n  \"customer_lead\": {\n    \"roles\": [\n      \"hr\",\n      \"finance_accounting\",\n      \"owner_principal_ceo\",\n      \"other\"\n    ],\n    \"max_number_of_signatories\": 2,\n    \"enrolment_states\": [\n      \"started\",\n      \"cancelled\",\n      \"finished\",\n      \"finished_with_errors\"\n    ]\n  },\n  \"tax_allowances\": {\n    \"annual_pension_contribution_allowance_amount\": 60000,\n    \"mpaa_amount\": 10000,\n    \"lifetime_allowance_amount\": 1073100,\n    \"max_lump_sum_amount\": 268275\n  },\n  \"tax_relief\": {\n    \"basis_type\": [\n      \"net_pay_arrangement\",\n      \"relief_at_source_unfunded\",\n      \"salary_sacrifice\"\n    ],\n    \"salary_sacrifice_consent_type\": [\n      \"implied\",\n      \"express\"\n    ]\n  },\n  \"tax_residency_status\": {\n    \"names\": [\n      \"scot\",\n      \"welsh\",\n      \"other_uk\",\n      \"unavailable\"\n    ]\n  },\n  \"salary_threshold\": {\n    \"period_type\": [\n      \"annually\",\n      \"weekly\",\n      \"fortnightly\",\n      \"four_weekly\",\n      \"monthly\",\n      \"quarterly\",\n      \"bi_annually\"\n    ]\n  },\n  \"payment\": {\n    \"source_of_funds\": [\n      \"Income or Salary\",\n      \"UK savings\",\n      \"Proceeds from the sale of an asset/business\",\n      \"Inheritance or gifts\",\n      \"Lottery winnings\"\n    ],\n    \"invoice_prefix\": \"SP\",\n    \"simplified_benefit_flow\": true,\n    \"sensitive_bank_details_enabled\": false,\n    \"allowed_purposes\": [\n      \"contributions\",\n      \"company_fees\",\n      \"benefits\"\n    ],\n    \"year_to_date_filter\": true,\n    \"payments_service_enabled\": false\n  },\n  \"charge_configurations\": {\n    \"company_fee_payment_delay_business_days\": 1\n  },\n  \"employee\": {\n    \"max_retirement_age\": 75,\n    \"min_retirement_age\": 55,\n    \"target_retirement_age_min_offset\": null,\n    \"target_retirement_age_max_offset\": null,\n    \"min_working_age\": 16,\n    \"validate_age_to_opt_in\": true,\n    \"min_password_length\": 10\n  },\n  \"payroll_configurations\": {\n    \"payroll_configurations_enabled\": false,\n    \"allowed_mappings\": [],\n    \"allowed_salary_rates\": [],\n    \"default_salary_rate\": null,\n    \"forms_enabled\": true,\n    \"default_payroll_schedule_name\": null,\n    \"default_description\": null,\n    \"default_cutoff_day\": null,\n    \"default_payday_day\": null,\n    \"years_to_prolong\": 1\n  },\n  \"person\": {\n    \"titles\": [\n      \"Mr\",\n      \"Mrs\",\n      \"Ms\",\n      \"Miss\",\n      \"Mx\",\n      \"Dr\",\n      \"Lord\",\n      \"Lady\",\n      \"Sir\",\n      \"Prof\",\n      \"Rev\",\n      \"Captain\",\n      \"Bursar\"\n    ]\n  },\n  \"employee_configurations\": {\n    \"redirection_strategies\": [\n      \"switch_and_redirect\",\n      \"redirect\"\n    ]\n  },\n  \"investment_account_configurations\": {\n    \"redirection_strategies\": [\n      \"switch_and_redirect\",\n      \"redirect\"\n    ]\n  },\n  \"api_keys\": {\n    \"intercom_id\": \"jxdk1p2v\",\n    \"one_trust_id\": \"ec22cde9-7bf5-41a2-903b-eaedee7ce7e5\",\n    \"user_centrics_id\": \"Yg5HSMeEBX3OZQ\",\n    \"gtm_tracking\": \"GTM-TZL9LDP&gtm_auth=P6wVWYPj2kWKQLGlFyH_lA&gtm_preview=env-3&gtm_cookies_win=x\",\n    \"postcode_loqate\": {\n      \"address_key\": \"ak46-nh91-tp24-tx31\",\n      \"address_url_find\": \"https://api.addressy.com/CapturePlus/Interactive/Find/v2.10/json3.ws?Key=\",\n      \"address_url_retrieve\": \"https://api.addressy.com/CapturePlus/Interactive/Retrieve/v2.10/json3.ws?Key=\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "58948c44-635a-42a3-affc-14ad6bdaaeaf",
+    "name": "Keystone Constants API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Available Funds API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AvailableFunds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AvailableFunds/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/available_funds",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "31",
+                "type": "path"
+              },
+              {
+                "name": "subaccount_uuid",
+                "value": "subaccount_uuid=3e363e78-9f26-4959-afe2-931449d20c5d",
+                "type": "query"
+              },
+              {
+                "name": "scheme_id",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "AvailableFunds/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

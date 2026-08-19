@@ -1,0 +1,162 @@
+openapi: 3.2.0
+info:
+  title: Keystone Individual API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Individual
+paths:
+  /individuals/retirement_age:
+    put:
+      summary: Individuals/RetirementAge
+      tags:
+      - Individual
+      security:
+      - oAuth2:
+        - individual
+      parameters:
+      - name: X-Account-Id
+        in: header
+        description: Account ID
+        required: true
+        example: '799'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example:
+              retirement_age: 67
+            schema:
+              type: object
+              properties:
+                retirement_age:
+                  type: integer
+              required:
+              - retirement_age
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    updatable: true
+                    id: 799
+                    email: john-doe8@mail.com
+                    forename: Dorothy
+                    surname: Little
+                    date_of_birth: '1980-01-01'
+                    national_insurance_number: AB123456C
+                    gender: Female
+                    telephone: 4-346-661-4571
+                    identity_person_id: e425929a-ca69-4cc6-bda0-52fe14397172
+                    reset_password_sent_at: null
+                    remember_created_at: null
+                    last_sign_in_at: null
+                    slug: h9YzxxDh
+                    created_at: '2026-08-05T13:06:29.000+01:00'
+                    updated_at: '2026-08-05T13:06:29.000+01:00'
+                    confirmation_token: null
+                    gauth_enabled: false
+                    gauth_tmp: null
+                    title: Miss
+                    authentication_token: null
+                    group_id: null
+                    line2: null
+                    city: Calistoga
+                    region: null
+                    country: null
+                    postcode: 38903-1523
+                    line1: 3490 Jenna Road
+                    works_in_uk: true
+                    starts_on: '2016-08-05'
+                    authentication_token_generated_at: null
+                    company_percentage: null
+                    company_percentage_matched: 0
+                    company_match: false
+                    percentage: null
+                    avc_percentage: null
+                    total_employee_percentage: 0
+                    total_contribution_percentage: 0
+                    contribute_if_entitled: true
+                    enforce_password: false
+                    ends_on: null
+                    exit_reason: null
+                    onboarded_at: null
+                    opt_out_on: null
+                    opt_state: ignition
+                    opt_in_on: null
+                    opt_out_window_starts_on: null
+                    opt_out_window_ends_on: null
+                    subject_to_money_purchase_annual_allowance: false
+                    money_purchase_annual_allowance_effective_on: null
+                    active_special_cases: []
+                    company_id: 1600
+                    automatically_enrolled: false
+                    contractually_enrolled: false
+                    external_id: null
+                    customer_id: null
+                    referral_clicks: 0
+                    retirement_age: 67
+                    target_retirement_age: null
+                    retirement_date: '2047-01-01'
+                    target_retirement_date: null
+                    secondary_email: null
+                    middle_name: null
+                    civil_status: null
+                    country_code: UK
+                    benefit_group_id: null
+                    online_login_disabled: false
+                    line3: null
+                    uuid: 9e3be14c-4238-4ba5-8e85-510f2f0dba40
+                    eligible_for_modeller_projection: false
+                    can_manage_contribution_rates: false
+                    active_payroll_configuration: null
+                    employment_type: employed
+                    tax_residency_status_name: null
+                    salary_sacrifice_signed: false
+                    links:
+                    - rel: company
+                      title: company
+                      href: https://api.host.com/companies/1600
+                    banned_params: []
+        '401':
+          description: Non-individual account
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

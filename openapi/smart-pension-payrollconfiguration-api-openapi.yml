@@ -1,0 +1,312 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payroll Configuration API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PayrollConfiguration
+paths:
+  /companies/{company_id}/payroll_configurations:
+    get:
+      summary: PayrollConfigurations/List
+      tags:
+      - PayrollConfiguration
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1276
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1276/payroll_configurations
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1276/payroll_configurations?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1276/payroll_configurations?offset=0&limit=50
+                payroll_configurations:
+                - id: 44
+                  company_id: 1276
+                  description: nulla nisl
+                  frequency: weekly
+                  name: ut massa42
+                  salary_rate: annual
+                  created_at: '2026-08-05T13:04:28.000+01:00'
+                  updated_at: '2026-08-05T13:04:28.000+01:00'
+                  uuid: 5f0485fb-00c3-4510-96af-78ee12f07bef
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1276
+                - id: 45
+                  company_id: 1276
+                  description: metus sapien
+                  frequency: weekly
+                  name: nec euismod43
+                  salary_rate: annual
+                  created_at: '2026-08-05T13:04:28.000+01:00'
+                  updated_at: '2026-08-05T13:04:28.000+01:00'
+                  uuid: 473abefa-1a5c-4ed5-9220-998b458c0eaa
+                  links:
+                  - rel: company
+                    title: company
+                    href: https://api.host.com/companies/1276
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  payroll_configurations:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_base_payroll_configuration'
+        '403':
+          description: Forbidden - when employee
+        '404':
+          description: Not Found
+  /companies/{company_id}/payroll_configurations/{payroll_configuration_id}:
+    delete:
+      summary: PayrollConfigurations/Destroy
+      tags:
+      - PayrollConfiguration
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1268
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 38
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '403':
+          description: Forbidden when employee
+        '404':
+          description: Not Found when payroll configuration does not exist
+    get:
+      summary: PayrollConfigurations/Get
+      tags:
+      - PayrollConfiguration
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1272
+        schema:
+          type: string
+      - name: payroll_configuration_id
+        in: path
+        required: true
+        example: 41
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 41
+                company_id: 1272
+                description: congue elementum
+                frequency: weekly
+                name: amet diam39
+                salary_rate: annual
+                created_at: '2026-08-05T13:04:26.000+01:00'
+                updated_at: '2026-08-05T13:04:26.000+01:00'
+                uuid: 2eb6d233-5d05-4332-b66d-de15116c6b32
+                links:
+                - rel: company
+                  title: company
+                  href: https://api.host.com/companies/1272
+                frequency_editable: true
+                destroyable: true
+              schema:
+                $ref: '#/components/schemas/response_payroll_configuration'
+        '403':
+          description: Forbidden when employee
+          content:
+            application/json:
+              examples:
+                forbidden:
+                  value:
+                    errors:
+                    - code: 374
+                      title: You don't have the neccessary rights to perform this action.
+                      detail: You don't have the necessary rights to perform this action.
+                      form: null
+                      attribute: base
+                      error: generic_forbidden
+                      meta: {}
+                      source:
+                        pointer: /base
+        '404':
+          description: Not Found when payroll configuration does not exist
+          content:
+            text/html:
+              examples:
+                company_not_found:
+                  value: ''
+            application/json:
+              examples:
+                payroll_configuration_not_found:
+                  value: ''
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_payroll_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type: string
+        name:
+          type: string
+        salary_rate:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+        frequency_editable:
+          type:
+          - boolean
+          - 'null'
+        destroyable:
+          type:
+          - boolean
+          - 'null'
+    response_base_payroll_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        company_id:
+          type: integer
+        description:
+          type:
+          - string
+          - 'null'
+        frequency:
+          type: string
+        name:
+          type: string
+        salary_rate:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        uuid:
+          type: string
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Third Party Payment Providers API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ThirdPartyPaymentProviders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/ThirdPartyPaymentProviders/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/third_party_payment_providers/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1390",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "5",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "include%5B%5D=directors&include%5B%5D=documents",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/ThirdPartyPaymentProviders/Get"
+        },
+        {
+          "info": {
+            "name": "Companies/ThirdPartyPaymentProviders/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/third_party_payment_providers",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1392",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/ThirdPartyPaymentProviders/List"
+        },
+        {
+          "info": {
+            "name": "Companies/ThirdPartyPaymentProviders/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/third_party_payment_providers/:id/sensitive_data",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1393",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "9",
+                "type": "path"
+              },
+              {
+                "name": "bank_account_detail_id",
+                "value": "bank_account_detail_id=73",
+                "type": "query"
+              },
+              {
+                "name": "field_names[]",
+                "value": "field_names%5B%5D=account_number",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/ThirdPartyPaymentProviders/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

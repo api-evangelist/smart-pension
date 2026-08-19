@@ -1,0 +1,77 @@
+openapi: 3.2.0
+info:
+  title: Keystone Mobile App Versions API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: MobileAppVersions
+paths:
+  /mobile_app_versions/{mobile_platform}:
+    get:
+      summary: MobileAppVersions/Get
+      tags:
+      - MobileAppVersions
+      parameters:
+      - name: mobile_platform
+        in: path
+        description: Mobile platform (ios or android)
+        required: true
+        example: ios
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                min_supported_app_version: 6.5.0
+                latest_supported_app_version: 6.8.0
+              schema:
+                type: object
+                properties:
+                  min_supported_app_version:
+                    type: string
+                  latest_supported_app_version:
+                    type: string
+                required:
+                - min_supported_app_version
+                - latest_supported_app_version
+        '404':
+          description: Not Found
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

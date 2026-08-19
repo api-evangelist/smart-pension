@@ -1,0 +1,149 @@
+openapi: 3.2.0
+info:
+  title: Keystone Letter API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Letter
+paths:
+  /companies/{company_id}/letters:
+    post:
+      summary: Companies/Letters/Create
+      tags:
+      - Letter
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1135
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_request:
+                value:
+                  employee_ids:
+                  - 578
+                  - 579
+                  letter_name: welcome
+            schema:
+              type: object
+              properties:
+                employee_ids:
+                  type: array
+                  items:
+                    type: integer
+                letter_name:
+                  type: string
+                  enum:
+                  - welcome
+                  - postpone
+              required:
+              - employee_ids
+              - letter_name
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              examples:
+                valid_request:
+                  value: {}
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              examples:
+                forbidden:
+                  value:
+                    errors:
+                    - code: 374
+                      title: You don't have the neccessary rights to perform this action.
+                      detail: You don't have the necessary rights to perform this action.
+                      form: null
+                      attribute: base
+                      error: generic_forbidden
+                      meta: {}
+                      source:
+                        pointer: /base
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 100022
+                      title: Not all related records could be found.
+                      detail: Could not find all records associated with employee ids
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/employee_ids
+  /companies/{company_id}/letters/{id}:
+    delete:
+      summary: Companies/Letters/Destroy
+      tags:
+      - Letter
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '404':
+          description: Not Found - invalid letter id
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

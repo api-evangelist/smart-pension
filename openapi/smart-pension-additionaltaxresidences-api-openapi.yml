@@ -1,0 +1,495 @@
+openapi: 3.2.0
+info:
+  title: Keystone Additional Tax Residences API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: AdditionalTaxResidences
+paths:
+  /companies/{company_id}/employees/{employee_id}/additional_tax_residences:
+    post:
+      summary: Companies/AdditionalTaxResidences/Create
+      tags:
+      - AdditionalTaxResidences
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1425
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 649
+        schema:
+          type: string
+      - name: Accept-Language
+        in: header
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country: GB
+                  tax_reference_number: '999'
+                  tax_reference_type: whatever
+              invalid_parameters:
+                value:
+                  country: ''
+                  tax_reference_number: hello
+                  tax_reference_type: whatever
+            schema:
+              type: object
+              properties:
+                country:
+                  type: string
+                tax_reference_number:
+                  type: string
+                tax_reference_type:
+                  type: string
+                  x-ruby-regexp: (?i-mx:\A[a-z0-9 ]+\Z)
+                  minimum: 2
+                  maximum: 100
+              required:
+              - country
+              - tax_reference_number
+              - tax_reference_type
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              examples:
+                valid_parameters:
+                  value:
+                    id: 1
+                    employee_id: 649
+                    country: GB
+                    tax_reference_number: '999'
+                    tax_reference_type: whatever
+              schema:
+                $ref: '#/components/schemas/response_additional_tax_residence'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 12901
+                      title: Country is blank.
+                      detail: Country cannot be blank.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country
+                    - code: 12911
+                      title: Invalid tax reference number.
+                      detail: Invalid tin.
+                      meta:
+                        country: ''
+                        error_message: Invalid tin
+                      source:
+                        pointer: /data/attributes/tax_reference_number
+    get:
+      summary: Companies/AdditionalTaxResidences/List
+      tags:
+      - AdditionalTaxResidences
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1433
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 657
+        schema:
+          type: string
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1433/employees/657/additional_tax_residences
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1433/employees/657/additional_tax_residences?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1433/employees/657/additional_tax_residences?offset=0&limit=50
+                additional_tax_residences: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  additional_tax_residences:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_additional_tax_residence'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable entity - when invalid parameters
+  /companies/{company_id}/employees/{employee_id}/additional_tax_residences/{id}:
+    delete:
+      summary: Companies/AdditionalTaxResidences/Destroy
+      tags:
+      - AdditionalTaxResidences
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1428
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 652
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 2
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              examples:
+                unauthorized:
+                  value:
+                    errors:
+                    - code: 374
+                      title: You don't have the neccessary rights to perform this action.
+                      detail: You don't have the necessary rights to perform this action.
+                      form: null
+                      attribute: base
+                      error: generic_forbidden
+                      meta: {}
+                      source:
+                        pointer: /base
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              examples:
+                not_found:
+                  value: ''
+    put:
+      summary: Companies/AdditionalTaxResidences/Update
+      tags:
+      - AdditionalTaxResidences
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1436
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 660
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 7
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country: US
+                  tax_reference_number: '999'
+                  tax_reference_type: whatever
+              pension_wise_appointment out of range:
+                value:
+                  country: Westeros
+                  tax_reference_number: £££
+                  tax_reference_type: $$$
+            schema:
+              type: object
+              properties:
+                country:
+                  type: string
+                tax_reference_number:
+                  type: string
+                tax_reference_type:
+                  type: string
+                  x-ruby-regexp: (?i-mx:\A[a-z0-9 ]+\Z)
+                  minimum: 2
+                  maximum: 100
+              required:
+              - country
+              - tax_reference_number
+              - tax_reference_type
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                pension_wise_appointment out of range:
+                  value:
+                    errors:
+                    - code: 100018
+                      title: Country format is wrong.
+                      detail: Enter the ISO 3166-1 alpha-2/alpha-3 code linked to the country. For example, AE/ARE for the United Arab Emirates or US/USA for the United States.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country
+                    - code: 12909
+                      title: Invalid characters used for tax reference number.
+                      detail: Invalid characters used for tax reference number.
+                      meta:
+                        allow_tin_chars: true
+                        value: £££
+                      source:
+                        pointer: /data/attributes/tax_reference_number
+                    - code: 12911
+                      title: Invalid tax reference number.
+                      detail: Invalid tin.
+                      meta:
+                        country: Westeros
+                        error_message: Invalid tin
+                      source:
+                        pointer: /data/attributes/tax_reference_number
+                    - code: 12910
+                      title: Invalid characters used for tax reference type.
+                      detail: A tax reference type can consist only of letter, number and space characters.
+                      meta:
+                        value: $$$
+                      source:
+                        pointer: /data/attributes/tax_reference_type
+    patch:
+      summary: Companies/AdditionalTaxResidences/Update
+      tags:
+      - AdditionalTaxResidences
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1439
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 663
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        example: 10
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              valid_parameters:
+                value:
+                  country: US
+                  tax_reference_number: '999'
+                  tax_reference_type: whatever
+              pension_wise_appointment out of range:
+                value:
+                  country: Westeros
+                  tax_reference_number: £££
+                  tax_reference_type: $$$
+            schema:
+              type: object
+              properties:
+                country:
+                  type: string
+                tax_reference_number:
+                  type: string
+                tax_reference_type:
+                  type: string
+                  x-ruby-regexp: (?i-mx:\A[a-z0-9 ]+\Z)
+                  minimum: 2
+                  maximum: 100
+              required:
+              - country
+              - tax_reference_number
+              - tax_reference_type
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                pension_wise_appointment out of range:
+                  value:
+                    errors:
+                    - code: 100018
+                      title: Country format is wrong.
+                      detail: Enter the ISO 3166-1 alpha-2/alpha-3 code linked to the country. For example, AE/ARE for the United Arab Emirates or US/USA for the United States.
+                      meta: {}
+                      source:
+                        pointer: /data/attributes/country
+                    - code: 12909
+                      title: Invalid characters used for tax reference number.
+                      detail: Invalid characters used for tax reference number.
+                      meta:
+                        allow_tin_chars: true
+                        value: £££
+                      source:
+                        pointer: /data/attributes/tax_reference_number
+                    - code: 12911
+                      title: Invalid tax reference number.
+                      detail: Invalid tin.
+                      meta:
+                        country: Westeros
+                        error_message: Invalid tin
+                      source:
+                        pointer: /data/attributes/tax_reference_number
+                    - code: 12910
+                      title: Invalid characters used for tax reference type.
+                      detail: A tax reference type can consist only of letter, number and space characters.
+                      meta:
+                        value: $$$
+                      source:
+                        pointer: /data/attributes/tax_reference_type
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_additional_tax_residence:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        country:
+          type: string
+        tax_reference_number:
+          type: string
+        tax_reference_type:
+          type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

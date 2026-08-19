@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: Keystone Projection API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Projection
+paths:
+  /companies/{company_id}/employees/{employee_id}/subaccounts/{subaccount_uuid}/projections:
+    post:
+      summary: Projections/Create
+      tags:
+      - Projection
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 886
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 475
+        schema:
+          type: string
+      - name: subaccount_uuid
+        in: path
+        required: true
+        example: eb747518-3f46-4358-9fca-484458be42ab
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              created:
+                value:
+                  total_amount: 2000
+                  projection_age: 70
+            schema:
+              type: object
+              properties:
+                projection_age:
+                  type: integer
+                projection_amount:
+                  type: number
+                total_amount:
+                  type: number
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 8
+                projection_age: 70
+                projection_amount: 6.67
+                projection_amount_currency: GBP
+              schema:
+                $ref: '#/components/schemas/response_account_subaccount_projection'
+        '422':
+          description: Invalid request
+components:
+  schemas:
+    response_account_subaccount_projection:
+      type: object
+      properties:
+        id:
+          type: integer
+        projection_age:
+          type:
+          - integer
+          - 'null'
+        projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        projection_amount_currency:
+          type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

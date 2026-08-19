@@ -1,0 +1,1501 @@
+{
+  "item": [
+    {
+      "id": "44374381-ee15-4922-a45c-77e72b68920a",
+      "name": "Company",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6e53a1e9-525e-404b-8a8e-3c449e2c75e3",
+          "name": "Companies/Create",
+          "request": {
+            "name": "Companies/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"legal_structure\": \"<string>\",\n  \"scheme_origin\": \"<string>\",\n  \"scheme_origin_provider_id\": \"<string>\",\n  \"scheme_origin_provider_name\": \"<string>\",\n  \"registration_number\": \"<string>\",\n  \"tax_office_employer_reference\": \"<string>\",\n  \"tax_office_number\": \"<string>\",\n  \"reg_address1\": \"<string>\",\n  \"reg_address2\": \"<string>\",\n  \"reg_address3\": \"<string>\",\n  \"reg_address4\": \"<string>\",\n  \"reg_address_postcode\": \"<string>\",\n  \"reg_address_country_code\": \"<string>\",\n  \"trading_address1\": \"<string>\",\n  \"trading_address2\": \"<string>\",\n  \"trading_address3\": \"<string>\",\n  \"trading_address4\": \"<string>\",\n  \"trading_address_postcode\": \"<string>\",\n  \"trading_address_country_code\": \"<string>\",\n  \"state_of_incorporation\": \"<string>\",\n  \"taxed_as\": \"<string>\",\n  \"tax_year_end_day\": \"<integer>\",\n  \"tax_year_end_month\": \"<integer>\",\n  \"national_insurance_saving_share\": \"<number>\",\n  \"pensionable_earning_type\": \"<string>\",\n  \"pension_regulator_letter_code\": \"<string>\",\n  \"default_percentage\": \"<number>\",\n  \"signatories\": [\n    {\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"title\": \"<string>\",\n      \"middlename\": \"<string>\",\n      \"telephone\": \"<string>\",\n      \"alternative_telephone\": \"<string>\",\n      \"password\": \"<string>\",\n      \"referee_id\": \"<string>\",\n      \"referee_type\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postcode\": \"<string>\"\n    },\n    {\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"date_of_birth\": \"<string>\",\n      \"title\": \"<string>\",\n      \"middlename\": \"<string>\",\n      \"telephone\": \"<string>\",\n      \"alternative_telephone\": \"<string>\",\n      \"password\": \"<string>\",\n      \"referee_id\": \"<string>\",\n      \"referee_type\": \"<string>\",\n      \"line1\": \"<string>\",\n      \"line2\": \"<string>\",\n      \"city\": \"<string>\",\n      \"county\": \"<string>\",\n      \"postcode\": \"<string>\"\n    }\n  ],\n  \"admins\": [\n    {\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"title\": \"<string>\",\n      \"middlename\": \"<string>\",\n      \"telephone\": \"<string>\",\n      \"alternative_telephone\": \"<string>\",\n      \"referee_id\": \"<string>\",\n      \"referee_type\": \"<string>\",\n      \"password\": \"<string>\"\n    },\n    {\n      \"forename\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"email\": \"<string>\",\n      \"title\": \"<string>\",\n      \"middlename\": \"<string>\",\n      \"telephone\": \"<string>\",\n      \"alternative_telephone\": \"<string>\",\n      \"referee_id\": \"<string>\",\n      \"referee_type\": \"<string>\",\n      \"password\": \"<string>\"\n    }\n  ],\n  \"scheme_details\": [\n    {\n      \"starts_on\": \"<string>\",\n      \"renewal_on\": \"<string>\",\n      \"regulator_reference\": \"<string>\",\n      \"revenue_reference\": \"<string>\",\n      \"scheme_id\": \"<integer>\",\n      \"display_name\": \"<string>\",\n      \"tax_relief_basis_type\": \"<string>\",\n      \"tax_relief_fallback_type\": \"<string>\",\n      \"salary_sacrifice_consent_type\": \"<string>\",\n      \"fund_set_id\": \"<integer>\",\n      \"fund_set_name\": \"<string>\",\n      \"instrument_name\": \"<string>\",\n      \"instrument_type\": \"<string>\",\n      \"assessment_required\": \"<string>\",\n      \"metadata\": \"<object>\",\n      \"ae_qualifying\": \"<boolean>\"\n    },\n    {\n      \"starts_on\": \"<string>\",\n      \"renewal_on\": \"<string>\",\n      \"regulator_reference\": \"<string>\",\n      \"revenue_reference\": \"<string>\",\n      \"scheme_id\": \"<integer>\",\n      \"display_name\": \"<string>\",\n      \"tax_relief_basis_type\": \"<string>\",\n      \"tax_relief_fallback_type\": \"<string>\",\n      \"salary_sacrifice_consent_type\": \"<string>\",\n      \"fund_set_id\": \"<integer>\",\n      \"fund_set_name\": \"<string>\",\n      \"instrument_name\": \"<string>\",\n      \"instrument_type\": \"<string>\",\n      \"assessment_required\": \"<string>\",\n      \"metadata\": \"<object>\",\n      \"ae_qualifying\": \"<boolean>\"\n    }\n  ],\n  \"scheme_starts_on\": \"<string>\",\n  \"enrolment_event_on\": \"<string>\",\n  \"adviser_token\": \"\",\n  \"incorporated_on\": \"<string>\",\n  \"employee_can_change_contribution\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2e8b72db-ada8-4c1a-b58e-f706e4ebf9d5",
+              "name": "Success - automatic linking with an Adviser",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"name\",\n  \"registration_number\": \"123\",\n  \"legal_structure\": \"Limited Company\",\n  \"signatories\": [\n    {\n      \"email\": \"john@doe.fr\",\n      \"forename\": \"forename\",\n      \"surname\": \"surname\"\n    }\n  ],\n  \"scheme_detail\": {\n    \"tax_relief_basis_type\": \"net_pay_arrangement\",\n    \"scheme_id\": 256\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 203,\n  \"name\": \"name\",\n  \"slug\": \"name\",\n  \"registration_number\": \"123\",\n  \"tax_office_number\": null,\n  \"tax_office_employer_reference\": null,\n  \"legal_structure\": \"Limited Company\",\n  \"welcome_letters_reminder_sent_at\": null,\n  \"pension_regulator_letter_code\": null,\n  \"trading_address1\": null,\n  \"trading_address2\": null,\n  \"trading_address3\": null,\n  \"trading_address_postcode\": null,\n  \"trading_address_country\": null,\n  \"reg_address1\": null,\n  \"reg_address2\": null,\n  \"reg_address3\": null,\n  \"reg_address4\": null,\n  \"reg_address_postcode\": null,\n  \"reg_address_country\": null,\n  \"pensionable_earning_type\": \"unbanded\",\n  \"default_percentage\": 3,\n  \"created_at\": \"2026-08-05T12:58:47.000+01:00\",\n  \"updated_at\": \"2026-08-05T12:58:47.000+01:00\",\n  \"state\": \"active\",\n  \"employee_can_change_contribution\": true,\n  \"uuid\": \"6ec55a05-c592-4c96-9d1e-773cf7ac6b2c\",\n  \"external_id\": null,\n  \"incorporated_on\": null,\n  \"layout_configuration_id\": null,\n  \"relief_at_source_active\": false,\n  \"only_employer_manages_membership\": false,\n  \"national_insurance_saving_share\": 0,\n  \"tax_relief_basis_type\": \"net_pay_arrangement\",\n  \"tax_relief_fallback_type\": null,\n  \"direct_debit_optional\": false,\n  \"authorization_redirect_uri\": \"https://id.host.com/customer/callbacks/smartpension?code=BLuSdugYlaItOCGcblM83tK7gouOzRrq3XyCKCcKK5A\",\n  \"signatories\": [\n    {\n      \"intercom_user_id\": \"cus90\",\n      \"intercom_user_id_hash\": \"831ee4169263b428cbe7ec194a53bec1d303a752f36211d8f67061f1bb28d95b\",\n      \"id\": 90,\n      \"email\": \"john@doe.fr\",\n      \"reset_password_sent_at\": null,\n      \"remember_created_at\": null,\n      \"last_sign_in_at\": null,\n      \"slug\": \"21182ab1f2fd67e5\",\n      \"created_at\": \"2026-08-05T12:58:47.000+01:00\",\n      \"updated_at\": \"2026-08-05T12:58:47.000+01:00\",\n      \"gauth_enabled\": false,\n      \"gauth_tmp\": null,\n      \"forename\": \"forename\",\n      \"surname\": \"surname\",\n      \"title\": null,\n      \"authentication_token\": \"ys7b-EUbFZm6BP-N1p8z\",\n      \"date_of_birth\": null,\n      \"line2\": null,\n      \"city\": null,\n      \"county\": null,\n      \"building_name\": null,\n      \"postcode\": null,\n      \"line1\": null,\n      \"building_number\": null,\n      \"telephone\": null,\n      \"alternative_telephone\": null,\n      \"referee_id\": null,\n      \"referee_type\": null,\n      \"referral_state\": \"ignition\",\n      \"referral_clicks\": 0,\n      \"referral_reward_name\": null,\n      \"authentication_token_generated_at\": \"2026-08-05T12:58:47.000+01:00\",\n      \"gender\": \"Male\",\n      \"role\": \"signatory\",\n      \"middlename\": null,\n      \"envelope_state\": \"ignition\",\n      \"enforce_password\": true,\n      \"company_id\": 203,\n      \"country_code\": null,\n      \"uuid\": \"f168c0a0-88d3-4ea5-a16b-faa1e77d2167\",\n      \"preferred_locale\": null,\n      \"smart_analytics_access_permitted\": false,\n      \"links\": [\n        {\n          \"rel\": \"company\",\n          \"title\": \"company\",\n          \"href\": \"https://api.host.com/companies/203\"\n        }\n      ]\n    }\n  ],\n  \"admins\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dbe8139b-dd67-4374-a63b-dc86b08b86ec",
+              "name": "When 2 signatories/admins have same emails",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"name\",\n  \"registration_number\": \"123\",\n  \"legal_structure\": \"Limited Company\",\n  \"signatories\": [\n    {\n      \"email\": \"john@doe.fr\",\n      \"forename\": \"forename\",\n      \"surname\": \"surname\"\n    }\n  ],\n  \"scheme_detail\": {\n    \"tax_relief_basis_type\": \"net_pay_arrangement\",\n    \"scheme_id\": 256\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 743,\n      \"title\": \"The Registration Number is too short.\",\n      \"detail\": \"This company registration number is too short, please provide a valid company registration number.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/registration_number\"\n      }\n    },\n    {\n      \"code\": 703,\n      \"title\": \"Company registration number is a required field.\",\n      \"detail\": \"You need to enter the company registration number. If the business is not registered with Companies House please use another unique number to identify this business. For example, HMRC registration number, business telephone number or charity number.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/attributes/registration_number\"\n      }\n    },\n    {\n      \"code\": 1601,\n      \"title\": \"Forename is a required field.\",\n      \"detail\": \"You need to include a forename for this signatory.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/relationships/signatories/0/attributes/forename\"\n      }\n    },\n    {\n      \"code\": 1615,\n      \"title\": \"Surname is too short.\",\n      \"detail\": \"You need to enter a surname with at least 2 characters.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/relationships/signatories/0/attributes/surname\"\n      }\n    },\n    {\n      \"code\": 1603,\n      \"title\": \"Surname is a required field.\",\n      \"detail\": \"You need to include a surname for this signatory.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/relationships/signatories/0/attributes/surname\"\n      }\n    },\n    {\n      \"code\": 1606,\n      \"title\": \"Email address is a required field.\",\n      \"detail\": \"You need to include an email address for this signatory.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/relationships/signatories/0/attributes/email\"\n      }\n    },\n    {\n      \"code\": 1607,\n      \"title\": \"Email address is not valid.\",\n      \"detail\": \"The email address you entered is not valid. This may be because of the address format or the domain being unreachable. Make sure the address uses this format: name@something.com and that email is enabled for this domain.\",\n      \"meta\": {},\n      \"source\": {\n        \"pointer\": \"/data/relationships/signatories/0/attributes/email\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df37f132-5af2-432a-96f7-1b394f79a392",
+          "name": "Companies/List",
+          "request": {
+            "name": "Companies/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][0]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[id][1]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[name][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[name][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[state][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[scheme_detail][starts_on]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[scheme_details][starts_on]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[scheme][category]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[scheme][id]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[adviser_companies][adviser_id]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[adviser_companies][company_id]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[employees][id]",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tax_relief_basis_type][0]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter[tax_relief_basis_type][1]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "operator",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9ae349a3-65ca-4c9f-9760-57e31e5d9080",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[name][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme_detail][starts_on]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme_details][starts_on]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme][id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[adviser_companies][adviser_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[adviser_companies][company_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employees][id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[tax_relief_basis_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tax_relief_basis_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"limit\": 50,\n  \"offset\": 0,\n  \"total\": 0,\n  \"links\": [\n    {\n      \"rel\": \"self\",\n      \"title\": \"self\",\n      \"href\": \"http://api.host.com/companies\"\n    },\n    {\n      \"rel\": \"first\",\n      \"title\": \"first\",\n      \"href\": \"http://api.host.com/companies?offset=0&limit=50\"\n    },\n    {\n      \"rel\": \"last\",\n      \"title\": \"last\",\n      \"href\": \"http://api.host.com/companies?offset=0&limit=50\"\n    }\n  ],\n  \"companies\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8eb8b2e-e4ec-418d-986a-81aa5625530c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[id][0]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[id][1]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[name][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[name][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[state][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme_detail][starts_on]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme_details][starts_on]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme][category]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[scheme][id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[adviser_companies][adviser_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[adviser_companies][company_id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[employees][id]",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter[tax_relief_basis_type][0]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter[tax_relief_basis_type][1]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "operator",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "474c2ea3-fc56-4918-a1aa-400eafcb22b2",
+          "name": "Companies/Get",
+          "request": {
+            "name": "Companies/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c8df72a5-2888-468f-a5b3-bd9eb2bcae50",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1110,\n  \"name\": \"eget eros 1569\",\n  \"slug\": \"adipiscing-1166\",\n  \"registration_number\": \"1\",\n  \"tax_office_number\": \"ABC123\",\n  \"tax_office_employer_reference\": \"ABC123\",\n  \"legal_structure\": \"Limited Company\",\n  \"welcome_letters_reminder_sent_at\": \"2026-08-05T00:00:00.000+01:00\",\n  \"pension_regulator_letter_code\": \"100\",\n  \"trading_address1\": \"511 Mendota Alley\",\n  \"trading_address2\": \"5 Grover Plaza\",\n  \"trading_address3\": \"8 Fairview Hill\",\n  \"trading_address_postcode\": \"999\",\n  \"trading_address_country\": null,\n  \"reg_address1\": \"72625 Fordem Center\",\n  \"reg_address2\": \"83 Del Sol Avenue\",\n  \"reg_address3\": \"26670 Swallow Hill\",\n  \"reg_address4\": \"14865 Warbler Park\",\n  \"reg_address_postcode\": \"888\",\n  \"reg_address_country\": null,\n  \"pensionable_earning_type\": \"unbanded\",\n  \"default_percentage\": 3,\n  \"created_at\": \"2026-08-05T13:03:24.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:03:24.000+01:00\",\n  \"state\": \"active\",\n  \"employee_can_change_contribution\": true,\n  \"uuid\": \"0960aa58-899e-4f97-af83-3b4cb1d8c861\",\n  \"external_id\": null,\n  \"incorporated_on\": \"2026-08-05\",\n  \"layout_configuration_id\": null,\n  \"relief_at_source_active\": false,\n  \"only_employer_manages_membership\": false,\n  \"national_insurance_saving_share\": null,\n  \"tax_relief_basis_type\": null,\n  \"tax_relief_fallback_type\": null,\n  \"direct_debit_optional\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae83df41-bc5d-4a5f-9074-d691343bd4f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c82a929-77d5-4662-a6e6-44b06af8a0c7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c3be20ee-91b8-402a-9327-d0c15c27ed9d",
+          "name": "Companies/Update",
+          "request": {
+            "name": "Companies/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scheme_origin\": \"<string>\",\n  \"scheme_origin_provider_id\": \"<string>\",\n  \"scheme_origin_provider_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"registration_number\": \"<string>\",\n  \"legal_structure\": \"<string>\",\n  \"tax_office_employer_reference\": \"<string>\",\n  \"tax_office_number\": \"<string>\",\n  \"reg_address1\": \"<string>\",\n  \"reg_address2\": \"<string>\",\n  \"reg_address3\": \"<string>\",\n  \"reg_address4\": \"<string>\",\n  \"reg_address_postcode\": \"<string>\",\n  \"reg_address_country_code\": \"<string>\",\n  \"trading_address1\": \"<string>\",\n  \"trading_address2\": \"<string>\",\n  \"trading_address3\": \"<string>\",\n  \"trading_address4\": \"<string>\",\n  \"trading_address_postcode\": \"<string>\",\n  \"trading_address_country_code\": \"<string>\",\n  \"state_of_incorporation\": \"<string>\",\n  \"taxed_as\": \"<string>\",\n  \"tax_year_end_day\": \"<integer>\",\n  \"tax_year_end_month\": \"<integer>\",\n  \"national_insurance_saving_share\": \"<number>\",\n  \"pensionable_earning_type\": \"<string>\",\n  \"pension_regulator_letter_code\": \"<string>\",\n  \"default_percentage\": \"<number>\",\n  \"slug\": \"<string>\",\n  \"state\": \"<string>\",\n  \"scheme_detail\": {\n    \"starts_on\": \"<string>\",\n    \"renewal_on\": \"<string>\",\n    \"regulator_reference\": \"<string>\",\n    \"revenue_reference\": \"<string>\",\n    \"scheme_id\": \"<integer>\",\n    \"display_name\": \"<string>\",\n    \"tax_relief_basis_type\": \"<string>\",\n    \"tax_relief_fallback_type\": \"<string>\",\n    \"salary_sacrifice_consent_type\": \"<string>\",\n    \"fund_set_id\": \"<integer>\",\n    \"fund_set_name\": \"<string>\",\n    \"instrument_name\": \"<string>\",\n    \"instrument_type\": \"<string>\",\n    \"assessment_required\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"ae_qualifying\": \"<boolean>\"\n  },\n  \"adviser_id\": \"<integer>\",\n  \"preferred_contact_user_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "08d66da1-05da-4ea1-893d-4e4c1129b15c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8cfcb08d-90e2-4b65-8fe9-415e1a57e0be",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c1dc044-d721-4b5d-9c63-aca98a5d979f",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 730,\n      \"title\": \"This company account name is too short.\",\n      \"detail\": \"This company account name is too short, please change your company account name to a longer name.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/slug\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "babbb0ac-6021-4341-9caf-cbabd7cf01a1",
+          "name": "Companies/Update",
+          "request": {
+            "name": "Companies/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scheme_origin\": \"<string>\",\n  \"scheme_origin_provider_id\": \"<string>\",\n  \"scheme_origin_provider_name\": \"<string>\",\n  \"name\": \"<string>\",\n  \"registration_number\": \"<string>\",\n  \"legal_structure\": \"<string>\",\n  \"tax_office_employer_reference\": \"<string>\",\n  \"tax_office_number\": \"<string>\",\n  \"reg_address1\": \"<string>\",\n  \"reg_address2\": \"<string>\",\n  \"reg_address3\": \"<string>\",\n  \"reg_address4\": \"<string>\",\n  \"reg_address_postcode\": \"<string>\",\n  \"reg_address_country_code\": \"<string>\",\n  \"trading_address1\": \"<string>\",\n  \"trading_address2\": \"<string>\",\n  \"trading_address3\": \"<string>\",\n  \"trading_address4\": \"<string>\",\n  \"trading_address_postcode\": \"<string>\",\n  \"trading_address_country_code\": \"<string>\",\n  \"state_of_incorporation\": \"<string>\",\n  \"taxed_as\": \"<string>\",\n  \"tax_year_end_day\": \"<integer>\",\n  \"tax_year_end_month\": \"<integer>\",\n  \"national_insurance_saving_share\": \"<number>\",\n  \"pensionable_earning_type\": \"<string>\",\n  \"pension_regulator_letter_code\": \"<string>\",\n  \"default_percentage\": \"<number>\",\n  \"slug\": \"<string>\",\n  \"state\": \"<string>\",\n  \"scheme_detail\": {\n    \"starts_on\": \"<string>\",\n    \"renewal_on\": \"<string>\",\n    \"regulator_reference\": \"<string>\",\n    \"revenue_reference\": \"<string>\",\n    \"scheme_id\": \"<integer>\",\n    \"display_name\": \"<string>\",\n    \"tax_relief_basis_type\": \"<string>\",\n    \"tax_relief_fallback_type\": \"<string>\",\n    \"salary_sacrifice_consent_type\": \"<string>\",\n    \"fund_set_id\": \"<integer>\",\n    \"fund_set_name\": \"<string>\",\n    \"instrument_name\": \"<string>\",\n    \"instrument_type\": \"<string>\",\n    \"assessment_required\": \"<string>\",\n    \"metadata\": \"<object>\",\n    \"ae_qualifying\": \"<boolean>\"\n  },\n  \"adviser_id\": \"<integer>\",\n  \"preferred_contact_user_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5f6bdae3-9b73-45f4-9c4a-f01ebb5a24df",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "deb8a0fd-397f-48e9-9f49-c5c4f6687d85",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f25684c9-711f-4e6b-aa7a-93b230b50c51",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"The Company\",\n  \"slug\": \"the_company\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 730,\n      \"title\": \"This company account name is too short.\",\n      \"detail\": \"This company account name is too short, please change your company account name to a longer name.\",\n      \"meta\": {\n        \"count\": 2\n      },\n      \"source\": {\n        \"pointer\": \"/data/attributes/slug\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f671481d-9c06-4bbe-91ff-ed80033efd06",
+          "name": "Companies/Schemes/List",
+          "request": {
+            "name": "Companies/Schemes/List",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "schemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "company_id",
+                  "description": "(Required) ID of the company"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a11676f0-8033-495f-bcca-bca9ab0edb2f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) ID of the company"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemes\": [\n    {\n      \"id\": 1586,\n      \"uuid\": \"4c0dd725-fc59-4c30-a3b5-d42909a466f6\",\n      \"name\": \"Meedoo\",\n      \"description\": null,\n      \"external_id\": \"PRODUCT-247db984\",\n      \"default\": null,\n      \"active\": false\n    },\n    {\n      \"id\": 1587,\n      \"uuid\": \"a72b3090-a836-44ac-940b-ec08c1dbb1aa\",\n      \"name\": \"Eadel\",\n      \"description\": null,\n      \"external_id\": \"PRODUCT-d68268b3\",\n      \"default\": null,\n      \"active\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "12ab70a3-a42e-463f-85a1-2879c96ac155",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "schemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "company_id",
+                      "description": "(Required) ID of the company"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "HTTP Token: Access denied.\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1db280da-02ef-43c3-bf5c-1b1d565fd55b",
+    "name": "Keystone Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

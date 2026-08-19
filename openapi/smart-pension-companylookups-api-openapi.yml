@@ -1,0 +1,267 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Lookups API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyLookups
+paths:
+  /company_lookups:
+    get:
+      summary: CompanyLookups/List
+      tags:
+      - CompanyLookups
+      parameters:
+      - name: name
+        in: query
+        required: false
+        example: name=dubai
+        schema:
+          type: string
+      - name: countryCode
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                with_duedil_adapter:
+                  value:
+                  - name: SD (North) Limited
+                    id: '07162052'
+                    country_code: gb
+                  - name: SD (Bristol) Limited
+                    id: 06032999
+                    country_code: gb
+                  - name: SD (Harrogate) Limited
+                    id: 08990758
+                    country_code: gb
+                  - name: SD System Solutions LTD.
+                    id: 05798383
+                    country_code: gb
+                  - name: SD & D (UK) Limited
+                    id: '10328653'
+                    country_code: gb
+                  - name: SD Worx UK Limited
+                    id: '03100021'
+                    country_code: gb
+                  - name: SD Consulting (NW) Ltd
+                    id: '10968753'
+                    country_code: gb
+                  - name: SD Consulting (Yorkshire) Ltd
+                    id: 08978403
+                    country_code: gb
+                  - name: SD Consulting (Donnelly) Ltd
+                    id: 08789239
+                    country_code: gb
+                  - name: SD Services (Yorkshire) Ltd
+                    id: 08071736
+                    country_code: gb
+                  - name: SD Exteriors (Leeds) Ltd
+                    id: '10612663'
+                    country_code: gb
+                  - name: SD Structures (London) Ltd
+                    id: '10705382'
+                    country_code: gb
+                  - name: SD Interiors (Leeds) Ltd
+                    id: '10612527'
+                    country_code: gb
+                  - name: SD Engineering (Ni) Ltd
+                    id: NI605639
+                    country_code: gb
+                  - name: SD Marine Services Limited
+                    id: '06251034'
+                    country_code: gb
+                  - name: SD Helicopters LLP
+                    id: OC387747
+                    country_code: gb
+                  - name: SD Event Management Limited
+                    id: NI619722
+                    country_code: gb
+                  - name: SD Software Developers Limited
+                    id: 06271482
+                    country_code: gb
+                  - name: Sd Brickwork (Staffs) Ltd
+                    id: '11127938'
+                    country_code: gb
+                  - name: SD Couriers (Dundee) Ltd
+                    id: SC530839
+                    country_code: gb
+                  - name: SD Commercial (UK) Ltd
+                    id: 09342234
+                    country_code: gb
+                  - name: D & SD Limited
+                    id: '10218839'
+                    country_code: gb
+                  - name: SD Marine Services (Holdings) Limited
+                    id: '06251300'
+                    country_code: gb
+                  - name: SD Services (West Midlands) Ltd
+                    id: '10925964'
+                    country_code: gb
+                  - name: SD Consultancy (North East) Ltd
+                    id: '10587401'
+                    country_code: gb
+                  - name: SD Carpentry (Leighton Buzzard) Ltd
+                    id: '10034510'
+                    country_code: gb
+                  - name: SD Plumbing (Engineering) Limited
+                    id: '10353188'
+                    country_code: gb
+                  - name: SD Investments (NW) Limited
+                    id: '10864544'
+                    country_code: gb
+                  - name: SD Construction (IW) Limited
+                    id: 05956158
+                    country_code: gb
+                  - name: SD Services (Midlands) Limited
+                    id: 06952168
+                    country_code: gb
+                  - name: SD Roofing (Oxford) Limited
+                    id: '10582536'
+                    country_code: gb
+                  - name: SD Builders (Forfar) Limited
+                    id: SC472901
+                    country_code: gb
+                  - name: SD Consultancy (Ni) Limited
+                    id: NI055882
+                    country_code: gb
+                  - name: SD Properties (UK) Limited
+                    id: 08715936
+                    country_code: gb
+                  - name: SD Catering (Scotland) Limited
+                    id: SC495992
+                    country_code: gb
+                  - name: SD Carpentry (Wboro) Limited
+                    id: 05645784
+                    country_code: gb
+                  - name: SD Catering (AYR) Limited
+                    id: SC502931
+                    country_code: gb
+                  - name: SD Skelton Consultancy LTD.
+                    id: 09436623
+                    country_code: gb
+                  - name: SD Accountancy Services LTD.
+                    id: 07639616
+                    country_code: gb
+                  - name: SD Venture Advisors LTD.
+                    id: '10625784'
+                    country_code: gb
+                  - name: EQT SD (UK) Limited
+                    id: 07734296
+                    country_code: gb
+                  - name: SD Trading (London) Limited
+                    id: 07059953
+                    country_code: gb
+                  - name: SD Restaurant Consultants Limited
+                    id: '482645'
+                    country_code: ie
+                  - name: SD Worx Ireland Limited
+                    id: '107507'
+                    country_code: ie
+                  - name: SD Shopfitting Contracts Limited
+                    id: 04723980
+                    country_code: gb
+                  - name: SD Yacht Service LTD.
+                    id: 09046650
+                    country_code: gb
+                  - name: SD Precision Group Limited
+                    id: 04256129
+                    country_code: gb
+                  - name: SD Productions Belfast Limited
+                    id: NI619724
+                    country_code: gb
+                  - name: MJ & SD Ltd
+                    id: NI634403
+                    country_code: gb
+                  - name: SD Maintenance Services Limited
+                    id: 05538188
+                    country_code: gb
+                with_difc_adapter:
+                  value:
+                  - id: 0012000001H3yaEAAR
+                    name: Dubai Aerospace Enterprise (DAE) Ltd
+                    registration_number: '0170'
+                  - id: 0010J00001zRqinQAC
+                    name: DUBAI CULTIV8 GP Limited
+                    registration_number: '3090'
+                  - id: 0010J00001mmay1QAA
+                    name: Dubai Cultiv8 Investments Limited
+                    registration_number: '2842'
+                  - id: 0010J00001yt2vrQAA
+                    name: DUBAI CULTIV8 LP
+                    registration_number: '3115'
+                  - id: 0010J00001yt2ssQAA
+                    name: DUBAI CULTIV8 TECHNOLOGY FUND LP
+                    registration_number: '3116'
+                  - id: 0010J00001zRqoCQAS
+                    name: Dubai Cultiv8 Technology GP Limited
+                    registration_number: '3089'
+                  - id: 0010J000020nzopQAA
+                    name: Dubai Freelance Holding Limited
+                    registration_number: '3076'
+                  - id: 0012000001H3yqRAAR
+                    name: Dubai Mercantile Exchange Limited
+                    registration_number: 0084
+                  - id: 0012000001H3yssAAB
+                    name: Dubai Wing Ltd.
+                    registration_number: 0482
+                  - id: 0010J0000201xItQAI
+                    name: Dubai Fintech Ventures Limited
+                    registration_number: '3118'
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    name:
+                      type: string
+                    country_code:
+                      type: string
+                    registration_number:
+                      type: string
+                  required:
+                  - id
+                  - name
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

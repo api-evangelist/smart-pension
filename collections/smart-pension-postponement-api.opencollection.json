@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Postponement API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Postponement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Postponement/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "819",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "429",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/List"
+        },
+        {
+          "info": {
+            "name": "Postponement/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "807",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "422",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/Create"
+        },
+        {
+          "info": {
+            "name": "Postponement/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "7",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "815",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "427",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/Get"
+        },
+        {
+          "info": {
+            "name": "Postponement/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "9",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "820",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "430",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/Update"
+        },
+        {
+          "info": {
+            "name": "Postponement/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "13",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "828",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "434",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/Update"
+        },
+        {
+          "info": {
+            "name": "Postponement/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/postponements/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "4",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "809",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "424",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Postponement/Destroy"
+        },
+        {
+          "info": {
+            "name": "Companies/Postponements/List with Historical Employee Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/postponements",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1300",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "include[]=employee",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Lists postponements for a company. When the 'exited_employees_visibility' feature flag is enabled,\npostponements for employees who exited more than 6 weeks ago will display historical employee data\n(forename, surname, and national_insurance_number as they were at the time of exit) instead of current data.\n"
+        },
+        {
+          "info": {
+            "name": "Companies/Postponements/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/postponements",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1291",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Postponements/Create"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

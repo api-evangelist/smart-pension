@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Schedule API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitSchedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BenefitSchedules/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_schedule",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "432",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "180",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitSchedules/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitSchedules/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_schedule",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "434",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "182",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitSchedules/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitSchedules/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_schedule",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "437",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "185",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitSchedules/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitSchedules/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_schedule",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "430",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "178",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitSchedules/Destroy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

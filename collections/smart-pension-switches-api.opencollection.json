@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Switches API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Switches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/Switches/Delayability",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/switches/delayability",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1566",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "769",
+                "type": "path"
+              },
+              {
+                "name": "subaccount_uuid",
+                "value": "subaccount_uuid=4b80c8e1-529d-4c41-af6b-149017f914d3",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Switches/Delayability"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/Switches/RequestForCurrentHoldings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/switches/request_for_current_holdings",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1568",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "771",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Switches/RequestForCurrentHoldings"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/Switches/RequestMonetary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/switches/request_monetary",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "1572",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "775",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/Switches/RequestMonetary"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

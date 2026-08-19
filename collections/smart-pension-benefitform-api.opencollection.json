@@ -1,0 +1,635 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Benefit Form API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "BenefitForm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/ConfirmAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads/confirm_all",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "349",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "126",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/ConfirmAll"
+        },
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "360",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "136",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/Get"
+        },
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "351",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "128",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "benefit_evidence_type_id",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "state",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "comment",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "preupload_url",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "expires_on",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/Create"
+        },
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads/:benefit_evidence_upload_id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "363",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "140",
+                "type": "path"
+              },
+              {
+                "name": "benefit_evidence_upload_id",
+                "value": "15",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads/:benefit_evidence_upload_id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "365",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "142",
+                "type": "path"
+              },
+              {
+                "name": "benefit_evidence_upload_id",
+                "value": "17",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitEvidenceUploads/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_evidence_uploads/:benefit_evidence_upload_id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "353",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "130",
+                "type": "path"
+              },
+              {
+                "name": "benefit_evidence_upload_id",
+                "value": "10",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitEvidenceUploads/Destroy"
+        },
+        {
+          "info": {
+            "name": "BenefitQuestionResponses/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/benefit_question_responses/",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "368",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "145",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitQuestionResponses/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/cancel",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "372",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "148",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Cancel"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories/:benefit_category_id/benefit_form",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "378",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "151",
+                "type": "path"
+              },
+              {
+                "name": "benefit_category_id",
+                "value": "48",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Create"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories/:benefit_category_id/benefit_form",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "396",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "161",
+                "type": "path"
+              },
+              {
+                "name": "benefit_category_id",
+                "value": "56",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_categories/:benefit_category_id/benefit_form",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "402",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "164",
+                "type": "path"
+              },
+              {
+                "name": "benefit_category_id",
+                "value": "59",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Update"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/VerificationUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/verification_url",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "408",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "167",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/VerificationUrl"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/GenerateVerificationUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/verification_url",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "384",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "154",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/GenerateVerificationUrl"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "386",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "155",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Get"
+        },
+        {
+          "info": {
+            "name": "BenefitForms/Submit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/benefit_form/submit",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "390",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "159",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "BenefitForms/Submit"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

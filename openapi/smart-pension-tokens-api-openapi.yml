@@ -1,0 +1,258 @@
+openapi: 3.2.0
+info:
+  title: Keystone Tokens API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Tokens
+paths:
+  /employee/callbacks/smartpension:
+    get:
+      summary: Tokens/Callback
+      tags:
+      - Tokens
+      parameters:
+      - name: Token-Type
+        in: header
+        required: false
+        description: Type of authentication token.
+        examples:
+          jwt:
+            value: jwt
+          plain:
+            value: plain
+        schema:
+          type: string
+      - name: code
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '302':
+          description: Failure
+          content:
+            text/html:
+              examples:
+                success:
+                  value: ''
+                failure:
+                  value: ''
+  /oauth/token/info:
+    get:
+      summary: Tokens/Info
+      tags:
+      - Tokens
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success (jwt_token flow)
+          content:
+            application/json:
+              example:
+                resource_owner_id: 914
+                scope:
+                - employee
+                expires_in: 599
+                application:
+                  uid: 923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89
+                created_at: 1785931614
+        '401':
+          description: Unauthorized (jwt_token flow)
+  /oauth/token:
+    post:
+      summary: Tokens/Create
+      tags:
+      - Tokens
+      description: 'Please contact our support if you are interested in connecting to our API through the external
+
+        application. Once they create an Partner application you will be issued with a Client ID and a
+
+        Client Secret. If you already are one of our partners please remember to use scope to define what
+
+        kind of resource JWT token will have access.'
+      parameters:
+      - name: Token-Type
+        in: header
+        required: false
+        description: Type of authentication token.
+        examples:
+          jwt:
+            value: jwt
+          plain:
+            value: plain
+        schema:
+          type: string
+      - name: token_type
+        in: query
+        required: false
+        description: 'Fallback for the Token-Type header: request a JWT by passing `jwt` when the HTTP client cannot set custom headers.'
+        examples:
+          jwt:
+            value: jwt
+          plain:
+            value: plain
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              client_credentials_success_nil_token_type:
+                value:
+                  client_id: 78efbe71c082d0d8fdc6
+                  client_secret: 7b9ce66d1ced0d73a481be1eb86a30cd6acd4aa91e0626c43724bfb2b67afc6e
+                  grant_type: client_credentials
+              client_credentials_success_with_old_secret:
+                value:
+                  client_id: d1c8e17c05ad1e1d5857
+                  client_secret: c5b8d1acd20d2704bd6635b1dccaaca77d062c53fc72d59442a4002bc9f98e6e
+                  grant_type: client_credentials
+              client_credentials_success_with_jwt:
+                value:
+                  client_id: 900c7b9711d98894b441
+                  client_secret: f5b9e6fa606cd1cf9250dc59a9ddf6d78ce215f3de8fbcfd09d5e709598c8a40
+                  grant_type: client_credentials
+              client_credentials_success_with_scopes_for_partner_application:
+                value:
+                  client_id: 2f4c42e5adbfed40ac0e
+                  client_secret: b2ccd18e881d21d35577872b147847cafe89201413880380c84586600e3550b4
+                  grant_type: client_credentials
+                  scope: read:employees read:companies read:ssif_imports read:funds read:customers
+              client_credentials_invalid_secret:
+                value:
+                  client_id: invalid id
+                  client_secret: invalid secret
+                  grant_type: client_credentials
+              client_credentials_expired_old_secret:
+                value:
+                  client_id: d3ecce43d2da01165030
+                  client_secret: old_s3cr3t
+                  grant_type: client_credentials
+            schema:
+              type: object
+              properties:
+                client_id: {}
+                client_secret: {}
+                username: {}
+                password: {}
+                grant_type: {}
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+      responses:
+        '200':
+          description: Success for grant_type:client_credentials, JWT token format and scopesfor partner application
+          content:
+            application/json:
+              examples:
+                client_credentials_success_nil_token_type:
+                  value:
+                    access_token: ojRkoBsJpGOYEDVSopX3LlFEVbxkf9oZRU8PkZ373QY
+                    token_type: Bearer
+                    expires_in: 2629745
+                    created_at: 1785931615
+                client_credentials_success_with_old_secret:
+                  value:
+                    access_token: mZqKoqnCeoc0OH1CjesqSYBA7DNqnBBhfDc9O-lqBYo
+                    token_type: Bearer
+                    expires_in: 2629746
+                    created_at: 1785931616
+                client_credentials_success_with_jwt:
+                  value:
+                    access_token: eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIxNiwiaWF0IjoxNzg1OTMxNjE2LCJhdWQiOiI5MDBjN2I5NzExZDk4ODk0YjQ0MSIsImp0aSI6InVxekFoZFR3SHlWUENXVHRaZ1pGNXM0c1k3ZEFZOXVUVEpIM0pfTkY0S00iLCJzY29wZSI6IiIsInN1YiI6IjkwMGM3Yjk3MTFkOTg4OTRiNDQxIiwicm9sZSI6ImFwcGxpY2F0aW9uIn0.l3u--IgUf6jRcJ0ZBwB77uH-4VukZl9xE77LXtuwraHm6Q29eQfka6u3h_ifz-ZJ4ePC68J4Ghg_2b14vd_yCMc8fo7WKI4gw9EseRpd3llBVaH1RTy36HOJPWmtyYat7uzVuama_tKVJ4yX-EsCbRGardbaqp2jVxhX4RvGWx0
+                    token_type: Bearer
+                    expires_in: 599
+                    created_at: 1785931616
+                client_credentials_success_with_scopes_for_partner_application:
+                  value:
+                    access_token: eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIxNywiaWF0IjoxNzg1OTMxNjE3LCJhdWQiOiIyZjRjNDJlNWFkYmZlZDQwYWMwZSIsImp0aSI6InoxT0NfeGFCTmJZczFtbUx2cS10WXd1bnhKTWZYOVZmT1lXa2lGUHBGcTAiLCJzY29wZSI6InJlYWQ6ZW1wbG95ZWVzLGNvbXBhbmllcyxzc2lmX2ltcG9ydHMsZnVuZHMsY3VzdG9tZXJzIiwic3ViIjoiMmY0YzQyZTVhZGJmZWQ0MGFjMGUiLCJyb2xlIjoiYXBwbGljYXRpb24ifQ.B6bm80SCCJKc4i4q5Tn3ymo6w395uLm5HMD_fU0Qxc0rd8KcAiRAlSfJXfGtw1JRUdSk9PFe6Rco3omvFE14H828yu4BY9czss2e5Br9kept61y7y6GHr5eW5lHu-9BfIQiCHTwWHLe95yVvYrhcc1c_zzWKD9rEdw2bBGbscks
+                    token_type: Bearer
+                    expires_in: 600
+                    scope: read:employees read:companies read:ssif_imports read:funds read:customers
+                    created_at: 1785931617
+        '401':
+          description: Failure for grant_type:client_credentials and old client_secret
+          content:
+            application/json:
+              examples:
+                client_credentials_invalid_secret:
+                  value:
+                    error: invalid_client
+                    error_description: Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.
+                client_credentials_expired_old_secret:
+                  value:
+                    error: invalid_client
+                    error_description: Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.
+  /refresh_token:
+    post:
+      summary: Tokens/Refresh
+      tags:
+      - Tokens
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: Token-Type
+        in: header
+        description: Type of authentication token.
+        examples:
+          jwt:
+            value: jwt
+          plain:
+            value: plain
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '200':
+          description: Success (jwt_token flow)
+          content:
+            application/json:
+              example:
+                token: eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIxOCwiaWF0IjoxNzg1OTMxNjE4LCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJ2Q2VHQS1PaG5JVGg4MmNKUEJXRjNheEE3ZDhEQzNWWEU3T19kOGFlblBVIiwic2NvcGUiOiI6Y3VzdG9tZXIiLCJzdWIiOjgxMywicm9sZSI6ImVtcGxveWVlIn0.v9MCyd4j_WjLWsCLwiaCeE5_kC6gxETcySTF_U3L2A46uoLFXrfhWIf3rYZjDhUNmCBvboOLa9UlwDV6xki9HgcYd9u3_SfT3wGo0u_OicSqstkX2zOrqXEaaRyp_NjrEwgv2yXhC98eYvg1cHCAclk_YyReqB3yIvPJVYCre5s
+        '401':
+          description: Unauthorized (plain_token flow)
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

@@ -1,0 +1,174 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Lookup API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyLookup
+paths:
+  /company_lookups/{country_code}/{id}:
+    get:
+      summary: CompanyLookups/Get
+      tags:
+      - CompanyLookup
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: '456495'
+        schema:
+          type: string
+      - name: country_code
+        in: path
+        required: true
+        example: ie
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                with_country_code:
+                  value:
+                    country_code: IE
+                    company_id: '456495'
+                    name: Sam Mclernon Holdings Limited
+                    legal_entity_identifier: null
+                    type: Private limited with share capital
+                    incorporation_country: Ireland
+                    incorporation_date: '2008-04-23'
+                    official_status: Active
+                    simplified_status: Active
+                    number_of_employees: null
+                    primary_website: http://www.sammclernon.ie
+                    registered_address:
+                      full_address: Fox and Geese House, Naas Road, Dublin 12
+                      structured_address: null
+                      geolocation: null
+                    charitable_identities_count: 0
+                    accounts:
+                      filing_type: Small company
+                      currency: EUR
+                      latest_accounts_date: '2017-12-31'
+                      consolidated_accounts: false
+                      next_accounts_due_date: null
+                    financial_summary:
+                      turnover: null
+                      ebitda: null
+                      post_tax_profit: null
+                      total_assets: 3030953
+                      net_assets: 1295773
+                    id: '456495'
+                    directors:
+                    - id: '700656603'
+                      forename: IVAN
+                      surname: POWELL
+                      date_of_birth: '1967-03-01'
+                    - id: '701201577'
+                      forename: KEITH
+                      surname: MCLERNON
+                      date_of_birth: '1960-11-01'
+                    - id: '701170023'
+                      forename: RONALD
+                      surname: MCLERNON
+                      date_of_birth: '1951-08-01'
+                    - id: '701175199'
+                      forename: TORREN
+                      surname: GALE
+                      date_of_birth: null
+                    reg_address1: Fox and Geese House, Naas Road, Dublin 12
+                    reg_address2: null
+                    reg_address3: null
+                    reg_address4: null
+                    reg_address_postcode: null
+                    trading_address1: Fox and Geese House, Naas Road, Dublin 12
+                    trading_address2: null
+                    trading_address3: null
+                    trading_address_postcode: null
+                    signatories_available: true
+  /company_lookups/{id}:
+    get:
+      summary: CompanyLookups/Get
+      tags:
+      - CompanyLookup
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 0010J000021hx1jQAA
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                without_country_code:
+                  value:
+                    id: 0010J000021hx1jQAA
+                    name: Conciliant Technologies Limited
+                    registration_number: '3126'
+                    legal_structure: LTD
+                    incorporated_on: '2019-01-13'
+                    external_id: 0010J000021hx1jQAA
+                    reg_address1: Unit  Office-8 , Office-9 , Level 4
+                    reg_address2: Gate Precinct Building 5
+                    reg_address3: Dubai, Dubai
+                    reg_address4: 507211, United Arab Emirates
+                    state: active
+                    signatories: []
+                    signatories_available: true
+                with_difc_adapter:
+                  value:
+                    id: 0010J000021hx1jQAA
+                    name: Conciliant Technologies Limited
+                    registration_number: '3126'
+                    legal_structure: LTD
+                    incorporated_on: '2019-01-13'
+                    external_id: 0010J000021hx1jQAA
+                    reg_address1: Unit  Office-8 , Office-9 , Level 4
+                    reg_address2: Gate Precinct Building 5
+                    reg_address3: Dubai, Dubai
+                    reg_address4: 507211, United Arab Emirates
+                    state: active
+                    signatories: []
+                    signatories_available: true
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

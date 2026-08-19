@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Company Rules API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CompanyRules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/CompanyRules/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/company_rules",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "135",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/CompanyRules/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

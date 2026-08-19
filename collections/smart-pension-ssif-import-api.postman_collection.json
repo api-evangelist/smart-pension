@@ -1,0 +1,169 @@
+{
+  "item": [
+    {
+      "id": "dab49039-a9d7-4678-b026-ca649cc7d104",
+      "name": "SSIF Import",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a8244cff-c241-42f5-953c-04d74f207adb",
+          "name": "SSIFImport/Get",
+          "request": {
+            "name": "SSIFImport/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "ssif_imports",
+                "download_template"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/csv"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "0ed5ad86-f053-4649-9a1c-dd6151ae9c33",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ssif_imports",
+                    "download_template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/csv"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/csv"
+                }
+              ],
+              "body": "EmployerId,Title,FirstName,MiddleName,Surname,Nationality,BirthDate,Gender,USDSalary,ContributionDueDate,EmployerContributionAmount,EmployerContributionPercent,EmployeeContributionAmount,EmployeeContributionPercent,PreviousAccrued,EmployeeID,PayrollName,EmploymentStartDate,MemberType,ExitReasonCode,ExitDate,Address1,Address2,Address3,City,CountryOfResidence,EmailAddress,SecondaryEmailAddress,PhoneNumber,NationalIDnumber1,NationalIDnumber2,VisaNumber\n,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "948175db-903b-4f37-98f6-e1827b713751",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ssif_imports",
+                    "download_template"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b2799a61-941c-4aa0-95bf-50da60632544",
+    "name": "Keystone SSIF Import API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

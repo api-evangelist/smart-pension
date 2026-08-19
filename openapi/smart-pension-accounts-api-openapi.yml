@@ -1,0 +1,120 @@
+openapi: 3.2.0
+info:
+  title: Keystone Accounts API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Accounts
+paths:
+  /accounts:
+    get:
+      summary: List all accounts associated with the authenticated identity
+      tags:
+      - Accounts
+      security:
+      - oAuth2:
+        - individual
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                accounts_found:
+                  value:
+                  - id: 1
+                    type: Individual
+                    account_group_name: null
+                    account_group_slug: null
+                    employment_period_starts_on: null
+                    employment_period_ends_on: null
+                    app_url: https://individual.host.com/
+                  - id: 2
+                    type: Employee
+                    account_group_name: vivamus vel 3
+                    account_group_slug: est-3
+                    employment_period_starts_on: '2016-08-05'
+                    employment_period_ends_on: null
+                    app_url: https://est-3.host.com/employee
+                  - id: 3
+                    type: Employee
+                    account_group_name: hac habitasse 4
+                    account_group_slug: condimentum-4
+                    employment_period_starts_on: '2016-08-05'
+                    employment_period_ends_on: null
+                    app_url: https://condimentum-4.host.com/employee
+                accounts_not_found:
+                  value: []
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    type:
+                      type: string
+                      enum:
+                      - Individual
+                      - Employee
+                    account_group_name:
+                      type:
+                      - string
+                      - 'null'
+                    account_group_slug:
+                      type:
+                      - string
+                      - 'null'
+                    employment_period_starts_on:
+                      type:
+                      - string
+                      - 'null'
+                    employment_period_ends_on:
+                      type:
+                      - string
+                      - 'null'
+                    app_url:
+                      type:
+                      - string
+                      - 'null'
+                  required:
+                  - id
+                  - type
+        '401':
+          description: Unauthorized - No associated accounts
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

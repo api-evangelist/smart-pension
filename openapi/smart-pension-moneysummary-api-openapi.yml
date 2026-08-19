@@ -1,0 +1,213 @@
+openapi: 3.2.0
+info:
+  title: Keystone Money Summary API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: MoneySummary
+paths:
+  /companies/{company_id}/employees/{employee_id}/money_summary:
+    get:
+      summary: Employees/MoneySummary
+      tags:
+      - MoneySummary
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1460
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 681
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                contributions:
+                  employee_amount: 0
+                  voluntary_amount: 0
+                  tax_relief_amount: 0
+                  contribution_amounts_totals:
+                    employer: 0
+                    employee: 0
+                    other_avc: 0
+                    life_cover: 0
+                    tax_relief: 0
+                  processing_contribution_amounts_totals:
+                    employer: 0
+                    employee: 0
+                    other_avc: 0
+                    life_cover: 0
+                    tax_relief: 0
+                  processing_amount: 0
+                  transferred_amount: 0
+                  company_amount: 0
+                  total_employee_contribution_amount: 0
+                  total_employee_amount: 0
+                  total_contribution_amount: 0
+                  monetary_growth: 0
+                  percentage_growth: 0
+                  valuation: 0
+                  calculated_at: '2024-03-19T00:00:00.000+00:00'
+                withdrawals:
+                  benefits_total_amount: 0
+                  transfer_outs_total_amount: 0
+                  pending_benefits_exist: false
+                  pending_transfer_outs_exist: false
+              schema:
+                $ref: '#/components/schemas/response_employee_money_summary'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+components:
+  schemas:
+    response_employee_session_summary:
+      type: object
+      properties:
+        employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        voluntary_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_relief_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        contribution_amounts_totals:
+          type:
+          - object
+          - 'null'
+        processing_contribution_amounts_totals:
+          type:
+          - object
+          - 'null'
+        processing_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        transferred_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        company_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_employee_contribution_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_employee_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        total_contribution_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        monetary_growth:
+          type:
+          - number
+          - 'null'
+          format: float
+        percentage_growth:
+          type:
+          - number
+          - 'null'
+          format: float
+        valuation:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+    response_withdrawals_summary:
+      type: object
+      properties:
+        benefits_total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        transfer_outs_total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        pending_benefits_exist:
+          type:
+          - boolean
+          - 'null'
+        pending_transfer_outs_exist:
+          type:
+          - boolean
+          - 'null'
+    response_employee_money_summary:
+      type: object
+      properties:
+        contributions:
+          $ref: '#/components/schemas/response_employee_session_summary'
+        withdrawals:
+          $ref: '#/components/schemas/response_withdrawals_summary'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

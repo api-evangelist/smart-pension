@@ -1,0 +1,567 @@
+openapi: 3.2.0
+info:
+  title: Keystone Bank Account Detail API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: BankAccountDetail
+paths:
+  /companies/{company_id}/employees/{employee_id}/bank_account_detail:
+    post:
+      summary: Companies/Employees/BankAccountDetail/Create
+      tags:
+      - BankAccountDetail
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 280
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 85
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              create_bank_account_detail_request:
+                value:
+                  bank_account_detail:
+                    account_name: Account Name
+                    bank_name: Bank Name
+                    country_code: GB
+                    account_number_format: iban
+                    account_number: GB95BARC20038484474436
+                    bank_identifier_code: AAAABBCC123
+                    routing_number: 12-34-56
+                  employee_default_account: false
+              create_default_bank_account_detail_request:
+                value:
+                  bank_account_detail:
+                    account_name: Account Name
+                    bank_name: Bank Name
+                    country_code: GB
+                    account_number_format: iban
+                    account_number: GB95BARC20038484474436
+                    bank_identifier_code: AAAABBCC123
+                    routing_number: 12-34-56
+                  employee_default_account: true
+              invalid_parameter_request:
+                value: {}
+              forbidden:
+                value:
+                  bank_account_detail:
+                    account_name: Account Name
+                    bank_name: Bank Name
+                    country_code: GB
+                    account_number_format: iban
+                    account_number: GB95BARC20038484474436
+                    bank_identifier_code: AAAABBCC123
+                    routing_number: 12-34-56
+                  employee_default_account: true
+            schema:
+              type: object
+              properties:
+                bank_account_detail:
+                  type: object
+                  properties:
+                    account_name:
+                      type: string
+                      maximum: 255
+                      x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                    bank_name:
+                      type: string
+                      maximum: 255
+                    country_code:
+                      type: string
+                    account_number:
+                      type: string
+                    account_number_format:
+                      type: string
+                      enum:
+                      - iban
+                      - local_bank_account_number
+                    account_category:
+                      type: string
+                    bank_identifier_code:
+                      type: string
+                    routing_number:
+                      type: string
+                    building_society_roll_number:
+                      type: string
+                    reviewed:
+                      type: boolean
+                  required:
+                  - account_name
+                  - country_code
+                  - account_number_format
+      responses:
+        '201':
+          description: Success - creates default bank_account_detail
+          content:
+            application/json:
+              example:
+                id: 23
+                routing_number: 12-34-56
+                account_number: GB95BARC20038484474436
+                building_society_roll_number: null
+                account_name: Account Name
+                country_code: GB
+                created_at: '2026-08-05T12:59:18.000+01:00'
+                updated_at: '2026-08-05T12:59:18.000+01:00'
+                account_number_format: iban
+                cancelled_at: null
+                reviewed: true
+                account_category: null
+                expires_on: '2027-08-05'
+              schema:
+                $ref: '#/components/schemas/response_complete_bank_account_detail'
+        '403':
+          description: default bank account already exists
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 367
+                  title: Employee already has a default Bank Account.
+                  detail: Employee already has a default Bank Account.
+                  form: null
+                  attribute: base
+                  error: employee_has_default_bank_account
+                  meta: {}
+                  source:
+                    pointer: /base
+              schema:
+                $ref: '#/components/schemas/response_complete_bank_account_detail'
+        '422':
+          description: Parameters invalid.
+          content:
+            application/json:
+              example:
+                errors:
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Account name is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/account_name
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Country code is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/country_code
+                - code: 100002
+                  title: Value is not valid for the field.
+                  detail: 'Account number format should be one of the following values: iban and local_bank_account_number.'
+                  meta:
+                    values:
+                    - iban
+                    - local_bank_account_number
+                    allowed_values:
+                    - iban
+                    - local_bank_account_number
+                    value: null
+                  source:
+                    pointer: /data/attributes/account_number_format
+                - code: 100001
+                  title: Value can not be blank.
+                  detail: Account number format is a required field.
+                  meta: {}
+                  source:
+                    pointer: /data/attributes/account_number_format
+    get:
+      summary: Companies/Employees/BankAccountDetail/Get
+      tags:
+      - BankAccountDetail
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 287
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: string
+        example: 89
+      security:
+      - oAuth2:
+        - employee
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 26
+                routing_number: null
+                account_number: null
+                building_society_roll_number: null
+                account_name: Account Name
+                country_code: GB
+                created_at: '2026-08-05T12:59:20.000+01:00'
+                updated_at: '2026-08-05T12:59:20.000+01:00'
+                account_number_format: iban
+                cancelled_at: null
+                reviewed: null
+                account_category: null
+                expires_on: null
+              schema:
+                $ref: '#/components/schemas/response_complete_bank_account_detail'
+        '401':
+          description: Unauthorised
+          content:
+            text/plain:
+              examples:
+                unauthorised:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '404':
+          description: Not Found
+    put:
+      summary: Companies/Employees/BankAccountDetail/Update
+      tags:
+      - BankAccountDetail
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 291
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 91
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+              invalid_parameters:
+                value:
+                  account_name: null
+              not_found:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+              unauthorized:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+            schema:
+              type: object
+              properties:
+                account_name:
+                  type: string
+                  maximum: 255
+                  x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                bank_name:
+                  type: string
+                  maximum: 255
+                country_code:
+                  type: string
+                account_number:
+                  type: string
+                account_number_format:
+                  type: string
+                  enum:
+                  - iban
+                  - local_bank_account_number
+                reviewed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid parameters
+    patch:
+      summary: Companies/Employees/BankAccountDetail/Update
+      tags:
+      - BankAccountDetail
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 299
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 95
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+              invalid_parameters:
+                value:
+                  account_name: null
+              not_found:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+              unauthorized:
+                value:
+                  account_name: my account
+                  bank_name: some bank
+                  country_code: GB
+                  routing_number: 12-34-56
+                  reviewed: false
+            schema:
+              type: object
+              properties:
+                account_name:
+                  type: string
+                  maximum: 255
+                  x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                bank_name:
+                  type: string
+                  maximum: 255
+                country_code:
+                  type: string
+                account_number:
+                  type: string
+                account_number_format:
+                  type: string
+                  enum:
+                  - iban
+                  - local_bank_account_number
+                reviewed:
+                  type: boolean
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Invalid parameters
+  /companies/{company_id}/employees/{employee_id}/bank_account_detail/validate:
+    post:
+      summary: Companies/Employees/BankAccountDetail/Validate
+      tags:
+      - BankAccountDetail
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 306
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 99
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  bank_account_detail:
+                    account_name: A name
+                    bank_name: A bank
+                    country_code: GB
+                    account_number: '12345678'
+                    routing_number: 11-11-11
+                    account_number_format: local_bank_account_number
+              unprocessable_entity:
+                value:
+                  bank_account_detail:
+                    account_name: A name
+                    bank_name: A bank
+                    country_code: GB
+                    account_number: '12345678'
+                    routing_number: 11-11
+                    account_number_format: local_bank_account_number
+            schema:
+              type: object
+              properties:
+                bank_account_detail:
+                  type: object
+                  properties:
+                    account_name:
+                      type: string
+                      maximum: 255
+                      x-ruby-regexp: (?-mix:\A[a-zA-Z0-9&\/\\\-\s]+\z)
+                    bank_name:
+                      type: string
+                      maximum: 255
+                    country_code:
+                      type: string
+                    account_number:
+                      type: string
+                    account_number_format:
+                      type: string
+                      enum:
+                      - iban
+                      - local_bank_account_number
+                    account_category:
+                      type: string
+                    bank_identifier_code:
+                      type: string
+                    routing_number:
+                      type: string
+                    building_society_roll_number:
+                      type: string
+                    reviewed:
+                      type: boolean
+                  required:
+                  - account_name
+                  - country_code
+                  - account_number_format
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                errors: {}
+        '422':
+          description: unprocessable entity
+components:
+  schemas:
+    response_complete_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        routing_number:
+          type:
+          - string
+          - 'null'
+        account_number:
+          type:
+          - string
+          - 'null'
+        building_society_roll_number:
+          type:
+          - string
+          - 'null'
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        reviewed:
+          type:
+          - boolean
+          - 'null'
+        account_category:
+          type:
+          - string
+          - 'null'
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

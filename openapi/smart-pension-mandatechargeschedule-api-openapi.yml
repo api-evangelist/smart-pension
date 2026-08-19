@@ -1,0 +1,244 @@
+openapi: 3.2.0
+info:
+  title: Keystone Mandate Charge Schedule API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: MandateChargeSchedule
+paths:
+  /companies/{company_id}/mandate_charge_schedule:
+    post:
+      summary: Companies/MandateChargeSchedule/Create
+      tags:
+      - MandateChargeSchedule
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1177
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              created:
+                value:
+                  day_of_month: 15
+              invalid_parameters:
+                value:
+                  day_of_month: 32
+            schema:
+              type: object
+              properties:
+                day_of_month:
+                  type: integer
+              required:
+              - day_of_month
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              examples:
+                created:
+                  value:
+                    id: 1
+                    day_of_month: 15
+                    starts_on: '2026-08-05'
+                    ends_on: null
+                    created_at: '2026-08-05T13:03:50.834+01:00'
+                    updated_at: '2026-08-05T13:03:50.834+01:00'
+              schema:
+                $ref: '#/components/schemas/response_mandate_charge_schedule'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 102004
+                      title: Value is too large.
+                      detail: Day of month should be less than or equal to 31.
+                      meta:
+                        value: 32
+                        count: 31
+                      source:
+                        pointer: /data/attributes/day_of_month
+    get:
+      summary: Companies/MandateChargeSchedule/Get
+      tags:
+      - MandateChargeSchedule
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1180
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    id: 2
+                    day_of_month: 15
+                    starts_on: '2026-08-05'
+                    ends_on: null
+                    created_at: '2026-08-05T13:03:51.636+01:00'
+                    updated_at: '2026-08-05T13:03:51.636+01:00'
+              schema:
+                $ref: '#/components/schemas/response_mandate_charge_schedule'
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '404':
+          description: Not Found
+          content:
+            text/html:
+              examples:
+                not_found:
+                  value: ''
+    patch:
+      summary: Companies/MandateChargeSchedule/Update
+      tags:
+      - MandateChargeSchedule
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1183
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  day_of_month: 20
+              invalid_parameters:
+                value:
+                  day_of_month: 32
+            schema:
+              type: object
+              properties:
+                day_of_month:
+                  type: integer
+              required:
+              - day_of_month
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 102004
+                      title: Value is too large.
+                      detail: Day of month should be less than or equal to 31.
+                      meta:
+                        value: 32
+                        count: 31
+                      source:
+                        pointer: /data/attributes/day_of_month
+components:
+  schemas:
+    response_mandate_charge_schedule:
+      type: object
+      properties:
+        id:
+          type: integer
+        day_of_month:
+          type: integer
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

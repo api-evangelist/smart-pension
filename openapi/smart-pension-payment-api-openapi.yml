@@ -1,0 +1,210 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payment API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Payment
+paths:
+  /companies/{company_id}/payments/{id}:
+    get:
+      summary: Companies/Payments/Get
+      tags:
+      - Payment
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 21
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        examples:
+          valid_company:
+            value: 1224
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 21
+                state: ignition
+                amount: 20
+                description: null
+                invoice_name: curabitur convallis
+                paid_at: null
+                charge_on: null
+                created_at: '2026-08-05T13:04:05.000+01:00'
+                updated_at: '2026-08-05T13:04:05.000+01:00'
+                invoice_url: /invoices/original/missing.png
+                invoice_details_url: /invoice_details/original/missing.png
+                invoice_details_file_name: null
+                source_of_funds: UK savings
+              schema:
+                $ref: '#/components/schemas/response_payment'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              example: ''
+  /companies/{company_id}/payments:
+    get:
+      summary: Companies/Payments/List
+      tags:
+      - Payment
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 1226
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 2
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/1226/payments
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/1226/payments?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/1226/payments?offset=0&limit=50
+                payments:
+                - id: 23
+                  state: ignition
+                  amount: 20
+                  description: null
+                  invoice_name: suscipit ligula
+                  paid_at: null
+                  charge_on: null
+                  created_at: '2026-08-05T13:04:06.000+01:00'
+                  updated_at: '2026-08-05T13:04:06.000+01:00'
+                  invoice_url: /invoices/original/missing.png
+                  invoice_details_url: /invoice_details/original/missing.png
+                  invoice_details_file_name: null
+                  source_of_funds: UK savings
+                - id: 24
+                  state: ignition
+                  amount: 20
+                  description: null
+                  invoice_name: nam tristique
+                  paid_at: null
+                  charge_on: null
+                  created_at: '2026-08-05T13:04:06.000+01:00'
+                  updated_at: '2026-08-05T13:04:06.000+01:00'
+                  invoice_url: /invoices/original/missing.png
+                  invoice_details_url: /invoice_details/original/missing.png
+                  invoice_details_file_name: null
+                  source_of_funds: UK savings
+              schema:
+                $ref: '#/components/schemas/response_payment'
+components:
+  schemas:
+    response_payment:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        description:
+          type:
+          - string
+          - 'null'
+        invoice_name:
+          type:
+          - string
+          - 'null'
+        paid_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        charge_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        invoice_url:
+          type:
+          - string
+          - 'null'
+        invoice_details_url:
+          type:
+          - string
+          - 'null'
+        invoice_details_file_name:
+          type:
+          - string
+          - 'null'
+        source_of_funds:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

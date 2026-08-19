@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Adviser Exports API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AdviserExports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Advisers/Exports/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/exports/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "2",
+                "type": "path"
+              },
+              {
+                "name": "adviser_id",
+                "value": "13",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Advisers/Exports/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

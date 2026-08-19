@@ -1,0 +1,166 @@
+{
+  "item": [
+    {
+      "id": "9269091b-bcbc-46e5-8def-51cc5af406f8",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b16e3f15-8bd9-4665-923d-2ac8709d8dea",
+          "name": "List all accounts associated with the authenticated identity",
+          "request": {
+            "name": "List all accounts associated with the authenticated identity",
+            "description": {},
+            "url": {
+              "path": [
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "321bed24-27bc-4d14-8f19-304782733d3b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1,\n    \"type\": \"Individual\",\n    \"account_group_name\": null,\n    \"account_group_slug\": null,\n    \"employment_period_starts_on\": null,\n    \"employment_period_ends_on\": null,\n    \"app_url\": \"https://individual.host.com/\"\n  },\n  {\n    \"id\": 2,\n    \"type\": \"Employee\",\n    \"account_group_name\": \"vivamus vel 3\",\n    \"account_group_slug\": \"est-3\",\n    \"employment_period_starts_on\": \"2016-08-05\",\n    \"employment_period_ends_on\": null,\n    \"app_url\": \"https://est-3.host.com/employee\"\n  },\n  {\n    \"id\": 3,\n    \"type\": \"Employee\",\n    \"account_group_name\": \"hac habitasse 4\",\n    \"account_group_slug\": \"condimentum-4\",\n    \"employment_period_starts_on\": \"2016-08-05\",\n    \"employment_period_ends_on\": null,\n    \"app_url\": \"https://condimentum-4.host.com/employee\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc29f3c7-c851-40d3-8a24-72ce1abdf5cc",
+              "name": "Unauthorized - No associated accounts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "26b88261-4bbc-4c1f-99aa-91566f695838",
+    "name": "Keystone Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

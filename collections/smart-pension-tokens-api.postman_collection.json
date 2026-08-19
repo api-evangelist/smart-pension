@@ -1,0 +1,619 @@
+{
+  "item": [
+    {
+      "id": "88d31a6a-4de5-4a88-bea7-6fc5b948467f",
+      "name": "Tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c3658f93-07c2-4b8d-abb3-849b34e6f7e4",
+          "name": "Tokens/Callback",
+          "request": {
+            "name": "Tokens/Callback",
+            "description": {},
+            "url": {
+              "path": [
+                "employee",
+                "callbacks",
+                "smartpension"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Type of authentication token.",
+                "key": "Token-Type",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe553404-704d-43a3-9b2d-47fe898620d1",
+              "name": "Failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "employee",
+                    "callbacks",
+                    "smartpension"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Type of authentication token.",
+                    "key": "Token-Type",
+                    "value": "jwt"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff2240da-8dda-4360-ac5c-1835e8f63462",
+          "name": "Tokens/Info",
+          "request": {
+            "name": "Tokens/Info",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "token",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6fb49f51-e4cb-4a47-8178-193ff1782f0d",
+              "name": "Success (jwt_token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resource_owner_id\": 914,\n  \"scope\": [\n    \"employee\"\n  ],\n  \"expires_in\": 599,\n  \"application\": {\n    \"uid\": \"923784u234hk2j3h423iu4ihfduy334hj4hidf78fdigfdhgfdgh89\"\n  },\n  \"created_at\": 1785931614\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ab9e647-b309-4733-9c86-6ab5014b0f7d",
+              "name": "Unauthorized (jwt_token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e5b889a-1558-4f7d-a456-cb929da60c8d",
+          "name": "Tokens/Create",
+          "request": {
+            "name": "Tokens/Create",
+            "description": {
+              "content": "Please contact our support if you are interested in connecting to our API through the external\napplication. Once they create an Partner application you will be issued with a Client ID and a\nClient Secret. If you already are one of our partners please remember to use scope to define what\nkind of resource JWT token will have access.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token_type",
+                  "value": "<string>",
+                  "description": "Fallback for the Token-Type header: request a JWT by passing `jwt` when the HTTP client cannot set custom headers."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Type of authentication token.",
+                "key": "Token-Type",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"\",\n  \"client_secret\": \"\",\n  \"grant_type\": \"\",\n  \"username\": \"\",\n  \"password\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a852b23a-e326-4642-b8b4-4c2340b70bd9",
+              "name": "Success for grant_type:client_credentials, JWT token format and scopesfor partner application",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token_type",
+                      "value": "jwt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Type of authentication token.",
+                    "key": "Token-Type",
+                    "value": "jwt"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"78efbe71c082d0d8fdc6\",\n  \"client_secret\": \"7b9ce66d1ced0d73a481be1eb86a30cd6acd4aa91e0626c43724bfb2b67afc6e\",\n  \"grant_type\": \"client_credentials\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"ojRkoBsJpGOYEDVSopX3LlFEVbxkf9oZRU8PkZ373QY\",\n  \"token_type\": \"Bearer\",\n  \"expires_in\": 2629745,\n  \"created_at\": 1785931615\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b9a3c52-0ad5-4200-a3e5-0700fe614d3e",
+              "name": "Failure for grant_type:client_credentials and old client_secret",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token_type",
+                      "value": "jwt"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Type of authentication token.",
+                    "key": "Token-Type",
+                    "value": "jwt"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"78efbe71c082d0d8fdc6\",\n  \"client_secret\": \"7b9ce66d1ced0d73a481be1eb86a30cd6acd4aa91e0626c43724bfb2b67afc6e\",\n  \"grant_type\": \"client_credentials\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"invalid_client\",\n  \"error_description\": \"Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6769dc0-56b0-4718-82ab-632f4b648e5f",
+          "name": "Tokens/Refresh",
+          "request": {
+            "name": "Tokens/Refresh",
+            "description": {},
+            "url": {
+              "path": [
+                "refresh_token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Type of authentication token.",
+                "key": "Token-Type",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6fc37c12-e483-4f33-85ce-bb7dd36f96f9",
+              "name": "Success (jwt_token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Type of authentication token.",
+                    "key": "Token-Type",
+                    "value": "jwt"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIxOCwiaWF0IjoxNzg1OTMxNjE4LCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJ2Q2VHQS1PaG5JVGg4MmNKUEJXRjNheEE3ZDhEQzNWWEU3T19kOGFlblBVIiwic2NvcGUiOiI6Y3VzdG9tZXIiLCJzdWIiOjgxMywicm9sZSI6ImVtcGxveWVlIn0.v9MCyd4j_WjLWsCLwiaCeE5_kC6gxETcySTF_U3L2A46uoLFXrfhWIf3rYZjDhUNmCBvboOLa9UlwDV6xki9HgcYd9u3_SfT3wGo0u_OicSqstkX2zOrqXEaaRyp_NjrEwgv2yXhC98eYvg1cHCAclk_YyReqB3yIvPJVYCre5s\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1edb8a62-e4bb-4d98-8586-55d76eaf67a8",
+              "name": "Unauthorized (plain_token flow)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "refresh_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Type of authentication token.",
+                    "key": "Token-Type",
+                    "value": "jwt"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "cbd058a9-44ab-45b0-b62b-77b9c9567d02",
+    "name": "Keystone Tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

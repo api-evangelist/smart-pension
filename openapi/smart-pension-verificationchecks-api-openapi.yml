@@ -1,0 +1,228 @@
+openapi: 3.2.0
+info:
+  title: Keystone Verification Checks API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: VerificationChecks
+paths:
+  /verification_checks/generate_verification_url:
+    post:
+      summary: VerificationChecks/GenerateVerificationUrl
+      tags:
+      - VerificationChecks
+      security:
+      - oAuth2: []
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            example:
+              redirect_url: https://redirect.uri
+              target: onboarding
+            schema:
+              type: object
+              properties:
+                redirect_url:
+                  type: string
+                target:
+                  type: string
+                  enum:
+                  - onboarding
+                  - single_contributions
+                  - benefit_form
+                service_name:
+                  type: string
+                verification_check_types:
+                  type: array
+                  items: {}
+              required:
+              - redirect_url
+              - target
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                unprocessable_entity:
+                  value:
+                    errors:
+                    - code: 100002
+                      title: Value is not valid for the field.
+                      detail: 'Target should be one of the following values: onboarding, single_contributions, and benefit_form.'
+                      meta:
+                        values:
+                        - onboarding
+                        - single_contributions
+                        - benefit_form
+                        value: asdf
+                      source:
+                        pointer: /data/attributes/target
+  /verification_checks/state:
+    get:
+      summary: VerificationChecks/State
+      tags:
+      - VerificationChecks
+      security:
+      - oAuth2: []
+      parameters:
+      - name: target
+        in: query
+        schema:
+          type: string
+          enum:
+          - onboarding
+          - single_contributions
+          - benefit_form
+        required: true
+        example: target=onboarding
+      - name: verification_check_types[]
+        in: query
+        schema:
+          type: array
+          items: {}
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    state: in_progress
+                    rejection_reasons:
+                    - name: Proof of document
+                      errors:
+                      - Information on the document proof is not visible
+                      - Address provided is invalid
+              schema:
+                $ref: '#/components/schemas/response_employee_verification_checks_state'
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                unprocessable_entity:
+                  value:
+                    errors:
+                    - code: 100002
+                      title: Value is not valid for the field.
+                      detail: 'Target should be one of the following values: onboarding, single_contributions, and benefit_form.'
+                      meta:
+                        values:
+                        - onboarding
+                        - single_contributions
+                        - benefit_form
+                        value: invalid
+                      source:
+                        pointer: /data/attributes/target
+  /verification_checks/verification_url:
+    get:
+      summary: VerificationChecks/verification_url
+      tags:
+      - VerificationChecks
+      security:
+      - oAuth2: []
+      parameters:
+      - name: target
+        in: query
+        schema:
+          type: string
+          enum:
+          - onboarding
+          - single_contributions
+          - benefit_form
+        required: false
+        example: target=onboarding
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              examples:
+                success:
+                  value:
+                    verification_url: https://verification-url.com
+        '401':
+          description: Unauthorized
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              examples:
+                unprocessable_entity:
+                  value:
+                    errors:
+                    - code: 100002
+                      title: Value is not valid for the field.
+                      detail: 'Target should be one of the following values: onboarding, single_contributions, and benefit_form.'
+                      meta:
+                        values:
+                        - onboarding
+                        - single_contributions
+                        - benefit_form
+                        value: invalid
+                      source:
+                        pointer: /data/attributes/target
+components:
+  schemas:
+    response_rejection_reason:
+      type: object
+      properties:
+        name:
+          type: string
+        errors:
+          type: array
+          items: {}
+    response_employee_verification_checks_state:
+      type: object
+      properties:
+        state:
+          type: string
+        rejection_reasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/response_rejection_reason'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

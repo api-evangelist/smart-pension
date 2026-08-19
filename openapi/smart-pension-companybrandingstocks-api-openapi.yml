@@ -1,0 +1,135 @@
+openapi: 3.2.0
+info:
+  title: Keystone Company Branding Stocks API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: CompanyBrandingStocks
+paths:
+  /company_branding_stocks:
+    get:
+      summary: CompanyBrandingStocks/List
+      tags:
+      - CompanyBrandingStocks
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/company_branding_stocks
+                - rel: first
+                  title: first
+                  href: http://api.host.com/company_branding_stocks?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/company_branding_stocks?offset=0&limit=50
+                company_branding_stocks: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  company_branding_stocks:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_company_branding_stock'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_company_branding_stock:
+      type: object
+      properties:
+        id:
+          type: integer
+        cover_url:
+          type:
+          - string
+          - 'null'
+        thumb_cover_url:
+          type:
+          - string
+          - 'null'
+        desktop_cover_url:
+          type:
+          - string
+          - 'null'
+        mobile_cover_url:
+          type:
+          - string
+          - 'null'
+        mobile_retina_cover_url:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

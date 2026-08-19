@@ -1,0 +1,101 @@
+{
+  "item": [
+    {
+      "id": "86ca8275-6c94-4601-be06-c7b191c69393",
+      "name": "Jwks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f053f2c0-5bfb-45e9-bb85-df9597963279",
+          "name": "Jwks/Get",
+          "request": {
+            "name": "Jwks/Get",
+            "description": {},
+            "url": {
+              "path": [
+                ".well-known",
+                "jwks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c58cab18-18ff-4149-8743-0695daf71b19",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ".well-known",
+                    "jwks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"keys\": [\n    {\n      \"kty\": \"RSA\",\n      \"n\": \"wRL2Rrk60zfpi9_DFHe7wQQtrA2NBxRpAbFUhKcJ_6sPH94wgmRNfgYZ8VwIB64XW3dRXOsDm_LFjKX6NJJF9lyqJ4BxqYN6DfaQlPEgYROqI1qwnzJvSfQxZnSeZaK8oS1zD97uEDmLx_PV8mbLSYlWMseI7LpUzImrWeOshJc\",\n      \"e\": \"AQAB\",\n      \"kid\": \"95b0578129afc250fce3c5dd047ab4ea4b17fa951823d557548c1a11eb6f759f\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c579d0fd-d697-449a-bac3-c1eb2e3ec25d",
+    "name": "Keystone Jwks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

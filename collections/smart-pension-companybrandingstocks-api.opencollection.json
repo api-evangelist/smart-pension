@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Company Branding Stocks API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CompanyBrandingStocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CompanyBrandingStocks/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/company_branding_stocks"
+          },
+          "docs": "CompanyBrandingStocks/List"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

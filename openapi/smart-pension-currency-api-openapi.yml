@@ -1,0 +1,554 @@
+openapi: 3.2.0
+info:
+  title: Keystone Currency API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Currency
+paths:
+  /currencies:
+    get:
+      summary: Currencies/List
+      tags:
+      - Currency
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 145
+                offset: 0
+                total: 145
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/currencies
+                - rel: first
+                  title: first
+                  href: http://api.host.com/currencies?offset=0&limit=145
+                - rel: last
+                  title: last
+                  href: http://api.host.com/currencies?offset=0&limit=145
+                currencies:
+                - name: Afghan Afghani
+                  symbol: ؋
+                  iso_code: AFN
+                - name: Albanian Lek
+                  symbol: L
+                  iso_code: ALL
+                - name: Algerian Dinar
+                  symbol: د.ج
+                  iso_code: DZD
+                - name: Angolan Kwanza
+                  symbol: Kz
+                  iso_code: AOA
+                - name: Argentine Peso
+                  symbol: $
+                  iso_code: ARS
+                - name: Armenian Dram
+                  symbol: դր.
+                  iso_code: AMD
+                - name: Aruban Florin
+                  symbol: ƒ
+                  iso_code: AWG
+                - name: Australian Dollar
+                  symbol: $
+                  iso_code: AUD
+                - name: Azerbaijani Manat
+                  symbol: ₼
+                  iso_code: AZN
+                - name: Bahamian Dollar
+                  symbol: $
+                  iso_code: BSD
+                - name: Bahraini Dinar
+                  symbol: د.ب
+                  iso_code: BHD
+                - name: Bangladeshi Taka
+                  symbol: ৳
+                  iso_code: BDT
+                - name: Barbadian Dollar
+                  symbol: $
+                  iso_code: BBD
+                - name: Belize Dollar
+                  symbol: $
+                  iso_code: BZD
+                - name: Bermudian Dollar
+                  symbol: $
+                  iso_code: BMD
+                - name: Bhutanese Ngultrum
+                  symbol: Nu.
+                  iso_code: BTN
+                - name: Bolivian Boliviano
+                  symbol: Bs.
+                  iso_code: BOB
+                - name: Bosnia and Herzegovina Convertible Mark
+                  symbol: КМ
+                  iso_code: BAM
+                - name: Botswana Pula
+                  symbol: P
+                  iso_code: BWP
+                - name: Brazilian Real
+                  symbol: R$
+                  iso_code: BRL
+                - name: British Pound
+                  symbol: £
+                  iso_code: GBP
+                - name: Brunei Dollar
+                  symbol: $
+                  iso_code: BND
+                - name: Bulgarian Lev
+                  symbol: лв.
+                  iso_code: BGN
+                - name: Burundian Franc
+                  symbol: Fr
+                  iso_code: BIF
+                - name: Cambodian Riel
+                  symbol: ៛
+                  iso_code: KHR
+                - name: Canadian Dollar
+                  symbol: $
+                  iso_code: CAD
+                - name: Cape Verdean Escudo
+                  symbol: $
+                  iso_code: CVE
+                - name: Cayman Islands Dollar
+                  symbol: $
+                  iso_code: KYD
+                - name: Central African Cfa Franc
+                  symbol: CFA
+                  iso_code: XAF
+                - name: Cfp Franc
+                  symbol: Fr
+                  iso_code: XPF
+                - name: Chilean Peso
+                  symbol: $
+                  iso_code: CLP
+                - name: Chinese Renminbi Yuan
+                  symbol: ¥
+                  iso_code: CNY
+                - name: Colombian Peso
+                  symbol: $
+                  iso_code: COP
+                - name: Comorian Franc
+                  symbol: Fr
+                  iso_code: KMF
+                - name: Costa Rican Colón
+                  symbol: ₡
+                  iso_code: CRC
+                - name: Croatian Kuna
+                  symbol: kn
+                  iso_code: HRK
+                - name: Czech Koruna
+                  symbol: Kč
+                  iso_code: CZK
+                - name: Danish Krone
+                  symbol: kr.
+                  iso_code: DKK
+                - name: Djiboutian Franc
+                  symbol: Fdj
+                  iso_code: DJF
+                - name: Dominican Peso
+                  symbol: $
+                  iso_code: DOP
+                - name: East Caribbean Dollar
+                  symbol: $
+                  iso_code: XCD
+                - name: Egyptian Pound
+                  symbol: ج.م
+                  iso_code: EGP
+                - name: Ethiopian Birr
+                  symbol: Br
+                  iso_code: ETB
+                - name: Euro
+                  symbol: €
+                  iso_code: EUR
+                - name: Falkland Pound
+                  symbol: £
+                  iso_code: FKP
+                - name: Fijian Dollar
+                  symbol: $
+                  iso_code: FJD
+                - name: Gambian Dalasi
+                  symbol: D
+                  iso_code: GMD
+                - name: Georgian Lari
+                  symbol: ლ
+                  iso_code: GEL
+                - name: Ghanaian Cedi
+                  symbol: ₵
+                  iso_code: GHS
+                - name: Gibraltar Pound
+                  symbol: £
+                  iso_code: GIP
+                - name: Guatemalan Quetzal
+                  symbol: Q
+                  iso_code: GTQ
+                - name: Guinean Franc
+                  symbol: Fr
+                  iso_code: GNF
+                - name: Guyanese Dollar
+                  symbol: $
+                  iso_code: GYD
+                - name: Haitian Gourde
+                  symbol: G
+                  iso_code: HTG
+                - name: Honduran Lempira
+                  symbol: L
+                  iso_code: HNL
+                - name: Hong Kong Dollar
+                  symbol: $
+                  iso_code: HKD
+                - name: Hungarian Forint
+                  symbol: Ft
+                  iso_code: HUF
+                - name: Icelandic Króna
+                  symbol: kr.
+                  iso_code: ISK
+                - name: Indian Rupee
+                  symbol: ₹
+                  iso_code: INR
+                - name: Indonesian Rupiah
+                  symbol: Rp
+                  iso_code: IDR
+                - name: Isle of Man Pound
+                  symbol: £
+                  iso_code: IMP
+                - name: Israeli New Sheqel
+                  symbol: ₪
+                  iso_code: ILS
+                - name: Jamaican Dollar
+                  symbol: $
+                  iso_code: JMD
+                - name: Japanese Yen
+                  symbol: ¥
+                  iso_code: JPY
+                - name: Jersey Pound
+                  symbol: £
+                  iso_code: JEP
+                - name: Jordanian Dinar
+                  symbol: د.ا
+                  iso_code: JOD
+                - name: Kazakhstani Tenge
+                  symbol: ₸
+                  iso_code: KZT
+                - name: Kenyan Shilling
+                  symbol: KSh
+                  iso_code: KES
+                - name: Kuwaiti Dinar
+                  symbol: د.ك
+                  iso_code: KWD
+                - name: Kyrgyzstani Som
+                  symbol: som
+                  iso_code: KGS
+                - name: Lao Kip
+                  symbol: ₭
+                  iso_code: LAK
+                - name: Lebanese Pound
+                  symbol: ل.ل
+                  iso_code: LBP
+                - name: Lesotho Loti
+                  symbol: L
+                  iso_code: LSL
+                - name: Libyan Dinar
+                  symbol: ل.د
+                  iso_code: LYD
+                - name: Macanese Pataca
+                  symbol: P
+                  iso_code: MOP
+                - name: Macedonian Denar
+                  symbol: ден
+                  iso_code: MKD
+                - name: Malagasy Ariary
+                  symbol: Ar
+                  iso_code: MGA
+                - name: Malawian Kwacha
+                  symbol: MK
+                  iso_code: MWK
+                - name: Malaysian Ringgit
+                  symbol: RM
+                  iso_code: MYR
+                - name: Maldivian Rufiyaa
+                  symbol: MVR
+                  iso_code: MVR
+                - name: Mauritanian Ouguiya
+                  symbol: UM
+                  iso_code: MRU
+                - name: Mauritian Rupee
+                  symbol: ₨
+                  iso_code: MUR
+                - name: Mexican Peso
+                  symbol: $
+                  iso_code: MXN
+                - name: Moldovan Leu
+                  symbol: L
+                  iso_code: MDL
+                - name: Mongolian Tögrög
+                  symbol: ₮
+                  iso_code: MNT
+                - name: Moroccan Dirham
+                  symbol: د.م.
+                  iso_code: MAD
+                - name: Mozambican Metical
+                  symbol: MTn
+                  iso_code: MZN
+                - name: Namibian Dollar
+                  symbol: $
+                  iso_code: NAD
+                - name: Nepalese Rupee
+                  symbol: Rs.
+                  iso_code: NPR
+                - name: Netherlands Antillean Gulden
+                  symbol: ƒ
+                  iso_code: ANG
+                - name: New Taiwan Dollar
+                  symbol: $
+                  iso_code: TWD
+                - name: New Zealand Dollar
+                  symbol: $
+                  iso_code: NZD
+                - name: Nicaraguan Córdoba
+                  symbol: C$
+                  iso_code: NIO
+                - name: Nigerian Naira
+                  symbol: ₦
+                  iso_code: NGN
+                - name: Norwegian Krone
+                  symbol: kr
+                  iso_code: NOK
+                - name: Omani Rial
+                  symbol: ر.ع.
+                  iso_code: OMR
+                - name: Pakistani Rupee
+                  symbol: ₨
+                  iso_code: PKR
+                - name: Panamanian Balboa
+                  symbol: B/.
+                  iso_code: PAB
+                - name: Papua New Guinean Kina
+                  symbol: K
+                  iso_code: PGK
+                - name: Paraguayan Guaraní
+                  symbol: ₲
+                  iso_code: PYG
+                - name: Peruvian Sol
+                  symbol: S/
+                  iso_code: PEN
+                - name: Philippine Peso
+                  symbol: ₱
+                  iso_code: PHP
+                - name: Polish Złoty
+                  symbol: zł
+                  iso_code: PLN
+                - name: Qatari Riyal
+                  symbol: ر.ق
+                  iso_code: QAR
+                - name: Romanian Leu
+                  symbol: Lei
+                  iso_code: RON
+                - name: Russian Ruble
+                  symbol: ₽
+                  iso_code: RUB
+                - name: Rwandan Franc
+                  symbol: FRw
+                  iso_code: RWF
+                - name: Saint Helenian Pound
+                  symbol: £
+                  iso_code: SHP
+                - name: Samoan Tala
+                  symbol: T
+                  iso_code: WST
+                - name: Saudi Riyal
+                  symbol: ر.س
+                  iso_code: SAR
+                - name: Serbian Dinar
+                  symbol: РСД
+                  iso_code: RSD
+                - name: Seychellois Rupee
+                  symbol: ₨
+                  iso_code: SCR
+                - name: Sierra Leonean Leone
+                  symbol: Le
+                  iso_code: SLL
+                - name: Singapore Dollar
+                  symbol: $
+                  iso_code: SGD
+                - name: Solomon Islands Dollar
+                  symbol: $
+                  iso_code: SBD
+                - name: Somali Shilling
+                  symbol: Sh
+                  iso_code: SOS
+                - name: South African Rand
+                  symbol: R
+                  iso_code: ZAR
+                - name: South Korean Won
+                  symbol: ₩
+                  iso_code: KRW
+                - name: South Sudanese Pound
+                  symbol: £
+                  iso_code: SSP
+                - name: Sri Lankan Rupee
+                  symbol: ₨
+                  iso_code: LKR
+                - name: Surinamese Dollar
+                  symbol: $
+                  iso_code: SRD
+                - name: Swazi Lilangeni
+                  symbol: E
+                  iso_code: SZL
+                - name: Swedish Krona
+                  symbol: kr
+                  iso_code: SEK
+                - name: Swiss Franc
+                  symbol: CHF
+                  iso_code: CHF
+                - name: São Tomé and Príncipe Dobra
+                  symbol: Db
+                  iso_code: STD
+                - name: Tajikistani Somoni
+                  symbol: ЅМ
+                  iso_code: TJS
+                - name: Tanzanian Shilling
+                  symbol: Sh
+                  iso_code: TZS
+                - name: Thai Baht
+                  symbol: ฿
+                  iso_code: THB
+                - name: Tongan Paʻanga
+                  symbol: T$
+                  iso_code: TOP
+                - name: Trinidad and Tobago Dollar
+                  symbol: $
+                  iso_code: TTD
+                - name: Tunisian Dinar
+                  symbol: د.ت
+                  iso_code: TND
+                - name: Turkish Lira
+                  symbol: ₺
+                  iso_code: TRY
+                - name: Turkmenistani Manat
+                  symbol: T
+                  iso_code: TMT
+                - name: Ugandan Shilling
+                  symbol: USh
+                  iso_code: UGX
+                - name: Ukrainian Hryvnia
+                  symbol: ₴
+                  iso_code: UAH
+                - name: United Arab Emirates Dirham
+                  symbol: AED
+                  iso_code: AED
+                - name: United States Dollar
+                  symbol: $
+                  iso_code: USD
+                - name: Uruguayan Peso
+                  symbol: $U
+                  iso_code: UYU
+                - name: Uzbekistan Som
+                  symbol: so'm
+                  iso_code: UZS
+                - name: Vanuatu Vatu
+                  symbol: Vt
+                  iso_code: VUV
+                - name: Venezuelan Bolívar Soberano
+                  symbol: Bs
+                  iso_code: VES
+                - name: Vietnamese Đồng
+                  symbol: ₫
+                  iso_code: VND
+                - name: West African Cfa Franc
+                  symbol: Fr
+                  iso_code: XOF
+                - name: Yemeni Rial
+                  symbol: ﷼
+                  iso_code: YER
+                - name: Zambian Kwacha
+                  symbol: K
+                  iso_code: ZMW
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  currencies:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_currency'
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_currency:
+      type: object
+      properties:
+        name:
+          type:
+          - string
+          - 'null'
+        symbol:
+          type:
+          - string
+          - 'null'
+        iso_code:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

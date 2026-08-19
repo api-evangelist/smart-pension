@@ -1,0 +1,158 @@
+openapi: 3.2.0
+info:
+  title: Keystone Available Funds API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: AvailableFunds
+paths:
+  /companies/{company_id}/available_funds:
+    get:
+      summary: AvailableFunds/List
+      tags:
+      - AvailableFunds
+      security:
+      - oAuth2:
+        - employee
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 31
+        schema:
+          type: string
+      - name: subaccount_uuid
+        in: query
+        required: false
+        example: subaccount_uuid=3e363e78-9f26-4959-afe2-931449d20c5d
+        schema:
+          type: string
+      - name: scheme_id
+        in: query
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 4
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/31/available_funds?subaccount_uuid=3e363e78-9f26-4959-afe2-931449d20c5d
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/31/available_funds?subaccount_uuid=3e363e78-9f26-4959-afe2-931449d20c5d&offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/31/available_funds?subaccount_uuid=3e363e78-9f26-4959-afe2-931449d20c5d&offset=0&limit=50
+                available_funds:
+                - id: 1
+                  fund_id: 1
+                  display_name: available fund 1
+                  description: base description
+                - id: 2
+                  fund_id: 2
+                  display_name: available fund 2
+                  description: base description
+                - id: 4
+                  fund_id: 4
+                  display_name: available target date fund 1
+                  description: base description
+                - id: 5
+                  fund_id: 5
+                  display_name: available target date fund 2
+                  description: base description
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  available_funds:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_available_fund'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_available_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        fund_id:
+          type: integer
+        display_name:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

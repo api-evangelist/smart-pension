@@ -1,0 +1,983 @@
+{
+  "item": [
+    {
+      "id": "a09edab3-aa87-4202-9e5f-124aedeebd48",
+      "name": "ExpressionOfWish",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "25a068ac-9eaf-4b34-b30d-921d375d8bef",
+          "name": "Companies/Employees/ExpressionOfWish/Create",
+          "request": {
+            "name": "Companies/Employees/ExpressionOfWish/Create",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "expression_of_wish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"contingent_beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"follow_local_law\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6bc7a3f4-2dbd-498b-b47e-16148823ef78",
+              "name": "Creates an expression of wish",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Lady\",\n        \"name\": \"Carolyn\",\n        \"email\": \"rwood@kwinu.mil\",\n        \"address\": \"2836 Darwin Road\",\n        \"postcode\": \"67271-7963\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"employee_id\": 289,\n  \"created_at\": \"2026-08-05T13:00:54.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:00:54.000+01:00\",\n  \"follow_local_law\": false,\n  \"beneficiaries\": [\n    {\n      \"id\": 1,\n      \"title\": \"Lady\",\n      \"name\": \"Carolyn\",\n      \"email\": \"rwood@kwinu.mil\",\n      \"address\": \"2836 Darwin Road\",\n      \"postcode\": \"67271-7963\",\n      \"relation\": \"Friend\",\n      \"percentage\": 100,\n      \"born_on\": \"2000-10-02\",\n      \"type\": \"primary\"\n    }\n  ],\n  \"contingent_beneficiaries\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bc0db98-8f1b-4c34-88a9-de3d8626fdc7",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Lady\",\n        \"name\": \"Carolyn\",\n        \"email\": \"rwood@kwinu.mil\",\n        \"address\": \"2836 Darwin Road\",\n        \"postcode\": \"67271-7963\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2410,\n      \"title\": \"Percentage must be less than or equal to 100.\",\n      \"detail\": \"You need to enter a percentage which must be a numerical value greater than or equal to 1 and less than or equal to 100.\",\n      \"meta\": {\n        \"value\": \"999.0\",\n        \"count\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data/relationships/beneficiaries/0/attributes/percentage\"\n      }\n    },\n    {\n      \"code\": 2301,\n      \"title\": \"Total percentage is not valid.\",\n      \"detail\": \"The sum of the percentages has to equal 100 percent.\",\n      \"meta\": {\n        \"numeric_attribute\": \"percentage\",\n        \"expected_sum\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "be549c23-91ca-4e41-a511-f7f02fd5ceef",
+          "name": "Companies/Employees/ExpressionOfWish/Get",
+          "request": {
+            "name": "Companies/Employees/ExpressionOfWish/Get",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "expression_of_wish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include[]",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e32a8866-4019-4a8e-8144-ba030ba0eccd",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2,\n  \"employee_id\": 291,\n  \"created_at\": \"2026-08-05T13:00:54.000+01:00\",\n  \"updated_at\": \"2026-08-05T13:00:54.000+01:00\",\n  \"follow_local_law\": false,\n  \"beneficiaries\": [],\n  \"contingent_beneficiaries\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b24e71d-f1c1-457c-aab6-f932d9ac765d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bab08a7b-9e93-463f-8033-916aea228fd9",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include[]",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e76856e-2ba2-48bf-8a89-039be83b0855",
+          "name": "Companies/Employees/ExpressionOfWish/Update",
+          "request": {
+            "name": "Companies/Employees/ExpressionOfWish/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "expression_of_wish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"contingent_beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"follow_local_law\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "10c54f56-ee8e-44b6-a314-d315f5eaf7a8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Lord\",\n        \"name\": \"Ashley\",\n        \"email\": \"tburns@kazio.net\",\n        \"address\": \"a different address\",\n        \"postcode\": \"58770\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fe89289-9912-4f60-9a56-b19a0eaf9b6d",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Lord\",\n        \"name\": \"Ashley\",\n        \"email\": \"tburns@kazio.net\",\n        \"address\": \"a different address\",\n        \"postcode\": \"58770\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2410,\n      \"title\": \"Percentage must be less than or equal to 100.\",\n      \"detail\": \"You need to enter a percentage which must be a numerical value greater than or equal to 1 and less than or equal to 100.\",\n      \"meta\": {\n        \"value\": \"999.0\",\n        \"count\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data/relationships/beneficiaries/0/attributes/percentage\"\n      }\n    },\n    {\n      \"code\": 2301,\n      \"title\": \"Total percentage is not valid.\",\n      \"detail\": \"The sum of the percentages has to equal 100 percent.\",\n      \"meta\": {\n        \"numeric_attribute\": \"percentage\",\n        \"expected_sum\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0429a333-a87d-4fda-bf59-cec33e2ff6a7",
+          "name": "Companies/Employees/ExpressionOfWish/Update",
+          "request": {
+            "name": "Companies/Employees/ExpressionOfWish/Update",
+            "description": {},
+            "url": {
+              "path": [
+                "companies",
+                ":company_id",
+                "employees",
+                ":employee_id",
+                "expression_of_wish"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "company_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "employee_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"contingent_beneficiaries\": [\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"born_on\": \"<string>\",\n        \"title\": \"<string>\",\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"address\": \"<string>\",\n        \"postcode\": \"<string>\",\n        \"relation\": \"<string>\",\n        \"percentage\": \"<number>\",\n        \"type\": \"<string>\",\n        \"_destroy\": \"<string>\"\n      }\n    ],\n    \"follow_local_law\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1f12caa-927f-482e-b90b-6cb8e393eef1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Mx\",\n        \"name\": \"Johnny\",\n        \"email\": \"sferguson@blogpad.net\",\n        \"address\": \"a different address\",\n        \"postcode\": \"49643\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "deefe4dd-30c8-4520-b096-acfc29adc0a1",
+              "name": "Invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "companies",
+                    ":company_id",
+                    "employees",
+                    ":employee_id",
+                    "expression_of_wish"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "company_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "employee_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"expression_of_wish\": {\n    \"beneficiaries\": [\n      {\n        \"born_on\": \"2000-10-02\",\n        \"title\": \"Mx\",\n        \"name\": \"Johnny\",\n        \"email\": \"sferguson@blogpad.net\",\n        \"address\": \"a different address\",\n        \"postcode\": \"49643\",\n        \"relation\": \"Friend\",\n        \"percentage\": 100,\n        \"type\": \"primary\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 2410,\n      \"title\": \"Percentage must be less than or equal to 100.\",\n      \"detail\": \"You need to enter a percentage which must be a numerical value greater than or equal to 1 and less than or equal to 100.\",\n      \"meta\": {\n        \"value\": \"999.0\",\n        \"count\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data/relationships/beneficiaries/0/attributes/percentage\"\n      }\n    },\n    {\n      \"code\": 2301,\n      \"title\": \"Total percentage is not valid.\",\n      \"detail\": \"The sum of the percentages has to equal 100 percent.\",\n      \"meta\": {\n        \"numeric_attribute\": \"percentage\",\n        \"expected_sum\": 100\n      },\n      \"source\": {\n        \"pointer\": \"/data\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5c8f3fa0-134b-444f-b7e6-23f97813e6a9",
+    "name": "Keystone Expression Of Wish API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

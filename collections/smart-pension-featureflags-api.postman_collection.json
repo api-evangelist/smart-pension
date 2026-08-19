@@ -1,0 +1,127 @@
+{
+  "item": [
+    {
+      "id": "c43559a8-5bab-42e9-8a85-549f27c6ecb6",
+      "name": "FeatureFlags",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "571e163b-c216-4885-bce6-9c054547bb0b",
+          "name": "FeatureFlags/List",
+          "request": {
+            "name": "FeatureFlags/List",
+            "description": {},
+            "url": {
+              "path": [
+                "feature_flags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "customer user employee"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "dc90654b-c27b-43e8-b2a8-58058a6e548e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "feature_flags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"account_claiming\": false,\n  \"account_matching\": false,\n  \"account_matching_ui\": false,\n  \"additional_membership_notifications\": false,\n  \"address_check_for_withdrawal_journey\": false,\n  \"adviser_communications_branding\": false,\n  \"adviser_invitation_email\": false,\n  \"allow_create_employee_with_exit_details\": false,\n  \"annual_statements_for_printing\": false,\n  \"api_webhooks_for_pcs\": false,\n  \"automated_bank_details_check\": false,\n  \"bank_statement_transactions\": false,\n  \"bank_verification_name_control\": false,\n  \"benefit_automate_comms\": false,\n  \"benefit_instructions\": false,\n  \"beta_employer_app\": false,\n  \"brs_individuals\": false,\n  \"calculate_funds_original_cost\": false,\n  \"check_contribution_limits\": false,\n  \"company_address_extensions\": false,\n  \"company_aml_check\": false,\n  \"company_gone_away_flags\": false,\n  \"company_migration_multiple_products\": false,\n  \"configurable_benefit_paye_export\": false,\n  \"configured_autoenrolment_company_rules\": false,\n  \"contractual_enrolment\": false,\n  \"contribution_amount_tolerance_configuration\": false,\n  \"contribution_type_enabled\": false,\n  \"create_bacs_for_all_payable_contributions\": false,\n  \"crm_employment_category\": false,\n  \"custom_collection_date\": false,\n  \"custom_comms\": false,\n  \"custom_retirement_advice\": false,\n  \"data_retention_exports_removal\": false,\n  \"delayed_memberships\": false,\n  \"disable_late_payments\": false,\n  \"employee_dashboard_improvements\": false,\n  \"employee_one_off_payments\": false,\n  \"employee_page_tracking\": false,\n  \"employee_passed_nra_validation\": false,\n  \"enable_role_based_access\": false,\n  \"exit_statement_letter_automation\": false,\n  \"exited_employees_visibility\": false,\n  \"external_oidc_id_ui\": false,\n  \"external_oidc_provider_configurations\": false,\n  \"fe_employee_direct_payment_enabled\": false,\n  \"fe_employee_recurring_payment_enabled\": false,\n  \"fe_profile_hide_account_claim\": false,\n  \"fe_ras_claim_enabled\": false,\n  \"frontend_oauth_callback\": false,\n  \"generate_pdfs_using_rendering_service\": false,\n  \"hargreaves_R2_release\": false,\n  \"hargreaves_R3_release\": false,\n  \"hargreaves_oow_starts_on_upload_date\": false,\n  \"hide_sensitive_company_in_crm\": false,\n  \"individuals\": false,\n  \"membership_event_edit\": false,\n  \"missed_contribution_query\": false,\n  \"next_pay_period_report\": false,\n  \"payment_automation\": false,\n  \"payments_service_enabled\": false,\n  \"pbs_statement_letter_projection_section\": false,\n  \"pension_dashboard_reporting\": false,\n  \"polar_company_contributions_migration\": false,\n  \"pre_retirement_education\": false,\n  \"recent_contribution_ends_on_filter\": false,\n  \"recurring_contribution_schedules\": false,\n  \"redirection_enabled_frontend\": false,\n  \"reuse_completed_benefit_form_tasks\": false,\n  \"scheme_currency\": false,\n  \"scheme_wind_up\": false,\n  \"send_email_on_single_contribution_creation\": false,\n  \"skip_percentages_for_unusual_amount_reason\": false,\n  \"ssif_export_enabled\": false,\n  \"ssif_headers_mapping\": false,\n  \"ssif_imports_employee_nino_mismatch_validator_enabled\": false,\n  \"state_effective_on\": false,\n  \"subaccounts\": false,\n  \"suppress_letters_creation\": false,\n  \"target_retirement_age_employee_age_offset\": false,\n  \"tax_relief_summary\": false,\n  \"to_subaccount_splits\": false,\n  \"tradeless_adjustments\": false,\n  \"transfer_in_drafts\": false,\n  \"transfers_subaccounts\": false,\n  \"adviser_quicksight_dashboard\": false,\n  \"company_details_direct_debit_charging\": false,\n  \"compare_funds_v2\": false,\n  \"compare_investments_five_yr\": false,\n  \"employer_quicksight_dashboard\": false,\n  \"gavc_employee\": false,\n  \"individual_ee_contribution_creation\": false,\n  \"keystone_assessment\": false,\n  \"member_investments_improvements\": false,\n  \"multiple_retirement_pots\": false,\n  \"new_employer_sign_up_flow\": false,\n  \"pension_balance_chart_contributions\": false,\n  \"pension_balance_chart_five_year\": false,\n  \"pension_calculator_modes\": false,\n  \"scoped_adviser_invitations\": false,\n  \"sif_upload_enhancements\": false,\n  \"verify_member_data_before_withdrawal\": false,\n  \"benefit_group_import\": false,\n  \"benefit_group_removal\": false,\n  \"benefit_with_switch\": false,\n  \"broker_portal\": false,\n  \"charge_configurations.disable_fund_set_differentials\": false,\n  \"charge_sets.application_in_company_creation_processes\": false,\n  \"company_enhanced_compliance_data_collection\": false,\n  \"cookie_manager_one_trust\": false,\n  \"cookie_manager_required\": false,\n  \"cookie_manager_user_centrics\": false,\n  \"custom_app_stylings\": false,\n  \"direct_debit_company_task_required\": false,\n  \"display_subaccounts\": false,\n  \"download_mobile_app_banner\": false,\n  \"fe_ee_identity_login\": false,\n  \"fe_kyc_mccoy_enabled\": false,\n  \"generic_pdf_rendering\": false,\n  \"identity\": false,\n  \"identity_partial_match\": false,\n  \"identity_portal_migration\": false,\n  \"identity_predictions_in_crm\": false,\n  \"identity_ui\": false,\n  \"ifa_reports_enhancements_2026\": false,\n  \"individual_ee_creation\": false,\n  \"investment_return\": false,\n  \"kota_integration\": false,\n  \"laver_leisure_jlg\": false,\n  \"leaver_fees\": false,\n  \"legislatorial_retirement_setting\": false,\n  \"letters_per_subaccount_groups\": false,\n  \"live_employee_fund_holdings\": false,\n  \"login_redesign\": false,\n  \"manage_charge_package_assignees\": false,\n  \"mccoy_intergration_enabled\": false,\n  \"mfa_email_otp\": false,\n  \"mohre_api_integration\": false,\n  \"niac_er_todo_list_migration\": false,\n  \"partner_api\": false,\n  \"payment_schedules\": false,\n  \"payments_out_import\": false,\n  \"pdf_custom_headers_footers\": false,\n  \"personal_email_capture\": false,\n  \"ppa_minimum_retirement_age\": false,\n  \"profile_accounts_linking\": false,\n  \"profile_data_centralization\": false,\n  \"provider_scheme_migrations.hide_fund_set_and_instrument_for_multiple_products\": false,\n  \"provider_scheme_migrations.search_employee_identifiers_configuration\": false,\n  \"ras_adviser_additional_content\": false,\n  \"ras_er_new_signup\": false,\n  \"ras_for_offline_single_contributions\": false,\n  \"rebuild_membership_periods\": false,\n  \"rehires_day1_crm\": false,\n  \"retirement_calculator\": false,\n  \"salary_based_contribution\": false,\n  \"separated_bank_statement_transactions\": false,\n  \"signature_services_selection\": false,\n  \"smart_explore_new_reminders\": false,\n  \"spmt_new_theme\": false,\n  \"subaccounts_active_template_changes\": false,\n  \"tax_relief_in_pension_forecast\": false,\n  \"templates_documentation\": false,\n  \"voluntary_top_ups\": false,\n  \"xirr_end_of_cycle_contributions\": false,\n  \"zendesk_chat\": false,\n  \"re_enrolment\": true,\n  \"valuation_under_review\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.sandbox.autoenrolment.co.uk",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c64f47e8-84ea-4f8d-a08a-8f5cf18847da",
+    "name": "Keystone Feature Flags API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the endpoint description of Keystone API.",
+      "type": "text/plain"
+    }
+  }
+}

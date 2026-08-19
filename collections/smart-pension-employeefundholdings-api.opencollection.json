@@ -1,0 +1,137 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Employee Fund Holdings API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EmployeeFundHoldings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeFundHoldings/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/employee_fund_holdings/:id",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "590",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "269",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeFundHoldings/Get"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeFundHoldings/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/employee_fund_holdings",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "593",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "272",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeFundHoldings/List"
+        },
+        {
+          "info": {
+            "name": "Companies/Employees/EmployeeFundsValuations/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/employee_funds_valuations",
+            "params": [
+              {
+                "name": "company_id",
+                "value": "600",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "279",
+                "type": "path"
+              },
+              {
+                "name": "subaccount_uuid",
+                "value": "subaccount_uuid=4f61bad7-50a6-42aa-9d16-8ab9093f6685",
+                "type": "query"
+              },
+              {
+                "name": "investment_account_uuids[]",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pots[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Companies/Employees/EmployeeFundsValuations/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

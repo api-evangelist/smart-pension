@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Historical Transfer In API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HistoricalTransferIn",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "HistoricalTransferIn/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/companies/:company_id/employees/:employee_id/historical_transfer_ins/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "1",
+                "type": "path"
+              },
+              {
+                "name": "company_id",
+                "value": "644",
+                "type": "path"
+              },
+              {
+                "name": "employee_id",
+                "value": "314",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "HistoricalTransferIn/Get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

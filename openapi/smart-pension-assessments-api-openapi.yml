@@ -1,0 +1,280 @@
+openapi: 3.2.0
+info:
+  title: Keystone Assessments API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: Assessments
+paths:
+  /companies/{company_id}/employees/{employee_id}/assessments/{id}:
+    get:
+      summary: Assessments/Get
+      tags:
+      - Assessments
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: id
+        in: path
+        required: true
+        example: 59
+        schema:
+          type: string
+      - name: company_id
+        in: path
+        required: true
+        example: 256
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 65
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                id: 59
+                employee_id: 65
+                born_on: '2001-08-05'
+                contribute_if_entitled: true
+                gross_qualifying_earnings: null
+                period_type: Weekly
+                gender: Male
+                category: Non-eligible jobholders
+                no_duties_reason: null
+                occurred_on: '2026-08-05'
+                cancelled_at: null
+                created_at: '2026-08-05T12:59:09.000+01:00'
+                updated_at: '2026-08-05T12:59:09.000+01:00'
+                pre_assessed: false
+                links:
+                - rel: employee
+                  title: employee
+                  href: https://api.host.com/companies/256/employees/65
+              schema:
+                $ref: '#/components/schemas/response_assessment'
+        '404':
+          description: Not Found
+  /companies/{company_id}/employees/{employee_id}/assessments:
+    get:
+      summary: Assessments/List
+      tags:
+      - Assessments
+      security:
+      - oAuth2:
+        - user
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 260
+        schema:
+          type: string
+      - name: employee_id
+        in: path
+        required: true
+        example: 67
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: offset
+        in: query
+        schema:
+          type: integer
+        required: false
+      - name: sort
+        in: query
+        schema:
+          type: string
+        required: false
+      - name: direction
+        in: query
+        schema:
+          type: string
+          enum:
+          - ASC
+          - DESC
+        required: false
+      - name: filter
+        in: query
+        schema:
+          type: object
+          properties:
+            category:
+              type: array
+              items:
+                type: string
+            period_type:
+              type: array
+              items:
+                type: string
+            occurred_on:
+              type: array
+              items:
+                type: string
+            cancelled_at:
+              type: array
+              items:
+                type: string
+        required: false
+        style: deepObject
+      - name: operator
+        in: query
+        schema:
+          type: string
+          enum:
+          - or
+          - and
+        required: false
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              example:
+                limit: 50
+                offset: 0
+                total: 0
+                links:
+                - rel: self
+                  title: self
+                  href: http://api.host.com/companies/260/employees/67/assessments
+                - rel: first
+                  title: first
+                  href: http://api.host.com/companies/260/employees/67/assessments?offset=0&limit=50
+                - rel: last
+                  title: last
+                  href: http://api.host.com/companies/260/employees/67/assessments?offset=0&limit=50
+                assessments: []
+              schema:
+                type: object
+                properties:
+                  limit:
+                    type:
+                    - integer
+                    - 'null'
+                  offset:
+                    type:
+                    - integer
+                    - 'null'
+                  total:
+                    type:
+                    - integer
+                    - 'null'
+                  links:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/link'
+                  assessments:
+                    type:
+                    - array
+                    - 'null'
+                    items:
+                      $ref: '#/components/schemas/response_assessment'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_assessment:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_id:
+          type: integer
+        born_on:
+          type: string
+          format: date
+        contribute_if_entitled:
+          type: boolean
+        gross_qualifying_earnings:
+          type:
+          - number
+          - 'null'
+          format: float
+        period_type:
+          type: string
+        gender:
+          type: string
+        category:
+          type: string
+        no_duties_reason:
+          type:
+          - string
+          - 'null'
+        occurred_on:
+          type: string
+          format: date
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        pre_assessed:
+          type: boolean
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/link'
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

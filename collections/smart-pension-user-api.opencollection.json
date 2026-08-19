@@ -1,0 +1,280 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone User API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Users/List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users",
+            "params": [
+              {
+                "name": "adviser_id",
+                "value": "44",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "operator",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/List"
+        },
+        {
+          "info": {
+            "name": "Users/Create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users",
+            "params": [
+              {
+                "name": "adviser_id",
+                "value": "35",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Create"
+        },
+        {
+          "info": {
+            "name": "Users/Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "44",
+                "type": "path"
+              },
+              {
+                "name": "adviser_id",
+                "value": "40",
+                "type": "path"
+              },
+              {
+                "name": "include[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Get"
+        },
+        {
+          "info": {
+            "name": "Users/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "51",
+                "type": "path"
+              },
+              {
+                "name": "adviser_id",
+                "value": "45",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Update"
+        },
+        {
+          "info": {
+            "name": "Users/Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "54",
+                "type": "path"
+              },
+              {
+                "name": "adviser_id",
+                "value": "48",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Update"
+        },
+        {
+          "info": {
+            "name": "Users/Destroy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.sandbox.autoenrolment.co.uk/advisers/:adviser_id/users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "41",
+                "type": "path"
+              },
+              {
+                "name": "adviser_id",
+                "value": "38",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Destroy"
+        },
+        {
+          "info": {
+            "name": "Users/Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/users/session",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": "Bearer eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIyMywiaWF0IjoxNzg1OTMxNjIzLCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJoMXFNRGNhQzFFaElGM0szMWFWRGFueEJFemI5SEgxM1JBR0k2Y0lFQ1lBIiwic2NvcGUiOiI6dXNlciIsInN1YiI6NzIyLCJyb2xlIjoidXNlciJ9.XQBfKvaI-HHcmHkiGHAErxqjM9-vl9pD12YEYhRIOKs23f7rSt_E2Dk-3IVCcoUvxbGS15PV91LncLZSm5RdyrvT_9CfyidY7gSKPQfKJpVqdVqh1vaYh6OTNrje_I4FmbdWR_Z5DtqWGYCneglw5t-yZXWS4GwgoG5drUq0HIM"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Users/Session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

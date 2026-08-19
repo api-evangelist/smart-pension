@@ -1,0 +1,103 @@
+openapi: 3.2.0
+info:
+  title: Keystone Payment Approvals API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: PaymentApprovals
+paths:
+  /companies/{company_id}/payment_approvals:
+    post:
+      summary: PaymentApprovals/Create
+      tags:
+      - PaymentApprovals
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 219
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            example: null
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              example:
+                owner_id: 116
+                owner_type: Customer
+              schema:
+                $ref: '#/components/schemas/response_payment_approval'
+        '401':
+          description: Unauthorized
+  /companies/{company_id}/payment_approvals/permitted:
+    get:
+      summary: PaymentApprovals/Permitted/Get
+      tags:
+      - PaymentApprovals
+      security:
+      - oAuth2:
+        - customer
+      parameters:
+      - name: company_id
+        in: path
+        required: true
+        example: 221
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    response_payment_approval:
+      type: object
+      properties:
+        owner_id:
+          type: integer
+        owner_type:
+          type: string
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

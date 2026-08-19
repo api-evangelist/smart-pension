@@ -1,0 +1,298 @@
+openapi: 3.2.0
+info:
+  title: Keystone Marketing Preference API
+  version: v12
+  description: This is the endpoint description of Keystone API.
+servers:
+- url: https://api.sandbox.autoenrolment.co.uk
+- url: /
+tags:
+- name: MarketingPreference
+paths:
+  /employees/marketing_preference:
+    put:
+      summary: Employees/MarketingPreference/Update
+      tags:
+      - MarketingPreference
+      security:
+      - oAuth2:
+        - employee
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  marketing_preference:
+                    gdpr_consent: true
+                    source: user
+              invalid_parameters:
+                value:
+                  marketing_preference:
+                    gdpr_consent: true
+                    source: invalid_value
+            schema:
+              type: object
+              properties:
+                gdpr_consent:
+                  type: boolean
+                source:
+                  type: string
+                  enum:
+                  - user
+                  - crm
+                  - system_generated
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 4802
+                      title: Source parameter is invalid.
+                      detail: Source parameter can only be 'user', 'crm' or 'system_generated'.
+                      meta:
+                        values:
+                        - user
+                        - crm
+                        - system_generated
+                        value: invalid_value
+                      source:
+                        pointer: /data/attributes/source
+    patch:
+      summary: Employees/MarketingPreference/Update
+      tags:
+      - MarketingPreference
+      security:
+      - oAuth2:
+        - employee
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  marketing_preference:
+                    gdpr_consent: true
+                    source: user
+              invalid_parameters:
+                value:
+                  marketing_preference:
+                    gdpr_consent: true
+                    source: invalid_value
+            schema:
+              type: object
+              properties:
+                gdpr_consent:
+                  type: boolean
+                source:
+                  type: string
+                  enum:
+                  - user
+                  - crm
+                  - system_generated
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 4802
+                      title: Source parameter is invalid.
+                      detail: Source parameter can only be 'user', 'crm' or 'system_generated'.
+                      meta:
+                        values:
+                        - user
+                        - crm
+                        - system_generated
+                        value: invalid_value
+                      source:
+                        pointer: /data/attributes/source
+  /users/marketing_preference:
+    put:
+      summary: Advisers/Users/MarketingPreference/Update
+      tags:
+      - MarketingPreference
+      security:
+      - oAuth2:
+        - user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  gdpr_consent: true
+                  source: user
+              invalid_parameters:
+                value:
+                  gdpr_consent: true
+                  source: null
+            schema:
+              type: object
+              properties:
+                gdpr_consent:
+                  type: boolean
+                source:
+                  type: string
+                  enum:
+                  - user
+                  - crm
+                  - system_generated
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 4802
+                      title: Source parameter is invalid.
+                      detail: Source parameter can only be 'user', 'crm' or 'system_generated'.
+                      meta:
+                        values:
+                        - user
+                        - crm
+                        - system_generated
+                        value: null
+                      source:
+                        pointer: /data/attributes/source
+    patch:
+      summary: Advisers/Users/MarketingPreference/Update
+      tags:
+      - MarketingPreference
+      security:
+      - oAuth2:
+        - user
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  gdpr_consent: true
+                  source: user
+              invalid_parameters:
+                value:
+                  gdpr_consent: true
+                  source: null
+            schema:
+              type: object
+              properties:
+                gdpr_consent:
+                  type: boolean
+                source:
+                  type: string
+                  enum:
+                  - user
+                  - crm
+                  - system_generated
+      responses:
+        '204':
+          description: Success
+        '401':
+          description: Unauthorized
+          content:
+            text/plain:
+              examples:
+                unauthorized:
+                  value: 'HTTP Token: Access denied.
+
+                    '
+        '422':
+          description: Invalid parameters
+          content:
+            application/json:
+              examples:
+                invalid_parameters:
+                  value:
+                    errors:
+                    - code: 4802
+                      title: Source parameter is invalid.
+                      detail: Source parameter can only be 'user', 'crm' or 'system_generated'.
+                      meta:
+                        values:
+                        - user
+                        - crm
+                        - system_generated
+                        value: null
+                      source:
+                        pointer: /data/attributes/source
+components:
+  securitySchemes:
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://id.sandbox.autoenrolment.co.uk/oauth/authorize
+          tokenUrl: https://id.sandbox.autoenrolment.co.uk/oauth/token
+          scopes:
+            customer: 'Manage the customer''s company.
+
+              - Create postponements
+
+              - Create and import contributions
+
+              - Edit company details
+
+              - Add and edit employees'
+            user: 'Manage all companies linked to the user''s adviser.
+
+              - Manage adviser details
+
+              - Add and edit adviser''s users
+
+              - Create and import contributions for any company managed by the adviser'
+            employee: 'Manage the employee account.
+
+              - List employee contributions
+
+              - Edit employee details and preferences'
+x-samples-languages:
+- curl
+x-proxy-enabled: false

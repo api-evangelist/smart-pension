@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Keystone Verification Checks API",
+    "version": "v12"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VerificationChecks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "VerificationChecks/GenerateVerificationUrl",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.sandbox.autoenrolment.co.uk/verification_checks/generate_verification_url",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/GenerateVerificationUrl"
+        },
+        {
+          "info": {
+            "name": "VerificationChecks/State",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/verification_checks/state",
+            "params": [
+              {
+                "name": "target",
+                "value": "target=onboarding",
+                "type": "query"
+              },
+              {
+                "name": "verification_check_types[]",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/State"
+        },
+        {
+          "info": {
+            "name": "VerificationChecks/verification_url",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.sandbox.autoenrolment.co.uk/verification_checks/verification_url",
+            "params": [
+              {
+                "name": "target",
+                "value": "target=onboarding",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/authorize",
+              "accessTokenUrl": "https://id.sandbox.autoenrolment.co.uk/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "VerificationChecks/verification_url"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
