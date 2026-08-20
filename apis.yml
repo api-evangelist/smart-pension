@@ -19,6 +19,19 @@ specificationVersion: '0.23'
 created: '2026-08-05'
 modified: '2026-08-05'
 tags:
+- Pensions
+- Retirement
+- workplace-pension
+- auto-enrolment
+- Payroll
+- Fintech
+- Financial-Services
+- United Kingdom
+- master-trust
+- Employee Benefits
+- Contributions
+- papdis
+tags_raw:
 - pensions
 - retirement
 - workplace-pension
@@ -62,6 +75,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -401,6 +416,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Bank Account Details
+  tags_raw:
   - BankAccountDetails
   properties:
   - type: OpenAPI
@@ -909,6 +926,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Company Lookup
+  tags_raw:
   - CompanyLookup
   properties:
   - type: OpenAPI
@@ -1150,6 +1169,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Customers
+  tags_raw:
   - Customer
   properties:
   - type: OpenAPI
@@ -1637,6 +1658,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Export
+  tags_raw:
   - Exports
   properties:
   - type: OpenAPI
@@ -1710,6 +1733,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Feature Flags
+  tags_raw:
   - FeatureFlags
   properties:
   - type: OpenAPI
@@ -2052,6 +2077,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - JWKS
+  tags_raw:
   - Jwks
   properties:
   - type: OpenAPI
@@ -2389,6 +2416,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Notification
+  tags_raw:
   - Notifications
   properties:
   - type: OpenAPI
@@ -2805,6 +2834,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Portfolio
+  tags_raw:
   - Portfolios
   properties:
   - type: OpenAPI
@@ -3169,6 +3200,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Summary
+  tags_raw:
   - Summaries
   properties:
   - type: OpenAPI
@@ -3217,6 +3250,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
@@ -3436,6 +3471,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -3558,6 +3595,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - URLs
+  tags_raw:
   - Urls
   properties:
   - type: OpenAPI
@@ -3630,6 +3669,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Verification Checks
+  tags_raw:
   - VerificationChecks
   properties:
   - type: OpenAPI
