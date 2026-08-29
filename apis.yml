@@ -11,6 +11,18 @@ description: >-
   as a full integration that provisions schemes end to end or as a light integration that posts PAPDIS contribution
   files. Authentication is OAuth 2.0 (authorization code for user-context apps, client credentials for
   machine-to-machine partners), with three sandboxed environments and self-serve partner registration.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/5ce68aba5375cabb8f952335/5d8a243dcd466e77cc8dc3b6_Z-V12-Social-GeneralTile.png
 url: https://raw.githubusercontent.com/api-evangelist/smart-pension/refs/heads/main/apis.yml
 x-type: company
@@ -3695,6 +3707,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/smart-pension-capability-edges.yml
+  name: Smart Pension Business Capability Map
 - type: MCPServer
   url: mcp/smart-pension-mcp.yml
 - type: AgenticAccess
