@@ -31,17 +31,17 @@ specificationVersion: '0.23'
 created: '2026-08-05'
 modified: '2026-08-05'
 tags:
-- Pensions
-- Retirement
+- pensions
+- retirement
 - workplace-pension
 - auto-enrolment
-- Payroll
+- payroll
 - Fintech
 - Financial-Services
-- United Kingdom
+- united-kingdom
 - master-trust
-- Employee Benefits
-- Contributions
+- employee-benefits
+- contributions
 - papdis
 tags_raw:
 - pensions
@@ -428,7 +428,7 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
-  - Bank Account Details
+  - BankAccountDetails
   tags_raw:
   - BankAccountDetails
   properties:
@@ -938,7 +938,7 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
-  - Company Lookup
+  - CompanyLookup
   tags_raw:
   - CompanyLookup
   properties:
@@ -1745,7 +1745,7 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
-  - Feature Flags
+  - FeatureFlags
   tags_raw:
   - FeatureFlags
   properties:
@@ -2089,7 +2089,7 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
-  - JWKS
+  - Jwks
   tags_raw:
   - Jwks
   properties:
@@ -3681,7 +3681,7 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
-  - Verification Checks
+  - VerificationChecks
   tags_raw:
   - VerificationChecks
   properties:
