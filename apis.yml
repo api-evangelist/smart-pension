@@ -125,7 +125,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-accountsubaccountsswitchplans-api
   name: Smart Pension Account Subaccounts Switch Plans API
-  description: The AccountSubaccountsSwitchPlans API from Smart Pension — 2 operation(s) for accountsubaccountsswitchplans.
+  description: >-
+    The AccountSubaccountsSwitchPlans API from Smart Pension — 2 operation(s) for accountsubaccountsswitchplans.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -149,7 +150,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-additionaltaxresidences-api
   name: Smart Pension Additional Tax Residences API
-  description: The AdditionalTaxResidences API from Smart Pension — 2 operation(s) for additionaltaxresidences.
+  description: >-
+    The AdditionalTaxResidences API from Smart Pension — 2 operation(s) for additionaltaxresidences.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -389,7 +391,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-availablewithdrawaloptions-api
   name: Smart Pension Available Withdrawal Options API
-  description: The AvailableWithdrawalOptions API from Smart Pension — 1 operation(s) for availablewithdrawaloptions.
+  description: >-
+    The AvailableWithdrawalOptions API from Smart Pension — 1 operation(s) for availablewithdrawaloptions.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -421,32 +424,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/smart-pension-bankaccountdetail-api-openapi.yml
-  - type: DeveloperPortal
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: Documentation
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: APIReference
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: GettingStarted
-    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
-  - type: Authentication
-    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
-  - type: SignUp
-    url: https://partner.autoenrolment.co.uk/partners/sign-up
-  - type: Support
-    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
-- aid: smart-pension:smart-pension-bankaccountdetails-api
-  name: Smart Pension Bank Account Details API
-  description: The BankAccountDetails API from Smart Pension — 4 operation(s) for bankaccountdetails.
-  humanURL: https://developers.autoenrolment.co.uk/smart
-  baseURL: https://api.autoenrolment.co.uk
-  tags:
-  - bank-account-details
-  tags_raw:
-  - BankAccountDetails
-  properties:
-  - type: OpenAPI
-    url: openapi/smart-pension-bankaccountdetails-api-openapi.yml
   - type: DeveloperPortal
     url: https://developers.autoenrolment.co.uk/smart
   - type: Documentation
@@ -559,7 +536,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-benefitevidencetypes-api
   name: Smart Pension Benefit Evidence Types API
-  description: The BenefitEvidenceTypes API from Smart Pension — 1 operation(s) for benefitevidencetypes.
+  description: >-
+    The BenefitEvidenceTypes API from Smart Pension — 1 operation(s) for benefitevidencetypes.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -607,7 +585,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-benefitgroupautoallocatorresults-api
   name: Smart Pension Benefit Group Auto Allocator Results API
-  description: The BenefitGroupAutoAllocatorResults API from Smart Pension — 2 operation(s) for benefitgroupautoallocatorresults.
+  description: >-
+    The BenefitGroupAutoAllocatorResults API from Smart Pension — 2 operation(s) for benefitgroupautoallocatorresults.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -655,7 +634,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-benefitmoneyoutstate-api
   name: Smart Pension Benefit Money Out State API
-  description: The BenefitMoneyOutState API from Smart Pension — 1 operation(s) for benefitmoneyoutstate.
+  description: >-
+    The BenefitMoneyOutState API from Smart Pension — 1 operation(s) for benefitmoneyoutstate.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -871,7 +851,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-companybrandingstocks-api
   name: Smart Pension Company Branding Stocks API
-  description: The CompanyBrandingStocks API from Smart Pension — 1 operation(s) for companybrandingstocks.
+  description: >-
+    The CompanyBrandingStocks API from Smart Pension — 1 operation(s) for companybrandingstocks.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -941,32 +922,6 @@ apis:
     url: https://partner.autoenrolment.co.uk/partners/sign-up
   - type: Support
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
-- aid: smart-pension:smart-pension-companylookup-api
-  name: Smart Pension Company Lookup API
-  description: The CompanyLookup API from Smart Pension — 2 operation(s) for companylookup.
-  humanURL: https://developers.autoenrolment.co.uk/smart
-  baseURL: https://api.autoenrolment.co.uk
-  tags:
-  - Company Lookup
-  tags_raw:
-  - CompanyLookup
-  properties:
-  - type: OpenAPI
-    url: openapi/smart-pension-companylookup-api-openapi.yml
-  - type: DeveloperPortal
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: Documentation
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: APIReference
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: GettingStarted
-    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
-  - type: Authentication
-    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
-  - type: SignUp
-    url: https://partner.autoenrolment.co.uk/partners/sign-up
-  - type: Support
-    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-companylookups-api
   name: Smart Pension Company Lookups API
   description: The CompanyLookups API from Smart Pension — 1 operation(s) for companylookups.
@@ -1017,7 +972,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-companyschemedetails-api
   name: Smart Pension Company Scheme Details API
-  description: The CompanySchemeDetails API from Smart Pension — 1 operation(s) for companyschemedetails.
+  description: >-
+    The CompanySchemeDetails API from Smart Pension — 1 operation(s) for companyschemedetails.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1235,7 +1191,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-declarationofcomplianceemployeetotals-api
   name: Smart Pension Declaration Of Compliance Employee Totals API
-  description: The DeclarationOfComplianceEmployeeTotals API from Smart Pension — 1 operation(s) for declarationofcomplianceemployeetotals.
+  description: >-
+    The DeclarationOfComplianceEmployeeTotals API from Smart Pension — 1 operation(s) for declarationofcomplianceemployeetotals.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1379,7 +1336,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-employeeconfiguration-api
   name: Smart Pension Employee Configuration API
-  description: The EmployeeConfiguration API from Smart Pension — 1 operation(s) for employeeconfiguration.
+  description: >-
+    The EmployeeConfiguration API from Smart Pension — 1 operation(s) for employeeconfiguration.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1403,7 +1361,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-employeeexternalpensions-api
   name: Smart Pension Employee External Pensions API
-  description: The EmployeeExternalPensions API from Smart Pension — 2 operation(s) for employeeexternalpensions.
+  description: >-
+    The EmployeeExternalPensions API from Smart Pension — 2 operation(s) for employeeexternalpensions.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1427,7 +1386,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-employeefundholdings-api
   name: Smart Pension Employee Fund Holdings API
-  description: The EmployeeFundHoldings API from Smart Pension — 3 operation(s) for employeefundholdings.
+  description: >-
+    The EmployeeFundHoldings API from Smart Pension — 3 operation(s) for employeefundholdings.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1451,7 +1411,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-employeeraterecommendation-api
   name: Smart Pension Employee Rate Recommendation API
-  description: The EmployeeRateRecommendation API from Smart Pension — 1 operation(s) for employeeraterecommendation.
+  description: >-
+    The EmployeeRateRecommendation API from Smart Pension — 1 operation(s) for employeeraterecommendation.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1475,7 +1436,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-employeeverificationchecks-api
   name: Smart Pension Employee Verification Checks API
-  description: The EmployeeVerificationChecks API from Smart Pension — 3 operation(s) for employeeverificationchecks.
+  description: >-
+    The EmployeeVerificationChecks API from Smart Pension — 3 operation(s) for employeeverificationchecks.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1643,7 +1605,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-estimatebenefitvaluations-api
   name: Smart Pension Estimate Benefit Valuations API
-  description: The EstimateBenefitValuations API from Smart Pension — 1 operation(s) for estimatebenefitvaluations.
+  description: >-
+    The EstimateBenefitValuations API from Smart Pension — 1 operation(s) for estimatebenefitvaluations.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1717,7 +1680,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-externalemployeedataavailability-api
   name: Smart Pension External Employee Data Availability API
-  description: The ExternalEmployeeDataAvailability API from Smart Pension — 1 operation(s) for externalemployeedataavailability.
+  description: >-
+    The ExternalEmployeeDataAvailability API from Smart Pension — 1 operation(s) for externalemployeedataavailability.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1725,32 +1689,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/smart-pension-externalemployeedataavailability-api-openapi.yml
-  - type: DeveloperPortal
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: Documentation
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: APIReference
-    url: https://developers.autoenrolment.co.uk/smart
-  - type: GettingStarted
-    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
-  - type: Authentication
-    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
-  - type: SignUp
-    url: https://partner.autoenrolment.co.uk/partners/sign-up
-  - type: Support
-    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
-- aid: smart-pension:smart-pension-featureflags-api
-  name: Smart Pension Feature Flags API
-  description: The FeatureFlags API from Smart Pension — 1 operation(s) for featureflags.
-  humanURL: https://developers.autoenrolment.co.uk/smart
-  baseURL: https://api.autoenrolment.co.uk
-  tags:
-  - Feature Flags
-  tags_raw:
-  - FeatureFlags
-  properties:
-  - type: OpenAPI
-    url: openapi/smart-pension-featureflags-api-openapi.yml
   - type: DeveloperPortal
     url: https://developers.autoenrolment.co.uk/smart
   - type: Documentation
@@ -1863,7 +1801,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-historicalcontribution-api
   name: Smart Pension Historical Contribution API
-  description: The HistoricalContribution API from Smart Pension — 1 operation(s) for historicalcontribution.
+  description: >-
+    The HistoricalContribution API from Smart Pension — 1 operation(s) for historicalcontribution.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1887,7 +1826,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-historicalcontributions-api
   name: Smart Pension Historical Contributions API
-  description: The HistoricalContributions API from Smart Pension — 1 operation(s) for historicalcontributions.
+  description: >-
+    The HistoricalContributions API from Smart Pension — 1 operation(s) for historicalcontributions.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1911,7 +1851,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-historicaltransferin-api
   name: Smart Pension Historical Transfer In API
-  description: The HistoricalTransferIn API from Smart Pension — 1 operation(s) for historicaltransferin.
+  description: >-
+    The HistoricalTransferIn API from Smart Pension — 1 operation(s) for historicaltransferin.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -1935,7 +1876,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-historicaltransferins-api
   name: Smart Pension Historical Transfer Ins API
-  description: The HistoricalTransferIns API from Smart Pension — 1 operation(s) for historicaltransferins.
+  description: >-
+    The HistoricalTransferIns API from Smart Pension — 1 operation(s) for historicaltransferins.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2007,7 +1949,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-incomeadequacyprojection-api
   name: Smart Pension Income Adequacy Projection API
-  description: The IncomeAdequacyProjection API from Smart Pension — 1 operation(s) for incomeadequacyprojection.
+  description: >-
+    The IncomeAdequacyProjection API from Smart Pension — 1 operation(s) for incomeadequacyprojection.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2055,7 +1998,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-investmentsperformance-api
   name: Smart Pension Investments Performance API
-  description: The InvestmentsPerformance API from Smart Pension — 1 operation(s) for investmentsperformance.
+  description: >-
+    The InvestmentsPerformance API from Smart Pension — 1 operation(s) for investmentsperformance.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2201,7 +2145,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-mandatechargeschedule-api
   name: Smart Pension Mandate Charge Schedule API
-  description: The MandateChargeSchedule API from Smart Pension — 1 operation(s) for mandatechargeschedule.
+  description: >-
+    The MandateChargeSchedule API from Smart Pension — 1 operation(s) for mandatechargeschedule.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2443,7 +2388,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-notificationsaccounts-api
   name: Smart Pension Notifications Accounts API
-  description: The NotificationsAccounts API from Smart Pension — 1 operation(s) for notificationsaccounts.
+  description: >-
+    The NotificationsAccounts API from Smart Pension — 1 operation(s) for notificationsaccounts.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2515,7 +2461,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-overfundingthresholds-api
   name: Smart Pension Overfunding Thresholds API
-  description: The OverfundingThresholds API from Smart Pension — 1 operation(s) for overfundingthresholds.
+  description: >-
+    The OverfundingThresholds API from Smart Pension — 1 operation(s) for overfundingthresholds.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2659,7 +2606,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-payroll-configuration-details-api
   name: Smart Pension Payroll configuration details API
-  description: The Payroll configuration details API from Smart Pension — 1 operation(s) for payroll configuration
+  description: >-
+    The Payroll configuration details API from Smart Pension — 1 operation(s) for payroll configuration
     details.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
@@ -2684,7 +2632,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-payroll-configurations-api
   name: Smart Pension Payroll configurations API
-  description: The Payroll configurations API from Smart Pension — 2 operation(s) for payroll configurations.
+  description: >-
+    The Payroll configurations API from Smart Pension — 2 operation(s) for payroll configurations.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2708,7 +2657,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-payrollconfiguration-api
   name: Smart Pension Payroll Configuration API
-  description: The PayrollConfiguration API from Smart Pension — 2 operation(s) for payrollconfiguration.
+  description: >-
+    The PayrollConfiguration API from Smart Pension — 2 operation(s) for payrollconfiguration.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2732,7 +2682,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-payrollconfigurationdetail-api
   name: Smart Pension Payroll Configuration Detail API
-  description: The PayrollConfigurationDetail API from Smart Pension — 3 operation(s) for payrollconfigurationdetail.
+  description: >-
+    The PayrollConfigurationDetail API from Smart Pension — 3 operation(s) for payrollconfigurationdetail.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2780,7 +2731,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-pensionforecastinputs-api
   name: Smart Pension Forecast Inputs API
-  description: The PensionForecastInputs API from Smart Pension — 1 operation(s) for pensionforecastinputs.
+  description: >-
+    The PensionForecastInputs API from Smart Pension — 1 operation(s) for pensionforecastinputs.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2878,7 +2830,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-previewcontributionrates-api
   name: Smart Pension Preview Contribution Rates API
-  description: The PreviewContributionRates API from Smart Pension — 1 operation(s) for previewcontributionrates.
+  description: >-
+    The PreviewContributionRates API from Smart Pension — 1 operation(s) for previewcontributionrates.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -2950,7 +2903,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-regularincomeprojection-api
   name: Smart Pension Regular Income Projection API
-  description: The RegularIncomeProjection API from Smart Pension — 1 operation(s) for regularincomeprojection.
+  description: >-
+    The RegularIncomeProjection API from Smart Pension — 1 operation(s) for regularincomeprojection.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3022,7 +2976,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-schemesavailablecurrencies-api
   name: Smart Pension Schemes Available Currencies API
-  description: The SchemesAvailableCurrencies API from Smart Pension — 1 operation(s) for schemesavailablecurrencies.
+  description: >-
+    The SchemesAvailableCurrencies API from Smart Pension — 1 operation(s) for schemesavailablecurrencies.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3142,8 +3097,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-subaccount-groups-valuations-api
   name: Smart Pension Subaccount Groups Valuations API
-  description: The Subaccount Groups Valuations API from Smart Pension — 2 operation(s) for subaccount
-    groups valuations.
+  description: >-
+    The Subaccount Groups Valuations API from Smart Pension — 2 operation(s) for subaccount groups valuations.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3291,7 +3246,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-taxinformationchange-api
   name: Smart Pension Tax Information Change API
-  description: The TaxInformationChange API from Smart Pension — 1 operation(s) for taxinformationchange.
+  description: >-
+    The TaxInformationChange API from Smart Pension — 1 operation(s) for taxinformationchange.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3339,7 +3295,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-thirdpartypaymentprovider-api
   name: Smart Pension Third Party Payment Provider API
-  description: The ThirdPartyPaymentProvider API from Smart Pension — 1 operation(s) for thirdpartypaymentprovider.
+  description: >-
+    The ThirdPartyPaymentProvider API from Smart Pension — 1 operation(s) for thirdpartypaymentprovider.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3363,7 +3320,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-thirdpartypaymentproviders-api
   name: Smart Pension Third Party Payment Providers API
-  description: The ThirdPartyPaymentProviders API from Smart Pension — 3 operation(s) for thirdpartypaymentproviders.
+  description: >-
+    The ThirdPartyPaymentProviders API from Smart Pension — 3 operation(s) for thirdpartypaymentproviders.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3533,8 +3491,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-ultimatebeneficialownerandconfiguration-api
   name: Smart Pension Ultimate Beneficial Owner And Configuration API
-  description: The UltimateBeneficialOwnerAndConfiguration API from Smart Pension — 1 operation(s) for
-    ultimatebeneficialownerandconfiguration.
+  description: >-
+    The UltimateBeneficialOwnerAndConfiguration API from Smart Pension — 1 operation(s) for ultimatebeneficialownerandconfiguration.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3558,7 +3516,8 @@ apis:
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
 - aid: smart-pension:smart-pension-ultimatebeneficialowners-api
   name: Smart Pension Ultimate Beneficial Owners API
-  description: The UltimateBeneficialOwners API from Smart Pension — 2 operation(s) for ultimatebeneficialowners.
+  description: >-
+    The UltimateBeneficialOwners API from Smart Pension — 2 operation(s) for ultimatebeneficialowners.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
@@ -3654,18 +3613,89 @@ apis:
     url: https://partner.autoenrolment.co.uk/partners/sign-up
   - type: Support
     url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
-- aid: smart-pension:smart-pension-verificationchecks-api
+- aid: smart-pension:smart-pension-bank-account-details-api
+  name: Smart Pension Bank Account Details API
+  description: >-
+    The Bank Account Details API from Smart Pension — 4 operation(s) for bank account details.
+  humanURL: https://developers.autoenrolment.co.uk/smart
+  baseURL: https://api.autoenrolment.co.uk
+  tags:
+  - Bank Account Details
+  properties:
+  - type: OpenAPI
+    url: openapi/smart-pension-bank-account-details-api-openapi.yml
+  - type: DeveloperPortal
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: Documentation
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: APIReference
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: GettingStarted
+    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+  - type: Authentication
+    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+  - type: SignUp
+    url: https://partner.autoenrolment.co.uk/partners/sign-up
+  - type: Support
+    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
+- aid: smart-pension:smart-pension-company-lookup-api
+  name: Smart Pension Company Lookup API
+  description: The Company Lookup API from Smart Pension — 2 operation(s) for company lookup.
+  humanURL: https://developers.autoenrolment.co.uk/smart
+  baseURL: https://api.autoenrolment.co.uk
+  tags:
+  - Company Lookup
+  properties:
+  - type: OpenAPI
+    url: openapi/smart-pension-company-lookup-api-openapi.yml
+  - type: DeveloperPortal
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: Documentation
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: APIReference
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: GettingStarted
+    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+  - type: Authentication
+    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+  - type: SignUp
+    url: https://partner.autoenrolment.co.uk/partners/sign-up
+  - type: Support
+    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
+- aid: smart-pension:smart-pension-feature-flags-api
+  name: Smart Pension Feature Flags API
+  description: The Feature Flags API from Smart Pension — 1 operation(s) for feature flags.
+  humanURL: https://developers.autoenrolment.co.uk/smart
+  baseURL: https://api.autoenrolment.co.uk
+  tags:
+  - Feature Flags
+  properties:
+  - type: OpenAPI
+    url: openapi/smart-pension-feature-flags-api-openapi.yml
+  - type: DeveloperPortal
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: Documentation
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: APIReference
+    url: https://developers.autoenrolment.co.uk/smart
+  - type: GettingStarted
+    url: https://developers.autoenrolment.co.uk/smart/7756f9f9959a5-getting-started
+  - type: Authentication
+    url: https://developers.autoenrolment.co.uk/smart/8746c0c6c82b7-o-auth
+  - type: SignUp
+    url: https://partner.autoenrolment.co.uk/partners/sign-up
+  - type: Support
+    url: https://www.smartpension.co.uk/support/en/collections/2223979-api-integrations
+- aid: smart-pension:smart-pension-verification-checks-api
   name: Smart Pension Verification Checks API
-  description: The VerificationChecks API from Smart Pension — 3 operation(s) for verificationchecks.
+  description: The Verification Checks API from Smart Pension — 3 operation(s) for verification checks.
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
   - Verification Checks
-  tags_raw:
-  - VerificationChecks
   properties:
   - type: OpenAPI
-    url: openapi/smart-pension-verificationchecks-api-openapi.yml
+    url: openapi/smart-pension-verification-checks-api-openapi.yml
   - type: DeveloperPortal
     url: https://developers.autoenrolment.co.uk/smart
   - type: Documentation
