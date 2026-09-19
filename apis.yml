@@ -323,6 +323,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Assessment
+  tags_raw:
   - Assessments
   properties:
   - type: OpenAPI
@@ -468,6 +470,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Benefits
+  tags_raw:
   - Benefit
   properties:
   - type: OpenAPI
@@ -1025,6 +1029,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - CONTRIBUTION
+  tags_raw:
   - Contribution
   properties:
   - type: OpenAPI
@@ -1709,6 +1715,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Fund
+  tags_raw:
   - Funds
   properties:
   - type: OpenAPI
@@ -2562,6 +2570,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Payments
+  tags_raw:
   - Payment
   properties:
   - type: OpenAPI
@@ -3595,6 +3605,8 @@ apis:
   humanURL: https://developers.autoenrolment.co.uk/smart
   baseURL: https://api.autoenrolment.co.uk
   tags:
+  - Valuation
+  tags_raw:
   - Valuations
   properties:
   - type: OpenAPI
