@@ -1,0 +1,59 @@
+slug: smart-pension
+provider: Smart Pension
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Contributions
+  spec_file: smart-pension-contributions-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees/{employee_id}/contributions — "Contributions/Create";
+    schema "response_contribution"
+  reason: Full CRUD over per-employee pension contributions within an employer scheme — administration
+    of a workplace pension benefit, mapping to benefits administration. Not a banking deposit or investment
+    trading surface.
+- tag: Portfolios
+  spec_file: smart-pension-portfolios-api-openapi.yml
+  capability_id: BC-1390
+  capability_id_l1: BC-1390
+  capability_name: Wealth Management Operations Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/employees/{employee_id}/portfolios — "Portfolios/List"; schemas
+    "response_portfolio", "response_fund_split", "response_contribution"
+  reason: Creates and lists a member's investment portfolio including fund splits and contributions —
+    investment portfolio administration for savers. Whether member-directed or discretionary is unclear,
+    so no L2.
+- tag: UltimateBeneficialOwnerAndConfiguration
+  spec_file: smart-pension-ultimatebeneficialownerandconfiguration-api-openapi.yml
+  capability_id: BC-1300.20
+  capability_id_l1: BC-1300
+  capability_name: KYC & Customer Due Diligence Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/ultimate_beneficial_owner_and_configuration  UltimateBeneficialOwnerAndConfigurations/Create;
+    schema response_ultimate_beneficial_owner
+  reason: Capture and maintenance of ultimate beneficial owner records for an employer entity is the standard
+    KYC/CDD requirement performed at onboarding of a corporate client. Some chance this is purely a data-capture/config
+    record rather than the screening process itself.
+- tag: UltimateBeneficialOwners
+  spec_file: smart-pension-ultimatebeneficialowners-api-openapi.yml
+  capability_id: BC-1300.20
+  capability_id_l1: BC-1300
+  capability_name: KYC & Customer Due Diligence Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/ultimate_beneficial_owners  Companies/UltimateBeneficialOwners/List;
+    schema response_ultimate_beneficial_owner
+  reason: Read access to UBO records held against an employer company — beneficial ownership identification
+    is a core customer due diligence artefact. Read-only nature leaves some chance it is only reference
+    data exposure.
