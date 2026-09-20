@@ -11,8 +11,101 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 4
+edge_count: 18
 edges:
+- tag: Enrolment
+  spec_file: smart-pension-enrolment-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: POST /companies/{company_id}/enrolments — "Companies/Enrolments/Create"; schema "response_enrolment"
+  reason: 'Full CRUD over enrolments held against an employer company in a UK workplace pension master
+    trust — this is auto-enrolment of a workforce into a pension benefit, which realises benefits administration
+    for the employer. Not customer onboarding or subscription provisioning: the object is an employer''s
+    pension enrolment, not a SaaS tenant.'
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: OptInRequest
+  spec_file: smart-pension-optinrequest-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: PUT /companies/{company_id}/employees/{employee_id}/opt_in_requests/{id} — Companies/Employees/OptInRequests/Update
+  reason: Employee opt-in requests to the workplace pension scheme are UK auto-enrolment enrolment mechanics
+    — benefits administration on behalf of an employer, hence Compensation & Benefits Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: Benefit
+  spec_file: smart-pension-benefit-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees/{employee_id}/benefits — 'Employees/Benefits/Create';
+    POST .../benefits/{id}/request_benefit_checks; schemas response_enrolment, response_contribution,
+    response_salary
+  reason: Creates pension benefit records for an employee of a company and triggers benefit checks and
+    transfers-out; schemas cover enrolment, contribution and salary. This is administration of an employer-provided
+    pension benefit, which maps to Compensation & Benefits Management regardless of the vendor's own industry.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: BenefitCategories
+  spec_file: smart-pension-benefitcategories-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/employees/{employee_id}/benefit_categories — 'BenefitCategories/List';
+    schemas response_benefit_category, response_benefit_charge, response_benefit_evidence_type
+  reason: Exposes the benefit categories (with charges and required evidence types) applicable to an employee
+    under a company's scheme — benefit plan/eligibility administration, i.e. Compensation & Benefits Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: BenefitForm
+  spec_file: smart-pension-benefitform-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form
+    — 'BenefitForms/Create'; PATCH .../benefit_question_responses/ — 'BenefitQuestionResponses/Update';
+    schemas response_benefit_form, response_benefit_question
+  reason: Full lifecycle of an employee's pension benefit application form — creation, question responses,
+    evidence uploads, cancellation, identity verification URL. This is benefits claim/enrolment administration
+    under Compensation & Benefits Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: BenefitGroups
+  spec_file: smart-pension-benefitgroups-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/benefit_groups — 'Companies/BenefitGroups/List'; GET /companies/{company_id}/employees/{employee_id}/benefit_group;
+    schemas response_benefit_group, response_band
+  reason: Lists a company's benefit groups (with contribution bands) and the group an employee belongs
+    to — definition and assignment of employee benefit structures, i.e. Compensation & Benefits Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: Benefits
+  spec_file: smart-pension-benefits-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/employees/{employee_id}/benefits — Benefits/List; schemas response_enrolment,
+    response_contribution, response_salary, response_fund_split
+  reason: Employee benefit records with enrolment, salary, contribution and fund-split payloads — this
+    is workplace pension benefit administration for employees, mapping to Compensation & Benefits Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: Contribution
+  spec_file: smart-pension-contribution-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/contributions — 'Companies/Contributions/List with Historical
+    Employee Data'; schemas response_contribution, response_salary, response_enrolment
+  reason: Employer-level listing of pension contributions alongside salary and enrolment data is workplace
+    pension (benefits) administration, mapping to Compensation & Benefits Management. Not a payments/AR
+    capability — the objects are contributions tied to employees and enrolments.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: Contributions
   spec_file: smart-pension-contributions-api-openapi.yml
   capability_id: BC-300.30
@@ -24,6 +117,63 @@ edges:
   reason: Full CRUD over per-employee pension contributions within an employer scheme — administration
     of a workplace pension benefit, mapping to benefits administration. Not a banking deposit or investment
     trading surface.
+- tag: CustomerLead
+  spec_file: smart-pension-customerlead-api-openapi.yml
+  capability_id: BC-410.30
+  capability_id_l1: BC-410
+  capability_name: Opportunity & Pipeline Management
+  confidence: 0.7
+  evidence: POST /customer_leads/ — CustomerLeads/Create; GET /customer_leads/earliest_plan_effective_date;
+    schema response_customer_lead
+  reason: Creation and retrieval of customer leads (prospective employers, with an earliest plan effective
+    date) is lead capture in the lead-to-order motion, mapping to Opportunity & Pipeline Management.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: Employee
+  spec_file: smart-pension-employee-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees — Employees/Create; 'Employees/RecurringContributionSchedule/Create';
+    schemas response_enrolment, response_opt_state, response_salary, response_fund_split
+  reason: Operations manage scheme members of a workplace pension on behalf of an employer — enrolment,
+    opt-in/opt-out state, salary, recurring contribution schedules and fund splits. That is benefits (pension)
+    administration within Human Capital Management rather than generic HR record-keeping, though some
+    overlap with HR Operations remains.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: EnrolmentEmployees
+  spec_file: smart-pension-enrolmentemployees-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /companies/{company_id}/enrolments/{enrolment_id}/employees — "Companies/Enrolments/Employees/List"
+  reason: Lists the employees attached to a given pension enrolment for an employer, a sub-resource of
+    the enrolment surface; same benefits-administration capability. Slightly lower confidence because
+    the operation is a single read-only listing and could equally be seen as employee record access.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: ExpressionOfWish
+  spec_file: smart-pension-expressionofwish-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees/{employee_id}/expression_of_wish — "Companies/Employees/ExpressionOfWish/Create"
+  reason: Expression of wish is the pension member's death-benefit beneficiary nomination; CRUD over it
+    per employee is administration of a pension benefit entitlement, mapping to Compensation & Benefits
+    Management. No other candidate covers beneficiary nomination.
+  recovered_from: sweep-20260828T235257Z-edges.json
+- tag: Payroll configuration details
+  spec_file: smart-pension-payroll-configuration-details-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/payroll_configurations/{payroll_id}/preview_payroll_configuration_details
+  reason: Previews a company's payroll configuration (pay frequency, contribution setup) used to run pension
+    deductions — payroll administration under HR Operations Management. Single preview operation and no
+    schemas, so not fully certain.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: Portfolios
   spec_file: smart-pension-portfolios-api-openapi.yml
   capability_id: BC-1390
@@ -35,6 +185,17 @@ edges:
   reason: Creates and lists a member's investment portfolio including fund splits and contributions —
     investment portfolio administration for savers. Whether member-directed or discretionary is unclear,
     so no L2.
+- tag: Postponement
+  spec_file: smart-pension-postponement-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /companies/{company_id}/employees/{employee_id}/postponements; schema response_enrolment,
+    response_employee_plan_participation
+  reason: Postponement of employee auto-enrolment into the workplace pension scheme, with enrolment and
+    plan-participation schemas — squarely benefits (pension) administration within the employee lifecycle.
+  recovered_from: sweep-20260828T235257Z-edges.json
 - tag: UltimateBeneficialOwnerAndConfiguration
   spec_file: smart-pension-ultimatebeneficialownerandconfiguration-api-openapi.yml
   capability_id: BC-1300.20
