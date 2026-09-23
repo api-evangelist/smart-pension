@@ -41,6 +41,8 @@ paths:
                   value: ''
                 failure:
                   value: ''
+      operationId: getEmployeeCallbacksSmartpension
+      x-operation-id-source: derived
   /oauth/token/info:
     get:
       summary: Tokens/Info
@@ -64,6 +66,8 @@ paths:
                 created_at: 1785931614
         '401':
           description: Unauthorized (jwt_token flow)
+      operationId: getOauthTokenInfo
+      x-operation-id-source: derived
   /oauth/token:
     post:
       summary: Tokens/Create
@@ -190,6 +194,8 @@ paths:
                   value:
                     error: invalid_client
                     error_description: Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.
+      operationId: postOauthToken
+      x-operation-id-source: derived
   /refresh_token:
     post:
       summary: Tokens/Refresh
@@ -223,6 +229,8 @@ paths:
                 token: eyJraWQiOiI5NWIwNTc4MTI5YWZjMjUwZmNlM2M1ZGQwNDdhYjRlYTRiMTdmYTk1MTgyM2Q1NTc1NDhjMWExMWViNmY3NTlmIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJodHRwczovL2FwaS5ob3N0LmNvbSIsImV4cCI6MTc4NTkzMjIxOCwiaWF0IjoxNzg1OTMxNjE4LCJhdWQiOiI5MjM3ODR1MjM0aGsyajNoNDIzaXU0aWhmZHV5MzM0aGo0aGlkZjc4ZmRpZ2ZkaGdmZGdoODkiLCJqdGkiOiJ2Q2VHQS1PaG5JVGg4MmNKUEJXRjNheEE3ZDhEQzNWWEU3T19kOGFlblBVIiwic2NvcGUiOiI6Y3VzdG9tZXIiLCJzdWIiOjgxMywicm9sZSI6ImVtcGxveWVlIn0.v9MCyd4j_WjLWsCLwiaCeE5_kC6gxETcySTF_U3L2A46uoLFXrfhWIf3rYZjDhUNmCBvboOLa9UlwDV6xki9HgcYd9u3_SfT3wGo0u_OicSqstkX2zOrqXEaaRyp_NjrEwgv2yXhC98eYvg1cHCAclk_YyReqB3yIvPJVYCre5s
         '401':
           description: Unauthorized (plain_token flow)
+      operationId: postRefreshToken
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

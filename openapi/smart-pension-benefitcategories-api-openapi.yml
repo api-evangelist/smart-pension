@@ -180,6 +180,8 @@ paths:
           description: Forbidden - when the employee is ineligible for the benefit rule set
         '404':
           description: Not Found - when benefit rule set belongs to different scheme from employee
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategoriesByBenefitRuleSetId
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_categories:
     get:
       summary: BenefitCategories/List
@@ -330,8 +332,193 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_benefit_category'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategories
+      x-operation-id-source: derived
 components:
   schemas:
+    response_default_subaccount_split:
+      type: object
+      properties:
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_investment_account:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        uuid:
+          type:
+          - string
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        scheme_id:
+          type:
+          - integer
+          - 'null'
+        subaccount_group:
+          type:
+          - string
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        active_from:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        active_until:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        investments_locked:
+          type:
+          - boolean
+          - 'null'
+        redirect_allowed:
+          type:
+          - boolean
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        valuation:
+          type:
+          - number
+          - 'null'
+          format: float
+        valuation_available_for_disinvestment:
+          type:
+          - number
+          - 'null'
+          format: float
+        active_for_employee:
+          type:
+          - boolean
+          - 'null'
+        pending_switch_to_subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        money_movement_locked:
+          type:
+          - boolean
+          - 'null'
+        projection_age:
+          type:
+          - integer
+          - 'null'
+        projection_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        projection_amount_currency:
+          type:
+          - string
+          - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
+    response_benefit_charge:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        recipient:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_benefit_evidence_type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_upload:
+          $ref: '#/components/schemas/response_benefit_evidence_upload'
     response_benefit_category:
       type: object
       properties:
@@ -441,189 +628,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_benefit_charge'
-    response_benefit_evidence_upload:
-      type: object
-      properties:
-        id:
-          type: integer
-        state:
-          type: string
-        file_name:
-          type:
-          - string
-          - 'null'
-        file_url:
-          type:
-          - string
-          - 'null'
-        comment:
-          type:
-          - string
-          - 'null'
-        owner_id:
-          type:
-          - integer
-          - 'null'
-        owner_type:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_type_id:
-          type: integer
-        rejection_reasons:
-          type:
-          - array
-          - 'null'
-          items: {}
-    response_benefit_charge:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        recipient:
-          type:
-          - string
-          - 'null'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: float
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_default_subaccount_split:
-      type: object
-      properties:
-        subaccount_uuid:
-          type:
-          - string
-          - 'null'
-        percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-    response_investment_account:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        uuid:
-          type:
-          - string
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        scheme_id:
-          type:
-          - integer
-          - 'null'
-        subaccount_group:
-          type:
-          - string
-          - 'null'
-        frontend_tag:
-          type:
-          - string
-          - 'null'
-        active_from:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        active_until:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        investments_locked:
-          type:
-          - boolean
-          - 'null'
-        redirect_allowed:
-          type:
-          - boolean
-          - 'null'
-        created_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        updated_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        valuation:
-          type:
-          - number
-          - 'null'
-          format: float
-        valuation_available_for_disinvestment:
-          type:
-          - number
-          - 'null'
-          format: float
-        active_for_employee:
-          type:
-          - boolean
-          - 'null'
-        pending_switch_to_subaccount_uuid:
-          type:
-          - string
-          - 'null'
-        money_movement_locked:
-          type:
-          - boolean
-          - 'null'
-        projection_age:
-          type:
-          - integer
-          - 'null'
-        projection_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        projection_amount_currency:
-          type:
-          - string
-          - 'null'
-    response_benefit_evidence_type:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-          format: text
-        frontend_tag:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_upload:
-          $ref: '#/components/schemas/response_benefit_evidence_upload'
   securitySchemes:
     oAuth2:
       type: oauth2

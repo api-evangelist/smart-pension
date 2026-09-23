@@ -126,6 +126,8 @@ paths:
                     count: 0
                   source:
                     pointer: /data/relationships/employee_external_pensions/0/attributes/amount
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdEmployeeExternalPensionsBulkUpdate
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/employee_external_pensions:
     get:
       summary: Companies/Employees/EmployeeExternalPensions/List
@@ -199,6 +201,8 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_employee_external_pension'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdEmployeeExternalPensions
+      x-operation-id-source: derived
 components:
   schemas:
     link:

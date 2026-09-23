@@ -55,6 +55,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/accept
+      operationId: postOnboardingAcceptTerms
+      x-operation-id-source: derived
   /onboarding/status:
     get:
       summary: Onboarding/Status
@@ -96,6 +98,8 @@ paths:
                 - termsAndConditions
         '401':
           description: Fail
+      operationId: getOnboardingStatus
+      x-operation-id-source: derived
   /onboarding/options:
     get:
       summary: Onboarding/Options
@@ -740,6 +744,8 @@ paths:
               example:
                 errors:
                   field_names: 'Available options: gender, residency, tax_information, employment_status, country'
+      operationId: getOnboardingOptions
+      x-operation-id-source: derived
   /onboarding/personal-data:
     get:
       summary: Onboarding/PersonalData
@@ -859,6 +865,8 @@ paths:
                     - unemployed
         '401':
           description: Fail
+      operationId: getOnboardingPersonalData
+      x-operation-id-source: derived
     patch:
       summary: Onboarding/PersonalData
       tags:
@@ -1188,6 +1196,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/employment_status
+      operationId: patchOnboardingPersonalData
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

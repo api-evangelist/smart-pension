@@ -30,6 +30,8 @@ paths:
                 '
         '404':
           description: Not found
+      operationId: getSsifImportsDownloadTemplate
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

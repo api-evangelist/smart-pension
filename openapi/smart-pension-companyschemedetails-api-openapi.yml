@@ -84,6 +84,8 @@ paths:
           description: Forbidden when the staging date is locked
         '404':
           description: Not Found
+      operationId: putCompaniesByCompanyIdSchemeDetailsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

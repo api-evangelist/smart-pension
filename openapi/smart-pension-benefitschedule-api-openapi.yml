@@ -43,6 +43,8 @@ paths:
               example:
                 status: 404
                 error: Not Found
+      operationId: deleteCompaniesByCompanyIdEmployeesByEmployeeIdBenefitSchedule
+      x-operation-id-source: derived
     get:
       summary: BenefitSchedules/Update
       tags:
@@ -86,6 +88,8 @@ paths:
                   value:
                     status: 404
                     error: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitSchedule
+      x-operation-id-source: derived
     put:
       summary: BenefitSchedules/Update
       tags:
@@ -152,6 +156,8 @@ paths:
                         value: invalid amount
                       source:
                         pointer: /data/attributes/amount
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdBenefitSchedule
+      x-operation-id-source: derived
     patch:
       summary: BenefitSchedules/Update
       tags:
@@ -218,6 +224,8 @@ paths:
                         value: invalid amount
                       source:
                         pointer: /data/attributes/amount
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitSchedule
+      x-operation-id-source: derived
 components:
   schemas:
     response_benefit_schedule:

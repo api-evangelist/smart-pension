@@ -173,6 +173,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/gender
+      operationId: postPensionForecastModellerProjection
+      x-operation-id-source: derived
 components:
   schemas:
     response_pension_forecast_modeller_projection:

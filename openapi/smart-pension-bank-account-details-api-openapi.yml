@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: BankAccountDetails
+- name: Bank Account Details
 paths:
   /companies/{company_id}/bank_account_details:
     post:
       summary: Companies/BankAccountDetails/Create
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -92,10 +92,12 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: postCompaniesByCompanyIdBankAccountDetails
+      x-operation-id-source: derived
     get:
       summary: Companies/BankAccountDetails/List
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -167,11 +169,13 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_bank_account_detail'
+      operationId: getCompaniesByCompanyIdBankAccountDetails
+      x-operation-id-source: derived
   /companies/{company_id}/bank_account_details/{id}:
     delete:
       summary: Companies/BankAccountDetails/Destroy
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -202,10 +206,12 @@ paths:
                   value: ''
                 account_cancelled:
                   value: ''
+      operationId: deleteCompaniesByCompanyIdBankAccountDetailsById
+      x-operation-id-source: derived
     get:
       summary: Companies/BankAccountDetails/List
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -238,10 +244,12 @@ paths:
                 expires_on: null
               schema:
                 $ref: '#/components/schemas/response_bank_account_detail'
+      operationId: getCompaniesByCompanyIdBankAccountDetailsById
+      x-operation-id-source: derived
     put:
       summary: Companies/BankAccountDetails/Update
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -305,10 +313,12 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: putCompaniesByCompanyIdBankAccountDetailsById
+      x-operation-id-source: derived
     patch:
       summary: Companies/BankAccountDetails/Update
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -372,11 +382,13 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: patchCompaniesByCompanyIdBankAccountDetailsById
+      x-operation-id-source: derived
   /companies/{company_id}/bank_account_details/managable:
     get:
       summary: Companies/BankAccountDetails/Managable
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -403,11 +415,13 @@ paths:
           description: Forbidden
         '404':
           description: Not found
+      operationId: getCompaniesByCompanyIdBankAccountDetailsManagable
+      x-operation-id-source: derived
   /companies/{company_id}/bank_account_details/{bank_account_detail_id}/sensitive_data:
     get:
       summary: Companies/BankAccountDetails/SensitiveData
       tags:
-      - BankAccountDetails
+      - Bank Account Details
       security:
       - oAuth2:
         - customer
@@ -464,6 +478,8 @@ paths:
                   value: ''
                 company_of_other_customer:
                   value: ''
+      operationId: getCompaniesByCompanyIdBankAccountDetailsByBankAccountDetailIdSensitiveData
+      x-operation-id-source: derived
 components:
   schemas:
     response_bank_account_detail:

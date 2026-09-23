@@ -100,6 +100,8 @@ paths:
           description: Forbidden - when employee
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdPayrollConfigurations
+      x-operation-id-source: derived
   /companies/{company_id}/payroll_configurations/{payroll_configuration_id}:
     delete:
       summary: PayrollConfigurations/Destroy
@@ -129,6 +131,8 @@ paths:
           description: Forbidden when employee
         '404':
           description: Not Found when payroll configuration does not exist
+      operationId: deleteCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationId
+      x-operation-id-source: derived
     get:
       summary: PayrollConfigurations/Get
       tags:
@@ -201,17 +205,10 @@ paths:
               examples:
                 payroll_configuration_not_found:
                   value: ''
+      operationId: getCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationId
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_payroll_configuration:
       type: object
       properties:
@@ -249,6 +246,15 @@ components:
           type:
           - boolean
           - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_base_payroll_configuration:
       type: object
       properties:

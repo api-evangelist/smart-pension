@@ -62,6 +62,8 @@ paths:
                 $ref: '#/components/schemas/response_regular_income_projection'
         '422':
           description: Parameters invalid.
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdRegularIncomeProjection
+      x-operation-id-source: derived
 components:
   schemas:
     response_regular_income_projection:

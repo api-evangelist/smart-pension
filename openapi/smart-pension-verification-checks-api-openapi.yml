@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: VerificationChecks
+- name: Verification Checks
 paths:
   /verification_checks/generate_verification_url:
     post:
       summary: VerificationChecks/GenerateVerificationUrl
       tags:
-      - VerificationChecks
+      - Verification Checks
       security:
       - oAuth2: []
       parameters: []
@@ -66,11 +66,13 @@ paths:
                         value: asdf
                       source:
                         pointer: /data/attributes/target
+      operationId: postVerificationChecksGenerateVerificationUrl
+      x-operation-id-source: derived
   /verification_checks/state:
     get:
       summary: VerificationChecks/State
       tags:
-      - VerificationChecks
+      - Verification Checks
       security:
       - oAuth2: []
       parameters:
@@ -127,11 +129,13 @@ paths:
                         value: invalid
                       source:
                         pointer: /data/attributes/target
+      operationId: getVerificationChecksState
+      x-operation-id-source: derived
   /verification_checks/verification_url:
     get:
       summary: VerificationChecks/verification_url
       tags:
-      - VerificationChecks
+      - Verification Checks
       security:
       - oAuth2: []
       parameters:
@@ -175,16 +179,10 @@ paths:
                         value: invalid
                       source:
                         pointer: /data/attributes/target
+      operationId: getVerificationChecksVerificationUrl
+      x-operation-id-source: derived
 components:
   schemas:
-    response_rejection_reason:
-      type: object
-      properties:
-        name:
-          type: string
-        errors:
-          type: array
-          items: {}
     response_employee_verification_checks_state:
       type: object
       properties:
@@ -194,6 +192,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/response_rejection_reason'
+    response_rejection_reason:
+      type: object
+      properties:
+        name:
+          type: string
+        errors:
+          type: array
+          items: {}
   securitySchemes:
     oAuth2:
       type: oauth2

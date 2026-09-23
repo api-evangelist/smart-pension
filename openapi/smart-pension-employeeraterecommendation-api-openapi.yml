@@ -65,6 +65,8 @@ paths:
                 $ref: '#/components/schemas/response_employee_rate_recommendation'
         '422':
           description: Invalid parameters
+      operationId: postCompaniesByCompanyIdEmployeesByIdEmployeeRateRecommendation
+      x-operation-id-source: derived
 components:
   schemas:
     response_employee_rate_recommendation:

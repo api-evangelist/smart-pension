@@ -103,6 +103,8 @@ paths:
                         count: 0
                       source:
                         pointer: /data/attributes/amount
+      operationId: getCompaniesByIdEmployeesByEmployeeIdBenefitCategoriesByBenefitRuleSetIdTaxPreview
+      x-operation-id-source: derived
 components:
   schemas:
     response_employee_tax_previews_bands:
@@ -126,6 +128,17 @@ components:
           - number
           - 'null'
           format: float
+    response_employee_tax_previews:
+      type: object
+      properties:
+        summary:
+          $ref: '#/components/schemas/response_summary'
+        details:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_employee_tax_previews_bands'
     response_summary:
       type: object
       properties:
@@ -168,17 +181,6 @@ components:
           - number
           - 'null'
           format: float
-    response_employee_tax_previews:
-      type: object
-      properties:
-        summary:
-          $ref: '#/components/schemas/response_summary'
-        details:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_employee_tax_previews_bands'
   securitySchemes:
     oAuth2:
       type: oauth2

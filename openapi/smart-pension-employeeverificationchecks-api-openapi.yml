@@ -79,6 +79,8 @@ paths:
                         value: asdf
                       source:
                         pointer: /data/attributes/target
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdVerificationChecksGenerateVerificationUrl
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/verification_checks/state:
     get:
       summary: VerificationChecks/State
@@ -161,6 +163,8 @@ paths:
                         value: invalid
                       source:
                         pointer: /data/attributes/target
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdVerificationChecksState
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/verification_checks/verification_url:
     get:
       summary: VerificationChecks/GetVerificationUrl
@@ -227,8 +231,19 @@ paths:
                         value: invalid
                       source:
                         pointer: /data/attributes/target
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdVerificationChecksVerificationUrl
+      x-operation-id-source: derived
 components:
   schemas:
+    response_employee_verification_checks_state:
+      type: object
+      properties:
+        state:
+          type: string
+        rejection_reasons:
+          type: array
+          items:
+            $ref: '#/components/schemas/response_rejection_reason'
     response_rejection_reason:
       type: object
       properties:
@@ -244,15 +259,6 @@ components:
           type:
           - string
           - 'null'
-    response_employee_verification_checks_state:
-      type: object
-      properties:
-        state:
-          type: string
-        rejection_reasons:
-          type: array
-          items:
-            $ref: '#/components/schemas/response_rejection_reason'
   securitySchemes:
     oAuth2:
       type: oauth2

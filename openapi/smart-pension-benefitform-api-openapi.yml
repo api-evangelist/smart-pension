@@ -46,6 +46,8 @@ paths:
                   value:
                     status: 404
                     error: Not Found
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploadsConfirmAll
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads:
     post:
       summary: BenefitEvidenceUploads/Create
@@ -156,6 +158,8 @@ paths:
                         count: 1
                       source:
                         pointer: /data/attributes/file_file_size
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploads
+      x-operation-id-source: derived
     get:
       summary: BenefitEvidenceUploads/Get
       tags:
@@ -259,6 +263,8 @@ paths:
                       $ref: '#/components/schemas/response_benefit_evidence_upload'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploads
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_evidence_uploads/{benefit_evidence_upload_id}:
     delete:
       summary: BenefitEvidenceUploads/Destroy
@@ -298,6 +304,8 @@ paths:
                   value:
                     status: 404
                     error: Not Found
+      operationId: deleteCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploadsByBenefitEvidenceUploadId
+      x-operation-id-source: derived
     put:
       summary: BenefitEvidenceUploads/Update
       tags:
@@ -356,6 +364,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/file
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploadsByBenefitEvidenceUploadId
+      x-operation-id-source: derived
     patch:
       summary: BenefitEvidenceUploads/Update
       tags:
@@ -414,6 +424,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/file
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidenceUploadsByBenefitEvidenceUploadId
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/benefit_question_responses/:
     patch:
       summary: BenefitQuestionResponses/Update
@@ -499,6 +511,8 @@ paths:
           description: 'Success '
         '403':
           description: Forbidden
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitQuestionResponses
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/cancel:
     post:
       summary: BenefitForms/Cancel
@@ -537,6 +551,8 @@ paths:
               example:
                 status: 404
                 error: Not Found
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormCancel
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_categories/{benefit_category_id}/benefit_form:
     post:
       summary: BenefitForms/Create
@@ -619,6 +635,8 @@ paths:
                   details: null
         '403':
           description: Employee is not eligible for the given Benefit Rule Set
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategoriesByBenefitCategoryIdBenefitForm
+      x-operation-id-source: derived
     put:
       summary: BenefitForms/Update
       tags:
@@ -693,6 +711,8 @@ paths:
                       currency_iso: GBP
                   source:
                     pointer: /data/attributes/requested_benefit_amount
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategoriesByBenefitCategoryIdBenefitForm
+      x-operation-id-source: derived
     patch:
       summary: BenefitForms/Update
       tags:
@@ -767,6 +787,8 @@ paths:
                       currency_iso: GBP
                   source:
                     pointer: /data/attributes/requested_benefit_amount
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategoriesByBenefitCategoryIdBenefitForm
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/verification_url:
     post:
       summary: BenefitForms/GenerateVerificationUrl
@@ -814,6 +836,8 @@ paths:
                     type:
                     - string
                     - 'null'
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormVerificationUrl
+      x-operation-id-source: derived
     get:
       summary: BenefitForms/VerificationUrl
       tags:
@@ -848,6 +872,8 @@ paths:
                     type:
                     - string
                     - 'null'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormVerificationUrl
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form:
     get:
       summary: BenefitForms/Get
@@ -908,6 +934,8 @@ paths:
                 $ref: '#/components/schemas/response_benefit_form'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitForm
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_form/submit:
     post:
       summary: BenefitForms/Submit
@@ -974,75 +1002,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/response_benefit_form'
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormSubmit
+      x-operation-id-source: derived
 components:
   schemas:
-    response_benefit_evidence_upload:
-      type: object
-      properties:
-        id:
-          type: integer
-        state:
-          type: string
-        file_name:
-          type:
-          - string
-          - 'null'
-        file_url:
-          type:
-          - string
-          - 'null'
-        comment:
-          type:
-          - string
-          - 'null'
-        owner_id:
-          type:
-          - integer
-          - 'null'
-        owner_type:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_type_id:
-          type: integer
-        rejection_reasons:
-          type:
-          - array
-          - 'null'
-          items: {}
-    response_task_list:
-      type: object
-      properties:
-        task_type:
-          type:
-          - string
-          - 'null'
-        task_status:
-          type:
-          - string
-          - 'null'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_benefit_question_response:
-      type: object
-      properties:
-        question_code:
-          type:
-          - string
-          - 'null'
-        response:
-          type: string
-        details:
-          type:
-          - object
-          - 'null'
     response_benefit_form:
       type: object
       properties:
@@ -1117,6 +1080,73 @@ components:
         category:
           type:
           - string
+          - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
+    response_task_list:
+      type: object
+      properties:
+        task_type:
+          type:
+          - string
+          - 'null'
+        task_status:
+          type:
+          - string
+          - 'null'
+    response_benefit_question_response:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        response:
+          type: string
+        details:
+          type:
+          - object
           - 'null'
   securitySchemes:
     oAuth2:

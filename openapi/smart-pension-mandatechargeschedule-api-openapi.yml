@@ -82,6 +82,8 @@ paths:
                         count: 31
                       source:
                         pointer: /data/attributes/day_of_month
+      operationId: postCompaniesByCompanyIdMandateChargeSchedule
+      x-operation-id-source: derived
     get:
       summary: Companies/MandateChargeSchedule/Get
       tags:
@@ -128,6 +130,8 @@ paths:
               examples:
                 not_found:
                   value: ''
+      operationId: getCompaniesByCompanyIdMandateChargeSchedule
+      x-operation-id-source: derived
     patch:
       summary: Companies/MandateChargeSchedule/Update
       tags:
@@ -187,6 +191,8 @@ paths:
                         count: 31
                       source:
                         pointer: /data/attributes/day_of_month
+      operationId: patchCompaniesByCompanyIdMandateChargeSchedule
+      x-operation-id-source: derived
 components:
   schemas:
     response_mandate_charge_schedule:

@@ -54,6 +54,8 @@ paths:
           description: Success
         '401':
           description: Unauthorized
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdValuations
+      x-operation-id-source: derived
     get:
       summary: Valuations/List
       tags:
@@ -181,6 +183,8 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdValuations
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/valuations/{id}:
     get:
       summary: Valuations/Get
@@ -224,6 +228,8 @@ paths:
                 $ref: '#/components/schemas/response_valuation'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdValuationsById
+      x-operation-id-source: derived
   /employees/valuations:
     post:
       summary: Valuations/Create
@@ -257,6 +263,8 @@ paths:
           description: Success
         '401':
           description: Unauthorized
+      operationId: postEmployeesValuations
+      x-operation-id-source: derived
     get:
       summary: Valuations/List
       tags:
@@ -372,6 +380,8 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: getEmployeesValuations
+      x-operation-id-source: derived
   /employees/valuations/{id}:
     get:
       summary: Valuations/Get
@@ -402,17 +412,10 @@ paths:
                 $ref: '#/components/schemas/response_valuation'
         '404':
           description: Not Found
+      operationId: getEmployeesValuationsById
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_valuation:
       type: object
       properties:
@@ -432,6 +435,15 @@ components:
         updated_at:
           type: string
           format: date-time
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -133,6 +133,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/initial_payroll_configuration_details
+      operationId: postCompaniesByCompanyIdPayrollConfigurationsByPayrollIdPreviewPayrollConfigurationDetails
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

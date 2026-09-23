@@ -47,6 +47,8 @@ paths:
                 $ref: '#/components/schemas/response_customer_role'
         '403':
           description: Forbidden Error
+      operationId: postCompaniesByCompanyIdCustomersByCustomerIdRole
+      x-operation-id-source: derived
     delete:
       summary: Customers/Roles/Destroy
       tags:
@@ -72,6 +74,8 @@ paths:
           description: Success
         '403':
           description: Success
+      operationId: deleteCompaniesByCompanyIdCustomersByCustomerIdRole
+      x-operation-id-source: derived
     patch:
       summary: Customers/Roles/Update
       tags:
@@ -112,6 +116,8 @@ paths:
           description: Forbidden
         '422':
           description: Invalid parameters
+      operationId: patchCompaniesByCompanyIdCustomersByCustomerIdRole
+      x-operation-id-source: derived
 components:
   schemas:
     response_customer_role:

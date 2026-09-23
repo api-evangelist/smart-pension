@@ -190,26 +190,10 @@ paths:
                 $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_smart_deferred_still_employed_representer'
         '422':
           description: Invalid parameters (smart_deferred_still_employed)
+      operationId: postCompaniesByCompanyIdEmployeesByIdIncomeAdequacyProjection
+      x-operation-id-source: derived
 components:
   schemas:
-    response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
-      type: object
-      properties:
-        minimum:
-          type:
-          - number
-          - 'null'
-          format: float
-        moderate:
-          type:
-          - number
-          - 'null'
-          format: float
-        comfortable:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown:
       type: object
       properties:
@@ -285,6 +269,24 @@ components:
           $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
         breakdown_at_state_pension_age:
           $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
+    response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
+      type: object
+      properties:
+        minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        moderate:
+          type:
+          - number
+          - 'null'
+          format: float
+        comfortable:
+          type:
+          - number
+          - 'null'
+          format: float
   securitySchemes:
     oAuth2:
       type: oauth2

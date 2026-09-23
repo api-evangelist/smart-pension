@@ -60,6 +60,8 @@ paths:
               examples:
                 not_found:
                   value: ''
+      operationId: getCompaniesByCompanyIdCompanyRules
+      x-operation-id-source: derived
 components:
   schemas:
     response_company_rules:

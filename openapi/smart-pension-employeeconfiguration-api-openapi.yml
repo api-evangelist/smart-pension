@@ -88,6 +88,8 @@ paths:
                     value: xyz
                   source:
                     pointer: /data/attributes/preferred_locale
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdEmployeeConfigurations
+      x-operation-id-source: derived
     patch:
       summary: EmployeeConfiguration/Update
       tags:
@@ -166,6 +168,8 @@ paths:
                     value: xyz
                   source:
                     pointer: /data/attributes/preferred_locale
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdEmployeeConfigurations
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

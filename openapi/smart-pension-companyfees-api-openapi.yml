@@ -46,6 +46,8 @@ paths:
           description: Not Found
         '422':
           description: Unprocessable entity
+      operationId: getCompaniesByCompanyIdCompanyFeesByCompanyFeeIdInvoice
+      x-operation-id-source: derived
   /companies/{company_id}/company_fees:
     get:
       summary: CompanyFees/List
@@ -183,17 +185,10 @@ paths:
                       $ref: '#/components/schemas/response_company_fee'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdCompanyFees
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_charge_configuration:
       type: object
       properties:
@@ -258,6 +253,15 @@ components:
           type:
           - string
           - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

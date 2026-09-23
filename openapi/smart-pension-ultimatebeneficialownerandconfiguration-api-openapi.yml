@@ -286,6 +286,8 @@ paths:
                     value: null
                   source:
                     pointer: /data/attributes/stock_exchange
+      operationId: postCompaniesByCompanyIdUltimateBeneficialOwnerAndConfiguration
+      x-operation-id-source: derived
     get:
       summary: Companies/UltimateBeneficialOwnerAndConfigurations/Get
       tags:
@@ -370,6 +372,8 @@ paths:
                 $ref: '#/components/schemas/response_ultimate_beneficial_owner_and_configuration'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdUltimateBeneficialOwnerAndConfiguration
+      x-operation-id-source: derived
     put:
       summary: UltimateBeneficialOwnerAndConfigurations/Update
       tags:
@@ -478,6 +482,8 @@ paths:
       responses:
         '204':
           description: Success
+      operationId: putCompaniesByCompanyIdUltimateBeneficialOwnerAndConfiguration
+      x-operation-id-source: derived
     patch:
       summary: UltimateBeneficialOwnerAndConfigurations/Update
       tags:
@@ -586,17 +592,67 @@ paths:
       responses:
         '204':
           description: Success
+      operationId: patchCompaniesByCompanyIdUltimateBeneficialOwnerAndConfiguration
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
+    response_ultimate_beneficial_owner_and_configuration:
       type: object
       properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
+        id:
+          type:
+          - integer
+          - 'null'
+        company_id:
+          type:
+          - integer
+          - 'null'
+        exempt:
+          type:
+          - boolean
+          - 'null'
+        exemption_reason:
+          type:
+          - string
+          - 'null'
+        natural_person_ubo:
+          type:
+          - boolean
+          - 'null'
+        publicly_listed:
+          type:
+          - boolean
+          - 'null'
+        public_entity_name:
+          type:
+          - string
+          - 'null'
+        stock_exchange:
+          type:
+          - string
+          - 'null'
+        government_entity:
+          type:
+          - boolean
+          - 'null'
+        government_entity_name:
+          type:
+          - string
+          - 'null'
+        government_entity_country:
+          type:
+          - string
+          - 'null'
+        non_significant_control_individuals_registered:
+          type:
+          - boolean
+          - 'null'
+        ultimate_beneficial_owners:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_ultimate_beneficial_owner'
     response_ultimate_beneficial_owner:
       type: object
       properties:
@@ -672,63 +728,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
-    response_ultimate_beneficial_owner_and_configuration:
+    link:
       type: object
       properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        company_id:
-          type:
-          - integer
-          - 'null'
-        exempt:
-          type:
-          - boolean
-          - 'null'
-        exemption_reason:
-          type:
-          - string
-          - 'null'
-        natural_person_ubo:
-          type:
-          - boolean
-          - 'null'
-        publicly_listed:
-          type:
-          - boolean
-          - 'null'
-        public_entity_name:
-          type:
-          - string
-          - 'null'
-        stock_exchange:
-          type:
-          - string
-          - 'null'
-        government_entity:
-          type:
-          - boolean
-          - 'null'
-        government_entity_name:
-          type:
-          - string
-          - 'null'
-        government_entity_country:
-          type:
-          - string
-          - 'null'
-        non_significant_control_individuals_registered:
-          type:
-          - boolean
-          - 'null'
-        ultimate_beneficial_owners:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_ultimate_beneficial_owner'
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

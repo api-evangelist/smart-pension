@@ -59,17 +59,10 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_company_branding_stock'
+      operationId: getCompanyBrandingStocks
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_company_branding_stock:
       type: object
       properties:
@@ -101,6 +94,15 @@ components:
         updated_at:
           type: string
           format: date-time
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

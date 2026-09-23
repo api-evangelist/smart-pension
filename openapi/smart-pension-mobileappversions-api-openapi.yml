@@ -42,6 +42,8 @@ paths:
                 - latest_supported_app_version
         '404':
           description: Not Found
+      operationId: getMobileAppVersionsByMobilePlatform
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

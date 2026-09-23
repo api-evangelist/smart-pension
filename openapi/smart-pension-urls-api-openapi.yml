@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: Urls
+- name: URLs
 paths:
   /urls:
     get:
       summary: Urls/List
       tags:
-      - Urls
+      - URLs
       responses:
         '200':
           description: Success
@@ -47,6 +47,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: string
+      operationId: getUrls
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

@@ -59,6 +59,8 @@ paths:
                   value: 'HTTP Token: Access denied.
 
                     '
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdSwitchesDelayability
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/switches/request_for_current_holdings:
     post:
       summary: Companies/Employees/Switches/RequestForCurrentHoldings
@@ -150,6 +152,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/to_subaccount_uuid
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdSwitchesRequestForCurrentHoldings
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/switches/request_monetary:
     post:
       summary: Companies/Employees/Switches/RequestMonetary
@@ -254,6 +258,8 @@ paths:
                     count: 0
                   source:
                     pointer: /data/attributes/amount
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdSwitchesRequestMonetary
+      x-operation-id-source: derived
 components:
   schemas:
     response_portfolio_switch_delayability:

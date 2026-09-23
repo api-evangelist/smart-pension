@@ -299,6 +299,8 @@ paths:
           description: Not Found
         '422':
           description: Unprocessable Entity
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTransactionsByTransactionTypeByTransactionId
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/transactions:
     get:
       summary: Transactions/List
@@ -953,6 +955,8 @@ paths:
           description: Not Found
         '422':
           description: Unprocessable Entity
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTransactions
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

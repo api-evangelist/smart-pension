@@ -84,6 +84,8 @@ paths:
                       $ref: '#/components/schemas/response_benefit_check_result'
         '404':
           description: Not Fund
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitsByIdBenefitCheckResults
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefits/{benefit_id}/benefit_check_results/{id}:
     put:
       summary: BenefitCheckResults/Update
@@ -143,6 +145,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdBenefitsByBenefitIdBenefitCheckResultsById
+      x-operation-id-source: derived
     patch:
       summary: BenefitCheckResults/Update
       tags:
@@ -201,17 +205,10 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBenefitsByBenefitIdBenefitCheckResultsById
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_check_result:
       type: object
       properties:
@@ -241,6 +238,15 @@ components:
           format: text
         automated_checks_available:
           type: boolean
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

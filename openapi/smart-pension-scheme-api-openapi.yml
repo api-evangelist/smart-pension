@@ -71,6 +71,8 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_available_scheme'
+      operationId: getSchemesAvailable
+      x-operation-id-source: derived
   /schemes/default:
     get:
       summary: Schemes/Default
@@ -87,6 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/response_scheme'
+      operationId: getSchemesDefault
+      x-operation-id-source: derived
 components:
   schemas:
     response_scheme_contribution_limit:
@@ -107,6 +111,31 @@ components:
           format: float
         minimum_recurring_contribution_amount_currency:
           type: string
+    response_scheme_tax_reliefs:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_scheme_tax_relief'
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_available_scheme:
       type: object
       properties:
@@ -123,22 +152,6 @@ components:
           - boolean
           - 'null'
         name:
-          type: string
-    response_scheme_tax_relief:
-      type: object
-      properties:
-        id:
-          type: integer
-        basis_type:
-          type: string
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
           type: string
     response_scheme_bank_detail:
       type: object
@@ -162,15 +175,6 @@ components:
           - number
           - 'null'
           format: float
-    response_scheme_tax_reliefs:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_scheme_tax_relief'
     response_scheme:
       type: object
       properties:

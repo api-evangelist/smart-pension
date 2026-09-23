@@ -65,6 +65,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdHistoricalTransferInsById
+      x-operation-id-source: derived
 components:
   schemas:
     response_historical_transfer_in:

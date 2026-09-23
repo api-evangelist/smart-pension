@@ -168,6 +168,8 @@ paths:
                           properties:
                             pointer:
                               type: string
+      operationId: postAccountClaimingConfirmPersonalData
+      x-operation-id-source: derived
   /account-claiming/current-attempt:
     get:
       summary: Account-Claiming/current-attempt
@@ -285,6 +287,8 @@ paths:
                             - 'null'
         '401':
           description: Unauthorized - incorrect auth header
+      operationId: getAccountClaimingCurrentAttempt
+      x-operation-id-source: derived
   /account-claiming/attempts/{uuid}/:
     get:
       summary: Account-Claiming/Attempt
@@ -413,6 +417,8 @@ paths:
             application/json:
               example:
                 error: Not Found
+      operationId: getAccountClaimingAttemptsByUuid
+      x-operation-id-source: derived
   /account-claiming/password-validations:
     get:
       summary: Account-Claiming/Password-Validations
@@ -460,6 +466,8 @@ paths:
                           type: string
                         description:
                           type: string
+      operationId: getAccountClaimingPasswordValidations
+      x-operation-id-source: derived
   /account-claiming/attempts/{uuid}/additional-data:
     patch:
       summary: Account-Claiming/Attempt/AdditionalData
@@ -601,6 +609,8 @@ paths:
                           properties:
                             pointer:
                               type: string
+      operationId: patchAccountClaimingAttemptsByUuidAdditionalData
+      x-operation-id-source: derived
   /account-claiming/attempts/{uuid}/email:
     patch:
       summary: Account-Claiming/Attempt/Email
@@ -680,6 +690,8 @@ paths:
                           properties:
                             pointer:
                               type: string
+      operationId: patchAccountClaimingAttemptsByUuidEmail
+      x-operation-id-source: derived
   /account-claiming/attempts/{uuid}/password:
     patch:
       summary: Account-Claiming/Attempt/Password
@@ -769,6 +781,8 @@ paths:
                           properties:
                             pointer:
                               type: string
+      operationId: patchAccountClaimingAttemptsByUuidPassword
+      x-operation-id-source: derived
   /account-claiming/attempts:
     post:
       summary: Account-Claiming/Attempt
@@ -865,6 +879,8 @@ paths:
                           properties:
                             pointer:
                               type: string
+      operationId: postAccountClaimingAttempts
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

@@ -408,6 +408,8 @@ paths:
                     address_url_retrieve: https://api.addressy.com/CapturePlus/Interactive/Retrieve/v2.10/json3.ws?Key=
               schema:
                 type: object
+      operationId: getConstants
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

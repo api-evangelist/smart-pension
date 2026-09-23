@@ -104,6 +104,8 @@ paths:
                         error_message: Invalid tin
                       source:
                         pointer: /data/attributes/tax_reference_number
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdAdditionalTaxResidences
+      x-operation-id-source: derived
     get:
       summary: Companies/AdditionalTaxResidences/List
       tags:
@@ -178,6 +180,8 @@ paths:
           description: Unauthorized
         '422':
           description: Unprocessable entity - when invalid parameters
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAdditionalTaxResidences
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/additional_tax_residences/{id}:
     delete:
       summary: Companies/AdditionalTaxResidences/Destroy
@@ -241,6 +245,8 @@ paths:
               examples:
                 not_found:
                   value: ''
+      operationId: deleteCompaniesByCompanyIdEmployeesByEmployeeIdAdditionalTaxResidencesById
+      x-operation-id-source: derived
     put:
       summary: Companies/AdditionalTaxResidences/Update
       tags:
@@ -339,6 +345,8 @@ paths:
                         value: $$$
                       source:
                         pointer: /data/attributes/tax_reference_type
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdAdditionalTaxResidencesById
+      x-operation-id-source: derived
     patch:
       summary: Companies/AdditionalTaxResidences/Update
       tags:
@@ -437,17 +445,10 @@ paths:
                         value: $$$
                       source:
                         pointer: /data/attributes/tax_reference_type
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdAdditionalTaxResidencesById
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_additional_tax_residence:
       type: object
       properties:
@@ -460,6 +461,15 @@ components:
         tax_reference_number:
           type: string
         tax_reference_type:
+          type: string
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
           type: string
   securitySchemes:
     oAuth2:

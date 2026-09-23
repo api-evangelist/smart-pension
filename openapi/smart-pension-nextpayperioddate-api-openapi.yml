@@ -129,6 +129,8 @@ paths:
                         value: INVALID_SORT_OPTION
                       source:
                         pointer: /data/attributes/sort
+      operationId: getCompaniesByCompanyIdNextPayPeriodDates
+      x-operation-id-source: derived
 components:
   schemas:
     response_next_pay_period_date:

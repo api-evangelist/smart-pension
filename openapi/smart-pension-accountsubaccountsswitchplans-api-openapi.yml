@@ -53,6 +53,8 @@ paths:
               examples:
                 Not found when plan with given id does not exist:
                   value: ''
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdSubaccountSwitchPlansByIdConfirm
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/subaccount_switch_plans:
     post:
       summary: Employees/AccountSubaccountsSwitchPlans/Create
@@ -138,6 +140,8 @@ paths:
                 $ref: '#/components/schemas/response_account_subaccount_switch_plan'
         '422':
           description: Invalid parameters
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdSubaccountSwitchPlans
+      x-operation-id-source: derived
 components:
   schemas:
     response_account_subaccount_switch_plan:

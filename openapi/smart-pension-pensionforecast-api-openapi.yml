@@ -145,6 +145,8 @@ paths:
                 $ref: '#/components/schemas/response_pension_forecast_response'
         '422':
           description: when passing invalid parameters
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdPensionForecast
+      x-operation-id-source: derived
     get:
       summary: Companies/Employees/PensionForecastInputs/Create
       tags:
@@ -352,6 +354,8 @@ paths:
           description: when passing invalid parameters
         '531':
           description: with missing investment_returns_long_term
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdPensionForecast
+      x-operation-id-source: derived
 components:
   schemas:
     response_pension_forecast_response:

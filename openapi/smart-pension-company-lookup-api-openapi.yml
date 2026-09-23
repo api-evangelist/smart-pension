@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: CompanyLookup
+- name: Company Lookup
 paths:
   /company_lookups/{country_code}/{id}:
     get:
       summary: CompanyLookups/Get
       tags:
-      - CompanyLookup
+      - Company Lookup
       parameters:
       - name: id
         in: path
@@ -91,11 +91,13 @@ paths:
                     trading_address3: null
                     trading_address_postcode: null
                     signatories_available: true
+      operationId: getCompanyLookupsByCountryCodeById
+      x-operation-id-source: derived
   /company_lookups/{id}:
     get:
       summary: CompanyLookups/Get
       tags:
-      - CompanyLookup
+      - Company Lookup
       parameters:
       - name: id
         in: path
@@ -139,6 +141,8 @@ paths:
                     state: active
                     signatories: []
                     signatories_available: true
+      operationId: getCompanyLookupsById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

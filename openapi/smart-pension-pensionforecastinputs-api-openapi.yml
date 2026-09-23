@@ -178,6 +178,8 @@ paths:
           description: Invalid parameters
         '531':
           description: Error - when missing platform configuration
+      operationId: getCompaniesByCompanyIdEmployeesByIdPensionForecastInputs
+      x-operation-id-source: derived
 components:
   schemas:
     response_pension_forecast_calculation_inputs_thresholds_and_limits:
@@ -187,6 +189,36 @@ components:
           $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
         employee_contribution_percentage:
           $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
+    response_pension_forecast_calculation_inputs_income_grades:
+      type: object
+      properties:
+        minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        moderate:
+          type:
+          - number
+          - 'null'
+          format: float
+        comfortable:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_increase_factor:
+      type: object
+      properties:
+        month:
+          type:
+          - integer
+          - 'null'
+        rate:
+          type:
+          - number
+          - 'null'
+          format: float
     response_pension_forecast_calculation_inputs_increase_factors:
       type: object
       properties:
@@ -202,18 +234,6 @@ components:
           $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
         fees:
           $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-    response_pension_forecast_calculation_inputs_increase_factor:
-      type: object
-      properties:
-        month:
-          type:
-          - integer
-          - 'null'
-        rate:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_calculation_inputs:
       type: object
       properties:
@@ -385,19 +405,6 @@ components:
           type:
           - object
           - 'null'
-    response_pension_forecast_calculation_inputs_employer_rate_changes:
-      type: object
-      properties:
-        min_employee_rate:
-          type:
-          - number
-          - 'null'
-          format: float
-        employer_rate:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_calculation_inputs_limit_structure:
       type: object
       properties:
@@ -407,24 +414,6 @@ components:
           - 'null'
           format: float
         max:
-          type:
-          - number
-          - 'null'
-          format: float
-    response_pension_forecast_calculation_inputs_income_grades:
-      type: object
-      properties:
-        minimum:
-          type:
-          - number
-          - 'null'
-          format: float
-        moderate:
-          type:
-          - number
-          - 'null'
-          format: float
-        comfortable:
           type:
           - number
           - 'null'
@@ -443,6 +432,19 @@ components:
           - 'null'
           format: float
         other_avc:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_employer_rate_changes:
+      type: object
+      properties:
+        min_employee_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_rate:
           type:
           - number
           - 'null'

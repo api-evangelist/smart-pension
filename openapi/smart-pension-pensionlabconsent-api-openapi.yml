@@ -40,6 +40,8 @@ paths:
                 pensionlab_url: https://stg.thepensionlab.co.uk/smartpension/oauth/connect/check
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdPensionlabConsent
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

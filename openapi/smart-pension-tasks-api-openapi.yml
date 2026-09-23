@@ -91,6 +91,8 @@ paths:
                 $ref: '#/components/schemas/response_tasks'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTasks
+      x-operation-id-source: derived
   /companies/{company_id}/tasks:
     get:
       summary: Tasks/List
@@ -177,17 +179,10 @@ paths:
                 $ref: '#/components/schemas/response_tasks'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdTasks
+      x-operation-id-source: derived
 components:
   schemas:
-    response_tasks:
-      type: object
-      properties:
-        tasks:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_task'
     response_task:
       type: object
       properties:
@@ -231,6 +226,15 @@ components:
           type:
           - boolean
           - 'null'
+    response_tasks:
+      type: object
+      properties:
+        tasks:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_task'
   securitySchemes:
     oAuth2:
       type: oauth2

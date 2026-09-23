@@ -517,8 +517,19 @@ paths:
                   nationality_code: ZW
               schema:
                 $ref: '#/components/schemas/response_nationalities'
+      operationId: getCountriesNationality
+      x-operation-id-source: derived
 components:
   schemas:
+    response_nationalities:
+      type: object
+      properties:
+        nationalities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_nationality'
     response_nationality:
       type: object
       properties:
@@ -530,15 +541,6 @@ components:
           type:
           - string
           - 'null'
-    response_nationalities:
-      type: object
-      properties:
-        nationalities:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_nationality'
   securitySchemes:
     oAuth2:
       type: oauth2

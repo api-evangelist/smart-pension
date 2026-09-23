@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: FeatureFlags
+- name: Feature Flags
 paths:
   /feature_flags:
     get:
       summary: FeatureFlags/List
       tags:
-      - FeatureFlags
+      - Feature Flags
       security:
       - oAuth2:
         - user
@@ -195,6 +195,8 @@ paths:
                 type: object
                 additionalProperties:
                   type: boolean
+      operationId: getFeatureFlags
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

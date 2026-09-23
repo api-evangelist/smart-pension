@@ -65,6 +65,8 @@ paths:
                 $ref: '#/components/schemas/response_assessment'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAssessmentsById
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/assessments:
     get:
       summary: Assessments/List
@@ -188,17 +190,10 @@ paths:
                       $ref: '#/components/schemas/response_assessment'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAssessments
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_assessment:
       type: object
       properties:
@@ -246,6 +241,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

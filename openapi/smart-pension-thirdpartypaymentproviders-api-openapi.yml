@@ -128,6 +128,8 @@ paths:
                 $ref: '#/components/schemas/response_third_party_payment_provider'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdThirdPartyPaymentProvidersById
+      x-operation-id-source: derived
   /companies/{company_id}/third_party_payment_providers:
     get:
       summary: Companies/ThirdPartyPaymentProviders/List
@@ -236,6 +238,8 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_third_party_payment_provider'
+      operationId: getCompaniesByCompanyIdThirdPartyPaymentProviders
+      x-operation-id-source: derived
   /companies/{company_id}/third_party_payment_providers/{id}/sensitive_data:
     get:
       summary: Companies/ThirdPartyPaymentProviders/Get
@@ -282,6 +286,8 @@ paths:
                   value: AL47 2121 1009 0000 0002 3569 87411
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdThirdPartyPaymentProvidersByIdSensitiveData
+      x-operation-id-source: derived
 components:
   schemas:
     response_bank_account_detail:
@@ -328,34 +334,6 @@ components:
           type: string
         href:
           type: string
-    response_third_party_payment_provider_document:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        topic:
-          type:
-          - string
-          - 'null'
-        url:
-          type:
-          - string
-          - 'null'
-        file_file_name:
-          type:
-          - string
-          - 'null'
-        file_content_type:
-          type:
-          - string
-          - 'null'
-        created_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
     response_third_party_payment_provider_director:
       type: object
       properties:
@@ -504,6 +482,34 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_third_party_payment_provider_document'
+    response_third_party_payment_provider_document:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        topic:
+          type:
+          - string
+          - 'null'
+        url:
+          type:
+          - string
+          - 'null'
+        file_file_name:
+          type:
+          - string
+          - 'null'
+        file_content_type:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
   securitySchemes:
     oAuth2:
       type: oauth2

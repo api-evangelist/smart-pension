@@ -40,6 +40,8 @@ paths:
                 $ref: '#/components/schemas/response_payment_approval'
         '401':
           description: Unauthorized
+      operationId: postCompaniesByCompanyIdPaymentApprovals
+      x-operation-id-source: derived
   /companies/{company_id}/payment_approvals/permitted:
     get:
       summary: PaymentApprovals/Permitted/Get
@@ -60,6 +62,8 @@ paths:
           description: Success
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdPaymentApprovalsPermitted
+      x-operation-id-source: derived
 components:
   schemas:
     response_payment_approval:

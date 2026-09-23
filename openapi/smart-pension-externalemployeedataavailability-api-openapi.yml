@@ -31,6 +31,8 @@ paths:
             application/json:
               example:
                 external_employee_data_availability: false
+      operationId: getCompaniesByCompanyIdExternalEmployeeDataAvailability
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

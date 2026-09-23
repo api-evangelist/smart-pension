@@ -43,6 +43,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdDiscountedValuation
+      x-operation-id-source: derived
 components:
   schemas:
     response_discounted_valuation:

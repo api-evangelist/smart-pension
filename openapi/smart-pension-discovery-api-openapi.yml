@@ -32,6 +32,8 @@ paths:
                 employees_password: /employees/password
                 users_password: /users/password
                 tpr: /tpr/staging_date
+      operationId: getRoot
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

@@ -234,6 +234,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/initial_payroll_configuration_details
+      operationId: postCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationIdPayrollConfigurationDetailsBatchCreate
+      x-operation-id-source: derived
   /companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details/{id}:
     get:
       summary: PayrollConfigurationDetails/Get
@@ -323,6 +325,8 @@ paths:
               examples:
                 payroll_configuration_does_not_exist:
                   value: ''
+      operationId: getCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationIdPayrollConfigurationDetailsById
+      x-operation-id-source: derived
     put:
       summary: PayrollConfigurationDetails
       tags:
@@ -451,6 +455,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/cutoff_date
+      operationId: putCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationIdPayrollConfigurationDetailsById
+      x-operation-id-source: derived
     patch:
       summary: PayrollConfigurationDetails
       tags:
@@ -579,6 +585,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/cutoff_date
+      operationId: patchCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationIdPayrollConfigurationDetailsById
+      x-operation-id-source: derived
   /companies/{company_id}/payroll_configurations/{payroll_configuration_id}/payroll_configuration_details:
     get:
       summary: PayrollConfigurationDetails/List
@@ -878,48 +886,10 @@ paths:
               examples:
                 payroll_configuration_does_not_exist:
                   value: ''
+      operationId: getCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationIdPayrollConfigurationDetails
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_payroll_configuration_detail:
-      type: object
-      properties:
-        id:
-          type: integer
-        payroll_configuration_id:
-          type: integer
-        pay_period_starts_on:
-          type: string
-          format: date
-        cutoff_date:
-          type: string
-          format: date
-        payday:
-          type: string
-          format: date
-        pay_period_ends_on:
-          type: string
-          format: date
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        updatable:
-          type:
-          - boolean
-          - 'null'
-        payroll_configuration:
-          $ref: '#/components/schemas/response_payroll_configuration'
     response_payroll_configuration:
       type: object
       properties:
@@ -957,6 +927,46 @@ components:
           type:
           - boolean
           - 'null'
+    response_payroll_configuration_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        payroll_configuration_id:
+          type: integer
+        pay_period_starts_on:
+          type: string
+          format: date
+        cutoff_date:
+          type: string
+          format: date
+        payday:
+          type: string
+          format: date
+        pay_period_ends_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        updatable:
+          type:
+          - boolean
+          - 'null'
+        payroll_configuration:
+          $ref: '#/components/schemas/response_payroll_configuration'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -177,6 +177,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/privacy_policy_accepted
+      operationId: postCustomerLeads
+      x-operation-id-source: derived
   /customer_leads/earliest_plan_effective_date:
     get:
       summary: CustomerLeads/EarliestPlanEffectiveDate
@@ -189,6 +191,8 @@ paths:
             application/json:
               example:
                 earliest_plan_effective_on: '2026-09-19'
+      operationId: getCustomerLeadsEarliestPlanEffectiveDate
+      x-operation-id-source: derived
   /customer_leads/{customer_lead_id}:
     get:
       summary: Companies/Get
@@ -250,6 +254,8 @@ paths:
                 $ref: '#/components/schemas/response_customer_lead'
         '404':
           description: Not Found
+      operationId: getCustomerLeadsByCustomerLeadId
+      x-operation-id-source: derived
 components:
   schemas:
     response_customer_lead:

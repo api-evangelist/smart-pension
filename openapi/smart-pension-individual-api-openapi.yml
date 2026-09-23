@@ -127,6 +127,8 @@ paths:
                     banned_params: []
         '401':
           description: Non-individual account
+      operationId: putIndividualsRetirementAge
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

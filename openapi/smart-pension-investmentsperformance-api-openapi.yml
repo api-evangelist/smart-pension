@@ -99,17 +99,10 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdInvestmentsPerformance
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_investment_performance:
       type: object
       properties:
@@ -143,6 +136,15 @@ components:
           - number
           - 'null'
           format: float
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

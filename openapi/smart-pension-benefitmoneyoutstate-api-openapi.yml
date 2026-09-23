@@ -68,6 +68,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitMoneyOutState
+      x-operation-id-source: derived
 components:
   schemas:
     response_benefit_money_out_state:

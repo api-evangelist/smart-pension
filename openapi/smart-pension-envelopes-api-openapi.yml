@@ -46,6 +46,8 @@ paths:
                 $ref: '#/components/schemas/response_envelope'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEnvelope
+      x-operation-id-source: derived
 components:
   schemas:
     link:

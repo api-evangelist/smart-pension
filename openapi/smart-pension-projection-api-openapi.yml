@@ -67,6 +67,8 @@ paths:
                 $ref: '#/components/schemas/response_account_subaccount_projection'
         '422':
           description: Invalid request
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdSubaccountsBySubaccountUuidProjections
+      x-operation-id-source: derived
 components:
   schemas:
     response_account_subaccount_projection:

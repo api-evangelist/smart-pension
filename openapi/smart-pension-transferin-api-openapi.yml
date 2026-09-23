@@ -78,6 +78,8 @@ paths:
                 $ref: '#/components/schemas/response_transfer_in'
         '404':
           description: Not Fund
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTransferInsById
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/transfer_ins:
     get:
       summary: TransferIn/List
@@ -203,35 +205,10 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_transfer_in'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTransferIns
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_transfer_in_amount:
-      type: object
-      properties:
-        id:
-          type: integer
-        display_name:
-          type:
-          - string
-          - 'null'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        pot:
-          type: string
-        state:
-          type: string
     response_transfer_in:
       type: object
       properties:
@@ -297,6 +274,33 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_transfer_in_amount'
+    response_transfer_in_amount:
+      type: object
+      properties:
+        id:
+          type: integer
+        display_name:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        pot:
+          type: string
+        state:
+          type: string
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

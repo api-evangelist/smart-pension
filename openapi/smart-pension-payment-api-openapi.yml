@@ -58,6 +58,8 @@ paths:
           content:
             application/json:
               example: ''
+      operationId: getCompaniesByCompanyIdPaymentsById
+      x-operation-id-source: derived
   /companies/{company_id}/payments:
     get:
       summary: Companies/Payments/List
@@ -122,6 +124,8 @@ paths:
                   source_of_funds: UK savings
               schema:
                 $ref: '#/components/schemas/response_payment'
+      operationId: getCompaniesByCompanyIdPayments
+      x-operation-id-source: derived
 components:
   schemas:
     response_payment:

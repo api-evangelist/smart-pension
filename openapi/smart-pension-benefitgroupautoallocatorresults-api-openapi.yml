@@ -68,6 +68,8 @@ paths:
           content:
             application/json:
               example: ''
+      operationId: getCompaniesByCompanyIdBenefitGroupAutoAllocatorResultsById
+      x-operation-id-source: derived
   /companies/{company_id}/benefit_group_auto_allocator_results:
     get:
       summary: Companies/BenefitGroupAutoAllocatorResults/List
@@ -350,17 +352,10 @@ paths:
                         value: bad-value
                       source:
                         pointer: /data/attributes/offset
+      operationId: getCompaniesByCompanyIdBenefitGroupAutoAllocatorResults
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_group_auto_allocator_run_result:
       type: object
       properties:
@@ -405,6 +400,15 @@ components:
           type:
           - string
           - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

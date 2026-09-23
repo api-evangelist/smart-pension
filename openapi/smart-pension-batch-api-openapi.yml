@@ -181,6 +181,8 @@ paths:
                           type:
                           - object
                           - 'null'
+      operationId: postBatch
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

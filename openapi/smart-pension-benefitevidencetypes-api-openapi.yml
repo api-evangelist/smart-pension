@@ -136,17 +136,10 @@ paths:
                       $ref: '#/components/schemas/response_benefit_evidence_type'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitFormBenefitEvidences
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_evidence_upload:
       type: object
       properties:
@@ -181,6 +174,15 @@ components:
           - array
           - 'null'
           items: {}
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_benefit_evidence_type:
       type: object
       properties:

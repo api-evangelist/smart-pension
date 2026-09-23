@@ -116,6 +116,8 @@ paths:
                 unauthorized:
                   value:
                     error: Invalid authentication token
+      operationId: getIdentityApiProfilesPersonalData
+      x-operation-id-source: derived
     patch:
       summary: Identity/profiles/personal-data
       tags:
@@ -272,6 +274,8 @@ paths:
                   value:
                     errors:
                     - Profile not found
+      operationId: patchIdentityApiProfilesPersonalData
+      x-operation-id-source: derived
   /identity/api/profiles/registration-data:
     get:
       summary: Identity/profiles/registration-data
@@ -321,6 +325,8 @@ paths:
                   value:
                     errors:
                     - Profile not found
+      operationId: getIdentityApiProfilesRegistrationData
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

@@ -97,6 +97,8 @@ paths:
                     - example_attribute_2
                   source:
                     pointer: /data/attributes/schema
+      operationId: postCompaniesByCompanyIdSsifHeadersMappings
+      x-operation-id-source: derived
     get:
       summary: SSIFHeadersMappings/List
       tags:
@@ -142,6 +144,8 @@ paths:
                   updated_at: '2026-08-05T13:04:45.089+01:00'
               schema:
                 $ref: '#/components/schemas/response_ssif_headers_mapping'
+      operationId: getCompaniesByCompanyIdSsifHeadersMappings
+      x-operation-id-source: derived
   /companies/{company_id}/ssif_headers_mappings/{id}:
     delete:
       summary: SSIFHeadersMappings/Destroy
@@ -178,6 +182,8 @@ paths:
                   value: ''
         '405':
           description: Not allowed when ssif_headers_mapping is inactive
+      operationId: deleteCompaniesByCompanyIdSsifHeadersMappingsById
+      x-operation-id-source: derived
     get:
       summary: SSIFHeadersMappings/List
       tags:
@@ -219,6 +225,8 @@ paths:
                 $ref: '#/components/schemas/response_ssif_headers_mapping'
         '404':
           description: Failing when mapping does not exist
+      operationId: getCompaniesByCompanyIdSsifHeadersMappingsById
+      x-operation-id-source: derived
     put:
       summary: SSIFHeadersMappings/Update
       tags:
@@ -304,6 +312,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/name
+      operationId: putCompaniesByCompanyIdSsifHeadersMappingsById
+      x-operation-id-source: derived
     patch:
       summary: SSIFHeadersMappings/Update
       tags:
@@ -389,6 +399,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/name
+      operationId: patchCompaniesByCompanyIdSsifHeadersMappingsById
+      x-operation-id-source: derived
 components:
   schemas:
     response_ssif_headers_mapping:

@@ -44,6 +44,8 @@ paths:
                 $ref: '#/components/schemas/response_signing'
         '403':
           description: Forbidden - envelope for signing does not exist
+      operationId: getCompaniesByCompanyIdEnvelopeSigning
+      x-operation-id-source: derived
 components:
   schemas:
     response_signing:

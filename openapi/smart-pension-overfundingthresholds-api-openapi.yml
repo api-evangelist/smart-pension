@@ -44,6 +44,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdOverfundingThreshold
+      x-operation-id-source: derived
 components:
   schemas:
     response_overfunding_threshold:

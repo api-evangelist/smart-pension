@@ -208,6 +208,8 @@ paths:
                 $ref: '#/components/schemas/response_custom_app_styling'
         '204':
           description: No Content
+      operationId: getCompaniesByCompanyIdStyle
+      x-operation-id-source: derived
 components:
   schemas:
     response_custom_app_styling:

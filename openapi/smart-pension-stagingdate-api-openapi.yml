@@ -36,6 +36,8 @@ paths:
                 scheme_starts_on: '2016-01-01'
         '403':
           description: Forbidden
+      operationId: getTprStagingDate
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

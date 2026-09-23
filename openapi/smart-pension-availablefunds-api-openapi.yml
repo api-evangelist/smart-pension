@@ -98,6 +98,8 @@ paths:
                       $ref: '#/components/schemas/response_available_fund'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdAvailableFunds
+      x-operation-id-source: derived
 components:
   schemas:
     link:

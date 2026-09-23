@@ -41,6 +41,8 @@ paths:
                 $ref: '#/components/schemas/response_declaration_of_compliance_employee_totals'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdDeclarationOfComplianceEmployeeTotals
+      x-operation-id-source: derived
 components:
   schemas:
     response_declaration_of_compliance_employee_totals:

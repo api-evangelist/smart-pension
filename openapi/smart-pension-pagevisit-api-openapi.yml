@@ -77,6 +77,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/browser
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdPageVisits
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

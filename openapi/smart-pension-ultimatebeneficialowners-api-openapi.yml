@@ -62,6 +62,8 @@ paths:
                 $ref: '#/components/schemas/response_ultimate_beneficial_owner'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdUltimateBeneficialOwnersById
+      x-operation-id-source: derived
   /companies/{company_id}/ultimate_beneficial_owners:
     get:
       summary: Companies/UltimateBeneficialOwners/List
@@ -232,17 +234,10 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdUltimateBeneficialOwners
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_ultimate_beneficial_owner:
       type: object
       properties:
@@ -318,6 +313,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

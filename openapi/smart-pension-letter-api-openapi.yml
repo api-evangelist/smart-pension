@@ -89,6 +89,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/employee_ids
+      operationId: postCompaniesByCompanyIdLetters
+      x-operation-id-source: derived
   /companies/{company_id}/letters/{id}:
     delete:
       summary: Companies/Letters/Destroy
@@ -114,6 +116,8 @@ paths:
           description: Success
         '404':
           description: Not Found - invalid letter id
+      operationId: deleteCompaniesByCompanyIdLettersById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

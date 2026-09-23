@@ -40,6 +40,8 @@ paths:
                 $ref: '#/components/schemas/response_referee_person'
         '404':
           description: Not Found
+      operationId: postCustomersReferrals
+      x-operation-id-source: derived
 components:
   schemas:
     response_referee_person:

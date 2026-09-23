@@ -64,6 +64,8 @@ paths:
                 $ref: '#/components/schemas/response_estimate_benefit_valuations'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitCategoriesByBenefitCategoryIdEstimateBenefitValuations
+      x-operation-id-source: derived
 components:
   schemas:
     response_estimate_benefit_valuations:

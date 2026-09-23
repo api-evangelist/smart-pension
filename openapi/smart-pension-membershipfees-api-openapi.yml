@@ -35,6 +35,8 @@ paths:
                 $ref: '#/components/schemas/response_membership_fees'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdMembershipFees
+      x-operation-id-source: derived
 components:
   schemas:
     response_membership_fees:

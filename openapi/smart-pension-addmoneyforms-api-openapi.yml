@@ -83,6 +83,8 @@ paths:
                 $ref: '#/components/schemas/response_add_money_form_summary'
         '403':
           description: Forbidden - Active add money form already exists
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdAddMoneyFormsByType
+      x-operation-id-source: derived
     get:
       summary: AddMoneyForms/Get
       tags:
@@ -151,6 +153,8 @@ paths:
                 $ref: '#/components/schemas/response_add_money_form_summary'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAddMoneyFormsByType
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/add_money_forms/{type}/submit_ras_consent:
     patch:
       summary: AddMoneyForms/SubmitRasConsent
@@ -190,6 +194,8 @@ paths:
           description: Success
         '404':
           description: Not Found
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdAddMoneyFormsByTypeSubmitRasConsent
+      x-operation-id-source: derived
 components:
   schemas:
     response_add_money_form_summary:

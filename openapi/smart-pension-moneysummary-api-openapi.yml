@@ -73,8 +73,38 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdMoneySummary
+      x-operation-id-source: derived
 components:
   schemas:
+    response_withdrawals_summary:
+      type: object
+      properties:
+        benefits_total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        transfer_outs_total_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        pending_benefits_exist:
+          type:
+          - boolean
+          - 'null'
+        pending_transfer_outs_exist:
+          type:
+          - boolean
+          - 'null'
+    response_employee_money_summary:
+      type: object
+      properties:
+        contributions:
+          $ref: '#/components/schemas/response_employee_session_summary'
+        withdrawals:
+          $ref: '#/components/schemas/response_withdrawals_summary'
     response_employee_session_summary:
       type: object
       properties:
@@ -151,34 +181,6 @@ components:
           - string
           - 'null'
           format: date-time
-    response_withdrawals_summary:
-      type: object
-      properties:
-        benefits_total_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        transfer_outs_total_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        pending_benefits_exist:
-          type:
-          - boolean
-          - 'null'
-        pending_transfer_outs_exist:
-          type:
-          - boolean
-          - 'null'
-    response_employee_money_summary:
-      type: object
-      properties:
-        contributions:
-          $ref: '#/components/schemas/response_employee_session_summary'
-        withdrawals:
-          $ref: '#/components/schemas/response_withdrawals_summary'
   securitySchemes:
     oAuth2:
       type: oauth2

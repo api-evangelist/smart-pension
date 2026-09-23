@@ -105,6 +105,8 @@ paths:
                     value: INVALID_FREQUENCY
                   source:
                     pointer: /data/attributes/frequency
+      operationId: postCompaniesByCompanyIdPayrollConfigurations
+      x-operation-id-source: derived
   /companies/{company_id}/payroll_configurations/{payroll_configuration_id}:
     put:
       summary: payroll_configurations
@@ -146,6 +148,8 @@ paths:
                 description:
                   type: string
         required: true
+      operationId: putCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationId
+      x-operation-id-source: derived
     patch:
       summary: payroll_configurations
       tags:
@@ -186,6 +190,8 @@ paths:
                 description:
                   type: string
         required: true
+      operationId: patchCompaniesByCompanyIdPayrollConfigurationsByPayrollConfigurationId
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

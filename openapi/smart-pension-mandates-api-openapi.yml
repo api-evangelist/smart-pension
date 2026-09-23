@@ -55,6 +55,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: postPaymentsServiceCompaniesByCompanyUuidMandatesByMandateUuidComplete
+      x-operation-id-source: derived
   /payments_service/companies/{company_uuid}/mandates:
     post:
       summary: Companies/Mandates/Create
@@ -111,6 +113,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: postPaymentsServiceCompaniesByCompanyUuidMandates
+      x-operation-id-source: derived
     get:
       summary: Companies/Mandates/List
       tags:
@@ -192,6 +196,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getPaymentsServiceCompaniesByCompanyUuidMandates
+      x-operation-id-source: derived
   /payments_service/companies/{company_uuid}/mandates/{mandate_uuid}:
     delete:
       summary: Companies/Mandates/Destroy
@@ -220,6 +226,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: deletePaymentsServiceCompaniesByCompanyUuidMandatesByMandateUuid
+      x-operation-id-source: derived
     get:
       summary: Companies/Mandates/Get
       tags:
@@ -261,6 +269,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getPaymentsServiceCompaniesByCompanyUuidMandatesByMandateUuid
+      x-operation-id-source: derived
   /payments_service/companies/{company_uuid}/mandates/{mandate_uuid}/select:
     post:
       summary: Companies/Mandates/Select
@@ -307,6 +317,8 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: postPaymentsServiceCompaniesByCompanyUuidMandatesByMandateUuidSelect
+      x-operation-id-source: derived
 components:
   schemas:
     link:

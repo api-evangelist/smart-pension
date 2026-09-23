@@ -103,6 +103,8 @@ paths:
                 subaccount_groups_valuations: []
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdSubaccountGroupsValuations
+      x-operation-id-source: derived
   /employees/subaccount_groups_valuations:
     get:
       summary: SubaccountGroupsValuations/List
@@ -184,6 +186,8 @@ paths:
                 subaccount_groups_valuations: []
         '401':
           description: Unauthorized
+      operationId: getEmployeesSubaccountGroupsValuations
+      x-operation-id-source: derived
 components:
   schemas:
     response_subaccount_group_valuation:

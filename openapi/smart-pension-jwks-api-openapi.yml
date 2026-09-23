@@ -7,13 +7,13 @@ servers:
 - url: https://api.sandbox.autoenrolment.co.uk
 - url: /
 tags:
-- name: Jwks
+- name: JWKS
 paths:
   /.well-known/jwks:
     get:
       summary: Jwks/Get
       tags:
-      - Jwks
+      - JWKS
       responses:
         '200':
           description: Success
@@ -41,6 +41,8 @@ paths:
                           type: string
                         kid:
                           type: string
+      operationId: getWellKnownJwks
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

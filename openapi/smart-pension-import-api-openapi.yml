@@ -74,6 +74,8 @@ paths:
                   href: https://api.host.com/companies/1127
         '422':
           description: Failing when parameters are invalid.
+      operationId: postCompaniesByCompanyIdImports
+      x-operation-id-source: derived
     get:
       summary: Import/List
       tags:
@@ -162,6 +164,8 @@ paths:
                     href: https://api.host.com/companies/1134
               schema:
                 $ref: '#/components/schemas/response_import'
+      operationId: getCompaniesByCompanyIdImports
+      x-operation-id-source: derived
   /companies/{company_id}/imports/{id}:
     get:
       summary: Import/Get
@@ -232,6 +236,8 @@ paths:
                 $ref: '#/components/schemas/response_import'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdImportsById
+      x-operation-id-source: derived
   /companies/{company_id}/imports/{import_id}/import_results:
     get:
       summary: Import/ImportResults/List
@@ -360,55 +366,10 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_import_result'
+      operationId: getCompaniesByCompanyIdImportsByImportIdImportResults
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_import_result:
-      type: object
-      properties:
-        id:
-          type: integer
-        import_id:
-          type: integer
-        cached_name:
-          type:
-          - string
-          - 'null'
-        cached_external_id:
-          type:
-          - string
-          - 'null'
-        operation:
-          type: string
-        operation_errors:
-          type:
-          - array
-          - 'null'
-          items: {}
-        resource_id:
-          type:
-          - integer
-          - 'null'
-        resource_type:
-          type:
-          - string
-          - 'null'
-        state:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
     response_import:
       type: object
       properties:
@@ -455,6 +416,53 @@ components:
           type:
           - integer
           - 'null'
+    response_import_result:
+      type: object
+      properties:
+        id:
+          type: integer
+        import_id:
+          type: integer
+        cached_name:
+          type:
+          - string
+          - 'null'
+        cached_external_id:
+          type:
+          - string
+          - 'null'
+        operation:
+          type: string
+        operation_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        resource_id:
+          type:
+          - integer
+          - 'null'
+        resource_type:
+          type:
+          - string
+          - 'null'
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

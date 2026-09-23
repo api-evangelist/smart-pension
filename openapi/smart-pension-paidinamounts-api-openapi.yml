@@ -91,6 +91,8 @@ paths:
           description: Unauthorized
         '422':
           description: Invalid parameters
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdPaidInAmounts
+      x-operation-id-source: derived
 components:
   schemas:
     link:

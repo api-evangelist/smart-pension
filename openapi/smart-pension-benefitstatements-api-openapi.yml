@@ -60,6 +60,8 @@ paths:
               example: {}
         '401':
           description: Unauthorized
+      operationId: postCompaniesByCompanyIdBenefitStatements
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_statements:
     post:
       summary: BenefitStatements/Create
@@ -164,6 +166,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/ends_on
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBenefitStatements
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/benefit_statements/{id}:
     get:
       summary: Companies/Employees/BenefitStatements/Get
@@ -211,17 +215,10 @@ paths:
           description: Unauthorized
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBenefitStatementsById
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_statement:
       type: object
       properties:
@@ -247,6 +244,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

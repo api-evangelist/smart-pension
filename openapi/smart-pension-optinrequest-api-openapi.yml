@@ -52,6 +52,8 @@ paths:
       responses:
         '204':
           description: Success
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdOptInRequestsById
+      x-operation-id-source: derived
     patch:
       summary: Companies/Employees/OptInRequests/Update
       tags:
@@ -94,6 +96,8 @@ paths:
       responses:
         '204':
           description: Success
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdOptInRequestsById
+      x-operation-id-source: derived
   /companies/{company_id}/opt_in_requests:
     get:
       summary: Companies/OptInRequests/List
@@ -130,6 +134,8 @@ paths:
                   title: last
                   href: http://api.host.com/companies/1223/opt_in_requests?offset=0&limit=50
                 opt_in_requests: []
+      operationId: getCompaniesByCompanyIdOptInRequests
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

@@ -74,6 +74,8 @@ paths:
                         value: invalid_value
                       source:
                         pointer: /data/attributes/source
+      operationId: putEmployeesMarketingPreference
+      x-operation-id-source: derived
     patch:
       summary: Employees/MarketingPreference/Update
       tags:
@@ -138,6 +140,8 @@ paths:
                         value: invalid_value
                       source:
                         pointer: /data/attributes/source
+      operationId: patchEmployeesMarketingPreference
+      x-operation-id-source: derived
   /users/marketing_preference:
     put:
       summary: Advisers/Users/MarketingPreference/Update
@@ -201,6 +205,8 @@ paths:
                         value: null
                       source:
                         pointer: /data/attributes/source
+      operationId: putUsersMarketingPreference
+      x-operation-id-source: derived
     patch:
       summary: Advisers/Users/MarketingPreference/Update
       tags:
@@ -263,6 +269,8 @@ paths:
                         value: null
                       source:
                         pointer: /data/attributes/source
+      operationId: patchUsersMarketingPreference
+      x-operation-id-source: derived
 components:
   securitySchemes:
     oAuth2:

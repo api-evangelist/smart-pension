@@ -52,6 +52,8 @@ paths:
                 amount: 0.33
               schema:
                 $ref: '#/components/schemas/response_later_life_projection'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdLaterLifeProjection
+      x-operation-id-source: derived
 components:
   schemas:
     response_later_life_projection:

@@ -95,6 +95,8 @@ paths:
                   value:
                     errors:
                     - Prefix cannot be empty
+      operationId: getCitiesByCountryCodeAutocomplete
+      x-operation-id-source: derived
 components:
   schemas:
     response_cities:

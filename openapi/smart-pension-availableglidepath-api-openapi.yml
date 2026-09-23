@@ -75,29 +75,21 @@ paths:
                     - 'null'
                     items:
                       $ref: '#/components/schemas/response_glidepath'
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAvailableGlidepaths
+      x-operation-id-source: derived
 components:
   schemas:
-    response_fund:
+    response_glidepath_step_fund_split:
       type: object
       properties:
         id:
           type: integer
-        name:
-          type: string
-        display_name:
-          type: string
-        description:
-          type: string
-        fact_sheet_url:
-          type:
-          - string
-          - 'null'
-        fund_provider:
-          type:
-          - string
-          - 'null'
-        target_date_fund_group:
-          $ref: '#/components/schemas/response_target_date_fund_group'
+        percentage:
+          type: number
+        glidepath_step:
+          $ref: '#/components/schemas/response_glidepath_step'
+        fund:
+          $ref: '#/components/schemas/response_fund'
     response_glidepath_step:
       type: object
       properties:
@@ -150,6 +142,21 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_glidepath_step_fund_split'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
     link:
       type: object
       properties:
@@ -199,32 +206,27 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_glidepath_step'
-    response_glidepath_step_fund_split:
-      type: object
-      properties:
-        id:
-          type: integer
-        percentage:
-          type: number
-        glidepath_step:
-          $ref: '#/components/schemas/response_glidepath_step'
-        fund:
-          $ref: '#/components/schemas/response_fund'
-    response_target_date_fund_group:
+    response_fund:
       type: object
       properties:
         id:
           type: integer
         name:
           type: string
-        goal:
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
           type:
           - string
           - 'null'
-        investment_strategy:
+        fund_provider:
           type:
           - string
           - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
   securitySchemes:
     oAuth2:
       type: oauth2

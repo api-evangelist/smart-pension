@@ -180,6 +180,8 @@ paths:
                   meta: {}
                   source:
                     pointer: /data/attributes/account_number_format
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBankAccountDetail
+      x-operation-id-source: derived
     get:
       summary: Companies/Employees/BankAccountDetail/Get
       tags:
@@ -232,6 +234,8 @@ paths:
                     '
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdBankAccountDetail
+      x-operation-id-source: derived
     put:
       summary: Companies/Employees/BankAccountDetail/Update
       tags:
@@ -310,6 +314,8 @@ paths:
           description: Not Found
         '422':
           description: Invalid parameters
+      operationId: putCompaniesByCompanyIdEmployeesByEmployeeIdBankAccountDetail
+      x-operation-id-source: derived
     patch:
       summary: Companies/Employees/BankAccountDetail/Update
       tags:
@@ -388,6 +394,8 @@ paths:
           description: Not Found
         '422':
           description: Invalid parameters
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdBankAccountDetail
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/bank_account_detail/validate:
     post:
       summary: Companies/Employees/BankAccountDetail/Validate
@@ -476,6 +484,8 @@ paths:
                 errors: {}
         '422':
           description: unprocessable entity
+      operationId: postCompaniesByCompanyIdEmployeesByEmployeeIdBankAccountDetailValidate
+      x-operation-id-source: derived
 components:
   schemas:
     response_complete_bank_account_detail:

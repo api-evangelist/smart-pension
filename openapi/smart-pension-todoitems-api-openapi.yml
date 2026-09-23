@@ -82,6 +82,8 @@ paths:
                     - invalid
                   source:
                     pointer: /data/attributes/names
+      operationId: patchCompaniesByCompanyIdEmployeesByEmployeeIdTodoItemsComplete
+      x-operation-id-source: derived
   /companies/{company_id}/employees/{employee_id}/todo_items:
     get:
       summary: TodoItems/List
@@ -162,6 +164,8 @@ paths:
                       $ref: '#/components/schemas/response_todo_item'
         '401':
           description: Unauthorized
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdTodoItems
+      x-operation-id-source: derived
 components:
   schemas:
     link:

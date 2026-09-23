@@ -312,17 +312,10 @@ paths:
                         value: invalid-limit
                       source:
                         pointer: /data/attributes/limit
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdAvailableWithdrawalOptions
+      x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_available_withdrawal_option:
       type: object
       properties:
@@ -342,6 +335,15 @@ components:
           type:
           - object
           - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

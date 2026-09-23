@@ -48,6 +48,8 @@ paths:
                 $ref: '#/components/schemas/response_adviser_company'
         '403':
           description: Forbidden when invitation does not exist
+      operationId: postAdviserCompanies
+      x-operation-id-source: derived
   /adviser_companies/adviser/{adviser_id}/company/{company_id}:
     patch:
       summary: AdviserCompanies/Update
@@ -126,6 +128,8 @@ paths:
                       meta: {}
                       source:
                         pointer: /data/attributes/preferred_contact_user_id
+      operationId: patchAdviserCompaniesAdviserByAdviserIdCompanyByCompanyId
+      x-operation-id-source: derived
 components:
   schemas:
     response_adviser_company:

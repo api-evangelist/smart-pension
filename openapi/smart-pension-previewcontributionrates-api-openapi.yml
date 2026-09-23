@@ -46,6 +46,8 @@ paths:
                 $ref: '#/components/schemas/response_preview_contribution_rates'
         '404':
           description: Not Found
+      operationId: getCompaniesByCompanyIdEmployeesByEmployeeIdPreviewContributionRates
+      x-operation-id-source: derived
 components:
   schemas:
     response_preview_contribution_rates:
