@@ -189,17 +189,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_charge_configuration:
-      type: object
-      properties:
-        id:
-          type: integer
-        charge_type:
-          type:
-          - string
-          - 'null'
-        display_name:
-          type: string
     response_company_fee:
       type: object
       properties:
@@ -261,6 +250,17 @@ components:
         title:
           type: string
         href:
+          type: string
+    response_charge_configuration:
+      type: object
+      properties:
+        id:
+          type: integer
+        charge_type:
+          type:
+          - string
+          - 'null'
+        display_name:
           type: string
   securitySchemes:
     oAuth2:

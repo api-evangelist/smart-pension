@@ -99,15 +99,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_cities:
-      type: object
-      properties:
-        cities:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_city'
     response_city:
       type: object
       properties:
@@ -123,6 +114,15 @@ components:
           type:
           - string
           - 'null'
+    response_cities:
+      type: object
+      properties:
+        cities:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_city'
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -331,6 +331,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_investment_account:
       type: object
       properties:
@@ -421,15 +430,16 @@ components:
           type:
           - string
           - 'null'
-    response_subaccount_default_fund_splits:
+    response_subaccount_default_fund_split:
       type: object
       properties:
-        fund_splits:
+        percentage:
           type:
-          - array
+          - number
           - 'null'
-          items:
-            $ref: '#/components/schemas/response_subaccount_default_fund_split'
+          format: float
+        fund:
+          $ref: '#/components/schemas/response_fund'
     response_target_date_fund_group:
       type: object
       properties:
@@ -445,25 +455,6 @@ components:
           type:
           - string
           - 'null'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_subaccount_default_fund_split:
-      type: object
-      properties:
-        percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-        fund:
-          $ref: '#/components/schemas/response_fund'
     response_fund:
       type: object
       properties:
@@ -485,6 +476,15 @@ components:
           - 'null'
         target_date_fund_group:
           $ref: '#/components/schemas/response_target_date_fund_group'
+    response_subaccount_default_fund_splits:
+      type: object
+      properties:
+        fund_splits:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_subaccount_default_fund_split'
   securitySchemes:
     oAuth2:
       type: oauth2

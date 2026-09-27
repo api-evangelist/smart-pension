@@ -274,6 +274,15 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_transfer_in_amount'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_transfer_in_amount:
       type: object
       properties:
@@ -291,15 +300,6 @@ components:
         pot:
           type: string
         state:
-          type: string
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
           type: string
   securitySchemes:
     oAuth2:

@@ -267,6 +267,47 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_band:
+      type: object
+      properties:
+        id:
+          type: integer
+        employee_minimum_percentage:
+          type: number
+          format: float
+        employee_maximum_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer_percentage:
+          type: number
+          format: float
+        starts_on:
+          type: string
+          format: date
+        ends_on:
+          type: string
+          format: date
+        range_min:
+          type:
+          - integer
+          - 'null'
+        range_max:
+          type:
+          - integer
+          - 'null'
+        default:
+          type: boolean
     response_benefit_group:
       type: object
       properties:
@@ -321,47 +362,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_band'
-    response_band:
-      type: object
-      properties:
-        id:
-          type: integer
-        employee_minimum_percentage:
-          type: number
-          format: float
-        employee_maximum_percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-        employer_percentage:
-          type: number
-          format: float
-        starts_on:
-          type: string
-          format: date
-        ends_on:
-          type: string
-          format: date
-        range_min:
-          type:
-          - integer
-          - 'null'
-        range_max:
-          type:
-          - integer
-          - 'null'
-        default:
-          type: boolean
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

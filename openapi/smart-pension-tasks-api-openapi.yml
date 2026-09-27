@@ -183,6 +183,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    response_tasks:
+      type: object
+      properties:
+        tasks:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_task'
     response_task:
       type: object
       properties:
@@ -226,15 +235,6 @@ components:
           type:
           - boolean
           - 'null'
-    response_tasks:
-      type: object
-      properties:
-        tasks:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_task'
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Keystone Total Funds AM Cs API
+  title: Keystone Total Funds AMCs API
   version: v12
   description: This is the endpoint description of Keystone API.
 servers:

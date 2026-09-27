@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Keystone URLS API
+  title: Keystone URLs API
   version: v12
   description: This is the endpoint description of Keystone API.
 servers:

@@ -290,6 +290,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_bank_account_detail:
       type: object
       properties:
@@ -325,54 +334,33 @@ components:
           - string
           - 'null'
           format: date
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_third_party_payment_provider_director:
+    response_third_party_payment_provider_document:
       type: object
       properties:
         id:
-          type: integer
-        city:
+          type:
+          - integer
+          - 'null'
+        topic:
           type:
           - string
           - 'null'
-        country:
+        url:
           type:
           - string
           - 'null'
-        date_of_birth:
+        file_file_name:
           type:
           - string
           - 'null'
-        forename:
-          type: string
-        surname:
-          type: string
-        nationality:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        line1:
-          type:
-          - string
-          - 'null'
-        line2:
+        file_content_type:
           type:
           - string
           - 'null'
         created_at:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
     response_third_party_payment_provider:
       type: object
@@ -482,33 +470,45 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_third_party_payment_provider_document'
-    response_third_party_payment_provider_document:
+    response_third_party_payment_provider_director:
       type: object
       properties:
         id:
-          type:
-          - integer
-          - 'null'
-        topic:
+          type: integer
+        city:
           type:
           - string
           - 'null'
-        url:
+        country:
           type:
           - string
           - 'null'
-        file_file_name:
+        date_of_birth:
           type:
           - string
           - 'null'
-        file_content_type:
+        forename:
+          type: string
+        surname:
+          type: string
+        nationality:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
           type:
           - string
           - 'null'
         created_at:
-          type:
-          - string
-          - 'null'
+          type: string
           format: date-time
   securitySchemes:
     oAuth2:

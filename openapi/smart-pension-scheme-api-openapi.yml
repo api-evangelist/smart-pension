@@ -93,40 +93,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_scheme_contribution_limit:
-      type: object
-      properties:
-        minimum_one_off_contribution_amount:
-          type: number
-          format: float
-        minimum_one_off_contribution_amount_currency:
-          type: string
-        maximum_one_off_contribution_amount:
-          type: number
-          format: float
-        maximum_one_off_contribution_amount_currency:
-          type: string
-        minimum_recurring_contribution_amount:
-          type: number
-          format: float
-        minimum_recurring_contribution_amount_currency:
-          type: string
-    response_scheme_tax_reliefs:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_scheme_tax_relief'
-    response_scheme_tax_relief:
-      type: object
-      properties:
-        id:
-          type: integer
-        basis_type:
-          type: string
     link:
       type: object
       properties:
@@ -136,45 +102,6 @@ components:
           type: string
         href:
           type: string
-    response_available_scheme:
-      type: object
-      properties:
-        id:
-          type: integer
-        uuid:
-          type: string
-        external_id:
-          type:
-          - string
-          - 'null'
-        default:
-          type:
-          - boolean
-          - 'null'
-        name:
-          type: string
-    response_scheme_bank_detail:
-      type: object
-      properties:
-        account_number:
-          type:
-          - string
-          - 'null'
-        bank_name:
-          type: string
-        swift_code:
-          type: string
-        in_favor_of:
-          type: string
-        currency:
-          type:
-          - string
-          - 'null'
-        exchange_rate:
-          type:
-          - number
-          - 'null'
-          format: float
     response_scheme:
       type: object
       properties:
@@ -206,6 +133,79 @@ components:
           $ref: '#/components/schemas/response_scheme_contribution_limit'
         scheme_tax_reliefs:
           $ref: '#/components/schemas/response_scheme_tax_reliefs'
+    response_scheme_tax_reliefs:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_scheme_tax_relief'
+    response_scheme_bank_detail:
+      type: object
+      properties:
+        account_number:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type: string
+        swift_code:
+          type: string
+        in_favor_of:
+          type: string
+        currency:
+          type:
+          - string
+          - 'null'
+        exchange_rate:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_scheme_contribution_limit:
+      type: object
+      properties:
+        minimum_one_off_contribution_amount:
+          type: number
+          format: float
+        minimum_one_off_contribution_amount_currency:
+          type: string
+        maximum_one_off_contribution_amount:
+          type: number
+          format: float
+        maximum_one_off_contribution_amount_currency:
+          type: string
+        minimum_recurring_contribution_amount:
+          type: number
+          format: float
+        minimum_recurring_contribution_amount_currency:
+          type: string
+    response_available_scheme:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        external_id:
+          type:
+          - string
+          - 'null'
+        default:
+          type:
+          - boolean
+          - 'null'
+        name:
+          type: string
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

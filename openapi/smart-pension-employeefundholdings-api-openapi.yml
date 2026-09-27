@@ -252,6 +252,44 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_valuation_per_fund'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_employee_fund_holding_with_value_data:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        fund_unit:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        price:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund:
+          $ref: '#/components/schemas/response_fund'
     response_valuation_per_fund:
       type: object
       properties:
@@ -334,44 +372,6 @@ components:
           type:
           - string
           - 'null'
-    response_employee_fund_holding_with_value_data:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        fund_unit:
-          type:
-          - number
-          - 'null'
-          format: float
-        calculated_on:
-          type:
-          - string
-          - 'null'
-          format: date
-        amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        price:
-          type:
-          - number
-          - 'null'
-          format: float
-        fund:
-          $ref: '#/components/schemas/response_fund'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_fund:
       type: object
       properties:

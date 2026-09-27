@@ -103,17 +103,70 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_glidepath_step_fund_split:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_glidepath:
       type: object
       properties:
         id:
           type: integer
-        percentage:
-          type: number
-        glidepath_step:
-          $ref: '#/components/schemas/response_glidepath_step'
-        fund:
-          $ref: '#/components/schemas/response_fund'
+        name:
+          type: string
+        sustainability:
+          type:
+          - string
+          - 'null'
+        goal:
+          type:
+          - string
+          - 'null'
+        glidepath_steps:
+          type: object
+          properties:
+            limit:
+              type:
+              - integer
+              - 'null'
+            offset:
+              type:
+              - integer
+              - 'null'
+            total:
+              type:
+              - integer
+              - 'null'
+            links:
+              type: array
+              items:
+                $ref: '#/components/schemas/link'
+            glidepath_steps:
+              type:
+              - array
+              - 'null'
+              items:
+                $ref: '#/components/schemas/response_glidepath_step'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
     response_glidepath_step:
       type: object
       properties:
@@ -166,70 +219,6 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_glidepath_step_fund_split'
-    response_target_date_fund_group:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        goal:
-          type:
-          - string
-          - 'null'
-        investment_strategy:
-          type:
-          - string
-          - 'null'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_glidepath:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        sustainability:
-          type:
-          - string
-          - 'null'
-        goal:
-          type:
-          - string
-          - 'null'
-        glidepath_steps:
-          type: object
-          properties:
-            limit:
-              type:
-              - integer
-              - 'null'
-            offset:
-              type:
-              - integer
-              - 'null'
-            total:
-              type:
-              - integer
-              - 'null'
-            links:
-              type: array
-              items:
-                $ref: '#/components/schemas/link'
-            glidepath_steps:
-              type:
-              - array
-              - 'null'
-              items:
-                $ref: '#/components/schemas/response_glidepath_step'
     response_fund:
       type: object
       properties:
@@ -251,6 +240,17 @@ components:
           - 'null'
         target_date_fund_group:
           $ref: '#/components/schemas/response_target_date_fund_group'
+    response_glidepath_step_fund_split:
+      type: object
+      properties:
+        id:
+          type: integer
+        percentage:
+          type: number
+        glidepath_step:
+          $ref: '#/components/schemas/response_glidepath_step'
+        fund:
+          $ref: '#/components/schemas/response_fund'
   securitySchemes:
     oAuth2:
       type: oauth2
