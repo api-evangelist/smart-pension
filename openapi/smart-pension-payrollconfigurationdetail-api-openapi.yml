@@ -890,46 +890,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_payroll_configuration_detail:
-      type: object
-      properties:
-        id:
-          type: integer
-        payroll_configuration_id:
-          type: integer
-        pay_period_starts_on:
-          type: string
-          format: date
-        cutoff_date:
-          type: string
-          format: date
-        payday:
-          type: string
-          format: date
-        pay_period_ends_on:
-          type: string
-          format: date
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        updatable:
-          type:
-          - boolean
-          - 'null'
-        payroll_configuration:
-          $ref: '#/components/schemas/response_payroll_configuration'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_payroll_configuration:
       type: object
       properties:
@@ -967,6 +927,46 @@ components:
           type:
           - boolean
           - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_payroll_configuration_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        payroll_configuration_id:
+          type: integer
+        pay_period_starts_on:
+          type: string
+          format: date
+        cutoff_date:
+          type: string
+          format: date
+        payday:
+          type: string
+          format: date
+        pay_period_ends_on:
+          type: string
+          format: date
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        updatable:
+          type:
+          - boolean
+          - 'null'
+        payroll_configuration:
+          $ref: '#/components/schemas/response_payroll_configuration'
   securitySchemes:
     oAuth2:
       type: oauth2

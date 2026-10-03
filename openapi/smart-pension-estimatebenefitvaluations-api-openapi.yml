@@ -68,18 +68,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_estimate_benefit_valuations_subaccount_amount_representer:
-      type: object
-      properties:
-        subaccount_uuid:
-          type:
-          - string
-          - 'null'
-        amount:
-          type:
-          - number
-          - 'null'
-          format: float
     response_estimate_benefit_valuations:
       type: object
       properties:
@@ -104,6 +92,18 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_estimate_benefit_valuations_subaccount_amount_representer'
+    response_estimate_benefit_valuations_subaccount_amount_representer:
+      type: object
+      properties:
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
   securitySchemes:
     oAuth2:
       type: oauth2

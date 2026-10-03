@@ -127,18 +127,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_transfer_money_review:
-      type: object
-      properties:
-        transfered_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        source_subaccount:
-          $ref: '#/components/schemas/response_subaccount_comparison'
-        target_subaccount:
-          $ref: '#/components/schemas/response_subaccount_comparison'
     response_subaccount_comparison:
       type: object
       properties:
@@ -174,6 +162,18 @@ components:
           type:
           - integer
           - 'null'
+    response_transfer_money_review:
+      type: object
+      properties:
+        transfered_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        source_subaccount:
+          $ref: '#/components/schemas/response_subaccount_comparison'
+        target_subaccount:
+          $ref: '#/components/schemas/response_subaccount_comparison'
   securitySchemes:
     oAuth2:
       type: oauth2

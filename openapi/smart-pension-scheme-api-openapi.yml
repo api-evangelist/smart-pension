@@ -102,37 +102,6 @@ components:
           type: string
         href:
           type: string
-    response_scheme:
-      type: object
-      properties:
-        id:
-          type: integer
-        uuid:
-          type: string
-        name:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-        currency:
-          type: string
-        federal:
-          type: boolean
-        category:
-          type:
-          - string
-          - 'null'
-        external_id:
-          type:
-          - string
-          - 'null'
-        bank_detail:
-          $ref: '#/components/schemas/response_scheme_bank_detail'
-        contribution_limit:
-          $ref: '#/components/schemas/response_scheme_contribution_limit'
-        scheme_tax_reliefs:
-          $ref: '#/components/schemas/response_scheme_tax_reliefs'
     response_scheme_tax_reliefs:
       type: object
       properties:
@@ -164,6 +133,37 @@ components:
           - number
           - 'null'
           format: float
+    response_scheme:
+      type: object
+      properties:
+        id:
+          type: integer
+        uuid:
+          type: string
+        name:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+        currency:
+          type: string
+        federal:
+          type: boolean
+        category:
+          type:
+          - string
+          - 'null'
+        external_id:
+          type:
+          - string
+          - 'null'
+        bank_detail:
+          $ref: '#/components/schemas/response_scheme_bank_detail'
+        contribution_limit:
+          $ref: '#/components/schemas/response_scheme_contribution_limit'
+        scheme_tax_reliefs:
+          $ref: '#/components/schemas/response_scheme_tax_reliefs'
     response_scheme_contribution_limit:
       type: object
       properties:
@@ -182,6 +182,13 @@ components:
           format: float
         minimum_recurring_contribution_amount_currency:
           type: string
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
+          type: string
     response_available_scheme:
       type: object
       properties:
@@ -198,13 +205,6 @@ components:
           - boolean
           - 'null'
         name:
-          type: string
-    response_scheme_tax_relief:
-      type: object
-      properties:
-        id:
-          type: integer
-        basis_type:
           type: string
   securitySchemes:
     oAuth2:

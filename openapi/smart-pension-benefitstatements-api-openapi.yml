@@ -219,15 +219,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_statement:
       type: object
       properties:
@@ -253,6 +244,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/link'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -143,6 +143,38 @@ components:
           type:
           - string
           - 'null'
+    response_glidepath_step_fund_split:
+      type: object
+      properties:
+        id:
+          type: integer
+        percentage:
+          type: number
+        glidepath_step:
+          $ref: '#/components/schemas/response_glidepath_step'
+        fund:
+          $ref: '#/components/schemas/response_fund'
+    response_fund:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        fact_sheet_url:
+          type:
+          - string
+          - 'null'
+        fund_provider:
+          type:
+          - string
+          - 'null'
+        target_date_fund_group:
+          $ref: '#/components/schemas/response_target_date_fund_group'
     response_glidepath_step:
       type: object
       properties:
@@ -195,38 +227,6 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_glidepath_step_fund_split'
-    response_fund:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        display_name:
-          type: string
-        description:
-          type: string
-        fact_sheet_url:
-          type:
-          - string
-          - 'null'
-        fund_provider:
-          type:
-          - string
-          - 'null'
-        target_date_fund_group:
-          $ref: '#/components/schemas/response_target_date_fund_group'
-    response_glidepath_step_fund_split:
-      type: object
-      properties:
-        id:
-          type: integer
-        percentage:
-          type: number
-        glidepath_step:
-          $ref: '#/components/schemas/response_glidepath_step'
-        fund:
-          $ref: '#/components/schemas/response_fund'
   securitySchemes:
     oAuth2:
       type: oauth2

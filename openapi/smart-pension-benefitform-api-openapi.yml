@@ -1006,17 +1006,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_benefit_question:
-      type: object
-      properties:
-        question_code:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
     link:
       type: object
       properties:
@@ -1026,19 +1015,6 @@ components:
           type: string
         href:
           type: string
-    response_benefit_question_response:
-      type: object
-      properties:
-        question_code:
-          type:
-          - string
-          - 'null'
-        response:
-          type: string
-        details:
-          type:
-          - object
-          - 'null'
     response_benefit_form:
       type: object
       properties:
@@ -1103,6 +1079,41 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_benefit_question_response'
+    response_benefit_question_response:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        response:
+          type: string
+        details:
+          type:
+          - object
+          - 'null'
+    response_benefit_question:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+    response_task_list:
+      type: object
+      properties:
+        task_type:
+          type:
+          - string
+          - 'null'
+        task_status:
+          type:
+          - string
+          - 'null'
     response_benefit_evidence_upload:
       type: object
       properties:
@@ -1137,17 +1148,6 @@ components:
           - array
           - 'null'
           items: {}
-    response_task_list:
-      type: object
-      properties:
-        task_type:
-          type:
-          - string
-          - 'null'
-        task_status:
-          type:
-          - string
-          - 'null'
   securitySchemes:
     oAuth2:
       type: oauth2

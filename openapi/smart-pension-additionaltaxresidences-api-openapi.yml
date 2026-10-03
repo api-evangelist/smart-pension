@@ -449,6 +449,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_additional_tax_residence:
       type: object
       properties:
@@ -461,15 +470,6 @@ components:
         tax_reference_number:
           type: string
         tax_reference_type:
-          type: string
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
           type: string
   securitySchemes:
     oAuth2:

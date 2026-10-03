@@ -299,6 +299,46 @@ components:
           type: string
         href:
           type: string
+    response_third_party_payment_provider_director:
+      type: object
+      properties:
+        id:
+          type: integer
+        city:
+          type:
+          - string
+          - 'null'
+        country:
+          type:
+          - string
+          - 'null'
+        date_of_birth:
+          type:
+          - string
+          - 'null'
+        forename:
+          type: string
+        surname:
+          type: string
+        nationality:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        line1:
+          type:
+          - string
+          - 'null'
+        line2:
+          type:
+          - string
+          - 'null'
+        created_at:
+          type: string
+          format: date-time
     response_bank_account_detail:
       type: object
       properties:
@@ -470,46 +510,6 @@ components:
               - 'null'
               items:
                 $ref: '#/components/schemas/response_third_party_payment_provider_document'
-    response_third_party_payment_provider_director:
-      type: object
-      properties:
-        id:
-          type: integer
-        city:
-          type:
-          - string
-          - 'null'
-        country:
-          type:
-          - string
-          - 'null'
-        date_of_birth:
-          type:
-          - string
-          - 'null'
-        forename:
-          type: string
-        surname:
-          type: string
-        nationality:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        line1:
-          type:
-          - string
-          - 'null'
-        line2:
-          type:
-          - string
-          - 'null'
-        created_at:
-          type: string
-          format: date-time
   securitySchemes:
     oAuth2:
       type: oauth2

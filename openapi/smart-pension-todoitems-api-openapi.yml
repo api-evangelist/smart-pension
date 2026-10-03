@@ -168,6 +168,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_todo_item:
       type: object
       properties:
@@ -178,15 +187,6 @@ components:
         owner_id:
           type: integer
         owner_type:
-          type: string
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
           type: string
   securitySchemes:
     oAuth2:

@@ -361,18 +361,6 @@ components:
           - number
           - 'null'
           format: float
-    response_default_subaccount_split:
-      type: object
-      properties:
-        subaccount_uuid:
-          type:
-          - string
-          - 'null'
-        percentage:
-          type:
-          - number
-          - 'null'
-          format: float
     response_investment_account:
       type: object
       properties:
@@ -463,6 +451,40 @@ components:
           type:
           - string
           - 'null'
+    response_benefit_evidence_upload:
+      type: object
+      properties:
+        id:
+          type: integer
+        state:
+          type: string
+        file_name:
+          type:
+          - string
+          - 'null'
+        file_url:
+          type:
+          - string
+          - 'null'
+        comment:
+          type:
+          - string
+          - 'null'
+        owner_id:
+          type:
+          - integer
+          - 'null'
+        owner_type:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_type_id:
+          type: integer
+        rejection_reasons:
+          type:
+          - array
+          - 'null'
+          items: {}
     response_benefit_category:
       type: object
       properties:
@@ -572,40 +594,6 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_benefit_charge'
-    response_benefit_evidence_upload:
-      type: object
-      properties:
-        id:
-          type: integer
-        state:
-          type: string
-        file_name:
-          type:
-          - string
-          - 'null'
-        file_url:
-          type:
-          - string
-          - 'null'
-        comment:
-          type:
-          - string
-          - 'null'
-        owner_id:
-          type:
-          - integer
-          - 'null'
-        owner_type:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_type_id:
-          type: integer
-        rejection_reasons:
-          type:
-          - array
-          - 'null'
-          items: {}
     response_benefit_evidence_type:
       type: object
       properties:
@@ -628,6 +616,18 @@ components:
           - 'null'
         benefit_evidence_upload:
           $ref: '#/components/schemas/response_benefit_evidence_upload'
+    response_default_subaccount_split:
+      type: object
+      properties:
+        subaccount_uuid:
+          type:
+          - string
+          - 'null'
+        percentage:
+          type:
+          - number
+          - 'null'
+          format: float
   securitySchemes:
     oAuth2:
       type: oauth2
