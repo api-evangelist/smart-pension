@@ -1,21 +1,19 @@
-# Kin Score artifact — smart-pension — 2026-08-30T220315
+# Kin Score artifact — smart-pension — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: smart-pension
-  schema_version: 0.17.2
-  scored_at: '2026-08-30'
-  run_ts: 2026-08-30T220315
-  composite: 52.7
-  band: developing
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 59.7
+  band: strong
   facets:
-    discoverability: 44.4
-    contract_quality: 51.5
-    governance: 18.2
+    discoverability: 60.7
+    contract_quality: 49.1
+    contract_governance: 18.2
     operational_transparency: 60.5
     developer_ergonomics: 66.1
-    commercial_clarity: 60.5
-    contract_governance: 18.2
     access_clarity: 60.5
   agent_readiness:
     score: 38.2
@@ -40,6 +38,12 @@ kin_score:
       protected_resource_metadata: false
       dynamic_client_registration: false
       agentic_commerce: false
+  regulatory:
+    applies: true
+    regime: Employment & Payroll
+    regime_id: employment_payroll
+    score: 45.1
+    matched_via: tags
   provenance:
     mcp: derived
     skills: derived
