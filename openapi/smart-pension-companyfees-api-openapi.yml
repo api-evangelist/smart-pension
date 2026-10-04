@@ -189,26 +189,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
-    response_company_fee_invoice_link:
-      type: object
-      properties:
-        invoice_url:
-          type:
-          - string
-          - 'null'
-        invoice_file_name:
-          type:
-          - string
-          - 'null'
     response_company_fee:
       type: object
       properties:
@@ -261,6 +241,26 @@ components:
           - string
           - 'null'
         display_name:
+          type: string
+    response_company_fee_invoice_link:
+      type: object
+      properties:
+        invoice_url:
+          type:
+          - string
+          - 'null'
+        invoice_file_name:
+          type:
+          - string
+          - 'null'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
           type: string
   securitySchemes:
     oAuth2:

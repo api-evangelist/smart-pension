@@ -140,15 +140,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    link:
+    response_benefit_evidence_type:
       type: object
       properties:
-        rel:
+        id:
+          type: integer
+        name:
           type: string
-        title:
-          type: string
-        href:
-          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_upload:
+          $ref: '#/components/schemas/response_benefit_evidence_upload'
     response_benefit_evidence_upload:
       type: object
       properties:
@@ -183,28 +196,15 @@ components:
           - array
           - 'null'
           items: {}
-    response_benefit_evidence_type:
+    link:
       type: object
       properties:
-        id:
-          type: integer
-        name:
+        rel:
           type: string
-        description:
-          type:
-          - string
-          - 'null'
-          format: text
-        frontend_tag:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_upload:
-          $ref: '#/components/schemas/response_benefit_evidence_upload'
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

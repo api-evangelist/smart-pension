@@ -194,24 +194,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
-      type: object
-      properties:
-        minimum:
-          type:
-          - number
-          - 'null'
-          format: float
-        moderate:
-          type:
-          - number
-          - 'null'
-          format: float
-        comfortable:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown:
       type: object
       properties:
@@ -231,6 +213,24 @@ components:
           - 'null'
           format: float
         one_off_payment:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
+      type: object
+      properties:
+        minimum:
+          type:
+          - number
+          - 'null'
+          format: float
+        moderate:
+          type:
+          - number
+          - 'null'
+          format: float
+        comfortable:
           type:
           - number
           - 'null'

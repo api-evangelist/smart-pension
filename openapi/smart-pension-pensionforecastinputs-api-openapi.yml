@@ -182,36 +182,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_pension_forecast_calculation_inputs_contribution_charges:
-      type: object
-      properties:
-        employee:
-          type:
-          - number
-          - 'null'
-          format: float
-        employer:
-          type:
-          - number
-          - 'null'
-          format: float
-        other_avc:
-          type:
-          - number
-          - 'null'
-          format: float
-    response_pension_forecast_calculation_inputs_increase_factor:
-      type: object
-      properties:
-        month:
-          type:
-          - integer
-          - 'null'
-        rate:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_calculation_inputs:
       type: object
       properties:
@@ -372,6 +342,21 @@ components:
                 format: float
         grades:
           $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_income_grades'
+    response_pension_forecast_calculation_inputs_increase_factors:
+      type: object
+      properties:
+        employee_contribution_salary:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employer_contribution_salary:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employee_contribution_salary_cap:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employer_contribution_salary_cap:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        employee_amount_contribution:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
+        fees:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
     response_pension_forecast_calculation_inputs_limit_structure:
       type: object
       properties:
@@ -381,6 +366,31 @@ components:
           - 'null'
           format: float
         max:
+          type:
+          - number
+          - 'null'
+          format: float
+    response_pension_forecast_calculation_inputs_thresholds_and_limits:
+      type: object
+      properties:
+        retirement_age:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
+        employee_contribution_percentage:
+          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
+    response_pension_forecast_calculation_inputs_contribution_charges:
+      type: object
+      properties:
+        employee:
+          type:
+          - number
+          - 'null'
+          format: float
+        employer:
+          type:
+          - number
+          - 'null'
+          format: float
+        other_avc:
           type:
           - number
           - 'null'
@@ -398,13 +408,6 @@ components:
           - number
           - 'null'
           format: float
-    response_pension_forecast_calculation_inputs_thresholds_and_limits:
-      type: object
-      properties:
-        retirement_age:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
-        employee_contribution_percentage:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_limit_structure'
     response_pension_forecast_calculation_inputs_income_grades:
       type: object
       properties:
@@ -423,21 +426,6 @@ components:
           - number
           - 'null'
           format: float
-    response_pension_forecast_calculation_inputs_increase_factors:
-      type: object
-      properties:
-        employee_contribution_salary:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-        employer_contribution_salary:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-        employee_contribution_salary_cap:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-        employer_contribution_salary_cap:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-        employee_amount_contribution:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
-        fees:
-          $ref: '#/components/schemas/response_pension_forecast_calculation_inputs_increase_factor'
     response_pension_forecast_calculation_inputs_investment_returns:
       type: object
       properties:
@@ -449,6 +437,18 @@ components:
           type:
           - object
           - 'null'
+    response_pension_forecast_calculation_inputs_increase_factor:
+      type: object
+      properties:
+        month:
+          type:
+          - integer
+          - 'null'
+        rate:
+          type:
+          - number
+          - 'null'
+          format: float
   securitySchemes:
     oAuth2:
       type: oauth2

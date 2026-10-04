@@ -1020,6 +1020,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    response_countries:
+      type: object
+      properties:
+        countries:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_country'
     response_country:
       type: object
       properties:
@@ -1031,15 +1040,6 @@ components:
           type:
           - string
           - 'null'
-    response_countries:
-      type: object
-      properties:
-        countries:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_country'
   securitySchemes:
     oAuth2:
       type: oauth2

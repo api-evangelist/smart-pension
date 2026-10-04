@@ -370,15 +370,44 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    link:
+    response_import_result:
       type: object
       properties:
-        rel:
+        id:
+          type: integer
+        import_id:
+          type: integer
+        cached_name:
+          type:
+          - string
+          - 'null'
+        cached_external_id:
+          type:
+          - string
+          - 'null'
+        operation:
           type: string
-        title:
+        operation_errors:
+          type:
+          - array
+          - 'null'
+          items: {}
+        resource_id:
+          type:
+          - integer
+          - 'null'
+        resource_type:
+          type:
+          - string
+          - 'null'
+        state:
           type: string
-        href:
+        created_at:
           type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     response_import:
       type: object
       properties:
@@ -425,44 +454,15 @@ components:
           type:
           - integer
           - 'null'
-    response_import_result:
+    link:
       type: object
       properties:
-        id:
-          type: integer
-        import_id:
-          type: integer
-        cached_name:
-          type:
-          - string
-          - 'null'
-        cached_external_id:
-          type:
-          - string
-          - 'null'
-        operation:
+        rel:
           type: string
-        operation_errors:
-          type:
-          - array
-          - 'null'
-          items: {}
-        resource_id:
-          type:
-          - integer
-          - 'null'
-        resource_type:
-          type:
-          - string
-          - 'null'
-        state:
+        title:
           type: string
-        created_at:
+        href:
           type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
   securitySchemes:
     oAuth2:
       type: oauth2

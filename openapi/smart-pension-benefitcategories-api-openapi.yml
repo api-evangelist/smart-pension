@@ -336,15 +336,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_charge:
       type: object
       properties:
@@ -361,6 +352,146 @@ components:
           - number
           - 'null'
           format: float
+    response_benefit_category:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        name:
+          type:
+          - string
+          - 'null'
+        description:
+          type:
+          - string
+          - 'null'
+        benefit_type:
+          type:
+          - string
+          - 'null'
+        minimum_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        member_input_less_than_option:
+          type:
+          - boolean
+          - 'null'
+        approximate_maximum_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        replaced_by:
+          type:
+          - integer
+          - 'null'
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        taxable_amount_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_free_cash_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        lifetime_benefit_count:
+          type:
+          - integer
+          - 'null'
+        calendar_year_benefit_count:
+          type:
+          - integer
+          - 'null'
+        scheme_year_benefit_count:
+          type:
+          - integer
+          - 'null'
+        tax_rate_percentage:
+          type:
+          - number
+          - 'null'
+          format: float
+        tax_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        netto_amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        benefit_checks:
+          type:
+          - array
+          - 'null'
+          items: {}
+        to_subaccount:
+          $ref: '#/components/schemas/response_investment_account'
+        default_subaccount_splits:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_default_subaccount_split'
+        from_subaccounts:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_investment_account'
+        benefit_evidence_types:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_evidence_type'
+        charges:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_benefit_charge'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_evidence_type:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+          format: text
+        frontend_tag:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        benefit_evidence_upload:
+          $ref: '#/components/schemas/response_benefit_evidence_upload'
     response_investment_account:
       type: object
       properties:
@@ -485,137 +616,6 @@ components:
           - array
           - 'null'
           items: {}
-    response_benefit_category:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        name:
-          type:
-          - string
-          - 'null'
-        description:
-          type:
-          - string
-          - 'null'
-        benefit_type:
-          type:
-          - string
-          - 'null'
-        minimum_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        member_input_less_than_option:
-          type:
-          - boolean
-          - 'null'
-        approximate_maximum_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        replaced_by:
-          type:
-          - integer
-          - 'null'
-        frontend_tag:
-          type:
-          - string
-          - 'null'
-        taxable_amount_percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-        tax_free_cash_percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-        lifetime_benefit_count:
-          type:
-          - integer
-          - 'null'
-        calendar_year_benefit_count:
-          type:
-          - integer
-          - 'null'
-        scheme_year_benefit_count:
-          type:
-          - integer
-          - 'null'
-        tax_rate_percentage:
-          type:
-          - number
-          - 'null'
-          format: float
-        tax_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        netto_amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        benefit_checks:
-          type:
-          - array
-          - 'null'
-          items: {}
-        to_subaccount:
-          $ref: '#/components/schemas/response_investment_account'
-        default_subaccount_splits:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_default_subaccount_split'
-        from_subaccounts:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_investment_account'
-        benefit_evidence_types:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_benefit_evidence_type'
-        charges:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_benefit_charge'
-    response_benefit_evidence_type:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-          format: text
-        frontend_tag:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-        benefit_evidence_upload:
-          $ref: '#/components/schemas/response_benefit_evidence_upload'
     response_default_subaccount_split:
       type: object
       properties:

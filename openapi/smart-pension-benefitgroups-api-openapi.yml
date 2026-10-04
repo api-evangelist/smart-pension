@@ -299,15 +299,6 @@ components:
           - 'null'
         default:
           type: boolean
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_group:
       type: object
       properties:
@@ -362,6 +353,15 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_band'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
   securitySchemes:
     oAuth2:
       type: oauth2

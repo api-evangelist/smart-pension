@@ -87,15 +87,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_employment_category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
     link:
       type: object
       properties:
@@ -104,6 +95,15 @@ components:
         title:
           type: string
         href:
+          type: string
+    response_employment_category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
           type: string
   securitySchemes:
     oAuth2:

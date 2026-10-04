@@ -235,6 +235,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    response_employee_verification_checks_url:
+      type: object
+      properties:
+        verification_url:
+          type:
+          - string
+          - 'null'
     response_rejection_reason:
       type: object
       properties:
@@ -243,13 +250,6 @@ components:
         errors:
           type: array
           items: {}
-    response_employee_verification_checks_url:
-      type: object
-      properties:
-        verification_url:
-          type:
-          - string
-          - 'null'
     response_employee_verification_checks_state:
       type: object
       properties:
