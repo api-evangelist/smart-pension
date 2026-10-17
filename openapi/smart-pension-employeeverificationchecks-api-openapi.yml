@@ -235,13 +235,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_employee_verification_checks_url:
-      type: object
-      properties:
-        verification_url:
-          type:
-          - string
-          - 'null'
     response_rejection_reason:
       type: object
       properties:
@@ -259,6 +252,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/response_rejection_reason'
+    response_employee_verification_checks_url:
+      type: object
+      properties:
+        verification_url:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     oAuth2:
       type: oauth2

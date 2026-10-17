@@ -290,6 +290,50 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    response_bank_account_detail:
+      type: object
+      properties:
+        id:
+          type: integer
+        account_name:
+          type:
+          - string
+          - 'null'
+        bank_name:
+          type:
+          - string
+          - 'null'
+        country_code:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        account_number_format:
+          type:
+          - string
+          - 'null'
+        cancelled_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        expires_on:
+          type:
+          - string
+          - 'null'
+          format: date
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_third_party_payment_provider:
       type: object
       properties:
@@ -438,50 +482,6 @@ components:
         created_at:
           type: string
           format: date-time
-    response_bank_account_detail:
-      type: object
-      properties:
-        id:
-          type: integer
-        account_name:
-          type:
-          - string
-          - 'null'
-        bank_name:
-          type:
-          - string
-          - 'null'
-        country_code:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-        account_number_format:
-          type:
-          - string
-          - 'null'
-        cancelled_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        expires_on:
-          type:
-          - string
-          - 'null'
-          format: date
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_third_party_payment_provider_document:
       type: object
       properties:

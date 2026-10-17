@@ -111,13 +111,6 @@ components:
           format: float
         minimum_recurring_contribution_amount_currency:
           type: string
-    response_scheme_tax_relief:
-      type: object
-      properties:
-        id:
-          type: integer
-        basis_type:
-          type: string
     response_scheme:
       type: object
       properties:
@@ -149,15 +142,6 @@ components:
           $ref: '#/components/schemas/response_scheme_contribution_limit'
         scheme_tax_reliefs:
           $ref: '#/components/schemas/response_scheme_tax_reliefs'
-    response_scheme_tax_reliefs:
-      type: object
-      properties:
-        data:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_scheme_tax_relief'
     link:
       type: object
       properties:
@@ -166,6 +150,13 @@ components:
         title:
           type: string
         href:
+          type: string
+    response_scheme_tax_relief:
+      type: object
+      properties:
+        id:
+          type: integer
+        basis_type:
           type: string
     response_scheme_bank_detail:
       type: object
@@ -189,6 +180,15 @@ components:
           - number
           - 'null'
           format: float
+    response_scheme_tax_reliefs:
+      type: object
+      properties:
+        data:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_scheme_tax_relief'
     response_available_scheme:
       type: object
       properties:

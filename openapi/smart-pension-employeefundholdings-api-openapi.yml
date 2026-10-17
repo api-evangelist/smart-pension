@@ -239,6 +239,72 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    response_employee_fund_holding_with_value_data:
+      type: object
+      properties:
+        id:
+          type:
+          - integer
+          - 'null'
+        fund_unit:
+          type:
+          - number
+          - 'null'
+          format: float
+        calculated_on:
+          type:
+          - string
+          - 'null'
+          format: date
+        amount:
+          type:
+          - number
+          - 'null'
+          format: float
+        price:
+          type:
+          - number
+          - 'null'
+          format: float
+        fund:
+          $ref: '#/components/schemas/response_fund'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_valuations_per_funds:
+      type: object
+      properties:
+        pending_switch:
+          type:
+          - boolean
+          - 'null'
+        valuations_per_funds:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/response_valuation_per_fund'
+    response_target_date_fund_group:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        goal:
+          type:
+          - string
+          - 'null'
+        investment_strategy:
+          type:
+          - string
+          - 'null'
     response_valuation_per_fund:
       type: object
       properties:
@@ -306,30 +372,6 @@ components:
           - number
           - 'null'
           format: float
-    response_target_date_fund_group:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        goal:
-          type:
-          - string
-          - 'null'
-        investment_strategy:
-          type:
-          - string
-          - 'null'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_fund:
       type: object
       properties:
@@ -351,48 +393,6 @@ components:
           - 'null'
         target_date_fund_group:
           $ref: '#/components/schemas/response_target_date_fund_group'
-    response_employee_fund_holding_with_value_data:
-      type: object
-      properties:
-        id:
-          type:
-          - integer
-          - 'null'
-        fund_unit:
-          type:
-          - number
-          - 'null'
-          format: float
-        calculated_on:
-          type:
-          - string
-          - 'null'
-          format: date
-        amount:
-          type:
-          - number
-          - 'null'
-          format: float
-        price:
-          type:
-          - number
-          - 'null'
-          format: float
-        fund:
-          $ref: '#/components/schemas/response_fund'
-    response_valuations_per_funds:
-      type: object
-      properties:
-        pending_switch:
-          type:
-          - boolean
-          - 'null'
-        valuations_per_funds:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/response_valuation_per_fund'
   securitySchemes:
     oAuth2:
       type: oauth2

@@ -1006,26 +1006,17 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_benefit_question:
+    response_task_list:
       type: object
       properties:
-        question_code:
+        task_type:
           type:
           - string
           - 'null'
-        category:
+        task_status:
           type:
           - string
           - 'null'
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
     response_benefit_form:
       type: object
       properties:
@@ -1090,6 +1081,26 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/response_benefit_question_response'
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
+    response_benefit_question:
+      type: object
+      properties:
+        question_code:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
     response_benefit_evidence_upload:
       type: object
       properties:
@@ -1136,17 +1147,6 @@ components:
         details:
           type:
           - object
-          - 'null'
-    response_task_list:
-      type: object
-      properties:
-        task_type:
-          type:
-          - string
-          - 'null'
-        task_status:
-          type:
-          - string
           - 'null'
   securitySchemes:
     oAuth2:

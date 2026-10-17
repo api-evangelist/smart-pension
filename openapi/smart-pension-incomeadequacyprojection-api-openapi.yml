@@ -194,29 +194,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown:
-      type: object
-      properties:
-        workplace_pension:
-          type:
-          - number
-          - 'null'
-          format: float
-        state_pension:
-          type:
-          - number
-          - 'null'
-          format: float
-        other_pensions:
-          type:
-          - number
-          - 'null'
-          format: float
-        one_off_payment:
-          type:
-          - number
-          - 'null'
-          format: float
     response_pension_forecast_generate_income_adequacy_projection_s_income_grades:
       type: object
       properties:
@@ -287,6 +264,29 @@ components:
           $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
         breakdown_at_state_pension_age:
           $ref: '#/components/schemas/response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown'
+    response_pension_forecast_generate_income_adequacy_projection_s_pension_breakdown:
+      type: object
+      properties:
+        workplace_pension:
+          type:
+          - number
+          - 'null'
+          format: float
+        state_pension:
+          type:
+          - number
+          - 'null'
+          format: float
+        other_pensions:
+          type:
+          - number
+          - 'null'
+          format: float
+        one_off_payment:
+          type:
+          - number
+          - 'null'
+          format: float
   securitySchemes:
     oAuth2:
       type: oauth2

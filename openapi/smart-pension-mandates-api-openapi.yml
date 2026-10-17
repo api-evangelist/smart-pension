@@ -321,6 +321,15 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    link:
+      type: object
+      properties:
+        rel:
+          type: string
+        title:
+          type: string
+        href:
+          type: string
     response_payments_service_mandate:
       type: object
       properties:
@@ -366,15 +375,6 @@ components:
           - string
           - 'null'
           format: date
-    link:
-      type: object
-      properties:
-        rel:
-          type: string
-        title:
-          type: string
-        href:
-          type: string
   securitySchemes:
     oAuth2:
       type: oauth2
